@@ -1,6 +1,5 @@
 ---
 layout: page
-# title: OverdispersionModelsInR
 permalink: /software/OverdispersionModelsInR/
 ---
 
