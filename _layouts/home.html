@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">News</h1>
+  
+  {{ content }}
+
+  <div style="float: right; padding: 20px;">
+  <img src="{{ site.url }}/images/araim-psday2010.jpg"/>
+  </div>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+		<a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <!--<a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>-->
+        <p>{{ post.excerpt }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+
+</div>
