@@ -7,7 +7,7 @@ permalink: /software/OverdispersionModelsInR/
 # Overview
 The OverdispersionModelsInR package was developed for demonstration purposes, to
 accompany the technical report
-[Modeling Overdispersion in R](/bib/#OverdispersionModelsInR2015).
+[Modeling Overdispersion in R](/publications/#OverdispersionModelsInR2015).
 The objective is to develop the capability in R to reproduce analyses from the
 book
 [Overdispersion Models in SAS](http://www.sas.com/store/prodBK_62693_en.html)
@@ -16,8 +16,8 @@ especially those analyses requiring likelihoods
 for binomial data with extra variation. For more information, see the technical
 report or the ProbStatDay 2014 workshop presentation
 <em>R Supplement to "Analysis of Overdispersed Data using SAS"</em>
-[[slides](../pub/psday2014-workshop/slides.pdf) |
-[handout](../pub/psday2014-workshop/handout.pdf)].
+[[slides](http://www.umbc.edu/~araim1/pub/psday2014-workshop/slides.pdf) |
+[handout](http://www.umbc.edu/~araim1/pub/psday2014-workshop/handout.pdf)].
 
 <p/>Note that the code is currently not documented. This means, for example,
 that
@@ -31,9 +31,9 @@ contribute.
 # Download
 Latest version of the package.
 * Source:
-[OverdispersionModelsInR_0.1.tar.gz](../pub/OverdispersionModelsInR_0.1.tar.gz)
+[OverdispersionModelsInR_0.1.tar.gz](http://www.umbc.edu/~araim1/pub/OverdispersionModelsInR_0.1.tar.gz)
 * Linux x86_64 binary:
-[OverdispersionModelsInR_0.1_R_x86_64-pc-linux-gnu.tar.gz](../pub/OverdispersionModelsInR_0.1_R_x86_64-pc-linux-gnu.tar.gz)
+[OverdispersionModelsInR_0.1_R_x86_64-pc-linux-gnu.tar.gz](http://www.umbc.edu/~araim1/pub/OverdispersionModelsInR_0.1_R_x86_64-pc-linux-gnu.tar.gz)
 * Windows binary: (TBD)
 <!--
 <a href="../pub/OverdispersionModelsInR_0.1.zip">
