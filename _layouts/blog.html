@@ -2,24 +2,24 @@
 layout: default
 ---
 
-<div class="home">
+<div class="blog">
 
-  <h1 class="page-heading">News</h1>
-  
   {{ content }}
 
-  <div style="float: right; padding: 20px;">
-  <img src="{{ site.url }}/images/araim-psday2010.jpg"/>
-  </div>
+  <p class="rss-subscribe"><a href="{{ "/feed.xml" | relative_url }}">Subscribe</a> to this blog via RSS</p>
 
   <ul class="post-list">
     {% for post in site.posts %}
+      <hr/>
       <li>
 		<a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <div style="font-size:80%">{{ post.excerpt }}</div>
+        <p/>
+        <div>{{ post.content }}</div>
       </li>
     {% endfor %}
+    <hr/>
   </ul>
+
 
 </div>

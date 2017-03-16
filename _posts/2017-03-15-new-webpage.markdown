@@ -5,8 +5,8 @@ date:   2017-03-15 23:00:39 -0400
 categories: programming
 excerpt_separator: <!--more-->
 ---
-I am trying out [GitHub Pages](https://pages.github.com) to host my web page, along with the static site generator [Jekyll](https://jekyllrb.com).
 <!--more-->
+I am trying out [GitHub Pages](https://pages.github.com) to host my web page, along with the static site generator [Jekyll](https://jekyllrb.com).
 It wasn't too difficult to migrate my basic HTML+PHP website. The migration
 is not completely finished at this time though, so please refer to my
 [UMBC webpage](http://www.umbc.edu/~araim1) if you need any materials I had
