@@ -4,15 +4,8 @@ title: About
 permalink: /about/
 ---
 
-# Education
-* Ph.D. Statistics, UMBC, May 2014
-* M.S., Statistics, UMBC, Fall 2011
-* M.S., Computer Science, UMBC, Fall 2007
-* B.S., Computer Science, UMBC, Spring 2002
-
 I work at the
-[Center for Statistical Research and Methodology](https://www.census.gov/srd/csrm) in the
-[U.S. Census Bureau](http://www.census.gov). Here is my
+[Center for Statistical Research and Methodology](https://www.census.gov/srd/csrm) in the [U.S. Census Bureau](http://www.census.gov). Here is my
 [Google Scholar](https://scholar.google.com/citations?user=3Ai29GIAAAAJ&hl=en) profile.
 
 Previously, I was a graduate student in Statistics at UMBC. I worked
