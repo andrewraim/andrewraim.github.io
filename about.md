@@ -25,7 +25,7 @@ I also worked with
 as a research assistant for the
 [High Performance Computing Facility (HPCF)](http://www.umbc.edu/hpcf).
 
-Before that, I was a computer science student at [UMBC CSEE department](http://www.csee.umbc.edu) and a software engineer at [Advertising.com / AOL](http://advertising.com).
+Before that, I was a computer science student at [UMBC](http://www.csee.umbc.edu) and a software engineer at [Advertising.com / AOL](http://advertising.com).
 
 # Useful Links
 {% comment %} UMBC {% endcomment %}

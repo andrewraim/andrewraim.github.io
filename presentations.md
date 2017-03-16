@@ -4,7 +4,7 @@ title: Presentations
 permalink: /presentations/
 ---
 
-Slides can be made available upon request.
+Slides for talks can be made available upon request.
 
 # Talks
 {% include bib/presentations.html %}
