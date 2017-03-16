@@ -1,13 +1,13 @@
 ---
 layout: page
-title: Downloads
-permalink: /downloads/
+title: Software
+permalink: /software/
 ---
 
 # R packages
 * <a href="http://cran.r-project.org/web/packages/ldr">ldr</a> An R
 package for likelihood-based dimension reduction.
-* <a href="../OverdispersionModelsInR">OverdispersionModelsInR</a> A
+* <a href="OverdispersionModelsInR">OverdispersionModelsInR</a> A
 package and report on fitting overdispersion models in R.
 * <a href="http://cran.r-project.org/web/packages/ManifoldOptim">ManifoldOptim</a> 
 An R package for optimization on Riemannian manifolds.
