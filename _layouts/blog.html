@@ -6,7 +6,12 @@ layout: default
 
   {{ content }}
 
-  <p class="rss-subscribe"><a href="{{ "/feed.xml" | relative_url }}">Subscribe</a> to this blog via RSS</p>
+  <p class="rss-subscribe">
+    <a href="{{ "/feed.xml" | relative_url }}">
+      <span class="fa fa-rss-square"></span>
+      RSS feed
+    </a>
+  </p>
 
   <ul class="post-list">
     {% for post in site.posts %}
