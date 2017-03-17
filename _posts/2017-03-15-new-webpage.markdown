@@ -15,7 +15,7 @@ posted.
 By enabling [MathJax](http://gastonsanchez.com/visually-enforced/opinion/2014/02/16/Mathjax-with-jekyll), you can add display equations such as \\( f(x) = x^2 e^{-x} \\) inline, or
 \\[
 \Phi(x) =
-\int_{-\infty}^{x} \frac{1}{\sqrt{2\pi}}
+\int_{-\infty}^{x} \frac{1}{\sigma \sqrt{2\pi}}
 \exp \left( -\frac{1}{2\sigma^2} (t - \mu)^2 \right) dt.
 \\]
 
