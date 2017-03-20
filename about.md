@@ -14,7 +14,7 @@ on problems in finite mixture models with
 My dissertation was [Computational Methods for Finite Mixtures using Approximate Information and
 Regression Linked to the Mixture Mean](http://search.proquest.com/docview/1552496226).
 I also worked with
-[Matthias Gobbert](http://www.math.umbc.edu/~gobbert)
+[Professor Matthias Gobbert](http://www.math.umbc.edu/~gobbert)
 as a research assistant for the
 [High Performance Computing Facility (HPCF)](http://www.umbc.edu/hpcf).
 
@@ -43,7 +43,7 @@ performance.
 A high-level, high-performance language for technical computing
 {% comment %} Societies {% endcomment %}
 * [American Statistical Association](http://www.amstat.org) (ASA)
-* [Institute of Mathematical Statistics][http://imstat.org) (IMS)
+* [Institute of Mathematical Statistics](http://imstat.org) (IMS)
 * [Statistical Society of Canada](http://www.ssc.ca) (SSC)
 * [American Mathematical Society](http://www.ams.org) (AMS)
 * [Society for Industrial and Applied Mathematics](http://www.siam.org) (SIAM)
