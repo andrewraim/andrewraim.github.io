@@ -13,7 +13,7 @@
             {% endif %}
             </li>
             {% if site.email %}
-            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+            {% include icon-email.html username=site.email %}
             {% endif %}
         </ul>
       </div>
