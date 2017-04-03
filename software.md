@@ -7,8 +7,8 @@ permalink: /software/
 # R packages
 * [ldr](http://cran.r-project.org/web/packages/ldr) An R
 package for likelihood-based dimension reduction.
-* [OverdispersionModelsInR](OverdispersionModelsInR) A
-package and report on fitting overdispersion models in R.
+* [OverdispersionModelsInR](http://github.com/andrewraim/OverdispersionModelsInR)
+A package and report on fitting overdispersion models in R.
 * [ManifoldOptim](http://cran.r-project.org/web/packages/ManifoldOptim)
 An R package for optimization on Riemannian manifolds.
 *  [mixlink](http://cran.r-project.org/web/packages/mixlink)
@@ -22,3 +22,4 @@ UMBC-themed business cards in LaTeX.
 plain Beamer theme.
 * [formula-sheet](formula-sheet): a template for making a nice formula sheet
 in LaTeX.
+
