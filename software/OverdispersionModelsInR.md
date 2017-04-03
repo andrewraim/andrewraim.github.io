@@ -20,7 +20,7 @@ report or the ProbStatDay 2014 workshop presentation
 
 <p/>Note that the code is currently not documented. This means, for example,
 that
-the R command "?d.rcb" asking for help on the r.rcb function currently returns
+the R command "?d.rcb" asking for help on the d.rcb function currently returns
 nothing. I hope to add this documentation in the future,
 and continue to make improvements to the package. If you find the package to be helpful,
 or have suggestions, please send me an email and let me know. If there is interest,
@@ -30,9 +30,8 @@ contribute.
 # Download
 Latest version of the package.
 * Source:
-[OverdispersionModelsInR_0.1.tar.gz](http://www.umbc.edu/~araim1/pub/OverdispersionModelsInR_0.1.tar.gz)
-* Linux x86_64 binary:
-[OverdispersionModelsInR_0.1_R_x86_64-pc-linux-gnu.tar.gz](http://www.umbc.edu/~araim1/pub/OverdispersionModelsInR_0.1_R_x86_64-pc-linux-gnu.tar.gz)
+[OverdispersionModelsInR_0.1.tar.gz](http://www.umbc.edu/~araim1/pub/OverdispersionModelsInR/OverdispersionModelsInR_0.1.tar.gz)
+* Linux x86_64 binary: (TBD)
 * Windows binary: (TBD)
 <!--
 <a href="../pub/OverdispersionModelsInR_0.1.zip">
@@ -61,14 +60,12 @@ command in R.
 It may be necessary to install the source package if the prepared binary versions
 don't work on your computer, or if you make modifications to the one I have
 provided.
-{
-1. Install <a href="http://www.r-project.org">R</a> if you haven't already
 
-2. Windows users should install
-<a href="http://www.r-project.org">Rtools</a>, which includes a compiler and
-Make utility. The link  to download Rtools can be found through "download R",
-then selecting a mirror,then "Download R for Windows". To build packages,
-you can select "Package authoring installation" to avoid a large installation.
+1. Install [R](http://www.r-project.org) if you haven't already.
+
+2. Install the development tools needed to build R packages. This includes C/C++
+compilers and LaTeX. See this [link](https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites)
+for instructions specific to Windows, Mac, and Linux users.
 
 3. In R, install the devtools package, if not already installed.
 {% highlight R %}
@@ -85,7 +82,7 @@ you can select "Package authoring installation" to avoid a large installation.
 {:start="5"}
 5. Finally, in R, install the OverdispersionModelsInR package using devtools
 {% highlight R %}
-> devtools::install_url("http://www.umbc.edu/~araim1/pub/OverdispersionModelsInR_0.1.tar.gz")
+> devtools::install_url("http://www.umbc.edu/~araim1/pub/OverdispersionModelsInR/OverdispersionModelsInR_0.1.tar.gz")
 {% endhighlight %}
 }
 
