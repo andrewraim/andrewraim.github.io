@@ -12,11 +12,10 @@ Iris Gauran and I are planning to give a half-day workshop on Rcpp at UMBC.
 Tentative
 details are given below. Part of the workshop will be a "quick start", where we
 will demonstrate accessing C++ code from R via toy examples. Attendees are
-encouraged to prepare their laptops with Rcpp, and bring them to the workshop
-to follow along with this portion. Note that PCs will be available in the
-room but access will likely be too restrictive to use Rcpp.
+encouraged to prepare their laptops for Rcpp programming, and bring them to
+the workshop to follow along with this portion.
 
-We will focus on Rcpp programming through RStudio. RStudio provides a common
+We will focus on Rcpp programming in RStudio, which provides a common
 interface across all major platforms (Windows, Mac, and Linux), and helps to
 automate some procedural tasks.
 
@@ -25,13 +24,14 @@ writing is 3.4.1 "Single Candle".
 2. Install RStudio Desktop (<http://www.rstudio.com>). The current version is
 1.0.153.
 3. Install the `Rcpp`, `RcppArmadillo`, and `RcppGSL` packages.
-4. Some additional libraries may be needed to compile C++ on your computer.
-These differ depending on your operating system. See
+4. Some additional libraries may be needed to compile C++ programs on your
+computer. These differ depending on your operating system. See
 <http://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites>.
 
 This may be a good time to upgrade if you have older versions of R, RStudio, or
-any of the listed packages. To test your Rcpp environment, try the following in
-RStudio.
+any of the listed packages.
+
+To test your Rcpp environment, try the following in RStudio.
 
 1. Select `File => New File => C++ File` from the main menu. This will create
 a simple Rcpp program.
