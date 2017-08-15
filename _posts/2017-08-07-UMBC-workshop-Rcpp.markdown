@@ -70,3 +70,7 @@ several larger-scale statistical applications. C++ programming is usually
 more burdensome than R programming, so we will discuss tradeoffs between
 optimizing R code and migrating to C++, and ways to minimize suffering
 while making the transition.
+
+**References**  
+* Dirk Eddelbuettel. Seamless R and C++ Integration with Rcpp. Springer, 2013.
+* Also see <http://www.rcpp.org>.
