@@ -46,7 +46,7 @@ the panel with the `example.cpp` source code. This should produce the output
 
 **Location:** University of Maryland, Baltimore County.  
 **Room:** MP 401 (Math/Stat Seminar Room).  
-**Time:** Friday Sept 28, 1 - 4:30pm.  
+**Time:** Friday Sept 8, 1 - 4:30pm.  
 **Cost:** This workshop is free for the UMBC community.  
 **Prerequisites:** intermediate knowledge in a high level language like R,
 Python, or Matlab. Familiarity with R and RStudio is highly recommended.  
