@@ -8,6 +8,11 @@ permalink: /workshops/AdvStatProg2017/
 ---
 <!--more-->
 
+```
+Please note that the workshop date has been moved from Friday Sept 8, 2017 to
+Friday Sept 22, 2017. See below for details.
+```
+
 Iris Gauran and I are planning to give a half-day workshop on Rcpp at UMBC.
 Tentative
 details are given below. Part of the workshop will be a "quick start", where we
@@ -46,7 +51,7 @@ the panel with the `example.cpp` source code. This should produce the output
 
 **Location:** University of Maryland, Baltimore County.  
 **Room:** MP 401 (Math/Stat Seminar Room).  
-**Time:** Friday Sept 8, 1 - 4:30pm.  
+**Time:** Friday Sept 22, 1 - 4:30pm.  
 **Cost:** This workshop is free for the UMBC community.  
 **Prerequisites:** intermediate knowledge in a high level language like R,
 Python, or Matlab. Familiarity with R and RStudio is highly recommended.  
