@@ -4,19 +4,19 @@ permalink: /software/formula-sheet
 ---
 
 This is a template for a formula sheet in LaTeX.
-Here is a [sample formula sheet](http://www.umbc.edu/~araim1/pub/formula-sheet/example.pdf) that uses
+Here is a [sample formula sheet](https://drive.google.com/uc?export=view&id=0B-2GT91ukpxVWlNhamJ1eHBTaUU) that uses
 the template.
 
 <center>
-<p/><a href="http://www.umbc.edu/~araim1/pub/formula-sheet/example.pdf">
-<img src="http://www.umbc.edu/~araim1/pub/formula-sheet/example.png" style="border: 1px solid black; float: none"/>
+<p/><a href="https://drive.google.com/uc?export=view&id=0B-2GT91ukpxVWlNhamJ1eHBTaUU">
+<img src="https://drive.google.com/uc?export=view&id=0B-2GT91ukpxVcms5blN2Um5sMGs" style="border: 1px solid black; float: none"/>
 </a>
 </center>
 
 To generate it, download the following files and place them together in
 the same directory.
-* [formula-sheet.cls](http://www.umbc.edu/~araim1/pub/formula-sheet/formula-sheet.cls) the class
-* [example.tex](http://userpages.umbc.edu/~araim1/pub/formula-sheet/example.tex) the example
+* [formula-sheet.cls](https://drive.google.com/uc?export=view&id=0B-2GT91ukpxVc2Z3aU9pTGtvNm8) the class
+* [example.tex](https://drive.google.com/uc?export=view&id=0B-2GT91ukpxVZ2ZhT1ZoTlNNeDQ) the example
 
 
 To generate the PDF on a standard Linux setup
