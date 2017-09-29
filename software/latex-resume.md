@@ -21,21 +21,21 @@ one-page resume of bullet points.
 2. The style definitions are separated from the main tex file (which contains
 the content of the resume/cv only).
 
-Here is a [sample PDF resume](http://www.umbc.edu/~araim1/pub/latex-resume/example.pdf) that uses the template.
+Here is a [sample PDF resume](https://drive.google.com/uc?export=view&id=0B-2GT91ukpxVUkhXZTFoRzhsV1E) that uses the template.
 
 <center>
-<p/><a href="http://www.umbc.edu/~araim1/latex-resume/example.pdf">
-<img src="http://www.umbc.edu/~araim1/latex-resume/example.png" style="border: 1px solid black; float: none"/>
+<p/><a href="https://drive.google.com/uc?export=view&id=0B-2GT91ukpxVUkhXZTFoRzhsV1E">
+<img src="https://drive.google.com/uc?export=view&id=0B-2GT91ukpxVcWlDMGFfZUo5bEU" style="border: 1px solid black; float: none"/>
 </a>
 </center>
 
 To generate it, download the following files and place them together in the same
 directory.
 
-* <a href="http://www.umbc.edu/~araim1/pub/latex-resume/latex/resume.sty">resume.sty</a> the resume style file
-* <a href="http://www.umbc.edu/~araim1/pub/latex-resume/latex/example.tex">example.tex</a> an example resume
-* <a href="http://www.umbc.edu/~araim1/pub/latex-resume/bib/papers.bib">papers.bib</a> example bibtex file containing some papers
-* <a href="http://www.umbc.edu/~araim1/pub/latex-resume/bib/presentations.bib">presentations.bib</a> example bibtex file containing some presentations
+* <a href="https://drive.google.com/uc?export=view&id=0B-2GT91ukpxVNk96Z29tMGhRR00">resume.sty</a> the resume style file
+* <a href="https://drive.google.com/uc?export=view&id=0B-2GT91ukpxVeU0wZGg0QzktUVk">example.tex</a> an example resume
+* <a href="https://drive.google.com/uc?export=view&id=0B-2GT91ukpxVSG9PZ2hmNk00aDQ">papers.bib</a> example bibtex file containing some papers
+* <a href="https://drive.google.com/uc?export=view&id=0B-2GT91ukpxVWFVLZEVpTEx4MVU">presentations.bib</a> example bibtex file containing some presentations
 
 To generate the PDF on a standard Linux setup
 {% highlight bash %}
