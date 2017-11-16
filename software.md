@@ -12,7 +12,7 @@ Fit overdispersion models in R. Also see the [tech report](https://andrewraim.gi
 * [ManifoldOptim](https://cran.r-project.org/package=ManifoldOptim)
 Optimization on Riemannian manifolds.
 * [mixlink](https://cran.r-project.org/package=mixlink)
-<a href="https://arxiv.org/abs/1612.03302">Mixture Link</a> regression.
+[Mixture Link](https://arxiv.org/abs/1612.03302) regression.
 * [COMPoissonReg](https://cran.r-project.org/package=COMPoissonReg)
 Regression with Conway-Maxwell-Poisson (CMP) and zero-inflated CMP models.
 
@@ -24,4 +24,3 @@ UMBC-themed business cards in LaTeX.
 plain Beamer theme.
 * [formula-sheet](formula-sheet): a template for making a nice formula sheet
 in LaTeX.
-
