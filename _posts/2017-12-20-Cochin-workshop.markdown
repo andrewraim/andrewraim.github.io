@@ -4,7 +4,7 @@ title:  "R Workshop at Department of Statistics, St. Thomas College, Pala, Keral
 date:   2017-12-20 00:00:00 -0000
 categories: workshops
 excerpt_separator: <!--more-->
-permalink: /workshops/Cochin2018/
+permalink: /workshops/Kerala2018/
 unlisted: 1
 ---
 <!--more-->
