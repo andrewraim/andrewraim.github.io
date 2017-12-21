@@ -9,7 +9,7 @@ unlisted: 1
 ---
 <!--more-->
 
-[George Ostrouchov](http://www.csm.ornl.gov/~ost/), [Nagaraj Neerchal](http://www.math.umbc.edu/people/neerchal.htm) and I are giving a two-day workshop **High Performance Statistical Computing using R** at the *International Conference on Recent Advances in Statistical Methodology with Applications in Clinical and Official Statistics* [(ICSA 2018)](https://icsa2018.wordpress.com/) in Cochin, India. An abstract and brief outline for the workshop are given [here](https://icsa2018.wordpress.com/workshop/).
+[George Ostrouchov](http://www.csm.ornl.gov/~ost/), [Nagaraj Neerchal](http://www.math.umbc.edu/people/neerchal.htm) and I are giving a two-day workshop **High Performance Statistical Computing using R** at the *International Conference on Recent Advances in Statistical Methodology with Applications in Clinical and Official Statistics* [(ICSA 2018)](https://icsa2018.wordpress.com/) at Department of Statistics, St. Thomas College, Pala, Kerala, India. An abstract and brief outline for the workshop are given [here](https://icsa2018.wordpress.com/workshop/).
 
 The workshop builds up to parallel and distributed computing in R, but begins by introducing basics of working in R. Previous experience with R and Rstudio will be helpful, but much of the material should be accessible to new R users with experience in another technical computing language such as Matlab, Python, or Julia. Applications involving statistical and machine learning methods will be presented throughout the workshop. A bachelors degree in a discipline such as statistics, computer science, or mathematics-or equivalent work experience-should be sufficient to understand the methodology.
 
