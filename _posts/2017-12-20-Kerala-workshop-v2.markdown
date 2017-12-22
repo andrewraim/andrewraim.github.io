@@ -87,7 +87,7 @@ finalize()
 ```
 Recall that this file will be accessible inside the container in the `/home/rstudio/ext` directory. Inside the container, you should be able to run the script in parallel via the `mpirun` command.
 ``` {bash}
-rstudio@774201e667f3:~$ mpirun -np 4 Rscript ~/ext/pbdMPI-test.R
+rstudio@774201e667f3:~$ mpirun -np 4 Rscript ~/ext/hello.R
 Say hello:
 COMM.RANK = 0
 Hello world from process 0
