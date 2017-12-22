@@ -13,7 +13,7 @@ unlisted: 1
 
 The workshop builds up to parallel and distributed computing in R, but begins by introducing basics of working in R. Previous experience with R and Rstudio will be helpful, but much of the material should be accessible to new R users with experience in another technical computing language such as Matlab, Python, or Julia. Applications involving statistical and machine learning methods will be presented throughout the workshop. A bachelors degree in a discipline such as statistics, computer science, or mathematics-or equivalent work experience-should be sufficient to understand the methodology.
 
-Attendees are encouraged to bring their laptops. Many example codes will be provided, and some portions of the workshop will give an opportunity for users to follow along.
+Attendees are encouraged to bring their laptops. Many example codes will be provided, and there will be opportunities at some points in the workshop for users to follow along. If you will be bringing your laptop, the remainder of this page discusses how to set it up for the workshop.
 
 * It is possible to manually install R, Rstudio, and all packages that will be used in the workshop. But this is quite impractical, especially for the material on parallel and distributed programming which varies somewhat based on the computing platform (Windows, Mac, Linux). Therefore, we highly suggest a second option...
 
@@ -21,15 +21,17 @@ Attendees are encouraged to bring their laptops. Many example codes will be prov
 
 Instructions to obtain and run the Docker container are given below.
 
-#### 1. Install Docker
+# 1 Install Docker
 Follow instructions to [install Docker](https://docs.docker.com/engine/installation/) based on your computing platform (Windows, Mac, Linux, etc).
 
-#### 2. Download Configuration Files
-Download the workshop [Dockerfile](TBD) and accompanying [start.sh](TBD). Save the files to a folder where you will keep workshop materials. Let us call this directory `/path/to/workshop`.
+# 2 Download Configuration Files
+Download the workshop's
+[Dockerfile](https://drive.google.com/uc?export=view&id=1CEnhcye1ifSdQHJKBalf20ZiVdeIyZII) and accompanying [start.sh](https://drive.google.com/uc?export=view&id=15hFA_kSpGmUddMa8tSyqN574h-SIB_zA).
+Save the files to a folder where you will keep workshop materials. Let us call this directory `/path/to/workshop`.
 
-#### 3. Preparing and Running Container
+# 3 Preparing and Running Container
 
-#### 3.1  Linux
+# 3.1 Linux
 The following "build" command downloads and builds all of the prerequisites used in the container. It may take a while to run, especially on a slower network or a slower computer.
 
 ``` {bash}
@@ -51,7 +53,7 @@ The container can now be run using the following "run" command.
 $ sudo docker run -v /path/to/workshop:/home/rstudio/ext -p 8787:8787 -i -t pbdr-workshop
 ```
 
-#### 4. Using the Container
+# 4 Using the Container
 Once the container is successfully started, you will encounter a Linux command prompt like the following.
 
 ``` {bash}
@@ -100,4 +102,4 @@ rstudio@774201e667f3:~$
 
 Outputs from the container should be saved to `/home/rstudio/ext`. This will allow you to view images, PDFs, etc using the tools already installed on your laptop.
 
-If you made it this far, congratulations - your laptop is ready for the workshop!
+If you made it this far, congratulations - your laptop is ready!
