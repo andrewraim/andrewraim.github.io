@@ -31,18 +31,21 @@ Save the files to a folder where you will keep workshop materials. Let us call t
 
 # 3 Preparing and Running Container
 
-# 3.1 Linux
+# 3.1 Windows
+TBD
+
+# 3.2 Linux
 The following "build" command downloads and builds all of the prerequisites used in the container. It may take a while to run, especially on a slower network or a slower computer.
 
 ``` {bash}
-$ sudo docker build -t pbdr-workshop /path/to/workshop
+$ sudo docker build -t rworkshop /path/to/workshop
 ```
 
 The build command does not need to be run again unless the Dockerfile is changed, or unless your deployment changes. If the build was successful, the last few lines of output should appear as follows.
 
 ```
 Successfully built f5055a2787e5
-Successfully tagged pbdr-workshop:latest
+Successfully tagged rworkshop:latest
 ```
 
 The container can now be run using the following "run" command.
@@ -50,8 +53,11 @@ The container can now be run using the following "run" command.
 * The option `-p 8787:8787` exposes port 8787 from the container on your computer.
 
 ``` {bash}
-$ sudo docker run -v /path/to/workshop:/home/rstudio/ext -p 8787:8787 -i -t pbdr-workshop
+$ sudo docker run -v /path/to/workshop:/home/rstudio/ext -p 8787:8787 -i -t rworkshop
 ```
+
+# 3.3 Mac
+Mac instructions are identical to Linux; use Terminal.
 
 # 4 Using the Container
 Once the container is successfully started, you will encounter a Linux command prompt like the following.
