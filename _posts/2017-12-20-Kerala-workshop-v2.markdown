@@ -22,19 +22,28 @@ Attendees are encouraged to bring their laptops. Many example codes will be prov
 Instructions to obtain and run the Docker container are given below.
 
 # 1 Install Docker
-Follow instructions to [install Docker](https://docs.docker.com/engine/installation/) based on your computing platform (Windows, Mac, Linux, etc).
+Follow instructions to [install Docker](https://docs.docker.com/engine/installation/) based on your computing platform (Windows, Mac, Linux, etc). Look for the Community Edition, for which there is no cost to use. Also, we recommend the Stable release rather than the Edge release. Here are some brief notes specific to some of the platforms.
 
-# 2 Download Configuration Files
+# 1.1 Windows
+Note that Windows users who do not have Windows 10 Pro or Enterprise - which will probably be most of us - will need a version of Docker called [Docker Toolbox](https://docs.docker.com/toolbox/overview/). Once it is installed, open the Docker Quickstart Terminal where you can issue commands.
+
+![Logging into Rstudio Server](/images/Kerala2018/win-docker-prompt.png)
+
+# 1.2 Linux
+Linux users should follow the installation instructions specific to their Linux distribution (Ubuntu, CentOS, etc). Once it is installed, Docker can be controlled through the usual terminal.
+
+# 1.3 Mac
+As with Linux, once Docker is installed on a Mac, it can be controlled through the usual Terminal application.
+
+# 1.4 A Quick Test of your Docker Setup
+
+
+# 2 Download Configuration Files for Workshop
 Download the workshop's
 [Dockerfile](https://drive.google.com/uc?export=view&id=1CEnhcye1ifSdQHJKBalf20ZiVdeIyZII) and accompanying [start.sh](https://drive.google.com/uc?export=view&id=15hFA_kSpGmUddMa8tSyqN574h-SIB_zA).
 Save the files to a folder where you will keep workshop materials. Let us call this directory `/path/to/workshop`.
 
 # 3 Preparing and Running Container
-
-# 3.1 Windows
-TBD
-
-# 3.2 Linux
 The following "build" command downloads and builds all of the prerequisites used in the container. It may take a while to run, especially on a slower network or a slower computer.
 
 ``` {bash}
@@ -56,9 +65,6 @@ The container can now be run using the following "run" command.
 $ sudo docker run -v /path/to/workshop:/home/rstudio/ext -p 8787:8787 -i -t rworkshop
 ```
 
-# 3.3 Mac
-Mac instructions are identical to Linux; use Terminal.
-
 # 4 Using the Container
 Once the container is successfully started, you will encounter a Linux command prompt like the following.
 
@@ -77,7 +83,7 @@ Hello world
 
 To start Rstudio, open a web browser on your laptop and navigate to <http://localhost:8787>. Enter `rstudio` as both the username and the password.
 
-![Rstudio Server in browser](/images/Kerala2018/rstudio-server-login.png)
+![Logging into Rstudio Server](/images/Kerala2018/rstudio-server-login.png)
 ![Rstudio Server in browser](/images/Kerala2018/rstudio-server-screen.png)
 
 To demonstrate running an MPI job, let us use a simple Hello World example. Open a text editor on your laptop and save the following code to the file `/path/to/workshop/hello.R`
