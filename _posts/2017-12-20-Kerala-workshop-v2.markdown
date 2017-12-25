@@ -109,3 +109,7 @@ rstudio@774201e667f3:~$
 Outputs from the container should be saved to `/home/rstudio/ext`. This will allow you to view images, PDFs, etc using the tools already installed on your laptop.
 
 If you made it this far, congratulations - your laptop is ready!
+
+# 5 More on Docker
+TBD
+Commands: <https://docs.docker.com/engine/reference/commandline/docker/#child-commands?
