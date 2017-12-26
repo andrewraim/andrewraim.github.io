@@ -35,7 +35,7 @@ Note that Windows users who do not have Windows 10 Pro or Enterprise - which wil
 
 Note that most of the commands shown on the remainder of this page begin with `sudo`, because they require administrator-level access to your machine. The `sudo` part of the command should not be issued if you are working in Docker Quickstart Terminal.
 
-I initially had some trouble installing Docker Toolbox on Windows 10 Home. I believe it was due to low disk space - have at least a few GB available before installing. For me, a solution was to remove Docker Toolbox, and the Oracle VirtualBox program installed with it, remove the `.docker` and `.virtualbox` subdirectories in `C:\Users\Andrew`, and rerun the Docker Toolbox installer.
+I initially had some trouble installing Docker Toolbox on Windows 10 Home. I believe it was due to low disk space - have at least a few GB available before installing. For me, a solution was to remove Docker Toolbox, and the Oracle VirtualBox program installed with it, remove the `.docker` and `.virtualbox` subdirectories in `C:\Users\Andrew`, and rerun the Docker Toolbox installer. It may also be helpful to temporarily turn off Windows Firewall, or your antivirus program's firewall if you have one, during the installation.
 
 #### 2.2 Linux
 Linux users should follow the installation instructions specific to their Linux distribution (Ubuntu, CentOS, etc). Once it is installed, Docker can be controlled through the system terminal.
@@ -108,7 +108,7 @@ Note that:
 Once the container is successfully started, you will encounter a Linux command prompt like the following.
 
 ``` bash
-rstudio@a8f9a900c791:~$ 
+rstudio@a8f9a900c791:~$
 ```
 
 To start R on the command line, issue the `R` command.
