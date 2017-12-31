@@ -78,6 +78,12 @@ Save the files to a folder where you will keep workshop materials. Let us call t
 
 In Windows, my web browser renamed `Dockerfile` to `Dockerfile.txt` when it was downloaded. If this happens, rename the file and remove the `.txt` extension.
 
+After downloading `start.sh`, Linux and Mac users may need to modify its permissions before the Docker container will run. Ensure that the script can be executed via the following command.
+
+``` bash
+$ chmod +x start.sh
+```
+
 # 4 Preparing and Running the Workshop Container
 The following "build" command downloads and builds all of the prerequisites used in the container. It may take a while to run, especially on a slower network or a slower computer. For me it typically takes 20 or 30 minutes (roughly).
 
