@@ -263,3 +263,10 @@ Hello world from process 003 out of 004, processor name localhost
 ```
 
 The string `localhost` will be replaced with your machine's hostname.
+
+#### 7.5 Install R Packages
+Download the script [install.R](https://drive.google.com/uc?export=view&id=12273JFSirYb1G8pPx9fRYNtgZ6IrpFGx) and run it in R to obtain packages which will be used in the workshop. Suppose we have placed it into the directory `/path/to/workshop`. Run the following command in R.
+
+``` R
+> source("/path/to/workshop/install.R")
+```
