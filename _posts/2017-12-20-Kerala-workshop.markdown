@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "R Workshop in Kerala"
-date:   2017-01-04 00:00:00 -0000
+date:   2017-01-05 12:00:00 -0000
 categories: workshops
 excerpt_separator: <!--more-->
 permalink: /workshops/Kerala2018/
@@ -25,34 +25,38 @@ Attendees are encouraged to bring their laptops. Many example codes will be prov
 
 Instructions to obtain and run the Docker container are given below. For attendees who cannot install Docker, alternative instructions are provided further below.
 
+Workshop contents such as slides, programs, and dataset will be provided at the start of the workshop.
+
 # 2 Installing Docker
-Follow instructions to [install Docker](https://docs.docker.com/engine/installation/) based on your computing platform (Windows, Mac, Linux, etc). Look for the Community Edition, for which there is no cost to use. Also, we recommend the Stable release rather than the Edge release. Here are some brief notes specific to some of the platforms.
+Follow instructions to install Docker based on your computing platform (Windows, Mac, or Linux). Look for the Community Edition, for which there is no cost to use. Also, we recommend the Stable release rather than the Edge release. Here are some brief notes specific to platform.
 
 #### 2.1 Windows
 Note that Windows users who do not have Windows 10 Pro or Enterprise - which will probably be most of us - will need a version of Docker called [Docker Toolbox](https://docs.docker.com/toolbox/overview/). Once it is installed, open the Docker Quickstart Terminal to issue commands, which should appear as follows.
 
 ![Logging into Rstudio Server](/images/Kerala2018/win-docker-prompt.png)
 
-Note that most of the commands shown on the remainder of this page begin with `sudo`, because they require administrator-level access to your machine. The `sudo` part of the command should not be issued if you are working in Docker Quickstart Terminal.
+Take note of the IP address listed in the output; we will use it later when connecting to Rstudio.
 
-I initially had some trouble installing Docker Toolbox on Windows 10 Home. I believe it was due to low disk space - have at least a few GB available before installing. For me, a solution was to remove Docker Toolbox, and the Oracle VirtualBox program installed with it, remove the `.docker` and `.virtualbox` subdirectories in `C:\Users\Andrew`, and rerun the Docker Toolbox installer. It may also be helpful to temporarily turn off Windows Firewall, or your antivirus program's firewall if you have one, during the installation.
+I initially had some trouble installing Docker Toolbox on Windows 10 Home. I believe it was due to low disk space - I suggest having at least a 5-10 GB available before installing. For me, a solution was to remove Docker Toolbox, and the Oracle VirtualBox program installed with it, remove the `.docker` and `.virtualbox` subdirectories in `C:\Users\Andrew`, and rerun the Docker Toolbox installer. It may also be helpful to temporarily turn off Windows Firewall, or your antivirus program's firewall if you have one, during the installation.
 
 #### 2.2 Linux
-Linux users should follow the installation instructions specific to their Linux distribution (Ubuntu, CentOS, etc). Once it is installed, Docker can be controlled through the system terminal.
+Linux users should follow the [installation instructions](https://docs.docker.com/engine/installation/) specific to their Linux distribution (Ubuntu, CentOS, etc). Once it is installed, Docker can be controlled through the system terminal.
+
+Note that Docker commands on Linux need administrator-level access, and must be prefixed with `sudo`. Because we anticipate mostly Windows users in attendance, the `sudo` has been left out of the commands shown on the remainder of this page.
 
 #### 2.3 Mac
-As with Linux, once Docker is installed on a Mac, it can be controlled through the Terminal application.
+Mac users should follow their set of [installation instructions](https://docs.docker.com/engine/installation/). As with Linux, once Docker is installed on a Mac, it can be controlled through the Terminal application. `sudo` is also needed for Mac when executing Docker commands.
 
 #### 2.4 A Quick Test of your Docker Setup
 In your terminal, issue the following command.
 ``` bash
-$ sudo docker run hello-world
+$ docker run hello-world
 ```
 
 Here, `$` represents the prompt, which is not part of the command. If your Docker setup is working, you should get the following result.
 
 ``` bash
-$ sudo docker run hello-world
+$ docker run hello-world
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 To generate this message, Docker took the following steps:
@@ -88,7 +92,7 @@ $ chmod +x start.sh
 The following "build" command downloads and builds all of the prerequisites used in the container. It may take a while to run, especially on a slower network or a slower computer. For me it typically takes 20 or 30 minutes (roughly).
 
 ``` bash
-$ sudo docker build -t rworkshop /path/to/workshop
+$ docker build -t rworkshop /path/to/workshop
 ```
 
 The build command does not need to be run again unless the Dockerfile is changed, or unless your deployment changes. If the build was successful, the last few lines of output should be something like the following.
@@ -98,15 +102,18 @@ Successfully built f5055a2787e5
 Successfully tagged rworkshop:latest
 ```
 
-The container can now be run using the following "run" command.
+The container can now be run using the following "run" command (which is proceeded by defining two environment variables for our convenience).
 ``` bash
-$ sudo docker run -v /path/to/workshop:/home/rstudio/ext -p 8787:8787 \
-  -i -t rworkshop
+$ export XSOCK=/tmp/.X11-unix/X0
+$ export EXT=/path/to/workshop
+$ docker run -v $XSOCK:$XSOCK -v $EXT:/home/rstudio/ext \
+    -p 8787:8787 -i -t rworkshop
 ```
 
 Note that:
-* The option `-v /path/to/workshop:/home/rstudio/external` makes the directory `/path/to/workshop` on your computer available inside the container as `/home/rstudio/ext`.
-* The option `-p 8787:8787` exposes port 8787 from the container on your computer.
+* The option `-v $XSOCK:$XSOCK` allows the container to display graphics. This is useful for packages such as `Rcmdr`.
+* The option `-v $EXT:/home/rstudio/ext` makes the directory `$EXT` on your computer available inside the container as `/home/rstudio/ext`. This will allow you to load files from your local machine into the container, and to save work from the container back to your local machine.
+* The option `-p 8787:8787` exposes port 8787 from the container on your computer. This is needed to use Rstudio in the container.
 * The flags `-i` and `-t` are specified because the container is interactive.
 * The `\` character is used to break up a long command into multiple lines.
 
@@ -117,6 +124,7 @@ Once the container is successfully started, you will encounter a Linux command p
 rstudio@a8f9a900c791:~$
 ```
 
+#### 5.1 R on the Command Line
 To start R on the command line, issue the `R` command.
 
 ``` bash
@@ -125,7 +133,17 @@ rstudio@a8f9a900c791:~$ R
 Hello world
 ```
 
-To start Rstudio, open a web browser on your laptop and navigate to <http://localhost:8787>. Enter `rstudio` as both the username and the password.
+#### 5.2 Rstudio
+To connect to Rstudio server, open a web browser on your laptop.
+
+* **Mac** and **Linux** users should navigate to the URL <http://localhost:8787>.
+
+* **Windows** users should recall the IP address they noted back in section 2.1. Suppose your assigned IP was `192.168.99.100` (which is the one I have in the screenshot); navigate to the URL <http://192.168.99.100:8787>. If you forgot the IP address, start up another Docker Terminal and run the following.
+``` bash
+$ docker-machine ls
+```
+
+A login prompt should appear in your browser. Enter `rstudio` as both the username and the password.
 
 ![Logging into Rstudio Server](/images/Kerala2018/rstudio-server-login.png)
 
@@ -133,6 +151,7 @@ Now you should be ready to use Rstudio in your web browser.
 
 ![Rstudio Server in browser](/images/Kerala2018/rstudio-server-screen.png)
 
+#### 5.3 Running MPI Jobs
 To demonstrate running an MPI job, let us use a simple Hello World example. Open a text editor on your laptop and save the following code to the file `/path/to/workshop/hello.R`
 ``` R
 library(pbdMPI, quiet = TRUE)
@@ -167,20 +186,20 @@ For a list of Docker commands, see
 
 List active Docker containers.
 ``` bash
-$ [araim@araim-inspiron docker]$ sudo docker ps
+$ [araim@araim-inspiron docker]$ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
 f117630f47b8        rworkshop           "/etc/start.sh"     8 seconds ago       Up 7 seconds        0.0.0.0:8787->8787/tcp   hopeful_elion
 ```
 
 Normally, our rworkshop container will stop running when you log out of its shell. In case something went wrong with the container listed above and we wanted to kill it, we could use the following command from another terminal window.
 ``` bash
-$ sudo docker kill f117630f47b8
+$ docker kill f117630f47b8
 f117630f47b8
 ```
 
 List Docker images that have been deployed onto your machine.
 ``` bash
-$ sudo docker images
+$ docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 rworkshop           latest              d658ef03dc24        13 hours ago        1.98GB
 rocker/rstudio      3.4.3               f206114fe549        3 weeks ago         1.08GB
@@ -190,7 +209,7 @@ hello-world         latest              1815c82652c0        6 months ago        
 The `rworkshop` and `rocker/rstudio` images are rather large, so you may need to remove them after the workshop. Here we will remove the `hello-world` image, for demonstration purposes.
 
 ``` {bash}
-$ sudo docker image rm 1815c82652c0
+$ docker image rm 1815c82652c0
 Untagged: hello-world:latest
 Untagged: hello-world@sha256:f3b3b28a45160805bb16542c9531888519430e9e6d6ffc09d72261b0d26ff74f
 Deleted: sha256:1815c82652c03bfd8644afda26fb184f2ed891d921b20a0703b46768f9755c57
@@ -202,6 +221,8 @@ Installing and running Docker requires administrator-level access to your comput
 
 The major disadvantage of installing the components individually is that you may not be able to run some of the parallel and distributed computing examples. For example, the [mclapply function depends on forking](https://stat.ethz.ch/R-manual/R-devel/library/parallel/html/mclapply.html),
 and therefore cannot be used directly in Windows. Also, our distributed computing examples rely on MPI, but we (the presenters) do not have experience installing and configuring MPI libraries in Windows.
+
+Check the version numbers of components which you may have already installed - especially R, Rstudio, and any R packages. Some parts of the workshop may not be accessible with older versions.
 
 #### 7.1 Install R
 Install R from [CRAN](https://cran.r-project.org/). Windows users should navigate to "Download R for Windows" at the top of the page. We are using version 3.4.3.
@@ -252,7 +273,8 @@ int main (int argc, char *argv[])
 }
 ```
 
-Now issue the following commands to compile and run the program with MPI.
+Now compile and run the program with MPI.
+
 ``` bash
 $ mpicc hello-mpi.c -o hello-mpi
 $ mpirun -np 4 hello-mpi
@@ -262,7 +284,7 @@ Hello world from process 002 out of 004, processor name localhost
 Hello world from process 003 out of 004, processor name localhost
 ```
 
-The string `localhost` will be replaced with your machine's hostname.
+Depending on your platform and choice of MPI implementation, your commands may be different. The string `localhost` in the output will be replaced with your machine's hostname.
 
 #### 7.5 Install R Packages
 Download the script [install.R](https://drive.google.com/uc?export=view&id=12273JFSirYb1G8pPx9fRYNtgZ6IrpFGx) and run it in R to obtain packages which will be used in the workshop. Suppose we have placed it into the directory `/path/to/workshop`. Run the following command in R.
@@ -270,3 +292,5 @@ Download the script [install.R](https://drive.google.com/uc?export=view&id=12273
 ``` R
 > source("/path/to/workshop/install.R")
 ```
+
+To make sure your package versions are up to date, open Rstudio and click ``Tools => Check for Package Updates`` on the main menu.
