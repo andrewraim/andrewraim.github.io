@@ -151,7 +151,14 @@ Now you should be ready to use Rstudio in your web browser.
 
 ![Rstudio Server in browser](/images/Kerala2018/rstudio-server-screen.png)
 
-#### 5.3 Running MPI Jobs
+#### 5.3 R Commander
+To launch the R Commander GUI, first start R via the command line or Rstudio. Then issue the following command.
+
+``` R
+> library(Rcmdr) 
+```
+
+#### 5.4 Running MPI Jobs
 To demonstrate running an MPI job, let us use a simple Hello World example. Open a text editor on your laptop and save the following code to the file `/path/to/workshop/hello.R`
 ``` R
 library(pbdMPI, quiet = TRUE)
