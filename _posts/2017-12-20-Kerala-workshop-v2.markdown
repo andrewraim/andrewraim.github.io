@@ -123,7 +123,6 @@ To start R on the command line, issue the `R` command.
 rstudio@a8f9a900c791:~$ R
 > cat("Hello world\n")
 Hello world
->
 ```
 
 To start Rstudio, open a web browser on your laptop and navigate to <http://localhost:8787>. Enter `rstudio` as both the username and the password.
@@ -208,14 +207,14 @@ and therefore cannot be used directly in Windows. Also, our distributed computin
 Install R from [CRAN](https://cran.r-project.org/). Windows users should navigate to "Download R for Windows" at the top of the page. We are using version 3.4.3.
 
 #### 7.2 Install Rstudio
-Install [Rstudio](https://www.rstudio.com/). Click "Products" => "RStudio" on the top menu, and look for a button labeled "Download Rstudio Desktop". Select "RStudio Desktop Open Source License" among the available versions. We are using version 1.1.383.
+Install [Rstudio](https://www.rstudio.com/). Click `Products => RStudio` on the top menu, and look for a button labeled `Download Rstudio Desktop`. Select `RStudio Desktop Open Source License` among the available versions. We are using version 1.1.383.
 
-#### 7.3 Install the `Rcpp` package
+#### 7.3 Install the Rcpp package
 See <https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites> for instructions to install the prerequisites (compilers, important libraries, etc). Once the prerequisites are installed, simply install `Rcpp` as you would any other package.
 
-To test your `Rcpp` environment, try the following in RStudio.
+To test your Rcpp environment, try the following in RStudio.
 1. Select `File => New File => C++ File` from the main menu. This will create
-a simple `Rcpp` program.  
+a simple Rcpp program.  
 2. Save the program, say, as `example.cpp`.  
 3. Click the `Source` button, which is located in the upper-right corner of
 the panel with the `example.cpp` source code. This should produce the following output.
