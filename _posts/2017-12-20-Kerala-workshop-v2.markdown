@@ -137,7 +137,6 @@ Now you should be ready to use Rstudio in your web browser.
 To demonstrate running an MPI job, let us use a simple Hello World example. Open a text editor on your laptop and save the following code to the file `/path/to/workshop/hello.R`
 ``` R
 library(pbdMPI, quiet = TRUE)
-init()
 
 msg <- sprintf("Hello world from process %d\n", comm.rank(), comm.size())
 comm.cat("Say hello:\n", quiet = TRUE)
