@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "R Workshop in Kerala"
-date:   2017-12-20 00:00:00 -0000
+date:   2017-01-04 00:00:00 -0000
 categories: workshops
 excerpt_separator: <!--more-->
 permalink: /workshops/Kerala2018/
