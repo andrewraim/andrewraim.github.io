@@ -5,7 +5,7 @@ date:   2017-01-05 12:00:00 -0000
 categories: workshops
 excerpt_separator: <!--more-->
 permalink: /workshops/Kerala2018/
-unlisted: 1
+unlisted: 0
 ---
 <!--more-->
 
@@ -155,7 +155,7 @@ Now you should be ready to use Rstudio in your web browser.
 To launch the R Commander GUI, first start R via the command line or Rstudio. Then issue the following command.
 
 ``` R
-> library(Rcmdr) 
+> library(Rcmdr)
 ```
 
 #### 5.4 Running MPI Jobs
