@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
 ---
 
@@ -11,8 +11,6 @@ I work at the
 Previously, I was a graduate student in Statistics at UMBC. I worked
 on problems in finite mixture models with
 [Professor Nagaraj Neerchal](http://www.math.umbc.edu/~nagaraj).
-My dissertation was [Computational Methods for Finite Mixtures using Approximate Information and
-Regression Linked to the Mixture Mean](http://search.proquest.com/docview/1552496226).
 I also worked with
 [Professor Matthias Gobbert](http://www.math.umbc.edu/~gobbert)
 as a research assistant for the
