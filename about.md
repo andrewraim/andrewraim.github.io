@@ -45,3 +45,5 @@ A high-level, high-performance language for technical computing
 * [Statistical Society of Canada](http://www.ssc.ca) (SSC)
 * [American Mathematical Society](http://www.ams.org) (AMS)
 * [Society for Industrial and Applied Mathematics](http://www.siam.org) (SIAM)
+{% comment %} Blogs and Podcasts {% endcomment %}
+* [Microsoft Research Podcast](https://www.microsoft.com/en-us/research/blog/category/podcast/)
