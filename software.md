@@ -5,18 +5,19 @@ permalink: /software/
 ---
 
 # R packages
-* [stcos](https://cran.r-project.org/package=stcos) Spatio-temporal change of
-support.
-* [ldr](https://cran.r-project.org/package=ldr)
+support for areal data.
+* [ldr](https://cran.r-project.org/package=ldr):
 Likelihood-based dimension reduction.
-* [OverdispersionModelsInR](http://github.com/andrewraim/OverdispersionModelsInR)
+* [OverdispersionModelsInR](http://github.com/andrewraim/OverdispersionModelsInR):
 Fit overdispersion models in R. Also see the [tech report](https://andrewraim.github.io/publications#OverdispersionModelsInR2015).
-* [ManifoldOptim](https://cran.r-project.org/package=ManifoldOptim)
+* [ManifoldOptim](https://cran.r-project.org/package=ManifoldOptim):
 Optimization on Riemannian manifolds.
-* [mixlink](https://cran.r-project.org/package=mixlink)
+* [mixlink](https://cran.r-project.org/package=mixlink):
 [Mixture Link](https://arxiv.org/abs/1612.03302) regression.
-* [COMPoissonReg](https://cran.r-project.org/package=COMPoissonReg)
+* [COMPoissonReg](https://cran.r-project.org/package=COMPoissonReg):
 Regression with Conway-Maxwell-Poisson (CMP) and zero-inflated CMP models.
+* [stcos](https://cran.r-project.org/package=stcos):
+Space-Time Change of Support for areal data.
 
 # LaTeX templates
 * [latex-resume](latex-resume): a template for making resumes/CVs in LaTeX.
