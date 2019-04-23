@@ -5,6 +5,8 @@ permalink: /software/
 ---
 
 # R packages
+* [stcos](https://cran.r-project.org/package=stcos) Spatio-temporal change of
+support.
 * [ldr](https://cran.r-project.org/package=ldr)
 Likelihood-based dimension reduction.
 * [OverdispersionModelsInR](http://github.com/andrewraim/OverdispersionModelsInR)
