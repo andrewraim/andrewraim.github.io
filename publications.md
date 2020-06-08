@@ -4,6 +4,9 @@ title: Publications
 permalink: /publications/
 ---
 
+# Manuscripts
+{% include bib/manuscripts.html %}
+
 # Journal Articles
 {% include bib/papers.html %}
 
