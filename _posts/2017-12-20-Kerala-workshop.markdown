@@ -4,7 +4,7 @@ title:  "R Workshop in Kerala"
 date:   2018-01-05 12:00:00 -0000
 categories: workshops
 excerpt_separator: <!--more-->
-permalink: /workshops/Kerala2018/
+permalink: /Kerala2018/
 ---
 <!--more-->
 
