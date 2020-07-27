@@ -4,7 +4,7 @@ title:  "Rcpp Workshop at UMBC"
 date:   2017-08-07 00:00:39 -0400
 categories: workshops
 excerpt_separator: <!--more-->
-permalink: /workshops/AdvStatProg2017/
+permalink: /AdvStatProg2017/
 ---
 <!--more-->
 
