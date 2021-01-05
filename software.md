@@ -8,10 +8,14 @@ permalink: /software/
 {% include bib/software.html %}
 
 # LaTeX templates
-* [latex-resume](latex-resume): a template for making resumes/CVs in LaTeX.
-* [latex-business-card](latex-business-card): a template for making 
-UMBC-themed business cards in LaTeX.
-* [beamerthemefoiltex](http://github.com/andrewraim/beamerthemefoiltex): a
-plain Beamer theme.
-* [formula-sheet](formula-sheet): a template for making a nice formula sheet
-in LaTeX.
+- [latex-resume](latex-resume): a template for resumes/CVs.
+- [latex-business-card](latex-business-card): a template for business cards.
+- [beamerthemefoiltex](https://github.com/andrewraim/beamerthemefoiltex): a
+  plain Beamer theme.
+- [formula-sheet](formula-sheet): a template for formula sheets.
+
+# Utilities
+- [md-util](https://github.com/andrewraim/md-util): some command line scripts
+  and templates to facilitate compiling markdown to various formats (PDF, html,
+  Beamer) using Pandoc.
+
