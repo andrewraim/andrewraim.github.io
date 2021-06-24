@@ -18,4 +18,6 @@ permalink: /software/
 - [md-util](https://github.com/andrewraim/md-util): some command line scripts
   and templates to facilitate compiling markdown to various formats (PDF, html,
   Beamer) using Pandoc.
+- [sim-util](https://github.com/andrewraim/sim-util): some tools to aid with
+  repetitive computational studies, such as statistical simulations.
 
