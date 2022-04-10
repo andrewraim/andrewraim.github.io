@@ -4,6 +4,10 @@ title: Publications
 permalink: /publications/
 ---
 
+Here is my
+[Google Scholar](https://scholar.google.com/citations?user=3Ai29GIAAAAJ)
+profile.
+
 # Manuscripts
 {% include bib/manuscripts.html %}
 

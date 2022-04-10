@@ -33,13 +33,11 @@ A high-level, high-performance language for technical computing
 * [American Statistical Association](http://www.amstat.org) (ASA)
 * [Institute of Mathematical Statistics](http://imstat.org) (IMS)
 * [Statistical Society of Canada](http://www.ssc.ca) (SSC)
-* [American Mathematical Society](http://www.ams.org) (AMS)
-* [Society for Industrial and Applied Mathematics](http://www.siam.org) (SIAM)
 
 # Services
 * [Github](https://github.com) Collaborate on source code projects
 * [Bitbucket](https://bitbucket.org) Collaborate on source code projects
-* [Overleaf](https://www.overleaf.com) Collaboration environemnt for writing Latex documents. Provides a browser-based editor, and also supports Git to work outside of the editor.
+* [Overleaf](https://www.overleaf.com) Collaboration environment for writing Latex documents. Provides a browser-based editor, and also supports Git to work outside of the editor.
 
 # Other Tools
 * [Xubuntu](https://xubuntu.org) An Ubuntu distribution with the lightweight XFCE desktop environment

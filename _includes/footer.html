@@ -3,6 +3,7 @@
   <div class="wrapper">
 
     <div class="footer-col-wrapper">
+      <!--
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
           <li>
@@ -17,24 +18,19 @@
             {% endif %}
         </ul>
       </div>
+      -->
 
       <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          <li>
-            {% include icon-cv.html %}
-          </li>
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.bitbucket_username %}
-          <li>
-            {% include icon-bitbucket.html username=site.bitbucket_username %}
-          </li>
-          {% endif %}
-        </ul>
+        <table>
+          <tr>
+            <td colspan="3">{% include icon-email.html username=site.email %}</td>
+          </tr>
+          <tr>
+            <td> {% include icon-cv.html %} </td>
+            <td> {% include icon-github.html username=site.github_username %} </td>
+            <td> {% include icon-bitbucket.html username=site.bitbucket_username %} </td>
+          </tr>
+        </table>
       </div>
 
       <div class="footer-col footer-col-3">

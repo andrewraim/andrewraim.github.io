@@ -4,13 +4,13 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">News</h1>
-  
-  {{ content }}
 
-  <div style="float: right; padding: 20px;">
+  <div style="float: right; padding-left: 20px;">
   <img src="{{ site.url }}/images/araim-psday2010.jpg"/>
   </div>
+  {{ content }}
+
+  <h1 class="page-heading">News</h1>
 
   <ul class="post-list">
     {% for post in site.posts %}
