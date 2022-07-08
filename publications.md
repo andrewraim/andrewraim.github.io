@@ -18,8 +18,6 @@ profile.
 # Conference Proceedings
 {% include bib/proceedings.html %}
 
-# Technical Reports & Other Publications
+# Selected Technical Reports & Other Publications
 {% include bib/other-pubs.html %}
 
-# Mentored Student Work
-{% include bib/student-work.html %}
