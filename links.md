@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Links
-permalink: /links/
 ---
 
 Here are links to some resources that I have found useful.
