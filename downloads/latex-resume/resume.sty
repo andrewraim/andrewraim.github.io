@@ -1,0 +1,145 @@
+% Andrew Raim
+% Adapted from Andrew McNabb's template - http://www.mcnabbs.org/andrew/linux/latexres/
+
+\usepackage{bibunits}
+\usepackage[colorlinks=true, citecolor=black, linkcolor=black, urlcolor=black]{hyperref}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{mdwlist}
+\usepackage{sectsty}
+\usepackage{setspace}
+\usepackage{datetime}
+\usepackage{url}
+
+
+\singlespacing
+
+\newdateformat{mydate}{\THEYEAR-\twodigit{\THEMONTH}-\twodigit{\THEDAY}}
+\settimeformat{xxivtime}
+
+\renewcommand*{\refname}{\vspace*{-9mm}}
+
+% Footnote command that lets you specify which symbol to use
+\long\def\symbolfootnote[#1]#2{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup} 
+
+% If enabled, this will hide page numbers
+\pagestyle{empty} 
+
+\geometry{letterpaper, tmargin=0.5in, bmargin=1in, lmargin=0.7in, rmargin=0.7in, 
+headheight=0in, headsep=0in, footskip=0.3in}
+
+\setlength{\parsep}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\topmargin}{0pt}
+\setlength{\partopsep}{0pt}
+
+% Set font for sections
+%\usepackage[T1]{fontenc}
+\allsectionsfont{\usefont{T1}{cmss}{bx}{sc}\selectfont}
+%\renewcommand{\familydefault}{cmss}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% New commands and environments
+
+% This defines how the name looks
+\newcommand{\bigname}[1]{
+	\begin{center}
+		{\huge#1}
+	\end{center}
+}
+
+% 1: name
+% 2: address1
+% 3: address2
+% 4: address3
+% 5: office
+% 6: email
+% 7: website
+\newcommand{\resmakeheader}[7]{
+
+\begin{center}
+\textsf{\textbf{ {\LARGE #1} }}
+\vspace{8pt}
+
+\begin{tabular*}{0.85\textwidth}{@{\extracolsep{\fill}} ll}
+#2	& \textsc{Office:} #5 \\
+#3	& \textsc{Email:} #6 \\
+#4	& \textsc{Web:} #7 \\
+\end{tabular*} \\
+\vspace{8pt}
+\textsc{Last revised}: \mydate\today \, \currenttime
+\end{center}
+\vspace{8pt}
+}
+
+\newcommand{\resmakesectionheader}[1]{
+\vspace{-8pt}
+\section*{\textsc{#1}}
+\vspace{-8pt}
+}
+
+\newcommand{\resmakepositionheader}[2]{
+\textsc{#1} \hfill (\textsc{#2}) \\
+\vspace{-16pt}
+}
+
+\newcommand{\resmakeitemheader}[5]{
+\noindent
+\textsc{#1 \hfill #2 \hfill #3} \\
+\textsc{#4} \\
+\vspace{-16pt}
+% If there's no desscription, don't make an empty quote environment
+\ifthenelse{\equal{#5}{}}
+{}
+{\begin{quote}
+#5
+\end{quote}}
+}
+
+\newcommand{\resmakecourse}[4]{
+#1 & #2 & #3 & #4 \\
+}
+
+\newcommand{\resmaketacourse}[4]{
+\noindent\textsc{%
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l l r}
+#1 & #2 & #3 \\
+\end{tabular*}
+}
+\begin{quote}
+#4
+\end{quote}
+}
+
+
+% 1: position name
+% 2: faculty advisor
+% 3: semesters or time span
+% 4: Description
+\newcommand{\resmakeraposition}[4]{
+\noindent\textsc{%
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l l r}
+#1 & Advisor: #2 & #3 \\
+\end{tabular*}
+}
+\begin{quote}
+#4
+\end{quote}
+}
+
+\newcommand{\resmakeorg}[4]{
+\noindent\textsc{%
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l l r}
+#1 & #2 & #3 \\
+\end{tabular*}
+}
+% If there's no desscription, don't make an empty quote environment
+\ifthenelse{\equal{#4}{}}
+{}
+{\begin{quote}
+#4
+\end{quote}}
+}
+

@@ -1,0 +1,184 @@
+[
+  {
+    "objectID": "software/latex-resume.html",
+    "href": "software/latex-resume.html",
+    "title": "LaTeX Resume / CV",
+    "section": "",
+    "text": "The format is more suitable for a CV or long resume, rather than a one-page resume of bullet points.\nThe style definitions are separated from the main tex file (which contains the content of the resume/cv only).\n\nHere is an example that uses the template. You will probably find that some of the included macros are not relevant to you, or that something you need is missing. For example, a professor probably will not list their past TA assignments, but may want to list grants, graduate students, courses taught, etc. Feel free to modify the template for your own needs, aesthetics, etc.\nTo generate the example, download the following files and place them together in the same directory.\n\nresume.sty the resume style file\nexample.tex an example resume\npapers.bib example bibtex file containing some papers\npresentations.bib example bibtex file containing some presentations\n\nTo generate the PDF on a standard Linux setup:\n$ pdflatex example.tex\n$ bibtex bu1\n$ bibtex bu2\n$ pdflatex example.tex\nThe bibtex runs for for bu1 and bu2 come from the use of the bibunits package, which allow you to keep several separate bibliographies in one document. In the example, we have one bibliography for papers and one for presentations.\nAs usual, you may need to repeat the pdflatex command several times to resolve references in the document. This should yield the PDF file example.pdf You should also be able to compile the example with your favorite LaTeX IDE."
+  },
+  {
+    "objectID": "software/formula-sheet.html",
+    "href": "software/formula-sheet.html",
+    "title": "LaTeX Formula Sheet",
+    "section": "",
+    "text": "formula-sheet.cls the class\nexample.tex the example\n\nTo generate the PDF on a standard Linux setup:\n$ pdflatex example.tex\nAs usual, you may need to repeat the pdflatex command several times to resolve references in the document. This should yield the PDF file example.pdf. You should also be able to compile the example with your favorite LaTeX IDE."
+  },
+  {
+    "objectID": "software/latex-business-card.html",
+    "href": "software/latex-business-card.html",
+    "title": "LaTeX Business Card",
+    "section": "",
+    "text": "Note that UMBC people can get their cards printed out at Commonvision and that students get a discount.\nHere is an example that uses the template. To generate it, download the following files and place them together in the same directory.\n\noffsetred.pdf a UMBC logo (from here), converted to PDF format.\nexample.tex latex for example.\n\nTo generate the PDF on a standard Linux setup:\n$ pdflatex example.tex\nAs usual, you may need to repeat the pdflatex command several times to resolve references in the document. This should yield the PDF file example.pdf You should also be able to compile the example with your favorite LaTeX IDE."
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Andrew M. Raim",
+    "section": "",
+    "text": "Here is my Google Scholar profile."
+  },
+  {
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": "Andrew M. Raim",
+    "section": "",
+    "text": "Date\n\n\nTitle\n\n\n\n\n\n\nJun 27, 2022\n\n\nknitr and Latex Documents\n\n\n\n\nJul 27, 2020\n\n\nPresentation for 2020 Joint Statistical Meetings\n\n\n\n\nJan 5, 2018\n\n\nR Workshop in Kerala\n\n\n\n\nAug 7, 2017\n\n\nRcpp Workshop at UMBC\n\n\n\n\nMar 15, 2017\n\n\nWeb Page Migration\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Andrew M. Raim",
+    "section": "",
+    "text": "Welcome to my website! I am a statistician at the U.S. Census Bureau in the Center for Statistical Research and Methodology. I try to post public work here. Contact me (andrew dot raim at gmail dot com) if there is something you cannot find or have other questions or feedback.\n \n  \n   \n  \n    \n     CV\n  \n  \n    \n     Github\n  \n  \n    \n     Bitbucket"
+  },
+  {
+    "objectID": "software.html",
+    "href": "software.html",
+    "title": "Andrew M. Raim",
+    "section": "",
+    "text": "LaTeX templates\n\nlatex-resume: a template for resumes/CVs.\nlatex-business-card: a template for business cards.\nbeamerthemefoiltex: a plain Beamer theme.\nformula-sheet: a template for formula sheets.\nsweave-examples: templates for Latex slides and articles using Sweave via knitr.\n\nNote: I am not a LaTeX programmer, so there may be room for improvement in these templates.\n\n\nUtilities\n\nmd-util: some command line scripts and templates to facilitate compiling markdown to various formats (PDF, html, Beamer) using Pandoc.\nsim-util: some tools to aid with repetitive computational studies, such as statistical simulations."
+  },
+  {
+    "objectID": "links.html",
+    "href": "links.html",
+    "title": "Andrew M. Raim",
+    "section": "",
+    "text": "Math/Stat computing\n\nWolfram Alpha Search engine that can compute integrals, limits, etc\nThe R Project for Statistical Computing\nRStudio The popular integrated development environment (IDE) for R\nRcpp Integrate C++ with R\nStan Declare Bayesian models and compile into fast executable programs, integrated with R\nLaplacesDemon Full-featured Bayesian computation\nR-Nimble Framework for constructing hierarchical models with compiled code for high performance.\nThe Julia Language A high-level, high-performance language for technical computing\n\n\n\nProfessional Associations\n\nAmerican Statistical Association (ASA)\nInstitute of Mathematical Statistics (IMS)\nStatistical Society of Canada (SSC)\n\n\n\nServices\n\nGithub Collaborate on source code projects\nBitbucket Collaborate on source code projects\nOverleaf Collaboration environment for writing Latex documents. Provides a browser-based editor, and also supports Git to work outside of the editor.\n\n\n\nOther Tools\n\nXubuntu An Ubuntu distribution with the lightweight XFCE desktop environment\nOBS Studio Capture your PC’s display, audio, and video for recording or streaming\nAudacity Audio recording, editing, and processing\nFlowblade Video editing\nGIMP Image editing\nTeXstudio Latex editor"
+  },
+  {
+    "objectID": "posts/2017-08-07-UMBC-workshop-Rcpp.html",
+    "href": "posts/2017-08-07-UMBC-workshop-Rcpp.html",
+    "title": "Rcpp Workshop at UMBC",
+    "section": "",
+    "text": "Iris Gauran and I are planning to give a half-day workshop on Rcpp at UMBC. Tentative details are given below. Part of the workshop will be a “quick start”, where we will demonstrate accessing C++ code from R via toy examples. Attendees are encouraged to prepare their laptops for Rcpp programming, and bring them to the workshop to follow along with this portion.\nWe will focus on Rcpp programming in RStudio, which provides a common interface across all major platforms (Windows, Mac, and Linux), and helps to automate some procedural tasks.\n\nInstall R (http://www.r-project.org). The current version as of this writing is 3.4.1 “Single Candle”.\nInstall RStudio Desktop (http://www.rstudio.com). The current version is 1.0.153.\nInstall the Rcpp, RcppArmadillo, and RcppGSL packages.\nSome additional libraries may be needed to compile C++ programs on your computer. These differ depending on your operating system. See http://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites.\n\nThis may be a good time to upgrade if you have older versions of R, RStudio, or any of the listed packages.\nTo test your Rcpp environment, try the following in RStudio.\n\nSelect File => New File => C++ File from the main menu. This will create a simple Rcpp program.\nSave the program, say, as example.cpp.\nClick the Source button, which is located in the upper-right corner of the panel with the example.cpp source code. This should produce the output\n\nR> timesTwo(42)\n[1] 84\n\nLocation: University of Maryland, Baltimore County.\nRoom: MP 401 (Math/Stat Seminar Room).\nTime: Friday Sept 22, 1 - 4:30pm.\nCost: This workshop is free for the UMBC community.\nPrerequisites: intermediate knowledge in a high level language like R, Python, or Matlab. Familiarity with R and RStudio is highly recommended.\nSnacks: Light refreshments (coffee and bagels) will be provided.\nAbstract\nR is the preferred computing environment for many statisticians, and is used both in research and applied problems. R has achieved tremendous popularity because it is free, open source, and available on all modern platforms (Windows, Mac, and Linux). The R programming language is simple and intuitive, and well-suited for fast prototyping of complicated algorithms. However, R users can often find the performance of their programs to be lacking.\nThis workshop will demonstrate Rcpp, an extension of R that facilitates interoperability between R and C++ (Eddelbuettel, 2013). With Rcpp, computationally intensive parts of your program can be written in C++ and seamlessly called from R, potentially giving dramatic performance improvements within the familiar R user environment. We will provide a quick start for new Rcpp users through simple examples, and also examine several larger-scale statistical applications. C++ programming is usually more burdensome than R programming, so we will discuss tradeoffs between optimizing R code and migrating to C++, and ways to minimize suffering while making the transition.\nReferences\n\nDirk Eddelbuettel. Seamless R and C++ Integration with Rcpp. Springer, 2013.\nAlso see http://www.rcpp.org."
+  },
+  {
+    "objectID": "posts/2020-08-03-JSM2020.html",
+    "href": "posts/2020-08-03-JSM2020.html",
+    "title": "Presentation for 2020 Joint Statistical Meetings",
+    "section": "",
+    "text": "For this year’s virtual JSM, I am presenting in the session listed here. Here are links to download the poster PDF and voiceover MP4. Note that the files are hosted on Google Drive: if this is not accessible to you, email me for copies of the files."
+  },
+  {
+    "objectID": "posts/2017-03-15-new-webpage.html",
+    "href": "posts/2017-03-15-new-webpage.html",
+    "title": "Web Page Migration",
+    "section": "",
+    "text": "Here is a quick test of MathJax. An inline equation is \\(f(x) = x^2 e^{-x}\\) inline. And an equation on its own line is\n\\[\n\\Phi(x) =\n\\int_{-\\infty}^{x} \\frac{1}{\\sigma \\sqrt{2\\pi}}\n\\exp \\left( -\\frac{1}{2\\sigma^2} (t - \\mu)^2 \\right) dt.\n\\]\nHere is an example of code.\n\nx = rnorm(100, 0, 1)\nhist(x)"
+  },
+  {
+    "objectID": "posts/2022-06-27-knitr-latex.html",
+    "href": "posts/2022-06-27-knitr-latex.html",
+    "title": "knitr and Latex Documents",
+    "section": "",
+    "text": "I have been aware that Sweave allows embedded R for Latex documents, but it seemed archaic compared to more modern R tools for reproducible research, and I avoided using it. Recently, I was made aware that Overleaf supports authoring Sweave documents which require very little special markup and are almost like working in regular Latex. After some additional searching, I found that this is also possible without Overleaf. knitr has long been able to do this.\nExamples of Sweave with knitr can be found online, but I thought it would be worthwhile to post several more. See the repo https://github.com/andrewraim/sweave-examples for an example in article format (pdf) and one in Beamer slide format (pdf)."
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html",
+    "href": "posts/2017-12-20-Kerala-workshop.html",
+    "title": "R Workshop in Kerala",
+    "section": "",
+    "text": "George Ostrouchov, Nagaraj Neerchal and I are giving a two-day workshop High Performance Statistical Computing using R at the International Conference on Recent Advances in Statistical Methodology with Applications in Clinical and Official Statistics (ICSA 2018), Department of Statistics, St. Thomas College, Pala, Kerala, India. An abstract and brief outline for the workshop are given here.\nThe workshop builds up to parallel and distributed computing in R, but begins by introducing basics of working in R. Previous experience with R and Rstudio will be helpful, but much of the material should be accessible to new R users with experience in another technical computing language such as Matlab, Python, or Julia. Applications involving statistical and machine learning methods will be presented throughout the workshop. A bachelors degree in a discipline such as statistics, computer science, or mathematics - OR equivalent work experience - should be sufficient to understand the methodology.\nAttendees are encouraged to bring their laptops. Many example codes will be provided, and there will be opportunities at some points during the workshop for users to follow along. If you will be bringing your laptop, the remainder of this page discusses how to prepare it for the workshop.\n\nIt is possible to manually install R, Rstudio, and all packages that will be used in the workshop. But this is quite impractical, especially for the material on parallel and distributed programming which varies somewhat based on the computing platform (Windows, Mac, Linux). Therefore, we highly suggest a second option…\nInstead, we have prepared a Docker container, which is like a virtual machine. This will provide all attendees with the same programming environment which contains all the software needed for the workshop.\n\nInstructions to obtain and run the Docker container are given below. For attendees who cannot install Docker, alternative instructions are provided further below.\nWorkshop contents such as slides, programs, and dataset will be provided at the start of the workshop."
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html#windows",
+    "href": "posts/2017-12-20-Kerala-workshop.html#windows",
+    "title": "R Workshop in Kerala",
+    "section": "2.1 Windows",
+    "text": "2.1 Windows\nNote that Windows users who do not have Windows 10 Pro or Enterprise - which will probably be most of us - will need a version of Docker called Docker Toolbox. Once it is installed, open the Docker Quickstart Terminal to issue commands, which should appear as follows.\n\n\n\nLogging into Rstudio Server\n\n\nTake note of the IP address listed in the output; we will use it later when connecting to Rstudio.\nI initially had some trouble installing Docker Toolbox on Windows 10 Home. I believe it was due to low disk space - I suggest having at least a 5-10 GB available before installing. For me, a solution was to remove Docker Toolbox, and the Oracle VirtualBox program installed with it, remove the .docker and .virtualbox subdirectories in C:\\Users\\Andrew, and rerun the Docker Toolbox installer. It may also be helpful to temporarily turn off Windows Firewall, or your antivirus program’s firewall if you have one, during the installation."
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html#linux",
+    "href": "posts/2017-12-20-Kerala-workshop.html#linux",
+    "title": "R Workshop in Kerala",
+    "section": "2.2 Linux",
+    "text": "2.2 Linux\nLinux users should follow the installation instructions specific to their Linux distribution (Ubuntu, CentOS, etc). Once it is installed, Docker can be controlled through the system terminal.\nNote that Docker commands on Linux need administrator-level access, and must be prefixed with sudo. Because we anticipate mostly Windows users in attendance, the sudo has been left out of the commands shown on the remainder of this page."
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html#mac",
+    "href": "posts/2017-12-20-Kerala-workshop.html#mac",
+    "title": "R Workshop in Kerala",
+    "section": "2.3 Mac",
+    "text": "2.3 Mac\nMac users should follow their set of installation instructions. As with Linux, once Docker is installed on a Mac, it can be controlled through the Terminal application. sudo is also needed for Mac when executing Docker commands."
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html#a-quick-test-of-your-docker-setup",
+    "href": "posts/2017-12-20-Kerala-workshop.html#a-quick-test-of-your-docker-setup",
+    "title": "R Workshop in Kerala",
+    "section": "2.4 A Quick Test of your Docker Setup",
+    "text": "2.4 A Quick Test of your Docker Setup\nIn your terminal, issue the following command.\n$ docker run hello-world\nHere, $ represents the prompt, which is not part of the command. If your Docker setup is working, you should get the following result.\n$ docker run hello-world\nHello from Docker!\nThis message shows that your installation appears to be working correctly.\nTo generate this message, Docker took the following steps:\n 1. The Docker client contacted the Docker daemon.\n 2. The Docker daemon pulled the \"hello-world\" image from the Docker Hub.\n    (amd64)\n 3. The Docker daemon created a new container from that image which runs the\n    executable that produces the output you are currently reading.\n 4. The Docker daemon streamed that output to the Docker client, which sent it\n    to your terminal.\nTo try something more ambitious, you can run an Ubuntu container with:\n $ docker run -it ubuntu bash\nShare images, automate workflows, and more with a free Docker ID:\n https://cloud.docker.com/\nFor more examples and ideas, visit:\n https://docs.docker.com/engine/userguide/"
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html#r-on-the-command-line",
+    "href": "posts/2017-12-20-Kerala-workshop.html#r-on-the-command-line",
+    "title": "R Workshop in Kerala",
+    "section": "5.1 R on the Command Line",
+    "text": "5.1 R on the Command Line\nTo start R on the command line, issue the R command.\nrstudio@a8f9a900c791:~$ R\n> cat(\"Hello world\\n\")\nHello world"
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html#rstudio",
+    "href": "posts/2017-12-20-Kerala-workshop.html#rstudio",
+    "title": "R Workshop in Kerala",
+    "section": "5.2 Rstudio",
+    "text": "5.2 Rstudio\nTo connect to Rstudio server, open a web browser on your laptop.\n\nMac and Linux users should navigate to the URL http://localhost:8787.\nWindows users should recall the IP address they noted back in section 2.1. Suppose your assigned IP was 192.168.99.100 (which is the one I have in the screenshot); navigate to the URL http://192.168.99.100:8787. If you forgot the IP address, start up another Docker Terminal and run the following.\n\n$ docker-machine ls\nA login prompt should appear in your browser. Enter rstudio as both the username and the password.\n\n\n\nLogging into Rstudio Server\n\n\nNow you should be ready to use Rstudio in your web browser.\n\n\n\nRstudio Server in browser"
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html#r-commander",
+    "href": "posts/2017-12-20-Kerala-workshop.html#r-commander",
+    "title": "R Workshop in Kerala",
+    "section": "5.3 R Commander",
+    "text": "5.3 R Commander\nTo launch the R Commander GUI, first start R via the command line or Rstudio. Then issue the following command.\n> library(Rcmdr)"
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html#running-mpi-jobs",
+    "href": "posts/2017-12-20-Kerala-workshop.html#running-mpi-jobs",
+    "title": "R Workshop in Kerala",
+    "section": "5.4 Running MPI Jobs",
+    "text": "5.4 Running MPI Jobs\nTo demonstrate running an MPI job, let us use a simple Hello World example. Open a text editor on your laptop and save the following code to the file /path/to/workshop/hello.R\nlibrary(pbdMPI, quiet = TRUE)\n\nmsg <- sprintf(\"Hello world from process %d\\n\", comm.rank(), comm.size())\ncomm.cat(\"Say hello:\\n\", quiet = TRUE)\ncomm.cat(msg, all.rank = TRUE)\n\nfinalize()\nRecall that this file will be accessible inside the container via the path /home/rstudio/ext/hello.R. Inside the container, you should be able to run the script in parallel via the mpirun command.\nrstudio@a8f9a900c791:~$ mpirun -np 4 Rscript ~/ext/hello.R\nSay hello:\nCOMM.RANK = 0\nHello world from process 0\nCOMM.RANK = 1\nCOMM.RANK = 2\nHello world from process 1\nHello world from process 2\nCOMM.RANK = 3\nHello world from process 3\nOutputs from the container should be saved to /home/rstudio/ext. This will allow you to view images, PDFs, etc using the tools already installed on your laptop.\nIf you made it this far, congratulations - your laptop is ready!"
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html#install-r",
+    "href": "posts/2017-12-20-Kerala-workshop.html#install-r",
+    "title": "R Workshop in Kerala",
+    "section": "7.1 Install R",
+    "text": "7.1 Install R\nInstall R from CRAN. Windows users should navigate to “Download R for Windows” at the top of the page. We are using version 3.4.3."
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html#install-rstudio",
+    "href": "posts/2017-12-20-Kerala-workshop.html#install-rstudio",
+    "title": "R Workshop in Kerala",
+    "section": "7.2 Install Rstudio",
+    "text": "7.2 Install Rstudio\nInstall Rstudio. Click Products => RStudio on the top menu, and look for a button labeled Download Rstudio Desktop. Select RStudio Desktop Open Source License among the available versions. We are using version 1.1.383."
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html#install-the-rcpp-package",
+    "href": "posts/2017-12-20-Kerala-workshop.html#install-the-rcpp-package",
+    "title": "R Workshop in Kerala",
+    "section": "7.3 Install the Rcpp package",
+    "text": "7.3 Install the Rcpp package\nSee https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites for instructions to install the prerequisites (compilers, important libraries, etc). Once the prerequisites are installed, simply install Rcpp as you would any other package.\nTo test your Rcpp environment, try the following in RStudio. 1. Select File => New File => C++ File from the main menu. This will create a simple Rcpp program.\n2. Save the program, say, as example.cpp.\n3. Click the Source button, which is located in the upper-right corner of the panel with the example.cpp source code. This should produce the following output.\n> timesTwo(42)\n[1] 84"
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html#install-mpi",
+    "href": "posts/2017-12-20-Kerala-workshop.html#install-mpi",
+    "title": "R Workshop in Kerala",
+    "section": "7.4 Install MPI",
+    "text": "7.4 Install MPI\nThere are several MPI implementations available, such as OpenMPI and MVAPICH2. The instructions will vary based on your choice of implementation, as well as your hardware and operating system. You are on your own here; good luck! If your installation is successful, you should be able to run the following minimal example.\nFirst, create a new file called hello_mpi.c with the following contents.\n#include <stdio.h>\n#include <mpi.h>\n\nint main (int argc, char *argv[])\n{\n    int id, np;\n    char processor_name[MPI_MAX_PROCESSOR_NAME];\n    int processor_name_len;\n\n    MPI_Init(&argc, &argv);\n\n    MPI_Comm_size(MPI_COMM_WORLD, &np);\n    MPI_Comm_rank(MPI_COMM_WORLD, &id);\n    MPI_Get_processor_name(processor_name, &processor_name_len);\n\n    printf(\"Hello world from process %03d out of %03d, processor name %s\\n\",\n        id, np, processor_name);\n\n    MPI_Finalize();\n    return 0;\n}\nNow compile and run the program with MPI.\n$ mpicc hello-mpi.c -o hello-mpi\n$ mpirun -np 4 hello-mpi\nHello world from process 000 out of 004, processor name localhost\nHello world from process 001 out of 004, processor name localhost\nHello world from process 002 out of 004, processor name localhost\nHello world from process 003 out of 004, processor name localhost\nDepending on your platform and choice of MPI implementation, your commands may be different. The string localhost in the output will be replaced with your machine’s hostname."
+  },
+  {
+    "objectID": "posts/2017-12-20-Kerala-workshop.html#install-r-packages",
+    "href": "posts/2017-12-20-Kerala-workshop.html#install-r-packages",
+    "title": "R Workshop in Kerala",
+    "section": "7.5 Install R Packages",
+    "text": "7.5 Install R Packages\nDownload the script install.R and run it in R to obtain packages which will be used in the workshop. Suppose we have placed it into the directory /path/to/workshop. Run the following command in R.\n> source(\"/path/to/workshop/install.R\")\nTo make sure your package versions are up to date, open Rstudio and click Tools => Check for Package Updates on the main menu."
+  }
+]
