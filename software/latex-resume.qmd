@@ -1,0 +1,51 @@
+---
+title: LaTeX Resume / CV
+---
+
+Here is a template for a resume or CV in LaTeX. It is especially useful if you
+maintain publications and other outputs in bibtex form. This template was
+originally based on
+[Andrew McNabb's template](http://www.mcnabbs.org/andrew/linux/latexres)
+and customized to my own tastes. It was changed in a few ways:
+
+1. The format is more suitable for a CV or long resume, rather than a
+one-page resume of bullet points.
+2. The style definitions are separated from the main tex file (which contains
+the content of the resume/cv only).
+
+Here is an [example](/downloads/latex-resume/example.pdf) that uses the
+template. You will probably find that some of the included macros are not
+relevant to you, or that something you need is missing. For example, a
+professor probably will not list their past TA assignments, but may want to
+list grants, graduate students, courses taught, etc. Feel free to modify the
+template for your own needs, aesthetics, etc.
+
+To generate the example, download the following files and place them together
+in the same directory.
+
+* [resume.sty](/downloads/latex-resume/resume.sty) the resume style file
+* [example.tex](/downloads/latex-resume/example.tex) an example resume
+* [papers.bib](/downloads/latex-resume/papers.bib) example bibtex file
+  containing some papers
+* [presentations.bib](/downloads/latex-resume/presentations.bib) example bibtex
+  file containing some presentations
+
+To generate the PDF on a standard Linux setup:
+
+```bash
+$ pdflatex example.tex
+$ bibtex bu1
+$ bibtex bu2
+$ pdflatex example.tex
+```
+
+The `bibtex` runs for for `bu1` and `bu2` come from the use of the `bibunits`
+package, which allow you to keep several separate bibliographies in one
+document. In the example, we have one bibliography for papers and one for
+presentations. 
+
+As usual, you may need to repeat the `pdflatex` command several times to
+resolve references in the document. This should yield the PDF file
+`example.pdf` You should also be able to compile the example with your favorite
+LaTeX IDE.
+

@@ -1,0 +1,30 @@
+---
+title: "Andrew M. Raim"
+about:
+  id: about-heading
+  template: jolla
+  image-width: 10em
+  image-shape: rectangle
+  image: images/araim-psday2010.jpg
+  links:
+    - icon: filetype-pdf
+      href: /downloads/araim-cv.pdf
+      text: CV
+    - icon: github
+      href: https://github.com/andrewraim
+      text: Github
+    - icon: bucket
+      href: https://bitbucket.com/andrewraim
+      text: Bitbucket
+---
+
+:::{#about-heading}
+
+Welcome to my website! I am a statistician at the
+[U.S. Census Bureau](http://www.census.gov) in the
+[Center for Statistical Research and Methodology](https://www.census.gov/topics/research/stat-research.html).
+I try to post public work here. Contact me (andrew dot raim at gmail dot com)
+if there is something you cannot find or have other questions or feedback.
+
+:::
+

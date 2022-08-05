@@ -1,0 +1,36 @@
+project:
+  type: website
+  resources:
+    - bib/*_bib.html
+    - downloads
+
+website:
+  title: "Andrew M. Raim"
+  site-url: /
+  navbar:
+    right:
+      - href: news.qmd
+        text: News
+      - href: publications.qmd
+        text: Publications
+      - href: software.qmd
+        text: Software
+      - href: links.qmd
+        text: Links
+  search: false
+  page-footer: 
+    left:
+      - icon: mailbox
+        text: "andrew dot raim at gmail dot com"
+    right: "Views expressed on this site are solely those of the author." 
+
+format:
+  html:
+    theme:
+      - default
+      - styles.css
+    toc: false
+    linestretch: 1.4
+    fontsize: "11pt"
+    mainfont: "modern"
+

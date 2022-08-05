@@ -1,0 +1,93 @@
+\documentclass{formula-sheet}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{amsthm}
+\usepackage{bm}
+
+\linespread{0.00001}
+
+\begin{document}
+\begin{landscape}
+
+\begin{center}
+Sample Formula Sheet
+\hspace{30pt}
+Fall 2012
+\hspace{30pt}
+Andrew Raim
+\end{center}
+
+\smallskip
+
+\begin{tabular}[t]{|l|l|l|}
+
+\hline
+% ---------------------------------------------------------------
+\begin{minipage}[t]{0.333\linewidth}
+\smallskip
+
+\paragraph{Normal pdf.}
+For $X \sim \text{N}_k(\mu, \Sigma)$,
+\begin{displaymath}
+f(x \mid \mu, \Sigma) = \frac{1}{ (2\pi)^{k/2} | \Sigma |^{1/2} }  \exp\left\{ -\frac{1}{2} (x - \mu)^T \Sigma^{-1} (x - \mu) \right\}
+\end{displaymath}
+\medskip
+
+\paragraph{Poisson pdf.}
+For $X \sim \text{P}(\lambda)$,
+\begin{displaymath}
+f(x \mid \lambda) = \frac{ e^{-\lambda} \lambda^x }{ x! }
+I(x \in \{ 0, 1, \ldots \})
+\end{displaymath}
+\medskip
+
+\end{minipage}
+&
+
+% -----------------------------------------------------
+\begin{minipage}[t]{0.333\linewidth}
+\smallskip
+
+\paragraph{Identifiability.}
+A family $\mathcal{F} = \{ F(x; \theta) : \theta \in \Theta \}$ is identifiable if
+\begin{displaymath}
+F(x; \theta) \stackrel{as}{=} F(x; \theta^*)
+\quad \implies \quad
+\theta = \theta^*
+\end{displaymath}
+\medskip
+
+
+\end{minipage}
+&
+
+
+% -----------------------------------------------------
+\begin{minipage}[t]{0.315\linewidth}
+\smallskip
+
+\paragraph{Characteristic function.} Let $i = \sqrt{-1}$, then
+%
+\begin{displaymath}
+\phi_X(t) = \int e^{itx} dF(x)
+\end{displaymath}
+%
+is the chf of $X \sim F$
+\medskip
+
+
+% Just a temporary placeholder to make the boxes take up the whole page
+\vspace{17.25cm}
+
+\end{minipage}
+
+\\ \hline
+\end{tabular}
+
+
+\end{landscape}
+\end{document}
+

@@ -1,0 +1,15 @@
+---
+title: "Presentation for 2020 Joint Statistical Meetings"
+date:  2020-07-27
+categories: workshops
+---
+
+For this year's virtual JSM, I am presenting in the session listed
+[here](https://ww2.amstat.org/meetings/jsm/2020/onlineprogram/AbstractDetails.cfm?abstractid=309805).
+Here are links to download the poster
+[PDF](https://drive.google.com/uc?export=view&id=1m4NIMm0kfrVRwsfigFHJDSUqOkCEHObA)
+and voiceover
+[MP4](https://drive.google.com/uc?export=view&id=1keGcR_2ZJ87nFicBbrPnvPh6nyGsvOLk).
+Note that the files are hosted on Google Drive: if this is not accessible to
+you, email me for copies of the files.
+

@@ -1,0 +1,126 @@
+\documentclass[11pt,oneside]{article}
+\usepackage{resume}
+\usepackage{bibunits}
+
+\begin{document}
+
+%--------------------------------------------------------
+\resmakeheader{My Name}
+{My Department}
+{My University}
+{9999 Univeristy Boulevard}
+{Building 1234}
+{{\tt email at univ dot edu}}
+{\url{www.dept.univ.edu/~myname}}
+
+
+%--------------------------------------------------------
+\resmakesectionheader{Education}
+\begin{itemize*}
+\item School1, Ph.D. Major, Start Date -- End Date
+\item School2, M.S. Major, Start Date -- End Date
+\item School3, B.S. Major, Start Date -- End Date
+\end{itemize*}
+
+
+%--------------------------------------------------------
+\resmakesectionheader{Graduate Assistantships}
+\resmakeraposition{RA}{Dr. Lastname}{Start Date -- End Date}
+{In this position I did many interesting things ...}
+
+\resmaketacourse{Course Number}{Course Name}{Semester}
+{In this position I taught ...}
+
+\resmaketacourse{Course Number}{Course Name}{Semester}
+{Another course I TA'ed ...}
+
+
+%--------------------------------------------------------
+\resmakesectionheader{Organizations}
+\resmakeorg{President}{Student Organization}{2004 -- 2007}
+{My responsibilities included ...}
+
+\resmakeorg{Student member}{Professional organization 1}{2001 -- 2004}
+{Some additional notes ...}
+
+\resmakeorg{Student member}{Professional organization 2}{Since 2004}{}
+
+
+%--------------------------------------------------------
+\resmakesectionheader{Papers \& Technical Reports}
+
+\begin{bibunit}[unsrt] 
+\nocite{MyPaper1}
+\nocite{MyPaper2}
+\putbib[papers]
+\end{bibunit} 
+
+
+%--------------------------------------------------------
+\resmakesectionheader{Presentations \& Workshops}
+
+\begin{bibunit}[unsrt] 
+\nocite{MyTalk1}
+\nocite{MyTalk2}
+\putbib[presentations]
+\end{bibunit} 
+
+
+%--------------------------------------------------------
+\resmakesectionheader{Selected Projects}
+\begin{enumerate}
+\item \emph{My consulting project 1}.
+In this project I ...
+
+\item \emph{My consulting project 2}.
+In this second project I ...
+
+\item \emph{Interesting course project}.
+In this project I ...
+\end{enumerate}
+
+
+%--------------------------------------------------------
+\resmakesectionheader{Coursework}
+\begin{table}[H]
+\begin{tabular*}{\textwidth}{p{0.15\textwidth} p{0.45\textwidth} p{0.15\textwidth} p{0.15\textwidth}}
+\resmakecourse{COURSE 600}{Course name}{Instructor 1}{Spring 2007}
+\resmakecourse{COURSE 601}{Course name}{Instructor 2}{Fall 2007}
+\resmakecourse{COURSE 602}{Course name}{Instructor 3}{Fall 2007}
+\end{tabular*}
+\end{table}
+
+
+%--------------------------------------------------------
+\resmakesectionheader{Work Experience}
+
+\resmakeitemheader{Company name}{Baltimore, MD}{Jan 2002 to Aug 2004}
+{Position name}
+{Job description ...}
+
+\resmakeitemheader{Company name}{New York, NY}{Feb 2000 to Jan 2002}
+{Job description ...}
+{In this position, I ...}
+
+%--------------------------------------------------------
+\resmakesectionheader{Computing Skills}
+
+\begin{itemize*}
+\item Frequently use Microsoft Office (Word, Excel, Access)
+\item Database administration
+\item Comfortable in C++
+\item Proficient in LISP
+\item ...
+\end{itemize*}
+
+%--------------------------------------------------------
+\resmakesectionheader{Awards}
+
+\begin{itemize*}
+\item Nobel Peace Prize
+\item Time Person of the Year
+\item ...
+\end{itemize*}
+
+\end{document}
+

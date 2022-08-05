@@ -1,0 +1,12 @@
+---
+#title: "News"
+listing:
+  contents: posts
+  type: table
+  sort: "date desc"
+  fields: [date, title]
+  feed: true
+  filter-ui: false
+  sort-ui: false
+---
+

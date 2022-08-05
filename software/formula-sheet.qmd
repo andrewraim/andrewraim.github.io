@@ -1,0 +1,23 @@
+---
+title: LaTeX Formula Sheet
+---
+
+This is a template for a formula sheet in LaTeX.  Here is an
+[example](/downloads/latex-formula-sheet/example.pdf) that uses the template.
+To generate it, download the following files and place them together in the
+same directory.
+
+* [formula-sheet.cls](/downloads/latex-formula-sheet/formula-sheet.cls) the class
+* [example.tex](/downloads/latex-formula-sheet/example.tex) the example
+
+To generate the PDF on a standard Linux setup:
+
+```bash
+$ pdflatex example.tex
+```
+
+As usual, you may need to repeat the `pdflatex` command several times to
+resolve references in the document. This should yield the PDF file
+`example.pdf`. You should also be able to compile the example with your
+favorite LaTeX IDE.
+
