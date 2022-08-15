@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-08-15">
 
-<title>Andrew M. Raim – news</title>
+<title>Andrew M. Raim - Browsing summary files from the decennial census with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -18,20 +19,18 @@ ul.task-list{list-style: none;}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -45,39 +44,9 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="alternate" type="application/rss+xml" title="Andrew M. Raim" href="news.xml"></head>
+</head>
 
 <body class="nav-fixed fullcontent">
 
@@ -85,7 +54,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="./index.html">
+      <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Andrew M. Raim</span>
   </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -94,16 +63,16 @@ ul.task-list{list-style: none;}
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./news.html" aria-current="page">News</a>
+    <a class="nav-link" href="../news.html">News</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html">Publications</a>
+    <a class="nav-link" href="../publications.html">Publications</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./software.html">Software</a>
+    <a class="nav-link" href="../software.html">Software</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./links.html">Links</a>
+    <a class="nav-link" href="../links.html">Links</a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -118,81 +87,36 @@ ul.task-list{list-style: none;}
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Browsing summary files from the decennial census with R</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">programming</div>
+  </div>
+  </div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 15, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<p>If you have needed to use decennial census data without access to the internet, you may have encountered the raw data form of the summary files. These may be downloaded from the Census Bureau website for offline use; e.g., <a href="https://www.census.gov/data/datasets/2010/dec/summary-file-2.html">here</a>. The format of the files is compact but can be difficult to navigate. James Livsey, Kyle Irimata, and I prepared a <a href="https://www.census.gov/library/working-papers/2022/adrm/ssc2022-01.html">technical report</a> and a <a href="https://github.com/andrewraim/sfreader">package</a> to assist R users with this via the tidyverse. These materials focus on the 2010 SF2 summary file, but support for others may be added in the future as needed.</p>
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="programming" data-listing-date-sort="1660536000000" data-listing-file-modified-sort="1660572621408" data-listing-reading-time-sort="0.43" data-listing-title-sort="Browsing summary files from the decennial census with R" data-listing-filename-sort="2022-08-15-sfreader.qmd">
-<td class="listing-date">
-Aug 15, 2022
-</td>
-<td class="listing-title">
-<a href="./posts/2022-08-15-sfreader.html" class="title">Browsing summary files from the decennial census with R</a>
-</td>
-</tr>
-<tr data-index="1" data-categories="workshops" data-listing-date-sort="1656302400000" data-listing-file-modified-sort="1659713816094" data-listing-reading-time-sort="0.835" data-listing-title-sort="knitr and Latex Documents" data-listing-filename-sort="2022-06-27-knitr-latex.qmd">
-<td class="listing-date">
-Jun 27, 2022
-</td>
-<td class="listing-title">
-<a href="./posts/2022-06-27-knitr-latex.html" class="title">knitr and Latex Documents</a>
-</td>
-</tr>
-<tr data-index="2" data-categories="workshops" data-listing-date-sort="1595822400000" data-listing-file-modified-sort="1659713816094" data-listing-reading-time-sort="0.2" data-listing-title-sort="Presentation for 2020 Joint Statistical Meetings" data-listing-filename-sort="2020-08-03-JSM2020.qmd">
-<td class="listing-date">
-Jul 27, 2020
-</td>
-<td class="listing-title">
-<a href="./posts/2020-08-03-JSM2020.html" class="title">Presentation for 2020 Joint Statistical Meetings</a>
-</td>
-</tr>
-<tr data-index="3" data-categories="workshops" data-listing-date-sort="1515128400000" data-listing-file-modified-sort="1659713816094" data-listing-reading-time-sort="12.22" data-listing-title-sort="R Workshop in Kerala" data-listing-filename-sort="2017-12-20-Kerala-workshop.qmd">
-<td class="listing-date">
-Jan 5, 2018
-</td>
-<td class="listing-title">
-<a href="./posts/2017-12-20-Kerala-workshop.html" class="title">R Workshop in Kerala</a>
-</td>
-</tr>
-<tr data-index="4" data-categories="workshops" data-listing-date-sort="1502078400000" data-listing-file-modified-sort="1659713816094" data-listing-reading-time-sort="2.3" data-listing-title-sort="Rcpp Workshop at UMBC" data-listing-filename-sort="2017-08-07-UMBC-workshop-Rcpp.qmd">
-<td class="listing-date">
-Aug 7, 2017
-</td>
-<td class="listing-title">
-<a href="./posts/2017-08-07-UMBC-workshop-Rcpp.html" class="title">Rcpp Workshop at UMBC</a>
-</td>
-</tr>
-<tr data-index="5" data-categories="programming" data-listing-date-sort="1489550400000" data-listing-file-modified-sort="1659713816094" data-listing-reading-time-sort="0.33" data-listing-title-sort="Web Page Migration" data-listing-filename-sort="2017-03-15-new-webpage.qmd">
-<td class="listing-date">
-Mar 15, 2017
-</td>
-<td class="listing-title">
-<a href="./posts/2017-03-15-new-webpage.html" class="title">Web Page Migration</a>
-</td>
-</tr>
-</tbody>
-
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
