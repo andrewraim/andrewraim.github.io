@@ -1,0 +1,24 @@
+---
+title: "COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details"
+date: 2022-11-15
+categories:
+  - article
+  - programming
+---
+
+I have been involved in several efforts related to the Conway-Maxwell Poisson
+(CMP) distribution, one of which is maintaining the
+[COMPoissonReg](https://CRAN.R-project.org/package=COMPoissonReg) package. The
+normalizing constant of the CMP distribution is central to many computations in
+the package. Users have reported strange results that can be traced back to
+problems computing the normalizing constant. Early versions computed the
+constant by truncating the series to an finite sum with a fixed number of
+terms; however, this may yield inaccurate results. We addressed this to some
+degree in more recent versions in an ad hoc way. In the latest version (0.8.0)
+of the package, these computations have have revisited in a more principled
+way. Kimberly Sellers and I recently completed a
+[report](https://www.census.gov/library/working-papers/2022/adrm/RRC2022-01.html)
+describing the updated methods, which also demonstrates general use of the
+package. The intention is to include a vignette version in the package to be
+updated along with the software.
+

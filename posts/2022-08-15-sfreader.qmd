@@ -1,7 +1,9 @@
 ---
 title: "Browsing summary files from the decennial census with R"
 date: 2022-08-15
-categories: programming
+categories:
+  - article
+  - programming
 ---
 
 If you have needed to use decennial census data without access to the internet,
