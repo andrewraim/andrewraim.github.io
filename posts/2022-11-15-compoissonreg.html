@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-08-15">
+<meta name="dcterms.date" content="2022-11-15">
 
-<title>Andrew M. Raim - Browsing summary files from the decennial census with R</title>
+<title>Andrew M. Raim - COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,7 +89,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Browsing summary files from the decennial census with R</h1>
+<h1 class="title">COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details</h1>
   <div class="quarto-categories">
     <div class="quarto-category">article</div>
     <div class="quarto-category">programming</div>
@@ -104,7 +104,7 @@ ul.task-list{list-style: none;}
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 15, 2022</p>
+      <p class="date">November 15, 2022</p>
     </div>
   </div>
     
@@ -113,7 +113,7 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>If you have needed to use decennial census data without access to the internet, you may have encountered the raw data form of the summary files. These may be downloaded from the Census Bureau website for offline use; e.g., <a href="https://www.census.gov/data/datasets/2010/dec/summary-file-2.html">here</a>. The format of the files is compact but can be difficult to navigate. James Livsey, Kyle Irimata, and I prepared a <a href="https://www.census.gov/library/working-papers/2022/adrm/SSC2022-01.html">technical report</a> and a <a href="https://github.com/andrewraim/sfreader">package</a> to assist R users with this via the tidyverse. These materials focus on the 2010 SF2 summary file, but support for others may be added in the future as needed.</p>
+<p>I have been maintaining the <a href="https://CRAN.R-project.org/package=COMPoissonReg">COMPoissonReg</a> package, which facilitates use of the Conway-Maxwell Poisson (CMP) distribution. The normalizing constant of the CMP distribution is central to many computations in the package. Users have occasionally reported strange results that can be traced back to problems computing the normalizing constant. Early versions computed the constant by truncating the series to an finite sum with a fixed number of terms; however, this may yield inaccurate results. We addressed this to some degree in more recent versions in an ad hoc way. In the latest version (0.8.0) of the package, these computations have have revisited in a more principled way. Kimberly Sellers and I recently completed a <a href="https://www.census.gov/library/working-papers/2022/adrm/RRC2022-01.html">report</a> describing the updated method, which also demonstrates general use of the package. The intention is to include a vignette version of this report in the package going forward, to be updated along with the software.</p>
 
 
 

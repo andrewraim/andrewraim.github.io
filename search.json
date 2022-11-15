@@ -32,7 +32,7 @@
     "href": "news.html",
     "title": "Andrew M. Raim",
     "section": "",
-    "text": "Date\n\n\nTitle\n\n\n\n\n\n\nAug 15, 2022\n\n\nBrowsing summary files from the decennial census with R\n\n\n\n\nJun 27, 2022\n\n\nknitr and Latex Documents\n\n\n\n\nJul 27, 2020\n\n\nPresentation for 2020 Joint Statistical Meetings\n\n\n\n\nJan 5, 2018\n\n\nR Workshop in Kerala\n\n\n\n\nAug 7, 2017\n\n\nRcpp Workshop at UMBC\n\n\n\n\nMar 15, 2017\n\n\nWeb Page Migration\n\n\n\n\n\n\nNo matching items"
+    "text": "Date\n\n\nTitle\n\n\n\n\n\n\nNov 15, 2022\n\n\nCOMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details\n\n\n\n\nAug 15, 2022\n\n\nBrowsing summary files from the decennial census with R\n\n\n\n\nJun 27, 2022\n\n\nknitr and Latex Documents\n\n\n\n\nJul 27, 2020\n\n\nPresentation for 2020 Joint Statistical Meetings\n\n\n\n\nJan 5, 2018\n\n\nR Workshop in Kerala\n\n\n\n\nAug 7, 2017\n\n\nRcpp Workshop at UMBC\n\n\n\n\nMar 15, 2017\n\n\nWeb Page Migration\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -187,5 +187,12 @@
     "title": "R Workshop in Kerala",
     "section": "7.5 Install R Packages",
     "text": "7.5 Install R Packages\nDownload the script install.R and run it in R to obtain packages which will be used in the workshop. Suppose we have placed it into the directory /path/to/workshop. Run the following command in R.\n> source(\"/path/to/workshop/install.R\")\nTo make sure your package versions are up to date, open Rstudio and click Tools => Check for Package Updates on the main menu."
+  },
+  {
+    "objectID": "posts/2022-11-15-compoissonreg.html",
+    "href": "posts/2022-11-15-compoissonreg.html",
+    "title": "COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details",
+    "section": "",
+    "text": "I have been maintaining the COMPoissonReg package, which facilitates use of the Conway-Maxwell Poisson (CMP) distribution. The normalizing constant of the CMP distribution is central to many computations in the package. Users have occasionally reported strange results that can be traced back to problems computing the normalizing constant. Early versions computed the constant by truncating the series to an finite sum with a fixed number of terms; however, this may yield inaccurate results. We addressed this to some degree in more recent versions in an ad hoc way. In the latest version (0.8.0) of the package, these computations have have revisited in a more principled way. Kimberly Sellers and I recently completed a report describing the updated method, which also demonstrates general use of the package. The intention is to include a vignette version of this report in the package going forward, to be updated along with the software."
   }
 ]

@@ -10,7 +10,24 @@
 <atom:link href="https://andrewraim.github.io/news.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.0.32</generator>
-<lastBuildDate>Mon, 15 Aug 2022 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 15 Nov 2022 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details</title>
+  <link>https://andrewraim.github.io/posts/2022-11-15-compoissonreg.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>I have been maintaining the <a href="https://CRAN.R-project.org/package=COMPoissonReg">COMPoissonReg</a> package, which facilitates use of the Conway-Maxwell Poisson (CMP) distribution. The normalizing constant of the CMP distribution is central to many computations in the package. Users have occasionally reported strange results that can be traced back to problems computing the normalizing constant. Early versions computed the constant by truncating the series to an finite sum with a fixed number of terms; however, this may yield inaccurate results. We addressed this to some degree in more recent versions in an ad hoc way. In the latest version (0.8.0) of the package, these computations have have revisited in a more principled way. Kimberly Sellers and I recently completed a <a href="https://www.census.gov/library/working-papers/2022/adrm/RRC2022-01.html">report</a> describing the updated method, which also demonstrates general use of the package. The intention is to include a vignette version of this report in the package going forward, to be updated along with the software.</p>
+
+
+
+ ]]></description>
+  <category>article</category>
+  <category>programming</category>
+  <guid>https://andrewraim.github.io/posts/2022-11-15-compoissonreg.html</guid>
+  <pubDate>Tue, 15 Nov 2022 05:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Browsing summary files from the decennial census with R</title>
   <link>https://andrewraim.github.io/posts/2022-08-15-sfreader.html</link>
@@ -23,6 +40,7 @@
 
 
  ]]></description>
+  <category>article</category>
   <category>programming</category>
   <guid>https://andrewraim.github.io/posts/2022-08-15-sfreader.html</guid>
   <pubDate>Mon, 15 Aug 2022 04:00:00 GMT</pubDate>

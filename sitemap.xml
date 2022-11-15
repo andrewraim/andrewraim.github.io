@@ -2,58 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://andrewraim.github.io/software/latex-resume.html</loc>
-    <lastmod>2022-11-14T16:02:08.448Z</lastmod>
+    <lastmod>2022-11-15T16:22:51.170Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/software/formula-sheet.html</loc>
-    <lastmod>2022-11-14T16:02:08.660Z</lastmod>
+    <lastmod>2022-11-15T16:22:51.386Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/software/latex-business-card.html</loc>
-    <lastmod>2022-11-14T16:02:08.876Z</lastmod>
+    <lastmod>2022-11-15T16:22:51.594Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/publications.html</loc>
-    <lastmod>2022-11-14T16:02:09.064Z</lastmod>
+    <lastmod>2022-11-15T16:22:51.790Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/news.html</loc>
-    <lastmod>2022-11-14T16:02:09.284Z</lastmod>
+    <lastmod>2022-11-15T16:22:52.014Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/index.html</loc>
-    <lastmod>2022-11-14T16:02:09.464Z</lastmod>
+    <lastmod>2022-11-15T16:22:52.186Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/software.html</loc>
-    <lastmod>2022-11-14T16:02:09.632Z</lastmod>
+    <lastmod>2022-11-15T16:22:52.378Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/links.html</loc>
-    <lastmod>2022-11-14T16:02:09.820Z</lastmod>
+    <lastmod>2022-11-15T16:22:52.558Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/posts/2017-08-07-UMBC-workshop-Rcpp.html</loc>
-    <lastmod>2022-11-14T16:02:10.124Z</lastmod>
+    <lastmod>2022-11-15T16:22:52.894Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/posts/2020-08-03-JSM2020.html</loc>
-    <lastmod>2022-11-14T16:02:10.288Z</lastmod>
+    <lastmod>2022-11-15T16:22:53.074Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/posts/2017-03-15-new-webpage.html</loc>
-    <lastmod>2022-11-14T16:02:11.072Z</lastmod>
+    <lastmod>2022-11-15T16:22:53.842Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/posts/2022-08-15-sfreader.html</loc>
-    <lastmod>2022-11-14T16:02:11.264Z</lastmod>
+    <lastmod>2022-11-15T16:22:54.018Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/posts/2022-06-27-knitr-latex.html</loc>
-    <lastmod>2022-11-14T16:02:11.468Z</lastmod>
+    <lastmod>2022-11-15T16:22:54.214Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/posts/2017-12-20-Kerala-workshop.html</loc>
-    <lastmod>2022-11-14T16:02:12.340Z</lastmod>
+    <lastmod>2022-11-15T16:22:54.982Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/posts/2022-11-15-compoissonreg.html</loc>
+    <lastmod>2022-11-15T16:22:55.170Z</lastmod>
   </url>
 </urlset>
