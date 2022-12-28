@@ -9,8 +9,8 @@ website:
   site-url: /
   navbar:
     right:
-      - href: news.qmd
-        text: News
+      - href: posts.qmd
+        text: Posts
       - href: publications.qmd
         text: Publications
       - href: software.qmd
