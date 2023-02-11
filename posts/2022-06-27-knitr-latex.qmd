@@ -1,7 +1,7 @@
 ---
 title: "knitr and Latex Documents"
 date: 2022-06-27
-categories: workshops
+categories: programming
 ---
 
 Rmarkdown seems to be the most standard way to embed R code and results into a

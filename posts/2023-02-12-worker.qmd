@@ -1,0 +1,50 @@
+---
+title: "Worker Tool for Computational Studies"
+date: 2023-02-12
+categories: programming
+---
+
+In a large statistical simulation or other computational study, it can be
+labor intensive to kick off all of the runs whose results will be harvested and
+summarized. [Worker](https://github.com/andrewraim/worker) is a lightweight
+tool that seeks to help automate this process. This post gives a brief
+description; see the webpage for details.
+
+Suppose our study consists of a parameter that is varied in some way, and we
+have determined that there are 999 levels of interest. Suppose that we have set
+up 999 corresponding directories, named as follows.
+
+```{r, eval = FALSE}
+$ ls -1
+run001
+run002
+...
+run999
+```
+
+In each folder, suppose there is a script `launch.R` that runs the
+corresponding level of the simulation. An output file `output.csv` is placed in
+the directory upon successful completion of `launch.R`. Running the `launch.R`
+scripts manually would be extremely tedious, but we could write a loop in our
+preferred shell scripting language to automate this.
+
+The worker takes this concept slightly further; it loops through jobs and runs
+them sequentially, but multiple workers can be run simultaneously on the same
+study to achieve "embarrassingly parallel" parallel computing. Workers make use
+of use lock files to avoid stepping on each other's toes. This paradigm can
+be useful in shared computing environments, where users may be asked to limit
+the number of CPUs requested at any given time. We can start, say, ten workers
+rather than having to continually monitor a scheduler's queue and submit more
+jobs.
+
+Here is an example of the syntax currently used to invoke each worker in this
+example.
+
+```{r, eval = FALSE}
+$ worker.sh -p 'run???' -c 'Rscript launch.R'
+```
+
+After all of the runs are completed, we will likely want to load each of the
+`output.csv` files and construct tables and plots to summarize the results. This
+[post](2023-02-11-latex-tables-from-R.qmd) may be helpful if you are looking to
+construct Latex tables from a computational study.

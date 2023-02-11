@@ -1,0 +1,148 @@
+---
+title: "Generating Latex Tables in R"
+date: 2023-02-11
+categories: programming
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+	collapse = TRUE,
+	prompt = TRUE,
+	comment = ""
+)
+```
+
+# Introduction
+
+Preparing Latex tables from results of a simulation study or other program can
+be tedious and time-consuming when done by hand. Especially when the process
+must be repeated many tables as results are updated to correct mistakes or to
+investigate unexpected findings. Hours spent manually adjusting formatting of
+table entries and typing ampersands between them could be spent in better ways.
+Fortunately, there are some excellent tools in R to help. Taking time to learn
+the tools and automate your table generation may be worth the investment. We
+will give a brief example in this post. This is only based on my experience;
+there are likely even better tools and methods that I have yet to learn.
+
+# Objective
+
+Our objective will be to generate a Latex table for the first six rows of the
+`airquality` dataset.
+
+```{r}
+head(airquality, n = 6)
+```
+
+We would also like to meet the following criteria.
+
+1. Criteria for formatting of the rendered Latex table.
+	a. Use [booktabs](https://ctan.org/pkg/booktabs) and make all separators
+	   horizontal lines.
+	a. Use multiline columns to render column names.
+	a. Add several headers which group together columns in the display.
+	a. Specify a caption and a label which can be used in Latex references.
+	a. Request the table to be placed "here".
+
+1. Criteria for table content.
+	a. Include row labels (observation number) in the table as a column.
+	a. Format numbers in a purposeful way.
+	a. Display the `Month` and `Day` columns together as a date.
+	a. Customize column names to be more descriptive.
+
+1. Ensure that the generated Latex code is legible.
+	a. Pad strings in a given column so that they are nicely aligned in the code.
+
+To do this, we will make use of the following tools.
+
+1. The [Tidyverse](https://www.tidyverse.org) framework to manipulate tables.
+1. The [knitr](https://yihui.org/knitr/) package for reproducible research in R.
+   In particular, we will use the 
+   [kable](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html) function.
+   to generate Latex from data frames.
+1. The [kableExtra](https://cran.r-project.org/package=kableExtra) package to
+   handle some additional Latex work.
+1. The built-in `sprintf` function to format table entries.
+
+# Preparing the Data Frame
+
+First let us load the packages we will use.
+
+```{r, echo = TRUE, warning = FALSE, message = FALSE}
+library(knitr)
+library(dplyr)
+library(tibble)
+library(stringr)
+library(kableExtra)
+```
+
+Before converting to Latex, let us format the entries and column names as we
+would like them to appear.
+
+```{r, prompt = FALSE, fig.show = "hold"}
+tbl = head(airquality, n = 6) %>%
+	rownames_to_column(var = "Num") %>%
+	mutate(Date = sprintf("%04d-%02d-%02d", 1973, Month, Day)) %>%
+	mutate(Solar.R = sprintf("%0.2e", Solar.R)) %>%
+	mutate(TempC = sprintf("%0.2f", 5/9 * (Temp - 32))) %>%
+	select(Num, Date, Ozone, Solar.R, Wind, TempC)
+```
+
+We have done the following.
+
+1. Assemble `Month` and `Day` into `Date`, where 1973 is the year which all
+   observations were taken (according to the manual page for the dataset).
+1. Convert `Solar.R` to a string with the original value in scientific notation.
+1. Convert temperature `Temp` from Farenheit to Celcius and call the result
+   `TempC`.
+1. Use `tibble::rownames_to_column` to include row labels in the table as the
+   `Obs` column.
+
+This produces the following table.
+
+```{r}
+print(tbl)
+```
+
+# Generating Latex
+
+We can now generate code to display out formatted table as Latex code.
+
+```{r, prompt = FALSE}
+out = tbl %>%
+	mutate(Solar.R = str_pad(Solar.R, width = 10, side = "left", pad = "\u00A0")) %>%
+	mutate(Wind = str_pad(Wind, width = 6, side = "left", pad = "\u00A0")) %>%
+	kable(format = "latex", booktabs = TRUE, linesep = "", align = c("rlrrrr"),
+		caption = "My formatted airquality table.", label = "airquality",
+		col.names = c("Number", "Date", "Ozone (PPB)", "Radiation (Ly)",
+			"Wind (MPH)", "Temp (C)")) %>%
+	kable_styling(latex_options = c("hold_position")) %>%
+	add_header_above(c("Observation" = 2, "Solar" = 2, "Weather" = 2))
+```
+
+We have done the following.
+
+1. Left-pad the `Solar.R` and `Wind` fields with the unicode "nbsp" character,
+   which will render as a space in our resulting code rather than be ignored,
+   as a regular space would.
+
+1. Use `kable` to generate a Latex table from our data frame. We have specified
+   options such as cell alignments, the caption, and the label, which should be
+   familiar to Latex users. We have also specified descriptive column names
+   here.
+
+1. The option `hold_position` specifies the option `!h` for how Latex should
+   place the table.
+
+1. The function `add_header_above` specifies a layer of headers above the
+   column names. These respectively have text "Observation", "Solar" and
+  "Weather", and are each two columns wide.
+
+Printing the result yields the following Latex code.
+
+```{r}
+print(out)
+```
+
+We now have a Latex `table` environment - which is fairly human-readable - that
+can be copy/pasted into a Latex document, or even included programmatically
+using [Sweave](2022-06-27-knitr-latex.qmd).
