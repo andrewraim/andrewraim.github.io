@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2020-07-27">
+<meta name="dcterms.date" content="2023-02-12">
 
-<title>Andrew M. Raim - Presentation for 2020 Joint Statistical Meetings</title>
+<title>Andrew M. Raim - Worker Tool for Computational Studies</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -16,6 +16,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -89,9 +152,9 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Presentation for 2020 Joint Statistical Meetings</h1>
+<h1 class="title">Worker Tool for Computational Studies</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">conferences</div>
+    <div class="quarto-category">programming</div>
   </div>
   </div>
 
@@ -103,7 +166,7 @@ ul.task-list{list-style: none;}
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 27, 2020</p>
+      <p class="date">February 12, 2023</p>
     </div>
   </div>
     
@@ -112,7 +175,22 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>For this year’s virtual JSM, I am presenting in the session listed <a href="https://ww2.amstat.org/meetings/jsm/2020/onlineprogram/AbstractDetails.cfm?abstractid=309805">here</a>. Here are links to download the poster <a href="https://drive.google.com/uc?export=view&amp;id=1m4NIMm0kfrVRwsfigFHJDSUqOkCEHObA">PDF</a> and voiceover <a href="https://drive.google.com/uc?export=view&amp;id=1keGcR_2ZJ87nFicBbrPnvPh6nyGsvOLk">MP4</a>. Note that the files are hosted on Google Drive: if this is not accessible to you, email me for copies of the files.</p>
+<p>In a large statistical simulation or other computational study, it can be labor intensive to kick off all of the runs whose results will be harvested and summarized. <a href="https://github.com/andrewraim/worker">Worker</a> is a lightweight tool that seeks to help automate this process. This post gives a brief description; see the webpage for details.</p>
+<p>Suppose our study consists of a parameter that is varied in some way, and we have determined that there are 999 levels of interest. Suppose that we have set up 999 corresponding directories, named as follows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> ls <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>run001</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>run002</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>run999</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In each folder, suppose there is a script <code>launch.R</code> that runs the corresponding level of the simulation. An output file <code>output.csv</code> is placed in the directory upon successful completion of <code>launch.R</code>. Running the <code>launch.R</code> scripts manually would be extremely tedious, but we could write a loop in our preferred shell scripting language to automate this.</p>
+<p>The worker takes this concept slightly further; it loops through jobs and runs them sequentially, but multiple workers can be run simultaneously on the same study to achieve “embarrassingly parallel” parallel computing. Workers make use of use lock files to avoid stepping on each other’s toes. This paradigm can be useful in shared computing environments, where users may be asked to limit the number of CPUs requested at any given time. We can start, say, ten workers rather than having to continually monitor a scheduler’s queue and submit more jobs.</p>
+<p>Here is an example of the syntax currently used to invoke each worker in this example.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span> worker.sh <span class="sc">-</span>p <span class="st">'run???'</span> <span class="sc">-</span>c <span class="st">'Rscript launch.R'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>After all of the runs are completed, we will likely want to load each of the <code>output.csv</code> files and construct tables and plots to summarize the results. This <a href="../posts/2023-02-11-latex-tables-from-R.html">post</a> may be helpful if you are looking to construct Latex tables from a computational study.</p>
 
 
 
