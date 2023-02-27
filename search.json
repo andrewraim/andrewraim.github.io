@@ -39,7 +39,7 @@
     "href": "posts.html",
     "title": "Andrew M. Raim",
     "section": "",
-    "text": "Date\n\n\nTitle\n\n\n\n\n\n\nFeb 12, 2023\n\n\nWorker Tool for Computational Studies\n\n\n\n\n\nFeb 11, 2023\n\n\nGenerating Latex Tables in R\n\n\n\n\nNov 15, 2022\n\n\nCOMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details\n\n\n\n\nAug 15, 2022\n\n\nBrowsing summary files from the decennial census with R\n\n\n\n\nJun 27, 2022\n\n\nknitr and Latex Documents\n\n\n\n\nJul 27, 2020\n\n\nPresentation for 2020 Joint Statistical Meetings\n\n\n\n\nJan 5, 2018\n\n\nR Workshop in Kerala\n\n\n\n\nAug 7, 2017\n\n\nRcpp Workshop at UMBC\n\n\n\n\nMar 15, 2017\n\n\nWeb Page Migration\n\n\n\n\n\n\nNo matching items"
+    "text": "Date\n\n\nTitle\n\n\n\n\n\n\nFeb 27, 2023\n\n\nInteractive Map with Shiny and Leaflet\n\n\n\n\nFeb 12, 2023\n\n\nWorker Tool for Computational Studies\n\n\n\n\n\nFeb 11, 2023\n\n\nGenerating Latex Tables in R\n\n\n\n\nNov 15, 2022\n\n\nCOMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details\n\n\n\n\nAug 15, 2022\n\n\nBrowsing summary files from the decennial census with R\n\n\n\n\nJun 27, 2022\n\n\nknitr and Latex Documents\n\n\n\n\nJul 27, 2020\n\n\nPresentation for 2020 Joint Statistical Meetings\n\n\n\n\nJan 5, 2018\n\n\nR Workshop in Kerala\n\n\n\n\nAug 7, 2017\n\n\nRcpp Workshop at UMBC\n\n\n\n\nMar 15, 2017\n\n\nWeb Page Migration\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "software.html",
@@ -96,6 +96,13 @@
     "title": "Browsing summary files from the decennial census with R",
     "section": "",
     "text": "If you have needed to use decennial census data without access to the internet, you may have encountered the raw data form of the summary files. These may be downloaded from the Census Bureau website for offline use; e.g., here. The format of the files is compact but can be difficult to navigate. James Livsey, Kyle Irimata, and I prepared a technical report and a package to assist R users with this via the tidyverse. These materials focus on the 2010 SF2 summary file, but support for others may be added in the future as needed."
+  },
+  {
+    "objectID": "posts/2023-02-27-shiny-leaflet.html",
+    "href": "posts/2023-02-27-shiny-leaflet.html",
+    "title": "Interactive Map with Shiny and Leaflet",
+    "section": "",
+    "text": "One way to accomplish this is through Shiny and Leaflet. With this combination of tools, it is relatively easy to stand up an graphical interface. Shiny supports constructs beyond routine R programming which allow variables, displays, and computations to react to user inputs. Leaflet provides widgets for interactive maps.\nThere are already a number of interesting examples on the web, but here is something I put together.\n\n\n\n\n\nIt displays counties in Maryland along with some randomly placed markers, and displays the count of markers within each county as a choropleth. Users can remove existing markers or add new ones, which in turn triggers the counts to be recomputed and the choropleth to be updated."
   },
   {
     "objectID": "posts/2022-06-27-knitr-latex.html",

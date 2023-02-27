@@ -10,7 +10,32 @@
 <atom:link href="https://andrewraim.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.0.32</generator>
-<lastBuildDate>Sun, 12 Feb 2023 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 27 Feb 2023 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>Interactive Map with Shiny and Leaflet</title>
+  <link>https://andrewraim.github.io/posts/2023-02-27-shiny-leaflet.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>There are powerful tools for working with geographical data in R. For example, the <a href="https://cran.r-project.org/package=ggplot2">ggplot</a> and <a href="https://cran.r-project.org/package=sf">sf</a> packages can be used together to display such data. But what about interactive maps which support panning, zooming, and clicks to trigger actions (e.g., highlighting an area)?</p>
+<p>One way to accomplish this is through <a href="https://shiny.rstudio.com">Shiny</a> and <a href="https://rstudio.github.io/leaflet">Leaflet</a>. With this combination of tools, it is relatively easy to stand up an graphical interface. Shiny supports constructs beyond routine R programming which allow variables, displays, and computations to react to user inputs. Leaflet provides widgets for interactive maps.</p>
+<p>There are already a number of interesting examples on the web, but <a href="https://github.com/andrewraim/shiny-leaflet-example">here</a> is something I put together.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../images/shiny-leaflet-example.png"><img src="https://andrewraim.github.io/images/shiny-leaflet-example-thumb.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+<p>It displays counties in Maryland along with some randomly placed markers, and displays the count of markers within each county as a choropleth. Users can remove existing markers or add new ones, which in turn triggers the counts to be recomputed and the choropleth to be updated.</p>
+
+
+
+ ]]></description>
+  <category>programming</category>
+  <guid>https://andrewraim.github.io/posts/2023-02-27-shiny-leaflet.html</guid>
+  <pubDate>Mon, 27 Feb 2023 05:00:00 GMT</pubDate>
+  <media:content url="https://andrewraim.github.io/images/shiny-leaflet-example-thumb.png" medium="image" type="image/png" height="77" width="144"/>
+</item>
 <item>
   <title>Worker Tool for Computational Studies</title>
   <link>https://andrewraim.github.io/posts/2023-02-12-worker.html</link>
