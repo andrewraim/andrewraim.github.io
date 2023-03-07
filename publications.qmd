@@ -1,27 +1,12 @@
 ---
-#title: Publications
 include-after-body:
   - bib/manuscripts.html
   - bib/papers.html
-  - bib/proceedings.html
-  - bib/other-pubs.html
+  - bib/reports.html
 ---
 
 Here is my
 [Google Scholar](https://scholar.google.com/citations?user=3Ai29GIAAAAJ)
 profile.
 
-<!-- 
-# Manuscripts
-{% include bib/manuscripts.html %}
-
-# Journal Articles
-{% include bib/papers.html %}
-
-# Conference Proceedings
-{% include bib/proceedings.html %}
-
-# Selected Technical Reports & Other Publications
-{% include bib/other-pubs.html %}
--->
 
