@@ -31,6 +31,6 @@ format:
       - styles.css
     toc: false
     linestretch: 1.4
-    fontsize: "11pt"
-    mainfont: "modern"
+    fontsize: 12pt
+    mainfont: arial
 
