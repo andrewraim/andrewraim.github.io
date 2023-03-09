@@ -55,9 +55,9 @@ ul.task-list{list-style: none;}
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-author','listing-date','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -79,7 +79,7 @@ ul.task-list{list-style: none;}
 
 <link rel="alternate" type="application/rss+xml" title="Andrew M. Raim" href="posts.xml"></head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -114,7 +114,8 @@ ul.task-list{list-style: none;}
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(10)</span></div><div class="category" data-category="admin">admin <span class="quarto-category-count">(1)</span></div><div class="category" data-category="article">article <span class="quarto-category-count">(2)</span></div><div class="category" data-category="conferences">conferences <span class="quarto-category-count">(1)</span></div><div class="category" data-category="programming">programming <span class="quarto-category-count">(6)</span></div><div class="category" data-category="workshops">workshops <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -124,104 +125,265 @@ ul.task-list{list-style: none;}
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="programming" data-listing-date-sort="1677474000000" data-listing-file-modified-sort="1677531350155" data-listing-reading-time-sort="0.775">
+<div class="body">
+<a href="./posts/2023-02-27-shiny-leaflet.html">
+<h3 class="no-anchor listing-title">
+Interactive Map with Shiny and Leaflet
+</h3>
+<div class="listing-subtitle">
 
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="programming" data-listing-date-sort="1677474000000" data-listing-file-modified-sort="1677531350155" data-listing-reading-time-sort="0.775" data-listing-title-sort="Interactive Map with Shiny and Leaflet" data-listing-filename-sort="2023-02-27-shiny-leaflet.qmd">
-<td class="listing-date">
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('programming'); return false;">
+programming
+</div>
+</div>
+<a href="./posts/2023-02-27-shiny-leaflet.html"> </a>
+</div>
+<div class="metadata">
+<a href="./posts/2023-02-27-shiny-leaflet.html">
+<div class="listing-date">
 Feb 27, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/2023-02-27-shiny-leaflet.html" class="title">Interactive Map with Shiny and Leaflet</a>
-</td>
-</tr>
-<tr data-index="1" data-categories="programming" data-listing-date-sort="1676178000000" data-listing-file-modified-sort="1676154166575" data-listing-reading-time-sort="1.4" data-listing-title-sort="Worker Tool for Computational Studies" data-listing-filename-sort="2023-02-12-worker.qmd">
-<td class="listing-date">
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="programming" data-listing-date-sort="1676178000000" data-listing-file-modified-sort="1676154166575" data-listing-reading-time-sort="1.4">
+<div class="body">
+<a href="./posts/2023-02-12-worker.html">
+<h3 class="no-anchor listing-title">
+Worker Tool for Computational Studies
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('programming'); return false;">
+programming
+</div>
+</div>
+<a href="./posts/2023-02-12-worker.html"> </a>
+</div>
+<div class="metadata">
+<a href="./posts/2023-02-12-worker.html">
+<div class="listing-date">
 Feb 12, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/2023-02-12-worker.html" class="title">Worker Tool for Computational Studies</a>
-</td>
-</tr>
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="programming" data-listing-date-sort="1676091600000" data-listing-file-modified-sort="1676150223188" data-listing-reading-time-sort="3.605">
+<div class="body">
+<a href="./posts/2023-02-11-latex-tables-from-R.html">
+<h3 class="no-anchor listing-title">
+Generating Latex Tables in R
+</h3>
+<div class="listing-subtitle">
 
-<tr data-index="2" data-categories="programming" data-listing-date-sort="1676091600000" data-listing-file-modified-sort="1676150223188" data-listing-reading-time-sort="3.605" data-listing-title-sort="Generating Latex Tables in R" data-listing-filename-sort="2023-02-11-latex-tables-from-R.qmd">
-<td class="listing-date">
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('programming'); return false;">
+programming
+</div>
+</div>
+<a href="./posts/2023-02-11-latex-tables-from-R.html"> </a>
+</div>
+<div class="metadata">
+<a href="./posts/2023-02-11-latex-tables-from-R.html">
+<div class="listing-date">
 Feb 11, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/2023-02-11-latex-tables-from-R.html" class="title">Generating Latex Tables in R</a>
-</td>
-</tr>
-<tr data-index="3" data-categories="article,programming" data-listing-date-sort="1668488400000" data-listing-file-modified-sort="1671626623895" data-listing-reading-time-sort="0.665" data-listing-title-sort="COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details" data-listing-filename-sort="2022-11-15-compoissonreg.qmd">
-<td class="listing-date">
-Nov 15, 2022
-</td>
-<td class="listing-title">
-<a href="./posts/2022-11-15-compoissonreg.html" class="title">COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details</a>
-</td>
-</tr>
-<tr data-index="4" data-categories="article,programming" data-listing-date-sort="1660536000000" data-listing-file-modified-sort="1676137872324" data-listing-reading-time-sort="0.43" data-listing-title-sort="Browsing summary files from the decennial census with R" data-listing-filename-sort="2022-08-15-sfreader.qmd">
-<td class="listing-date">
-Aug 15, 2022
-</td>
-<td class="listing-title">
-<a href="./posts/2022-08-15-sfreader.html" class="title">Browsing summary files from the decennial census with R</a>
-</td>
-</tr>
-<tr data-index="5" data-categories="programming" data-listing-date-sort="1656302400000" data-listing-file-modified-sort="1676137860828" data-listing-reading-time-sort="0.835" data-listing-title-sort="knitr and Latex Documents" data-listing-filename-sort="2022-06-27-knitr-latex.qmd">
-<td class="listing-date">
-Jun 27, 2022
-</td>
-<td class="listing-title">
-<a href="./posts/2022-06-27-knitr-latex.html" class="title">knitr and Latex Documents</a>
-</td>
-</tr>
-<tr data-index="6" data-categories="conferences" data-listing-date-sort="1595822400000" data-listing-file-modified-sort="1676137845244" data-listing-reading-time-sort="0.2" data-listing-title-sort="Presentation for 2020 Joint Statistical Meetings" data-listing-filename-sort="2020-08-03-JSM2020.qmd">
-<td class="listing-date">
-Jul 27, 2020
-</td>
-<td class="listing-title">
-<a href="./posts/2020-08-03-JSM2020.html" class="title">Presentation for 2020 Joint Statistical Meetings</a>
-</td>
-</tr>
-<tr data-index="7" data-categories="workshops" data-listing-date-sort="1515128400000" data-listing-file-modified-sort="1659713816094" data-listing-reading-time-sort="12.22" data-listing-title-sort="R Workshop in Kerala" data-listing-filename-sort="2017-12-20-Kerala-workshop.qmd">
-<td class="listing-date">
-Jan 5, 2018
-</td>
-<td class="listing-title">
-<a href="./posts/2017-12-20-Kerala-workshop.html" class="title">R Workshop in Kerala</a>
-</td>
-</tr>
-<tr data-index="8" data-categories="workshops" data-listing-date-sort="1502078400000" data-listing-file-modified-sort="1659713816094" data-listing-reading-time-sort="2.3" data-listing-title-sort="Rcpp Workshop at UMBC" data-listing-filename-sort="2017-08-07-UMBC-workshop-Rcpp.qmd">
-<td class="listing-date">
-Aug 7, 2017
-</td>
-<td class="listing-title">
-<a href="./posts/2017-08-07-UMBC-workshop-Rcpp.html" class="title">Rcpp Workshop at UMBC</a>
-</td>
-</tr>
-<tr data-index="9" data-listing-date-sort="1489550400000" data-listing-file-modified-sort="1676137779944" data-listing-reading-time-sort="0.33" data-listing-title-sort="Web Page Migration" data-listing-filename-sort="2017-03-15-new-webpage.qmd">
-<td class="listing-date">
-Mar 15, 2017
-</td>
-<td class="listing-title">
-<a href="./posts/2017-03-15-new-webpage.html" class="title">Web Page Migration</a>
-</td>
-</tr>
-</tbody>
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="article,programming" data-listing-date-sort="1668488400000" data-listing-file-modified-sort="1671626623895" data-listing-reading-time-sort="0.665">
+<div class="body">
+<a href="./posts/2022-11-15-compoissonreg.html">
+<h3 class="no-anchor listing-title">
+COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details
+</h3>
+<div class="listing-subtitle">
 
-</table>
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('article'); return false;">
+article
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('programming'); return false;">
+programming
+</div>
+</div>
+<a href="./posts/2022-11-15-compoissonreg.html"> </a>
+</div>
+<div class="metadata">
+<a href="./posts/2022-11-15-compoissonreg.html">
+<div class="listing-date">
+Nov 15, 2022
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="article,programming" data-listing-date-sort="1660536000000" data-listing-file-modified-sort="1676137872324" data-listing-reading-time-sort="0.43">
+<div class="body">
+<a href="./posts/2022-08-15-sfreader.html">
+<h3 class="no-anchor listing-title">
+Browsing summary files from the decennial census with R
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('article'); return false;">
+article
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('programming'); return false;">
+programming
+</div>
+</div>
+<a href="./posts/2022-08-15-sfreader.html"> </a>
+</div>
+<div class="metadata">
+<a href="./posts/2022-08-15-sfreader.html">
+<div class="listing-date">
+Aug 15, 2022
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-categories="programming" data-listing-date-sort="1656302400000" data-listing-file-modified-sort="1676137860828" data-listing-reading-time-sort="0.835">
+<div class="body">
+<a href="./posts/2022-06-27-knitr-latex.html">
+<h3 class="no-anchor listing-title">
+knitr and Latex Documents
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('programming'); return false;">
+programming
+</div>
+</div>
+<a href="./posts/2022-06-27-knitr-latex.html"> </a>
+</div>
+<div class="metadata">
+<a href="./posts/2022-06-27-knitr-latex.html">
+<div class="listing-date">
+Jun 27, 2022
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="conferences" data-listing-date-sort="1595822400000" data-listing-file-modified-sort="1676137845244" data-listing-reading-time-sort="0.2">
+<div class="body">
+<a href="./posts/2020-08-03-JSM2020.html">
+<h3 class="no-anchor listing-title">
+Presentation for 2020 Joint Statistical Meetings
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('conferences'); return false;">
+conferences
+</div>
+</div>
+<a href="./posts/2020-08-03-JSM2020.html"> </a>
+</div>
+<div class="metadata">
+<a href="./posts/2020-08-03-JSM2020.html">
+<div class="listing-date">
+Jul 27, 2020
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-categories="workshops" data-listing-date-sort="1515128400000" data-listing-file-modified-sort="1659713816094" data-listing-reading-time-sort="12.22">
+<div class="body">
+<a href="./posts/2017-12-20-Kerala-workshop.html">
+<h3 class="no-anchor listing-title">
+R Workshop in Kerala
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('workshops'); return false;">
+workshops
+</div>
+</div>
+<a href="./posts/2017-12-20-Kerala-workshop.html"> </a>
+</div>
+<div class="metadata">
+<a href="./posts/2017-12-20-Kerala-workshop.html">
+<div class="listing-date">
+Jan 5, 2018
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="workshops" data-listing-date-sort="1502078400000" data-listing-file-modified-sort="1659713816094" data-listing-reading-time-sort="2.3">
+<div class="body">
+<a href="./posts/2017-08-07-UMBC-workshop-Rcpp.html">
+<h3 class="no-anchor listing-title">
+Rcpp Workshop at UMBC
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('workshops'); return false;">
+workshops
+</div>
+</div>
+<a href="./posts/2017-08-07-UMBC-workshop-Rcpp.html"> </a>
+</div>
+<div class="metadata">
+<a href="./posts/2017-08-07-UMBC-workshop-Rcpp.html">
+<div class="listing-date">
+Aug 7, 2017
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="admin" data-listing-date-sort="1489550400000" data-listing-file-modified-sort="1678367199812" data-listing-reading-time-sort="0.33">
+<div class="body">
+<a href="./posts/2017-03-15-new-webpage.html">
+<h3 class="no-anchor listing-title">
+Web Page Migration
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('admin'); return false;">
+admin
+</div>
+</div>
+<a href="./posts/2017-03-15-new-webpage.html"> </a>
+</div>
+<div class="metadata">
+<a href="./posts/2017-03-15-new-webpage.html">
+<div class="listing-date">
+Mar 15, 2017
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
