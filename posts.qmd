@@ -1,10 +1,11 @@
 ---
-#title: "News"
 listing:
   contents: posts
-  type: table
+  type: default
+  # type: table
+  categories: true
   sort: "date desc"
-  fields: [date, title]
+  fields: [author, date, title, categories]
   feed: true
   filter-ui: false
   sort-ui: false

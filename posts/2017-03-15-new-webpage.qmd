@@ -1,6 +1,7 @@
 ---
 title: "Web Page Migration"
 date:  2017-03-15
+categories: admin
 ---
 
 I am now using [GitHub Pages](https://pages.github.com) to host my website, along with the static site generator [Jekyll](https://jekyllrb.com). My [previous website](http://www.umbc.edu/~araim1) was hosted at UMBC.
