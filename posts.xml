@@ -10,7 +10,32 @@
 <atom:link href="https://andrewraim.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.0.32</generator>
-<lastBuildDate>Mon, 27 Feb 2023 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Thu, 20 Apr 2023 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Comparison of Usability Preferences with Bivariate Ordinal Regression</title>
+  <link>https://andrewraim.github.io/posts/2023-04-20-bivariate-ordinal-maps.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>Suppose <img src="https://latex.codecogs.com/png.latex?n"> respondents are asked to rate several alternatives on a scale from, say, 1 to 5, with 1 being least preferred and 5 being most preferred. How can we determine whether one alternative is significantly more preferred to the others? The data may include covariates which are associated with the preference of interest.</p>
+<p>Elizabeth Nichols and I carry out this kind of analysis on map usability in a recent report <span class="citation" data-cites="BivariateOrdinalMaps2023">(Raim and Nichols 2023)</span>. With ordinal data recorded in a survey setting, we compare preferences for satellite maps - which display details such as landmarks and terrain - to those of simplified road maps. We make use of a bivariate ordinal regression model to carry out the analysis. Computations are carried out using the <a href="https://cran.r-project.org/package=mvord">mvord</a> R package by <span class="citation" data-cites="HirkHornikVana2020">Hirk, Hornik, and Vana (2020)</span>, which can also support multivariate models with more than two alternatives.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-HirkHornikVana2020" class="csl-entry">
+Hirk, Rainer, Kurt Hornik, and Laura Vana. 2020. <span>“<span class="nocase">mvord</span>: An <span>R</span> Package for Fitting Multivariate Ordinal Regression Models.”</span> <em>Journal of Statistical Software</em> 93 (4): 1–41. <a href="https://doi.org/10.18637/jss.v093.i04">https://doi.org/10.18637/jss.v093.i04</a>.
+</div>
+<div id="ref-BivariateOrdinalMaps2023" class="csl-entry">
+Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usability via Bivariate Ordinal Analysis.”</span> Study Series: Statistics #2023-01. Center for Statistical Research; Methodology, U.S.&nbsp;Census Bureau. <a href="https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html">https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>article</category>
+  <guid>https://andrewraim.github.io/posts/2023-04-20-bivariate-ordinal-maps.html</guid>
+  <pubDate>Thu, 20 Apr 2023 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Interactive Map with Shiny and Leaflet</title>
   <link>https://andrewraim.github.io/posts/2023-02-27-shiny-leaflet.html</link>
@@ -277,7 +302,7 @@
 
 
  ]]></description>
-  <category>conferences</category>
+  <category>conference</category>
   <guid>https://andrewraim.github.io/posts/2020-08-03-JSM2020.html</guid>
   <pubDate>Mon, 27 Jul 2020 04:00:00 GMT</pubDate>
 </item>
@@ -523,7 +548,7 @@ Deleted: sha256:45761469c965421a92a69cc50e92c01e0cfa94fe026cdd1233445ea00e96289a
 </section>
 
  ]]></description>
-  <category>workshops</category>
+  <category>workshop</category>
   <guid>https://andrewraim.github.io/posts/2017-12-20-Kerala-workshop.html</guid>
   <pubDate>Fri, 05 Jan 2018 05:00:00 GMT</pubDate>
   <media:content url="https://andrewraim.github.io/images/Kerala2018/win-docker-prompt.png" medium="image" type="image/png" height="82" width="144"/>
@@ -584,7 +609,7 @@ R is the preferred computing environment for many statisticians, and is used bot
 
 
  ]]></description>
-  <category>workshops</category>
+  <category>workshop</category>
   <guid>https://andrewraim.github.io/posts/2017-08-07-UMBC-workshop-Rcpp.html</guid>
   <pubDate>Mon, 07 Aug 2017 04:00:00 GMT</pubDate>
 </item>

@@ -39,7 +39,7 @@
     "href": "posts.html",
     "title": "Andrew M. Raim",
     "section": "",
-    "text": "programming\n\n\n \n\n\n\n\nFeb 27, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nprogramming\n\n\n \n\n\n\n\nFeb 12, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nprogramming\n\n\n \n\n\n\n\nFeb 11, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\narticle\n\n\nprogramming\n\n\n \n\n\n\n\nNov 15, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\narticle\n\n\nprogramming\n\n\n \n\n\n\n\nAug 15, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nprogramming\n\n\n \n\n\n\n\nJun 27, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nconferences\n\n\n \n\n\n\n\nJul 27, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nworkshops\n\n\n \n\n\n\n\nJan 5, 2018\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nworkshops\n\n\n \n\n\n\n\nAug 7, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nadmin\n\n\n \n\n\n\n\nMar 15, 2017\n\n\n\n\n\n\nNo matching items"
+    "text": "article\n\n\n \n\n\n\n\nApr 20, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nprogramming\n\n\n \n\n\n\n\nFeb 27, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nprogramming\n\n\n \n\n\n\n\nFeb 12, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nprogramming\n\n\n \n\n\n\n\nFeb 11, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\narticle\n\n\nprogramming\n\n\n \n\n\n\n\nNov 15, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\narticle\n\n\nprogramming\n\n\n \n\n\n\n\nAug 15, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nprogramming\n\n\n \n\n\n\n\nJun 27, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nconference\n\n\n \n\n\n\n\nJul 27, 2020\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nworkshop\n\n\n \n\n\n\n\nJan 5, 2018\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nworkshop\n\n\n \n\n\n\n\nAug 7, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nadmin\n\n\n \n\n\n\n\nMar 15, 2017\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "software.html",
@@ -110,6 +110,13 @@
     "title": "knitr and Latex Documents",
     "section": "",
     "text": "I have been aware that Sweave allows embedded R for Latex documents, but it seemed archaic compared to more modern R tools for reproducible research, and I avoided using it. Recently, I was made aware that Overleaf supports authoring Sweave documents which require very little special markup and are almost like working in regular Latex. After some additional searching, I found that this is also possible without Overleaf. knitr has long been able to do this.\nExamples of Sweave with knitr can be found online, but I thought it would be worthwhile to post several more. See the repo https://github.com/andrewraim/sweave-examples for an example in article format (pdf) and one in Beamer slide format (pdf)."
+  },
+  {
+    "objectID": "posts/2023-04-20-bivariate-ordinal-maps.html",
+    "href": "posts/2023-04-20-bivariate-ordinal-maps.html",
+    "title": "Comparison of Usability Preferences with Bivariate Ordinal Regression",
+    "section": "",
+    "text": "Elizabeth Nichols and I carry out this kind of analysis on map usability in a recent report (Raim and Nichols 2023). With ordinal data recorded in a survey setting, we compare preferences for satellite maps - which display details such as landmarks and terrain - to those of simplified road maps. We make use of a bivariate ordinal regression model to carry out the analysis. Computations are carried out using the mvord R package by Hirk, Hornik, and Vana (2020), which can also support multivariate models with more than two alternatives.\n\n\n\n\nReferences\n\nHirk, Rainer, Kurt Hornik, and Laura Vana. 2020. “mvord: An R Package for Fitting Multivariate Ordinal Regression Models.” Journal of Statistical Software 93 (4): 1–41. https://doi.org/10.18637/jss.v093.i04.\n\n\nRaim, Andrew M., and Elizabeth Nichols. 2023. “A Comparison of Map Usability via Bivariate Ordinal Analysis.” Study Series: Statistics #2023-01. Center for Statistical Research; Methodology, U.S. Census Bureau. https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html."
   },
   {
     "objectID": "posts/2017-12-20-Kerala-workshop.html",

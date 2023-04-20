@@ -2,6 +2,7 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/2023-04-20-bivariate-ordinal-maps.html",
       "/posts/2023-02-27-shiny-leaflet.html",
       "/posts/2023-02-12-worker.html",
       "/posts/2023-02-11-latex-tables-from-R.html",

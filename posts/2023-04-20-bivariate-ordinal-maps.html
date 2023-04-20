@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2020-07-27">
+<meta name="dcterms.date" content="2023-04-20">
 
-<title>Andrew M. Raim - Presentation for 2020 Joint Statistical Meetings</title>
+<title>Andrew M. Raim - Comparison of Usability Preferences with Bivariate Ordinal Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -16,6 +16,25 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -45,6 +64,7 @@ ul.task-list{list-style: none;}
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -89,9 +109,9 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Presentation for 2020 Joint Statistical Meetings</h1>
+<h1 class="title">Comparison of Usability Preferences with Bivariate Ordinal Regression</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">conference</div>
+    <div class="quarto-category">article</div>
   </div>
   </div>
 
@@ -103,7 +123,7 @@ ul.task-list{list-style: none;}
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 27, 2020</p>
+      <p class="date">April 20, 2023</p>
     </div>
   </div>
     
@@ -112,11 +132,20 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>For this year’s virtual JSM, I am presenting in the session listed <a href="https://ww2.amstat.org/meetings/jsm/2020/onlineprogram/AbstractDetails.cfm?abstractid=309805">here</a>. Here are links to download the poster <a href="https://drive.google.com/uc?export=view&amp;id=1m4NIMm0kfrVRwsfigFHJDSUqOkCEHObA">PDF</a> and voiceover <a href="https://drive.google.com/uc?export=view&amp;id=1keGcR_2ZJ87nFicBbrPnvPh6nyGsvOLk">MP4</a>. Note that the files are hosted on Google Drive: if this is not accessible to you, email me for copies of the files.</p>
+<p>Suppose <span class="math inline">\(n\)</span> respondents are asked to rate several alternatives on a scale from, say, 1 to 5, with 1 being least preferred and 5 being most preferred. How can we determine whether one alternative is significantly more preferred to the others? The data may include covariates which are associated with the preference of interest.</p>
+<p>Elizabeth Nichols and I carry out this kind of analysis on map usability in a recent report <span class="citation" data-cites="BivariateOrdinalMaps2023">(<a href="#ref-BivariateOrdinalMaps2023" role="doc-biblioref">Raim and Nichols 2023</a>)</span>. With ordinal data recorded in a survey setting, we compare preferences for satellite maps - which display details such as landmarks and terrain - to those of simplified road maps. We make use of a bivariate ordinal regression model to carry out the analysis. Computations are carried out using the <a href="https://cran.r-project.org/package=mvord">mvord</a> R package by <span class="citation" data-cites="HirkHornikVana2020">Hirk, Hornik, and Vana (<a href="#ref-HirkHornikVana2020" role="doc-biblioref">2020</a>)</span>, which can also support multivariate models with more than two alternatives.</p>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-HirkHornikVana2020" class="csl-entry" role="doc-biblioentry">
+Hirk, Rainer, Kurt Hornik, and Laura Vana. 2020. <span>“<span class="nocase">mvord</span>: An <span>R</span> Package for Fitting Multivariate Ordinal Regression Models.”</span> <em>Journal of Statistical Software</em> 93 (4): 1–41. <a href="https://doi.org/10.18637/jss.v093.i04">https://doi.org/10.18637/jss.v093.i04</a>.
+</div>
+<div id="ref-BivariateOrdinalMaps2023" class="csl-entry" role="doc-biblioentry">
+Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usability via Bivariate Ordinal Analysis.”</span> Study Series: Statistics #2023-01. Center for Statistical Research; Methodology, U.S.&nbsp;Census Bureau. <a href="https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html">https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
