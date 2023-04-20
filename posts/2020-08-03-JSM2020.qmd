@@ -1,7 +1,7 @@
 ---
 title: "Presentation for 2020 Joint Statistical Meetings"
 date:  2020-07-27
-categories: conferences
+categories: conference
 ---
 
 For this year's virtual JSM, I am presenting in the session listed

@@ -1,0 +1,21 @@
+---
+title: "Comparison of Usability Preferences with Bivariate Ordinal Regression"
+date: 2023-04-20
+categories: article
+bibliography: ../bib/web.bib
+---
+
+Suppose $n$ respondents are asked to rate several alternatives on a scale from,
+say, 1 to 5, with 1 being least preferred and 5 being most preferred. How can
+we determine whether one alternative is significantly more preferred to the
+others? The data may include covariates which are associated with the
+preference of interest.
+
+Elizabeth Nichols and I carry out this kind of analysis on map usability in a
+recent report [@BivariateOrdinalMaps2023]. With ordinal data recorded in a survey
+setting, we compare preferences for satellite maps - which display details such
+as landmarks and terrain - to those of simplified road maps. We make use of a
+bivariate ordinal regression model to carry out the analysis. Computations are
+carried out using the [mvord](https://cran.r-project.org/package=mvord) R
+package by @HirkHornikVana2020, which can also support multivariate models with
+more than two alternatives.

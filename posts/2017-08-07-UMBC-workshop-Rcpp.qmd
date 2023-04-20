@@ -1,7 +1,7 @@
 ---
 title: "Rcpp Workshop at UMBC"
 date:  2017-08-07
-categories: workshops
+categories: workshop
 execute:
   enabled: false
 ---
