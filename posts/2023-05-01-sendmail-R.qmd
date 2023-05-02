@@ -1,0 +1,99 @@
+---
+title: "Sending Mail from R"
+date: 2023-05-01
+categories: programming
+---
+
+Here is a quick note on sending mail from R. For example, this could be useful
+in a long running job to alert yourself when it completes or halts because of
+an error. The [sendmailR](https://cran.r-project.org/package=sendmailR) package
+provides a general interface to mail.
+
+Here is an example where we use sendmailR to send mail to the local mailbox
+of our user (araim) on the host machine. This assumes we have a sendmail
+server set up to relay local mail and that araim has a mailbox.
+
+The following call in R sends a message.
+
+```{r}
+#| eval: false
+result = sendmail(
+	from = "sendmailR",
+	to = "araim",
+	subject = "Hello from R",
+	msg = "This is an email from R using the sendmailR package.",
+	control = list(smtpServer = "localhost")
+)
+```
+
+Here is how the message appears when viewed with `mutt`.
+
+```{verbatim}
+i:Exit  -:PrevPg  <Space>:NextPg  v:View Attachm.  d:Del  r:Reply  j:Next  ?:Help
+Date: Tue, 02 May 2023 09:24:31 -0000
+From: sendmailR@localhost
+To: araim@localhost
+Subject: Hello from R
+
+[-- Attachment #1 --]
+[-- Type: text/plain; charset=us-ascii, Encoding: 7bit, Size: 0.1K --]
+
+This is an email from R using the sendmailR package.
+
+-N +- 1155/1155: sendmailR@localhost   Hello from R                      -- (all)
+```
+
+
+Here is an example of sending mail on an exception using `withCallingHandlers`.
+Here we use `sys.calls` to give some context about the call that led to the
+error.
+
+```{r}
+#| eval: false
+f = function(x) { stop("An exception!") }
+g = function(x) { f(x) }
+
+withCallingHandlers({
+	g(1:10)
+}, error = function(e) {
+	result = sendmail(
+		from = "sendmailR",
+		to = "araim",
+		subject = "Exception from R",
+		msg = sprintf("%d: %s", seq_along(sys.calls()), sys.calls()),
+		control = list(smtpServer = "localhost")
+	)
+})
+```
+
+And here is how the message appears when viewed with `mutt`.
+
+```{verbatim}
+i:Exit  -:PrevPg  <Space>:NextPg  v:View Attachm.  d:Del  r:Reply  j:Next  ?:Help
+Date: Tue, 02 May 2023 10:06:56 -0000
+From: sendmailR@localhost
+To: araim@localhost
+Subject: Exception from R
+
+[-- Attachment #1 --]
+[-- Type: text/plain; charset=us-ascii, Encoding: 7bit, Size: 0.6K --]
+
+1: withCallingHandlers({
+   g(1:10)
+}, error = function(e) {
+   result = sendmail(from = "sendmailR", to = "araim", subject = "Exception from
++R", msg = sprintf("%d: %s", seq_along(sys.calls()), sys.calls()), control =
++list(smtpServer = "localhost"))
+})
+2: g(1:10)
+3: f(x)
+4: stop("An exception!")
+5: .handleSimpleError(function (e) {
+   result = sendmail(from = "sendmailR", to = "araim", subject = "Exception from
++R", msg = sprintf("%d: %s", seq_along(sys.calls()), sys.calls()), control =
++list(smtpServer = "localhost"))
+}, "An exception!", base::quote(f(x)))
+6: h(simpleError(msg, call))
+
+-N +- 1162/1162: sendmailR@localhost   Exception from R                  -- (all)
+```
