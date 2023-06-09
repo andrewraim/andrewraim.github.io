@@ -10,7 +10,92 @@
 <atom:link href="https://andrewraim.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.0.32</generator>
-<lastBuildDate>Thu, 20 Apr 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 01 May 2023 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Sending Mail from R</title>
+  <link>https://andrewraim.github.io/posts/2023-05-01-sendmail-R.html</link>
+  <description><![CDATA[ 
+
+
+
+<p>Here is a quick note on sending mail from R. For example, this could be useful in a long running job to alert yourself when it completes or halts because of an error. The <a href="https://cran.r-project.org/package=sendmailR">sendmailR</a> package provides a general interface to mail.</p>
+<p>Here is an example where we use sendmailR to send mail to the local mailbox of our user (araim) on the host machine. This assumes we have a sendmail server set up to relay local mail and that araim has a mailbox.</p>
+<p>The following call in R sends a message.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">result <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">sendmail</span>(</span>
+<span id="cb1-2">    <span class="at" style="color: #657422;">from =</span> <span class="st" style="color: #20794D;">"sendmailR"</span>,</span>
+<span id="cb1-3">    <span class="at" style="color: #657422;">to =</span> <span class="st" style="color: #20794D;">"araim"</span>,</span>
+<span id="cb1-4">    <span class="at" style="color: #657422;">subject =</span> <span class="st" style="color: #20794D;">"Hello from R"</span>,</span>
+<span id="cb1-5">    <span class="at" style="color: #657422;">msg =</span> <span class="st" style="color: #20794D;">"This is an email from R using the sendmailR package."</span>,</span>
+<span id="cb1-6">    <span class="at" style="color: #657422;">control =</span> <span class="fu" style="color: #4758AB;">list</span>(<span class="at" style="color: #657422;">smtpServer =</span> <span class="st" style="color: #20794D;">"localhost"</span>)</span>
+<span id="cb1-7">)</span></code></pre></div>
+</div>
+<p>Here is how the message appears when viewed with <code>mutt</code>.</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1">i:Exit  -:PrevPg  &lt;Space&gt;:NextPg  v:View Attachm.  d:Del  r:Reply  j:Next  ?:Help</span>
+<span id="cb2-2">Date: Tue, 02 May 2023 09:24:31 -0000</span>
+<span id="cb2-3">From: sendmailR@localhost</span>
+<span id="cb2-4">To: araim@localhost</span>
+<span id="cb2-5">Subject: Hello from R</span>
+<span id="cb2-6"></span>
+<span id="cb2-7">[-- Attachment #1 --]</span>
+<span id="cb2-8">[-- Type: text/plain; charset=us-ascii, Encoding: 7bit, Size: 0.1K --]</span>
+<span id="cb2-9"></span>
+<span id="cb2-10">This is an email from R using the sendmailR package.</span>
+<span id="cb2-11"></span>
+<span id="cb2-12">-N +- 1155/1155: sendmailR@localhost   Hello from R                      -- (all)</span></code></pre></div>
+<p>Here is an example of sending mail on an exception using <code>withCallingHandlers</code>. Here we use <code>sys.calls</code> to give some context about the call that led to the error.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">f <span class="ot" style="color: #003B4F;">=</span> <span class="cf" style="color: #003B4F;">function</span>(x) { <span class="fu" style="color: #4758AB;">stop</span>(<span class="st" style="color: #20794D;">"An exception!"</span>) }</span>
+<span id="cb3-2">g <span class="ot" style="color: #003B4F;">=</span> <span class="cf" style="color: #003B4F;">function</span>(x) { <span class="fu" style="color: #4758AB;">f</span>(x) }</span>
+<span id="cb3-3"></span>
+<span id="cb3-4"><span class="fu" style="color: #4758AB;">withCallingHandlers</span>({</span>
+<span id="cb3-5">    <span class="fu" style="color: #4758AB;">g</span>(<span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">10</span>)</span>
+<span id="cb3-6">}, <span class="at" style="color: #657422;">error =</span> <span class="cf" style="color: #003B4F;">function</span>(e) {</span>
+<span id="cb3-7">    result <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">sendmail</span>(</span>
+<span id="cb3-8">        <span class="at" style="color: #657422;">from =</span> <span class="st" style="color: #20794D;">"sendmailR"</span>,</span>
+<span id="cb3-9">        <span class="at" style="color: #657422;">to =</span> <span class="st" style="color: #20794D;">"araim"</span>,</span>
+<span id="cb3-10">        <span class="at" style="color: #657422;">subject =</span> <span class="st" style="color: #20794D;">"Exception from R"</span>,</span>
+<span id="cb3-11">        <span class="at" style="color: #657422;">msg =</span> <span class="fu" style="color: #4758AB;">sprintf</span>(<span class="st" style="color: #20794D;">"%d: %s"</span>, <span class="fu" style="color: #4758AB;">seq_along</span>(<span class="fu" style="color: #4758AB;">sys.calls</span>()), <span class="fu" style="color: #4758AB;">sys.calls</span>()),</span>
+<span id="cb3-12">        <span class="at" style="color: #657422;">control =</span> <span class="fu" style="color: #4758AB;">list</span>(<span class="at" style="color: #657422;">smtpServer =</span> <span class="st" style="color: #20794D;">"localhost"</span>)</span>
+<span id="cb3-13">    )</span>
+<span id="cb3-14">})</span></code></pre></div>
+</div>
+<p>And here is how the message appears when viewed with <code>mutt</code>.</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1">i:Exit  -:PrevPg  &lt;Space&gt;:NextPg  v:View Attachm.  d:Del  r:Reply  j:Next  ?:Help</span>
+<span id="cb4-2">Date: Tue, 02 May 2023 10:06:56 -0000</span>
+<span id="cb4-3">From: sendmailR@localhost</span>
+<span id="cb4-4">To: araim@localhost</span>
+<span id="cb4-5">Subject: Exception from R</span>
+<span id="cb4-6"></span>
+<span id="cb4-7">[-- Attachment #1 --]</span>
+<span id="cb4-8">[-- Type: text/plain; charset=us-ascii, Encoding: 7bit, Size: 0.6K --]</span>
+<span id="cb4-9"></span>
+<span id="cb4-10">1: withCallingHandlers({</span>
+<span id="cb4-11">   g(1:10)</span>
+<span id="cb4-12">}, error = function(e) {</span>
+<span id="cb4-13">   result = sendmail(from = "sendmailR", to = "araim", subject = "Exception from</span>
+<span id="cb4-14">+R", msg = sprintf("%d: %s", seq_along(sys.calls()), sys.calls()), control =</span>
+<span id="cb4-15">+list(smtpServer = "localhost"))</span>
+<span id="cb4-16">})</span>
+<span id="cb4-17">2: g(1:10)</span>
+<span id="cb4-18">3: f(x)</span>
+<span id="cb4-19">4: stop("An exception!")</span>
+<span id="cb4-20">5: .handleSimpleError(function (e) {</span>
+<span id="cb4-21">   result = sendmail(from = "sendmailR", to = "araim", subject = "Exception from</span>
+<span id="cb4-22">+R", msg = sprintf("%d: %s", seq_along(sys.calls()), sys.calls()), control =</span>
+<span id="cb4-23">+list(smtpServer = "localhost"))</span>
+<span id="cb4-24">}, "An exception!", base::quote(f(x)))</span>
+<span id="cb4-25">6: h(simpleError(msg, call))</span>
+<span id="cb4-26"></span>
+<span id="cb4-27">-N +- 1162/1162: sendmailR@localhost   Exception from R                  -- (all)</span></code></pre></div>
+
+
+
+ ]]></description>
+  <category>programming</category>
+  <guid>https://andrewraim.github.io/posts/2023-05-01-sendmail-R.html</guid>
+  <pubDate>Mon, 01 May 2023 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Comparison of Usability Preferences with Bivariate Ordinal Regression</title>
   <link>https://andrewraim.github.io/posts/2023-04-20-bivariate-ordinal-maps.html</link>
