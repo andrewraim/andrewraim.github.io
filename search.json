@@ -46,7 +46,7 @@
     "href": "software.html",
     "title": "Andrew M. Raim",
     "section": "",
-    "text": "LaTeX templates\n\nlatex-resume: a template for resumes/CVs.\nlatex-business-card: a template for business cards.\nbeamerthemefoiltex: a plain Beamer theme.\nformula-sheet: a template for formula sheets.\nsweave-examples: templates for Latex slides and articles using Sweave via knitr.\n\nNote: I am not a LaTeX programmer, so there may be room for improvement in these templates.\n\n\nUtilities\n\nmd-util: some command line scripts and templates to facilitate compiling markdown to various formats (PDF, html, Beamer) using Pandoc.\nworker: a tool to help run repetitive computational studies such as statistical simulations."
+    "text": "LaTeX templates\n\nlatex-resume: a template for resumes/CVs.\nlatex-business-card: a template for business cards.\nbeamerthemeraim: a custom Beamer theme.\nformula-sheet: a template for formula sheets.\nsweave-examples: templates for Latex slides and articles using Sweave via knitr.\n\nNote: I am not a LaTeX programmer, so there may be room for improvement in these templates.\n\n\nUtilities\n\nmd-util: some command line scripts and templates to facilitate compiling markdown to various formats (PDF, html, Beamer) using Pandoc.\nworker: a tool to help run repetitive computational studies such as statistical simulations."
   },
   {
     "objectID": "links.html",
