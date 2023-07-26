@@ -25,9 +25,10 @@
 # LaTeX templates
 
 - [latex-resume](software/latex-resume.qmd): a template for resumes/CVs.
-- [latex-business-card](software/latex-business-card.qmd): a template for business cards.
-- [beamerthemefoiltex](https://github.com/andrewraim/beamerthemefoiltex): a
-  plain Beamer theme.
+- [latex-business-card](software/latex-business-card.qmd): a template for
+  business cards.
+- [beamerthemeraim](https://github.com/andrewraim/beamerthemeraim): a
+  custom Beamer theme.
 - [formula-sheet](software/formula-sheet.qmd): a template for formula sheets.
 - [sweave-examples](https://github.com/andrewraim/sweave-examples): templates
   for Latex slides and articles using Sweave via knitr.
