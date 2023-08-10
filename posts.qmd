@@ -2,7 +2,6 @@
 listing:
   contents: posts
   type: default
-  # type: table
   categories: true
   sort: "date desc"
   fields: [author, date, title, categories]
