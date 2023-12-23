@@ -64,8 +64,9 @@ readily-available software that has been developed under this philopsophy.
   processing
 - [Flowblade](https://jliljebl.github.io/flowblade) Video editing
 - [GIMP](https://www.gimp.org) Image editing
-- [DWM](https://dwm.suckless.org) Extremely lightweight and minimalist tiling
-  window manager
+- [dwm](https://dwm.suckless.org) Extremely lightweight and minimalist tiling
+  window manager for X11. Also see [dwl](https://codeberg.org/dwl) for
+  Wayland.
 - [tmux](https://github.com/tmux/tmux/wiki) Persistent terminal sessions that
   can be detached/attached and split into multiple panes. Here is a
   [cheat sheet](https://gist.github.com/MohamedAlaa/2961058) with some useful
