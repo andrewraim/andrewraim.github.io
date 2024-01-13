@@ -5,8 +5,10 @@ include-after-body:
   - bib/reports.html
 ---
 
-Here is my
+Some additional works not listed here can be found on my
 [Google Scholar](https://scholar.google.com/citations?user=3Ai29GIAAAAJ)
-profile.
+profile and the
+[HPCF Technical Reports](https://hpcf.umbc.edu/publications) website.
+
 
 
