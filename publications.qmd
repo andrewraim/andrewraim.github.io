@@ -1,6 +1,6 @@
 ---
 include-after-body:
-#  - bib/manuscripts.html
+  - bib/manuscripts.html
   - bib/papers.html
   - bib/reports.html
 ---
