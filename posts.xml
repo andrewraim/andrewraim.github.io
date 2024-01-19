@@ -6,15 +6,16 @@
       version="2.0">
 <channel>
 <title>Andrew M. Raim</title>
-<link>https://andrewraim.github.io/posts.html</link>
-<atom:link href="https://andrewraim.github.io/posts.xml" rel="self" type="application/rss+xml"/>
+<link>/posts.html</link>
+<atom:link href="/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.0.32</generator>
+<generator>quarto-1.4.545</generator>
 <lastBuildDate>Mon, 01 May 2023 04:00:00 GMT</lastBuildDate>
 <item>
   <title>Sending Mail from R</title>
-  <link>https://andrewraim.github.io/posts/2023-05-01-sendmail-R.html</link>
+  <link>/posts/2023-05-01-sendmail-R.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -22,12 +23,40 @@
 <p>Here is an example where we use sendmailR to send mail to the local mailbox of our user (araim) on the host machine. This assumes we have a sendmail server set up to relay local mail and that araim has a mailbox.</p>
 <p>The following call in R sends a message.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">result <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">sendmail</span>(</span>
-<span id="cb1-2">    <span class="at" style="color: #657422;">from =</span> <span class="st" style="color: #20794D;">"sendmailR"</span>,</span>
-<span id="cb1-3">    <span class="at" style="color: #657422;">to =</span> <span class="st" style="color: #20794D;">"araim"</span>,</span>
-<span id="cb1-4">    <span class="at" style="color: #657422;">subject =</span> <span class="st" style="color: #20794D;">"Hello from R"</span>,</span>
-<span id="cb1-5">    <span class="at" style="color: #657422;">msg =</span> <span class="st" style="color: #20794D;">"This is an email from R using the sendmailR package."</span>,</span>
-<span id="cb1-6">    <span class="at" style="color: #657422;">control =</span> <span class="fu" style="color: #4758AB;">list</span>(<span class="at" style="color: #657422;">smtpServer =</span> <span class="st" style="color: #20794D;">"localhost"</span>)</span>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">result <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sendmail</span>(</span>
+<span id="cb1-2">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">from =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sendmailR"</span>,</span>
+<span id="cb1-3">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">to =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"araim"</span>,</span>
+<span id="cb1-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subject =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Hello from R"</span>,</span>
+<span id="cb1-5">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">msg =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"This is an email from R using the sendmailR package."</span>,</span>
+<span id="cb1-6">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">control =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">smtpServer =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"localhost"</span>)</span>
 <span id="cb1-7">)</span></code></pre></div>
 </div>
 <p>Here is how the message appears when viewed with <code>mutt</code>.</p>
@@ -45,18 +74,82 @@
 <span id="cb2-12">-N +- 1155/1155: sendmailR@localhost   Hello from R                      -- (all)</span></code></pre></div>
 <p>Here is an example of sending mail on an exception using <code>withCallingHandlers</code>. Here we use <code>sys.calls</code> to give some context about the call that led to the error.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">f <span class="ot" style="color: #003B4F;">=</span> <span class="cf" style="color: #003B4F;">function</span>(x) { <span class="fu" style="color: #4758AB;">stop</span>(<span class="st" style="color: #20794D;">"An exception!"</span>) }</span>
-<span id="cb3-2">g <span class="ot" style="color: #003B4F;">=</span> <span class="cf" style="color: #003B4F;">function</span>(x) { <span class="fu" style="color: #4758AB;">f</span>(x) }</span>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">f <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(x) { <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">stop</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"An exception!"</span>) }</span>
+<span id="cb3-2">g <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(x) { <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">f</span>(x) }</span>
 <span id="cb3-3"></span>
-<span id="cb3-4"><span class="fu" style="color: #4758AB;">withCallingHandlers</span>({</span>
-<span id="cb3-5">    <span class="fu" style="color: #4758AB;">g</span>(<span class="dv" style="color: #AD0000;">1</span><span class="sc" style="color: #5E5E5E;">:</span><span class="dv" style="color: #AD0000;">10</span>)</span>
-<span id="cb3-6">}, <span class="at" style="color: #657422;">error =</span> <span class="cf" style="color: #003B4F;">function</span>(e) {</span>
-<span id="cb3-7">    result <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">sendmail</span>(</span>
-<span id="cb3-8">        <span class="at" style="color: #657422;">from =</span> <span class="st" style="color: #20794D;">"sendmailR"</span>,</span>
-<span id="cb3-9">        <span class="at" style="color: #657422;">to =</span> <span class="st" style="color: #20794D;">"araim"</span>,</span>
-<span id="cb3-10">        <span class="at" style="color: #657422;">subject =</span> <span class="st" style="color: #20794D;">"Exception from R"</span>,</span>
-<span id="cb3-11">        <span class="at" style="color: #657422;">msg =</span> <span class="fu" style="color: #4758AB;">sprintf</span>(<span class="st" style="color: #20794D;">"%d: %s"</span>, <span class="fu" style="color: #4758AB;">seq_along</span>(<span class="fu" style="color: #4758AB;">sys.calls</span>()), <span class="fu" style="color: #4758AB;">sys.calls</span>()),</span>
-<span id="cb3-12">        <span class="at" style="color: #657422;">control =</span> <span class="fu" style="color: #4758AB;">list</span>(<span class="at" style="color: #657422;">smtpServer =</span> <span class="st" style="color: #20794D;">"localhost"</span>)</span>
+<span id="cb3-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">withCallingHandlers</span>({</span>
+<span id="cb3-5">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">g</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>)</span>
+<span id="cb3-6">}, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">error =</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(e) {</span>
+<span id="cb3-7">    result <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sendmail</span>(</span>
+<span id="cb3-8">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">from =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sendmailR"</span>,</span>
+<span id="cb3-9">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">to =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"araim"</span>,</span>
+<span id="cb3-10">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subject =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Exception from R"</span>,</span>
+<span id="cb3-11">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">msg =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sprintf</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%d: %s"</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq_along</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sys.calls</span>()), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sys.calls</span>()),</span>
+<span id="cb3-12">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">control =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">smtpServer =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"localhost"</span>)</span>
 <span id="cb3-13">    )</span>
 <span id="cb3-14">})</span></code></pre></div>
 </div>
@@ -93,13 +186,14 @@
 
  ]]></description>
   <category>programming</category>
-  <guid>https://andrewraim.github.io/posts/2023-05-01-sendmail-R.html</guid>
+  <guid>/posts/2023-05-01-sendmail-R.html</guid>
   <pubDate>Mon, 01 May 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Comparison of Usability Preferences with Bivariate Ordinal Regression</title>
-  <link>https://andrewraim.github.io/posts/2023-04-20-bivariate-ordinal-maps.html</link>
+  <link>/posts/2023-04-20-bivariate-ordinal-maps.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -109,7 +203,7 @@
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-HirkHornikVana2020" class="csl-entry">
 Hirk, Rainer, Kurt Hornik, and Laura Vana. 2020. <span>“<span class="nocase">mvord</span>: An <span>R</span> Package for Fitting Multivariate Ordinal Regression Models.”</span> <em>Journal of Statistical Software</em> 93 (4): 1–41. <a href="https://doi.org/10.18637/jss.v093.i04">https://doi.org/10.18637/jss.v093.i04</a>.
 </div>
@@ -118,45 +212,48 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 </div>
 </div></section></div> ]]></description>
   <category>article</category>
-  <guid>https://andrewraim.github.io/posts/2023-04-20-bivariate-ordinal-maps.html</guid>
+  <guid>/posts/2023-04-20-bivariate-ordinal-maps.html</guid>
   <pubDate>Thu, 20 Apr 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Interactive Map with Shiny and Leaflet</title>
-  <link>https://andrewraim.github.io/posts/2023-02-27-shiny-leaflet.html</link>
+  <link>/posts/2023-02-27-shiny-leaflet.html</link>
   <description><![CDATA[ 
+
 
 
 
 <p>There are powerful tools for working with geographical data in R. For example, the <a href="https://cran.r-project.org/package=ggplot2">ggplot</a> and <a href="https://cran.r-project.org/package=sf">sf</a> packages can be used together to display such data. But what about interactive maps which support panning, zooming, and clicks to trigger actions (e.g., highlighting an area)?</p>
 <p>One way to accomplish this is through <a href="https://shiny.rstudio.com">Shiny</a> and <a href="https://rstudio.github.io/leaflet">Leaflet</a>. With this combination of tools, it is relatively easy to stand up an graphical interface. Shiny supports constructs beyond routine R programming which allow variables, displays, and computations to react to user inputs. Leaflet provides widgets for interactive maps.</p>
 <p>There are already a number of interesting examples on the web, but <a href="https://github.com/andrewraim/shiny-leaflet-example">here</a> is something I put together.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="../images/shiny-leaflet-example.png"><img src="https://andrewraim.github.io/images/shiny-leaflet-example-thumb.png" class="img-fluid figure-img"></a></p>
-</figure>
-</div>
+<p><a href="../images/shiny-leaflet-example.png"><img src="/images/shiny-leaflet-example-thumb.png" class="img-fluid"></a></p>
 <p>It displays counties in Maryland along with some randomly placed markers, and displays the count of markers within each county as a choropleth. Users can remove existing markers or add new ones, which in turn triggers the counts to be recomputed and the choropleth to be updated.</p>
 
 
 
  ]]></description>
   <category>programming</category>
-  <guid>https://andrewraim.github.io/posts/2023-02-27-shiny-leaflet.html</guid>
+  <guid>/posts/2023-02-27-shiny-leaflet.html</guid>
   <pubDate>Mon, 27 Feb 2023 05:00:00 GMT</pubDate>
-  <media:content url="https://andrewraim.github.io/images/shiny-leaflet-example-thumb.png" medium="image" type="image/png" height="77" width="144"/>
 </item>
 <item>
   <title>Worker Tool for Computational Studies</title>
-  <link>https://andrewraim.github.io/posts/2023-02-12-worker.html</link>
+  <link>/posts/2023-02-12-worker.html</link>
   <description><![CDATA[ 
+
 
 
 
 <p>In a large statistical simulation or other computational study, it can be labor intensive to kick off all of the runs whose results will be harvested and summarized. <a href="https://github.com/andrewraim/worker">Worker</a> is a lightweight tool that seeks to help automate this process. This post gives a brief description; see the webpage for details.</p>
 <p>Suppose our study consists of a parameter that is varied in some way, and we have determined that there are 999 levels of interest. Suppose that we have set up 999 corresponding directories, named as follows.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="sc" style="color: #5E5E5E;">$</span> ls <span class="sc" style="color: #5E5E5E;">-</span><span class="dv" style="color: #AD0000;">1</span></span>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span> ls <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
 <span id="cb1-2">run001</span>
 <span id="cb1-3">run002</span>
 <span id="cb1-4">...</span>
@@ -166,7 +263,17 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 <p>The worker takes this concept slightly further; it loops through jobs and runs them sequentially, but multiple workers can be run simultaneously on the same study to achieve “embarrassingly parallel” parallel computing. Workers make use of use lock files to avoid stepping on each other’s toes. This paradigm can be useful in shared computing environments, where users may be asked to limit the number of CPUs requested at any given time. We can start, say, ten workers rather than having to continually monitor a scheduler’s queue and submit more jobs.</p>
 <p>Here is an example of the syntax currently used to invoke each worker in this example.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="sc" style="color: #5E5E5E;">$</span> worker.sh <span class="sc" style="color: #5E5E5E;">-</span>p <span class="st" style="color: #20794D;">'run???'</span> <span class="sc" style="color: #5E5E5E;">-</span>c <span class="st" style="color: #20794D;">'Rscript launch.R'</span></span></code></pre></div>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span> worker.sh <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>p <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'run???'</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>c <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Rscript launch.R'</span></span></code></pre></div>
 </div>
 <p>After all of the runs are completed, we will likely want to load each of the <code>output.csv</code> files and construct tables and plots to summarize the results. This <a href="../posts/2023-02-11-latex-tables-from-R.html">post</a> may be helpful if you are looking to construct Latex tables from a computational study.</p>
 
@@ -174,13 +281,14 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 
  ]]></description>
   <category>programming</category>
-  <guid>https://andrewraim.github.io/posts/2023-02-12-worker.html</guid>
+  <guid>/posts/2023-02-12-worker.html</guid>
   <pubDate>Sun, 12 Feb 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Generating Latex Tables in R</title>
-  <link>https://andrewraim.github.io/posts/2023-02-11-latex-tables-from-R.html</link>
+  <link>/posts/2023-02-11-latex-tables-from-R.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -192,14 +300,106 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 <h1>Objective</h1>
 <p>Our objective will be to generate a Latex table for the first six rows of the <code>airquality</code> dataset.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">R<span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">head</span>(airquality, <span class="at" style="color: #657422;">n =</span> <span class="dv" style="color: #AD0000;">6</span>)</span>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">R<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(airquality, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>)</span>
 <span id="cb1-2">  Ozone Solar.R Wind Temp Month Day</span>
-<span id="cb1-3"><span class="dv" style="color: #AD0000;">1</span>    <span class="dv" style="color: #AD0000;">41</span>     <span class="dv" style="color: #AD0000;">190</span>  <span class="fl" style="color: #AD0000;">7.4</span>   <span class="dv" style="color: #AD0000;">67</span>     <span class="dv" style="color: #AD0000;">5</span>   <span class="dv" style="color: #AD0000;">1</span></span>
-<span id="cb1-4"><span class="dv" style="color: #AD0000;">2</span>    <span class="dv" style="color: #AD0000;">36</span>     <span class="dv" style="color: #AD0000;">118</span>  <span class="fl" style="color: #AD0000;">8.0</span>   <span class="dv" style="color: #AD0000;">72</span>     <span class="dv" style="color: #AD0000;">5</span>   <span class="dv" style="color: #AD0000;">2</span></span>
-<span id="cb1-5"><span class="dv" style="color: #AD0000;">3</span>    <span class="dv" style="color: #AD0000;">12</span>     <span class="dv" style="color: #AD0000;">149</span> <span class="fl" style="color: #AD0000;">12.6</span>   <span class="dv" style="color: #AD0000;">74</span>     <span class="dv" style="color: #AD0000;">5</span>   <span class="dv" style="color: #AD0000;">3</span></span>
-<span id="cb1-6"><span class="dv" style="color: #AD0000;">4</span>    <span class="dv" style="color: #AD0000;">18</span>     <span class="dv" style="color: #AD0000;">313</span> <span class="fl" style="color: #AD0000;">11.5</span>   <span class="dv" style="color: #AD0000;">62</span>     <span class="dv" style="color: #AD0000;">5</span>   <span class="dv" style="color: #AD0000;">4</span></span>
-<span id="cb1-7"><span class="dv" style="color: #AD0000;">5</span>    <span class="cn" style="color: #8f5902;">NA</span>      <span class="cn" style="color: #8f5902;">NA</span> <span class="fl" style="color: #AD0000;">14.3</span>   <span class="dv" style="color: #AD0000;">56</span>     <span class="dv" style="color: #AD0000;">5</span>   <span class="dv" style="color: #AD0000;">5</span></span>
-<span id="cb1-8"><span class="dv" style="color: #AD0000;">6</span>    <span class="dv" style="color: #AD0000;">28</span>      <span class="cn" style="color: #8f5902;">NA</span> <span class="fl" style="color: #AD0000;">14.9</span>   <span class="dv" style="color: #AD0000;">66</span>     <span class="dv" style="color: #AD0000;">5</span>   <span class="dv" style="color: #AD0000;">6</span></span></code></pre></div>
+<span id="cb1-3"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">41</span>     <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">190</span>  <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.4</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">67</span>     <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb1-4"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">36</span>     <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">118</span>  <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.0</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">72</span>     <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb1-5"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span>     <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">149</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.6</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">74</span>     <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span></span>
+<span id="cb1-6"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span>     <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">313</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11.5</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">62</span>     <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span></span>
+<span id="cb1-7"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>    <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>      <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.3</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">56</span>     <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span></span>
+<span id="cb1-8"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>      <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.9</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">66</span>     <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span></span></code></pre></div>
 </div>
 <p>We would also like to meet the following criteria.</p>
 <ol type="1">
@@ -235,20 +435,104 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 <h1>Preparing the Data Frame</h1>
 <p>First let us load the packages we will use.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">R<span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">library</span>(knitr)</span>
-<span id="cb2-2">R<span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">library</span>(dplyr)</span>
-<span id="cb2-3">R<span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">library</span>(tibble)</span>
-<span id="cb2-4">R<span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">library</span>(stringr)</span>
-<span id="cb2-5">R<span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">library</span>(kableExtra)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">R<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(knitr)</span>
+<span id="cb2-2">R<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dplyr)</span>
+<span id="cb2-3">R<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tibble)</span>
+<span id="cb2-4">R<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(stringr)</span>
+<span id="cb2-5">R<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(kableExtra)</span></code></pre></div>
 </div>
 <p>Before converting to Latex, let us format the entries and column names as we would like them to appear.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">tbl <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">head</span>(airquality, <span class="at" style="color: #657422;">n =</span> <span class="dv" style="color: #AD0000;">6</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb3-2">    <span class="fu" style="color: #4758AB;">rownames_to_column</span>(<span class="at" style="color: #657422;">var =</span> <span class="st" style="color: #20794D;">"Num"</span>) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb3-3">    <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">Date =</span> <span class="fu" style="color: #4758AB;">sprintf</span>(<span class="st" style="color: #20794D;">"%04d-%02d-%02d"</span>, <span class="dv" style="color: #AD0000;">1973</span>, Month, Day)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb3-4">    <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">Solar.R =</span> <span class="fu" style="color: #4758AB;">sprintf</span>(<span class="st" style="color: #20794D;">"%0.2e"</span>, Solar.R)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb3-5">    <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">TempC =</span> <span class="fu" style="color: #4758AB;">sprintf</span>(<span class="st" style="color: #20794D;">"%0.2f"</span>, <span class="dv" style="color: #AD0000;">5</span><span class="sc" style="color: #5E5E5E;">/</span><span class="dv" style="color: #AD0000;">9</span> <span class="sc" style="color: #5E5E5E;">*</span> (Temp <span class="sc" style="color: #5E5E5E;">-</span> <span class="dv" style="color: #AD0000;">32</span>))) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb3-6">    <span class="fu" style="color: #4758AB;">select</span>(Num, Date, Ozone, Solar.R, Wind, TempC)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">tbl <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(airquality, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">n =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-2">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rownames_to_column</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">var =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Num"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-3">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Date =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sprintf</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%04d-%02d-%02d"</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1973</span>, Month, Day)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-4">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Solar.R =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sprintf</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%0.2e"</span>, Solar.R)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-5">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">TempC =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sprintf</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%0.2f"</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (Temp <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">32</span>))) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-6">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(Num, Date, Ozone, Solar.R, Wind, TempC)</span></code></pre></div>
 </div>
 <p>We have done the following.</p>
 <ol type="1">
@@ -259,29 +543,239 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 </ol>
 <p>This produces the following table.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">R<span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">print</span>(tbl)</span>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">R<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(tbl)</span>
 <span id="cb4-2">  Num       Date Ozone  Solar.R Wind TempC</span>
-<span id="cb4-3"><span class="dv" style="color: #AD0000;">1</span>   <span class="dv" style="color: #AD0000;">1</span> <span class="dv" style="color: #AD0000;">1973-05-01</span>    <span class="dv" style="color: #AD0000;">41</span> <span class="fl" style="color: #AD0000;">1.90e+02</span>  <span class="fl" style="color: #AD0000;">7.4</span> <span class="fl" style="color: #AD0000;">19.44</span></span>
-<span id="cb4-4"><span class="dv" style="color: #AD0000;">2</span>   <span class="dv" style="color: #AD0000;">2</span> <span class="dv" style="color: #AD0000;">1973-05-02</span>    <span class="dv" style="color: #AD0000;">36</span> <span class="fl" style="color: #AD0000;">1.18e+02</span>  <span class="fl" style="color: #AD0000;">8.0</span> <span class="fl" style="color: #AD0000;">22.22</span></span>
-<span id="cb4-5"><span class="dv" style="color: #AD0000;">3</span>   <span class="dv" style="color: #AD0000;">3</span> <span class="dv" style="color: #AD0000;">1973-05-03</span>    <span class="dv" style="color: #AD0000;">12</span> <span class="fl" style="color: #AD0000;">1.49e+02</span> <span class="fl" style="color: #AD0000;">12.6</span> <span class="fl" style="color: #AD0000;">23.33</span></span>
-<span id="cb4-6"><span class="dv" style="color: #AD0000;">4</span>   <span class="dv" style="color: #AD0000;">4</span> <span class="dv" style="color: #AD0000;">1973-05-04</span>    <span class="dv" style="color: #AD0000;">18</span> <span class="fl" style="color: #AD0000;">3.13e+02</span> <span class="fl" style="color: #AD0000;">11.5</span> <span class="fl" style="color: #AD0000;">16.67</span></span>
-<span id="cb4-7"><span class="dv" style="color: #AD0000;">5</span>   <span class="dv" style="color: #AD0000;">5</span> <span class="dv" style="color: #AD0000;">1973-05-05</span>    <span class="cn" style="color: #8f5902;">NA</span>       <span class="cn" style="color: #8f5902;">NA</span> <span class="fl" style="color: #AD0000;">14.3</span> <span class="fl" style="color: #AD0000;">13.33</span></span>
-<span id="cb4-8"><span class="dv" style="color: #AD0000;">6</span>   <span class="dv" style="color: #AD0000;">6</span> <span class="dv" style="color: #AD0000;">1973-05-06</span>    <span class="dv" style="color: #AD0000;">28</span>       <span class="cn" style="color: #8f5902;">NA</span> <span class="fl" style="color: #AD0000;">14.9</span> <span class="fl" style="color: #AD0000;">18.89</span></span></code></pre></div>
+<span id="cb4-3"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1973-05-01</span>    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">41</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.90e+02</span>  <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.4</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">19.44</span></span>
+<span id="cb4-4"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1973-05-02</span>    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">36</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.18e+02</span>  <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8.0</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22.22</span></span>
+<span id="cb4-5"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1973-05-03</span>    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.49e+02</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.6</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">23.33</span></span>
+<span id="cb4-6"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1973-05-04</span>    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.13e+02</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11.5</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16.67</span></span>
+<span id="cb4-7"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1973-05-05</span>    <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>       <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.3</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">13.33</span></span>
+<span id="cb4-8"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>   <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1973-05-06</span>    <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span>       <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.9</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18.89</span></span></code></pre></div>
 </div>
 </section>
 <section id="generating-latex" class="level1">
 <h1>Generating Latex</h1>
 <p>We can now generate code to display out formatted table as Latex code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">out <span class="ot" style="color: #003B4F;">=</span> tbl <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb5-2">    <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">Solar.R =</span> <span class="fu" style="color: #4758AB;">str_pad</span>(Solar.R, <span class="at" style="color: #657422;">width =</span> <span class="dv" style="color: #AD0000;">10</span>, <span class="at" style="color: #657422;">side =</span> <span class="st" style="color: #20794D;">"left"</span>, <span class="at" style="color: #657422;">pad =</span> <span class="st" style="color: #20794D;">"\u00A0"</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb5-3">    <span class="fu" style="color: #4758AB;">mutate</span>(<span class="at" style="color: #657422;">Wind =</span> <span class="fu" style="color: #4758AB;">str_pad</span>(Wind, <span class="at" style="color: #657422;">width =</span> <span class="dv" style="color: #AD0000;">6</span>, <span class="at" style="color: #657422;">side =</span> <span class="st" style="color: #20794D;">"left"</span>, <span class="at" style="color: #657422;">pad =</span> <span class="st" style="color: #20794D;">"\u00A0"</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb5-4">    <span class="fu" style="color: #4758AB;">kable</span>(<span class="at" style="color: #657422;">format =</span> <span class="st" style="color: #20794D;">"latex"</span>, <span class="at" style="color: #657422;">booktabs =</span> <span class="cn" style="color: #8f5902;">TRUE</span>, <span class="at" style="color: #657422;">linesep =</span> <span class="st" style="color: #20794D;">""</span>, <span class="at" style="color: #657422;">align =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"rlrrrr"</span>),</span>
-<span id="cb5-5">        <span class="at" style="color: #657422;">caption =</span> <span class="st" style="color: #20794D;">"My formatted airquality table."</span>, <span class="at" style="color: #657422;">label =</span> <span class="st" style="color: #20794D;">"airquality"</span>,</span>
-<span id="cb5-6">        <span class="at" style="color: #657422;">col.names =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Number"</span>, <span class="st" style="color: #20794D;">"Date"</span>, <span class="st" style="color: #20794D;">"Ozone (PPB)"</span>, <span class="st" style="color: #20794D;">"Radiation (Ly)"</span>,</span>
-<span id="cb5-7">            <span class="st" style="color: #20794D;">"Wind (MPH)"</span>, <span class="st" style="color: #20794D;">"Temp (C)"</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb5-8">    <span class="fu" style="color: #4758AB;">kable_styling</span>(<span class="at" style="color: #657422;">latex_options =</span> <span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"hold_position"</span>)) <span class="sc" style="color: #5E5E5E;">%&gt;%</span></span>
-<span id="cb5-9">    <span class="fu" style="color: #4758AB;">add_header_above</span>(<span class="fu" style="color: #4758AB;">c</span>(<span class="st" style="color: #20794D;">"Observation"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">2</span>, <span class="st" style="color: #20794D;">"Solar"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">2</span>, <span class="st" style="color: #20794D;">"Weather"</span> <span class="ot" style="color: #003B4F;">=</span> <span class="dv" style="color: #AD0000;">2</span>))</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1">out <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> tbl <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb5-2">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Solar.R =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_pad</span>(Solar.R, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">side =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"left"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pad =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\u00A0"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb5-3">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Wind =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str_pad</span>(Wind, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">side =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"left"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">pad =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\u00A0"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb5-4">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">format =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"latex"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">booktabs =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">linesep =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">align =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"rlrrrr"</span>),</span>
+<span id="cb5-5">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">caption =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"My formatted airquality table."</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">label =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"airquality"</span>,</span>
+<span id="cb5-6">        <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col.names =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Number"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Date"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Ozone (PPB)"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Radiation (Ly)"</span>,</span>
+<span id="cb5-7">            <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Wind (MPH)"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Temp (C)"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb5-8">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable_styling</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">latex_options =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hold_position"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb5-9">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">add_header_above</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Observation"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Solar"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Weather"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>))</span></code></pre></div>
 </div>
 <p>We have done the following.</p>
 <ol type="1">
@@ -292,23 +786,211 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 </ol>
 <p>Printing the result yields the following Latex code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">R<span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">print</span>(out)</span>
-<span id="cb6-2">\begin{table}[<span class="sc" style="color: #5E5E5E;">!</span>h]</span>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">R<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(out)</span>
+<span id="cb6-2">\begin{table}[<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>h]</span>
 <span id="cb6-3"></span>
-<span id="cb6-4">\caption{\label{tab<span class="sc" style="color: #5E5E5E;">:</span>airquality}My formatted airquality table.}</span>
+<span id="cb6-4">\caption{\label{tab<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span>airquality}My formatted airquality table.}</span>
 <span id="cb6-5">\centering</span>
 <span id="cb6-6">\begin{tabular}[t]{rlrrrr}</span>
 <span id="cb6-7">\toprule</span>
-<span id="cb6-8">\multicolumn{<span class="dv" style="color: #AD0000;">2</span>}{c}{Observation} <span class="sc" style="color: #5E5E5E;">&amp;</span> \multicolumn{<span class="dv" style="color: #AD0000;">2</span>}{c}{Solar} <span class="sc" style="color: #5E5E5E;">&amp;</span> \multicolumn{<span class="dv" style="color: #AD0000;">2</span>}{c}{Weather} \\</span>
-<span id="cb6-9">\<span class="fu" style="color: #4758AB;">cmidrule</span>(l{3pt}r{3pt}){<span class="dv" style="color: #AD0000;">1-2</span>} \<span class="fu" style="color: #4758AB;">cmidrule</span>(l{3pt}r{3pt}){<span class="dv" style="color: #AD0000;">3-4</span>} \<span class="fu" style="color: #4758AB;">cmidrule</span>(l{3pt}r{3pt}){<span class="dv" style="color: #AD0000;">5-6</span>}</span>
-<span id="cb6-10">Number <span class="sc" style="color: #5E5E5E;">&amp;</span> Date <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fu" style="color: #4758AB;">Ozone</span> (PPB) <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fu" style="color: #4758AB;">Radiation</span> (Ly) <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fu" style="color: #4758AB;">Wind</span> (MPH) <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fu" style="color: #4758AB;">Temp</span> (C)\\</span>
+<span id="cb6-8">\multicolumn{<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>}{c}{Observation} <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> \multicolumn{<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>}{c}{Solar} <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> \multicolumn{<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>}{c}{Weather} \\</span>
+<span id="cb6-9">\<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cmidrule</span>(l{<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>pt}r{<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>pt}){<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1-2</span>} \<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cmidrule</span>(l{<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>pt}r{<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>pt}){<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3-4</span>} \<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cmidrule</span>(l{<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>pt}r{<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>pt}){<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5-6</span>}</span>
+<span id="cb6-10">Number <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> Date <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Ozone</span> (PPB) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Radiation</span> (Ly) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Wind</span> (MPH) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">Temp</span> (C)\\</span>
 <span id="cb6-11">\midrule</span>
-<span id="cb6-12"><span class="dv" style="color: #AD0000;">1</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="dv" style="color: #AD0000;">1973-05-01</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="dv" style="color: #AD0000;">41</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;">1.90e+02</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> &nbsp;&nbsp;&nbsp;<span class="fl" style="color: #AD0000;">7.4</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fl" style="color: #AD0000;">19.44</span>\\</span>
-<span id="cb6-13"><span class="dv" style="color: #AD0000;">2</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="dv" style="color: #AD0000;">1973-05-02</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="dv" style="color: #AD0000;">36</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;">1.18e+02</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="dv" style="color: #AD0000;">8</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fl" style="color: #AD0000;">22.22</span>\\</span>
-<span id="cb6-14"><span class="dv" style="color: #AD0000;">3</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="dv" style="color: #AD0000;">1973-05-03</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="dv" style="color: #AD0000;">12</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;">1.49e+02</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;">12.6</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fl" style="color: #AD0000;">23.33</span>\\</span>
-<span id="cb6-15"><span class="dv" style="color: #AD0000;">4</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="dv" style="color: #AD0000;">1973-05-04</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="dv" style="color: #AD0000;">18</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;">3.13e+02</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;">11.5</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fl" style="color: #AD0000;">16.67</span>\\</span>
-<span id="cb6-16"><span class="dv" style="color: #AD0000;">5</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="dv" style="color: #AD0000;">1973-05-05</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="cn" style="color: #8f5902;">NA</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NA <span class="sc" style="color: #5E5E5E;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;">14.3</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fl" style="color: #AD0000;">13.33</span>\\</span>
-<span id="cb6-17"><span class="dv" style="color: #AD0000;">6</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="dv" style="color: #AD0000;">1973-05-06</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="dv" style="color: #AD0000;">28</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NA <span class="sc" style="color: #5E5E5E;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;">14.9</span> <span class="sc" style="color: #5E5E5E;">&amp;</span> <span class="fl" style="color: #AD0000;">18.89</span>\\</span>
+<span id="cb6-12"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1973-05-01</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">41</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.90e+02</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> &nbsp;&nbsp;&nbsp;<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">7.4</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">19.44</span>\\</span>
+<span id="cb6-13"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1973-05-02</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">36</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.18e+02</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">22.22</span>\\</span>
+<span id="cb6-14"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1973-05-03</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.49e+02</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">12.6</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">23.33</span>\\</span>
+<span id="cb6-15"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1973-05-04</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3.13e+02</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">11.5</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">16.67</span>\\</span>
+<span id="cb6-16"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1973-05-05</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NA <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.3</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">13.33</span>\\</span>
+<span id="cb6-17"><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1973-05-06</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">28</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NA <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> &nbsp;&nbsp;<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">14.9</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">18.89</span>\\</span>
 <span id="cb6-18">\bottomrule</span>
 <span id="cb6-19">\end{tabular}</span>
 <span id="cb6-20">\end{table}</span></code></pre></div>
@@ -320,13 +1002,14 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 
  ]]></description>
   <category>programming</category>
-  <guid>https://andrewraim.github.io/posts/2023-02-11-latex-tables-from-R.html</guid>
+  <guid>/posts/2023-02-11-latex-tables-from-R.html</guid>
   <pubDate>Sat, 11 Feb 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details</title>
-  <link>https://andrewraim.github.io/posts/2022-11-15-compoissonreg.html</link>
+  <link>/posts/2022-11-15-compoissonreg.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -337,13 +1020,14 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
  ]]></description>
   <category>article</category>
   <category>programming</category>
-  <guid>https://andrewraim.github.io/posts/2022-11-15-compoissonreg.html</guid>
+  <guid>/posts/2022-11-15-compoissonreg.html</guid>
   <pubDate>Tue, 15 Nov 2022 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Browsing summary files from the decennial census with R</title>
-  <link>https://andrewraim.github.io/posts/2022-08-15-sfreader.html</link>
+  <link>/posts/2022-08-15-sfreader.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -354,13 +1038,14 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
  ]]></description>
   <category>article</category>
   <category>programming</category>
-  <guid>https://andrewraim.github.io/posts/2022-08-15-sfreader.html</guid>
+  <guid>/posts/2022-08-15-sfreader.html</guid>
   <pubDate>Mon, 15 Aug 2022 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>knitr and Latex Documents</title>
-  <link>https://andrewraim.github.io/posts/2022-06-27-knitr-latex.html</link>
+  <link>/posts/2022-06-27-knitr-latex.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -372,13 +1057,14 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 
  ]]></description>
   <category>programming</category>
-  <guid>https://andrewraim.github.io/posts/2022-06-27-knitr-latex.html</guid>
+  <guid>/posts/2022-06-27-knitr-latex.html</guid>
   <pubDate>Mon, 27 Jun 2022 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Presentation for 2020 Joint Statistical Meetings</title>
-  <link>https://andrewraim.github.io/posts/2020-08-03-JSM2020.html</link>
+  <link>/posts/2020-08-03-JSM2020.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -388,13 +1074,14 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 
  ]]></description>
   <category>conference</category>
-  <guid>https://andrewraim.github.io/posts/2020-08-03-JSM2020.html</guid>
+  <guid>/posts/2020-08-03-JSM2020.html</guid>
   <pubDate>Mon, 27 Jul 2020 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>R Workshop in Kerala</title>
-  <link>https://andrewraim.github.io/posts/2017-12-20-Kerala-workshop.html</link>
+  <link>/posts/2017-12-20-Kerala-workshop.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -418,8 +1105,8 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 <p>Note that Windows users who do not have Windows 10 Pro or Enterprise - which will probably be most of us - will need a version of Docker called <a href="https://docs.docker.com/toolbox/overview/">Docker Toolbox</a>. Once it is installed, open the Docker Quickstart Terminal to issue commands, which should appear as follows.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://andrewraim.github.io/images/Kerala2018/win-docker-prompt.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Logging into Rstudio Server</figcaption><p></p>
+<p><img src="/images/Kerala2018/win-docker-prompt.png" class="img-fluid figure-img"></p>
+<figcaption>Logging into Rstudio Server</figcaption>
 </figure>
 </div>
 <p>Take note of the IP address listed in the output; we will use it later when connecting to Rstudio.</p>
@@ -437,25 +1124,69 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 <section id="a-quick-test-of-your-docker-setup" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="a-quick-test-of-your-docker-setup"><span class="header-section-number">2.4</span> A Quick Test of your Docker Setup</h2>
 <p>In your terminal, issue the following command.</p>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;">$</span> docker run hello-world</span></code></pre></div>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> docker run hello-world</span></code></pre></div>
 <p>Here, <code>$</code> represents the prompt, which is not part of the command. If your Docker setup is working, you should get the following result.</p>
-<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;">$</span> docker run hello-world</span>
-<span id="cb2-2"><span class="ex" style="color: null;">Hello</span> from Docker!</span>
-<span id="cb2-3"><span class="ex" style="color: null;">This</span> message shows that your installation appears to be working correctly.</span>
-<span id="cb2-4"><span class="ex" style="color: null;">To</span> generate this message, Docker took the following steps:</span>
-<span id="cb2-5"> <span class="ex" style="color: null;">1.</span> The Docker client contacted the Docker daemon.</span>
-<span id="cb2-6"> <span class="ex" style="color: null;">2.</span> The Docker daemon pulled the <span class="st" style="color: #20794D;">"hello-world"</span> image from the Docker Hub.</span>
-<span id="cb2-7">    <span class="kw" style="color: #003B4F;">(</span><span class="ex" style="color: null;">amd64</span><span class="kw" style="color: #003B4F;">)</span></span>
-<span id="cb2-8"> <span class="ex" style="color: null;">3.</span> The Docker daemon created a new container from that image which runs the</span>
-<span id="cb2-9">    <span class="ex" style="color: null;">executable</span> that produces the output you are currently reading.</span>
-<span id="cb2-10"> <span class="ex" style="color: null;">4.</span> The Docker daemon streamed that output to the Docker client, which sent it</span>
-<span id="cb2-11">    <span class="ex" style="color: null;">to</span> your terminal.</span>
-<span id="cb2-12"><span class="ex" style="color: null;">To</span> try something more ambitious, you can run an Ubuntu container with:</span>
-<span id="cb2-13"> <span class="ex" style="color: null;">$</span> docker run <span class="at" style="color: #657422;">-it</span> ubuntu bash</span>
-<span id="cb2-14"><span class="ex" style="color: null;">Share</span> images, automate workflows, and more with a free Docker ID:</span>
-<span id="cb2-15"> <span class="ex" style="color: null;">https://cloud.docker.com/</span></span>
-<span id="cb2-16"><span class="ex" style="color: null;">For</span> more examples and ideas, visit:</span>
-<span id="cb2-17"> <span class="ex" style="color: null;">https://docs.docker.com/engine/userguide/</span></span></code></pre></div>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> docker run hello-world</span>
+<span id="cb2-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Hello</span> from Docker!</span>
+<span id="cb2-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">This</span> message shows that your installation appears to be working correctly.</span>
+<span id="cb2-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">To</span> generate this message, Docker took the following steps:</span>
+<span id="cb2-5"> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">1.</span> The Docker client contacted the Docker daemon.</span>
+<span id="cb2-6"> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">2.</span> The Docker daemon pulled the <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hello-world"</span> image from the Docker Hub.</span>
+<span id="cb2-7">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">amd64</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb2-8"> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">3.</span> The Docker daemon created a new container from that image which runs the</span>
+<span id="cb2-9">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">executable</span> that produces the output you are currently reading.</span>
+<span id="cb2-10"> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">4.</span> The Docker daemon streamed that output to the Docker client, which sent it</span>
+<span id="cb2-11">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">to</span> your terminal.</span>
+<span id="cb2-12"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">To</span> try something more ambitious, you can run an Ubuntu container with:</span>
+<span id="cb2-13"> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> docker run <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-it</span> ubuntu bash</span>
+<span id="cb2-14"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Share</span> images, automate workflows, and more with a free Docker ID:</span>
+<span id="cb2-15"> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">https://cloud.docker.com/</span></span>
+<span id="cb2-16"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">For</span> more examples and ideas, visit:</span>
+<span id="cb2-17"> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">https://docs.docker.com/engine/userguide/</span></span></code></pre></div>
 </section>
 </section>
 <section id="downloading-workshop-config-files" class="level1" data-number="3">
@@ -463,32 +1194,76 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 <p>Download the workshop’s <a href="https://drive.google.com/uc?export=view&amp;id=1CEnhcye1ifSdQHJKBalf20ZiVdeIyZII">Dockerfile</a> and accompanying <a href="https://drive.google.com/uc?export=view&amp;id=15hFA_kSpGmUddMa8tSyqN574h-SIB_zA">start.sh</a>. Save the files to a folder where you will keep workshop materials. Let us call this directory <code>/path/to/workshop</code>.</p>
 <p>In Windows, my web browser renamed <code>Dockerfile</code> to <code>Dockerfile.txt</code> when it was downloaded. If this happens, rename the file and remove the <code>.txt</code> extension.</p>
 <p>After downloading <code>start.sh</code>, Linux and Mac users may need to modify its permissions before the Docker container will run. Ensure that the script can be executed via the following command.</p>
-<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;">$</span> chmod +x start.sh</span></code></pre></div>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> chmod +x start.sh</span></code></pre></div>
 </section>
 <section id="preparing-and-running-the-workshop-container" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Preparing and Running the Workshop Container</h1>
 <p>The following “build” command downloads and builds all of the prerequisites used in the container. It may take a while to run, especially on a slower network or a slower computer. For me it typically takes 20 or 30 minutes (roughly).</p>
-<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;">$</span> docker build <span class="at" style="color: #657422;">-t</span> rworkshop /path/to/workshop</span></code></pre></div>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> docker build <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-t</span> rworkshop /path/to/workshop</span></code></pre></div>
 <p>The build command does not need to be run again unless the Dockerfile is changed, or unless your deployment changes. If the build was successful, the last few lines of output should be something like the following.</p>
 <pre><code>Successfully built f5055a2787e5
 Successfully tagged rworkshop:latest</code></pre>
 <p>The container can now be run using the following “run” command (which is proceeded by defining two environment variables for our convenience).</p>
-<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;">$</span> export XSOCK=/tmp/.X11-unix/X0</span>
-<span id="cb6-2"><span class="ex" style="color: null;">$</span> export EXT=/path/to/workshop</span>
-<span id="cb6-3"><span class="ex" style="color: null;">$</span> docker run <span class="at" style="color: #657422;">-v</span> <span class="va" style="color: #111111;">$XSOCK</span>:<span class="va" style="color: #111111;">$XSOCK</span> <span class="at" style="color: #657422;">-v</span> <span class="va" style="color: #111111;">$EXT</span>:/home/rstudio/ext <span class="dt" style="color: #AD0000;">\</span></span>
-<span id="cb6-4">    <span class="at" style="color: #657422;">-p</span> 8787:8787 <span class="at" style="color: #657422;">-i</span> <span class="at" style="color: #657422;">-t</span> rworkshop</span></code></pre></div>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> export XSOCK=/tmp/.X11-unix/X0</span>
+<span id="cb6-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> export EXT=/path/to/workshop</span>
+<span id="cb6-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> docker run <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-v</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$XSOCK</span>:<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$XSOCK</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-v</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$EXT</span>:/home/rstudio/ext <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb6-4">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-p</span> 8787:8787 <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-t</span> rworkshop</span></code></pre></div>
 <p>Note that: * The option <code>-v $XSOCK:$XSOCK</code> allows the container to display graphics. This is useful for packages such as <code>Rcmdr</code>. * The option <code>-v $EXT:/home/rstudio/ext</code> makes the directory <code>$EXT</code> on your computer available inside the container as <code>/home/rstudio/ext</code>. This will allow you to load files from your local machine into the container, and to save work from the container back to your local machine. * The option <code>-p 8787:8787</code> exposes port 8787 from the container on your computer. This is needed to use Rstudio in the container. * The flags <code>-i</code> and <code>-t</code> are specified because the container is interactive. * The <code>\</code> character is used to break up a long command into multiple lines.</p>
 </section>
 <section id="using-r-in-the-container" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Using R in the Container</h1>
 <p>Once the container is successfully started, you will encounter a Linux command prompt like the following.</p>
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;">rstudio@a8f9a900c791:~$</span></span></code></pre></div>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">rstudio@a8f9a900c791:~$</span></span></code></pre></div>
 <section id="r-on-the-command-line" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="r-on-the-command-line"><span class="header-section-number">5.1</span> R on the Command Line</h2>
 <p>To start R on the command line, issue the <code>R</code> command.</p>
-<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="ex" style="color: null;">rstudio@a8f9a900c791:~$</span> R</span>
-<span id="cb8-2"><span class="op" style="color: #5E5E5E;">&gt;</span> cat<span class="kw" style="color: #003B4F;">(</span><span class="st" style="color: #20794D;">"Hello world\n"</span><span class="kw" style="color: #003B4F;">)</span></span>
-<span id="cb8-3"><span class="ex" style="color: null;">Hello</span> world</span></code></pre></div>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">rstudio@a8f9a900c791:~$</span> R</span>
+<span id="cb8-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> cat<span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Hello world\n"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb8-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Hello</span> world</span></code></pre></div>
 </section>
 <section id="rstudio" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">5.2</span> Rstudio</h2>
@@ -497,48 +1272,116 @@ Successfully tagged rworkshop:latest</code></pre>
 <li><p><strong>Mac</strong> and <strong>Linux</strong> users should navigate to the URL <a href="http://localhost:8787" class="uri">http://localhost:8787</a>.</p></li>
 <li><p><strong>Windows</strong> users should recall the IP address they noted back in section 2.1. Suppose your assigned IP was <code>192.168.99.100</code> (which is the one I have in the screenshot); navigate to the URL <a href="http://192.168.99.100:8787" class="uri">http://192.168.99.100:8787</a>. If you forgot the IP address, start up another Docker Terminal and run the following.</p></li>
 </ul>
-<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="ex" style="color: null;">$</span> docker-machine ls</span></code></pre></div>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> docker-machine ls</span></code></pre></div>
 <p>A login prompt should appear in your browser. Enter <code>rstudio</code> as both the username and the password.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://andrewraim.github.io/images/Kerala2018/rstudio-server-login.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Logging into Rstudio Server</figcaption><p></p>
+<p><img src="/images/Kerala2018/rstudio-server-login.png" class="img-fluid figure-img"></p>
+<figcaption>Logging into Rstudio Server</figcaption>
 </figure>
 </div>
 <p>Now you should be ready to use Rstudio in your web browser.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://andrewraim.github.io/images/Kerala2018/rstudio-server-screen.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Rstudio Server in browser</figcaption><p></p>
+<p><img src="/images/Kerala2018/rstudio-server-screen.png" class="img-fluid figure-img"></p>
+<figcaption>Rstudio Server in browser</figcaption>
 </figure>
 </div>
 </section>
 <section id="r-commander" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="r-commander"><span class="header-section-number">5.3</span> R Commander</h2>
 <p>To launch the R Commander GUI, first start R via the command line or Rstudio. Then issue the following command.</p>
-<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">library</span>(Rcmdr)</span></code></pre></div>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(Rcmdr)</span></code></pre></div>
 </section>
 <section id="running-mpi-jobs" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="running-mpi-jobs"><span class="header-section-number">5.4</span> Running MPI Jobs</h2>
 <p>To demonstrate running an MPI job, let us use a simple Hello World example. Open a text editor on your laptop and save the following code to the file <code>/path/to/workshop/hello.R</code></p>
-<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;">library</span>(pbdMPI, <span class="at" style="color: #657422;">quiet =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)</span>
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(pbdMPI, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">quiet =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
 <span id="cb11-2"></span>
-<span id="cb11-3">msg <span class="ot" style="color: #003B4F;">&lt;-</span> <span class="fu" style="color: #4758AB;">sprintf</span>(<span class="st" style="color: #20794D;">"Hello world from process %d</span><span class="sc" style="color: #5E5E5E;">\n</span><span class="st" style="color: #20794D;">"</span>, <span class="fu" style="color: #4758AB;">comm.rank</span>(), <span class="fu" style="color: #4758AB;">comm.size</span>())</span>
-<span id="cb11-4"><span class="fu" style="color: #4758AB;">comm.cat</span>(<span class="st" style="color: #20794D;">"Say hello:</span><span class="sc" style="color: #5E5E5E;">\n</span><span class="st" style="color: #20794D;">"</span>, <span class="at" style="color: #657422;">quiet =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)</span>
-<span id="cb11-5"><span class="fu" style="color: #4758AB;">comm.cat</span>(msg, <span class="at" style="color: #657422;">all.rank =</span> <span class="cn" style="color: #8f5902;">TRUE</span>)</span>
+<span id="cb11-3">msg <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sprintf</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Hello world from process %d</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">comm.rank</span>(), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">comm.size</span>())</span>
+<span id="cb11-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">comm.cat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Say hello:</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">quiet =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb11-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">comm.cat</span>(msg, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">all.rank =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
 <span id="cb11-6"></span>
-<span id="cb11-7"><span class="fu" style="color: #4758AB;">finalize</span>()</span></code></pre></div>
+<span id="cb11-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">finalize</span>()</span></code></pre></div>
 <p>Recall that this file will be accessible inside the container via the path <code>/home/rstudio/ext/hello.R</code>. Inside the container, you should be able to run the script in parallel via the <code>mpirun</code> command.</p>
-<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="ex" style="color: null;">rstudio@a8f9a900c791:~$</span> mpirun <span class="at" style="color: #657422;">-np</span> 4 Rscript ~/ext/hello.R</span>
-<span id="cb12-2"><span class="ex" style="color: null;">Say</span> hello:</span>
-<span id="cb12-3"><span class="ex" style="color: null;">COMM.RANK</span> = 0</span>
-<span id="cb12-4"><span class="ex" style="color: null;">Hello</span> world from process 0</span>
-<span id="cb12-5"><span class="ex" style="color: null;">COMM.RANK</span> = 1</span>
-<span id="cb12-6"><span class="ex" style="color: null;">COMM.RANK</span> = 2</span>
-<span id="cb12-7"><span class="ex" style="color: null;">Hello</span> world from process 1</span>
-<span id="cb12-8"><span class="ex" style="color: null;">Hello</span> world from process 2</span>
-<span id="cb12-9"><span class="ex" style="color: null;">COMM.RANK</span> = 3</span>
-<span id="cb12-10"><span class="ex" style="color: null;">Hello</span> world from process 3</span></code></pre></div>
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">rstudio@a8f9a900c791:~$</span> mpirun <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-np</span> 4 Rscript ~/ext/hello.R</span>
+<span id="cb12-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Say</span> hello:</span>
+<span id="cb12-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">COMM.RANK</span> = 0</span>
+<span id="cb12-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Hello</span> world from process 0</span>
+<span id="cb12-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">COMM.RANK</span> = 1</span>
+<span id="cb12-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">COMM.RANK</span> = 2</span>
+<span id="cb12-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Hello</span> world from process 1</span>
+<span id="cb12-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Hello</span> world from process 2</span>
+<span id="cb12-9"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">COMM.RANK</span> = 3</span>
+<span id="cb12-10"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Hello</span> world from process 3</span></code></pre></div>
 <p>Outputs from the container should be saved to <code>/home/rstudio/ext</code>. This will allow you to view images, PDFs, etc using the tools already installed on your laptop.</p>
 <p>If you made it this far, congratulations - your laptop is ready!</p>
 </section>
@@ -547,18 +1390,42 @@ Successfully tagged rworkshop:latest</code></pre>
 <h1 data-number="6"><span class="header-section-number">6</span> More on Docker</h1>
 <p>For a list of Docker commands, see <a href="https://docs.docker.com/engine/reference/commandline/docker" class="uri">https://docs.docker.com/engine/reference/commandline/docker</a>. Here we will mention a few specific ones. If you would like a video tutorial, there appear to be several good ones on YouTube such as <a href="https://youtu.be/pa2wHWQ6WA8">this one</a>.</p>
 <p>List active Docker containers.</p>
-<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><span class="ex" style="color: null;">$</span> [araim@araim-inspiron docker]$ docker ps</span>
-<span id="cb13-2"><span class="ex" style="color: null;">CONTAINER</span> ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES</span>
-<span id="cb13-3"><span class="ex" style="color: null;">f117630f47b8</span>        rworkshop           <span class="st" style="color: #20794D;">"/etc/start.sh"</span>     8 seconds ago       Up 7 seconds        0.0.0.0:8787-<span class="op" style="color: #5E5E5E;">&gt;</span>8787/tcp   hopeful_elion</span></code></pre></div>
+<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> [araim@araim-inspiron docker]$ docker ps</span>
+<span id="cb13-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">CONTAINER</span> ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES</span>
+<span id="cb13-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">f117630f47b8</span>        rworkshop           <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/etc/start.sh"</span>     8 seconds ago       Up 7 seconds        0.0.0.0:8787-<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>8787/tcp   hopeful_elion</span></code></pre></div>
 <p>Normally, our rworkshop container will stop running when you log out of its shell. In case something went wrong with the container listed above and we wanted to kill it, we could use the following command from another terminal window.</p>
-<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><span class="ex" style="color: null;">$</span> docker kill f117630f47b8</span>
-<span id="cb14-2"><span class="ex" style="color: null;">f117630f47b8</span></span></code></pre></div>
+<div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> docker kill f117630f47b8</span>
+<span id="cb14-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">f117630f47b8</span></span></code></pre></div>
 <p>List Docker images that have been deployed onto your machine.</p>
-<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><span class="ex" style="color: null;">$</span> docker images</span>
-<span id="cb15-2"><span class="ex" style="color: null;">REPOSITORY</span>          TAG                 IMAGE ID            CREATED             SIZE</span>
-<span id="cb15-3"><span class="ex" style="color: null;">rworkshop</span>           latest              d658ef03dc24        13 hours ago        1.98GB</span>
-<span id="cb15-4"><span class="ex" style="color: null;">rocker/rstudio</span>      3.4.3               f206114fe549        3 weeks ago         1.08GB</span>
-<span id="cb15-5"><span class="ex" style="color: null;">hello-world</span>         latest              1815c82652c0        6 months ago        1.84kB</span></code></pre></div>
+<div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> docker images</span>
+<span id="cb15-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">REPOSITORY</span>          TAG                 IMAGE ID            CREATED             SIZE</span>
+<span id="cb15-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">rworkshop</span>           latest              d658ef03dc24        13 hours ago        1.98GB</span>
+<span id="cb15-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">rocker/rstudio</span>      3.4.3               f206114fe549        3 weeks ago         1.08GB</span>
+<span id="cb15-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">hello-world</span>         latest              1815c82652c0        6 months ago        1.84kB</span></code></pre></div>
 <p>The <code>rworkshop</code> and <code>rocker/rstudio</code> images are rather large, so you may need to remove them after the workshop. Here we will remove the <code>hello-world</code> image, for demonstration purposes.</p>
 <pre class="{bash}"><code>$ docker image rm 1815c82652c0
 Untagged: hello-world:latest
@@ -585,47 +1452,185 @@ Deleted: sha256:45761469c965421a92a69cc50e92c01e0cfa94fe026cdd1233445ea00e96289a
 <p>To test your Rcpp environment, try the following in RStudio. 1. Select <code>File =&gt; New File =&gt; C++ File</code> from the main menu. This will create a simple Rcpp program.<br>
 2. Save the program, say, as <code>example.cpp</code>.<br>
 3. Click the <code>Source</code> button, which is located in the upper-right corner of the panel with the <code>example.cpp</code> source code. This should produce the following output.</p>
-<div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">timesTwo</span>(<span class="dv" style="color: #AD0000;">42</span>)</span>
-<span id="cb17-2">[<span class="dv" style="color: #AD0000;">1</span>] <span class="dv" style="color: #AD0000;">84</span></span></code></pre></div>
+<div class="sourceCode" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">timesTwo</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">42</span>)</span>
+<span id="cb17-2">[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>] <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">84</span></span></code></pre></div>
 </section>
 <section id="install-mpi" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="install-mpi"><span class="header-section-number">7.4</span> Install MPI</h2>
 <p>There are several MPI implementations available, such as OpenMPI and MVAPICH2. The instructions will vary based on your choice of implementation, as well as your hardware and operating system. You are on your own here; good luck! If your installation is successful, you should be able to run the following minimal example.</p>
 <p>First, create a new file called <code>hello_mpi.c</code> with the following contents.</p>
-<div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb18-1"><span class="pp" style="color: #AD0000;">#include </span><span class="im" style="color: #00769E;">&lt;stdio.h&gt;</span></span>
-<span id="cb18-2"><span class="pp" style="color: #AD0000;">#include </span><span class="im" style="color: #00769E;">&lt;mpi.h&gt;</span></span>
+<div class="sourceCode" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb18-1"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">#include </span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">&lt;stdio.h&gt;</span></span>
+<span id="cb18-2"><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">#include </span><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">&lt;mpi.h&gt;</span></span>
 <span id="cb18-3"></span>
-<span id="cb18-4"><span class="dt" style="color: #AD0000;">int</span> main <span class="op" style="color: #5E5E5E;">(</span><span class="dt" style="color: #AD0000;">int</span> argc<span class="op" style="color: #5E5E5E;">,</span> <span class="dt" style="color: #AD0000;">char</span> <span class="op" style="color: #5E5E5E;">*</span>argv<span class="op" style="color: #5E5E5E;">[])</span></span>
-<span id="cb18-5"><span class="op" style="color: #5E5E5E;">{</span></span>
-<span id="cb18-6">    <span class="dt" style="color: #AD0000;">int</span> id<span class="op" style="color: #5E5E5E;">,</span> np<span class="op" style="color: #5E5E5E;">;</span></span>
-<span id="cb18-7">    <span class="dt" style="color: #AD0000;">char</span> processor_name<span class="op" style="color: #5E5E5E;">[</span>MPI_MAX_PROCESSOR_NAME<span class="op" style="color: #5E5E5E;">];</span></span>
-<span id="cb18-8">    <span class="dt" style="color: #AD0000;">int</span> processor_name_len<span class="op" style="color: #5E5E5E;">;</span></span>
+<span id="cb18-4"><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> main <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> argc<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">char</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span>argv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[])</span></span>
+<span id="cb18-5"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span></span>
+<span id="cb18-6">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> id<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> np<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb18-7">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">char</span> processor_name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[</span>MPI_MAX_PROCESSOR_NAME<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">];</span></span>
+<span id="cb18-8">    <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">int</span> processor_name_len<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
 <span id="cb18-9"></span>
-<span id="cb18-10">    MPI_Init<span class="op" style="color: #5E5E5E;">(&amp;</span>argc<span class="op" style="color: #5E5E5E;">,</span> <span class="op" style="color: #5E5E5E;">&amp;</span>argv<span class="op" style="color: #5E5E5E;">);</span></span>
+<span id="cb18-10">    MPI_Init<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(&amp;</span>argc<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span>argv<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
 <span id="cb18-11"></span>
-<span id="cb18-12">    MPI_Comm_size<span class="op" style="color: #5E5E5E;">(</span>MPI_COMM_WORLD<span class="op" style="color: #5E5E5E;">,</span> <span class="op" style="color: #5E5E5E;">&amp;</span>np<span class="op" style="color: #5E5E5E;">);</span></span>
-<span id="cb18-13">    MPI_Comm_rank<span class="op" style="color: #5E5E5E;">(</span>MPI_COMM_WORLD<span class="op" style="color: #5E5E5E;">,</span> <span class="op" style="color: #5E5E5E;">&amp;</span>id<span class="op" style="color: #5E5E5E;">);</span></span>
-<span id="cb18-14">    MPI_Get_processor_name<span class="op" style="color: #5E5E5E;">(</span>processor_name<span class="op" style="color: #5E5E5E;">,</span> <span class="op" style="color: #5E5E5E;">&amp;</span>processor_name_len<span class="op" style="color: #5E5E5E;">);</span></span>
+<span id="cb18-12">    MPI_Comm_size<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>MPI_COMM_WORLD<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span>np<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb18-13">    MPI_Comm_rank<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>MPI_COMM_WORLD<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span>id<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
+<span id="cb18-14">    MPI_Get_processor_name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span>processor_name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span>processor_name_len<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
 <span id="cb18-15"></span>
-<span id="cb18-16">    printf<span class="op" style="color: #5E5E5E;">(</span><span class="st" style="color: #20794D;">"Hello world from process </span><span class="sc" style="color: #5E5E5E;">%03d</span><span class="st" style="color: #20794D;"> out of </span><span class="sc" style="color: #5E5E5E;">%03d</span><span class="st" style="color: #20794D;">, processor name </span><span class="sc" style="color: #5E5E5E;">%s\n</span><span class="st" style="color: #20794D;">"</span><span class="op" style="color: #5E5E5E;">,</span></span>
-<span id="cb18-17">        id<span class="op" style="color: #5E5E5E;">,</span> np<span class="op" style="color: #5E5E5E;">,</span> processor_name<span class="op" style="color: #5E5E5E;">);</span></span>
+<span id="cb18-16">    printf<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">(</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Hello world from process </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%03d</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> out of </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%03d</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, processor name </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%s\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span></span>
+<span id="cb18-17">        id<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> np<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">,</span> processor_name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">);</span></span>
 <span id="cb18-18"></span>
-<span id="cb18-19">    MPI_Finalize<span class="op" style="color: #5E5E5E;">();</span></span>
-<span id="cb18-20">    <span class="cf" style="color: #003B4F;">return</span> <span class="dv" style="color: #AD0000;">0</span><span class="op" style="color: #5E5E5E;">;</span></span>
-<span id="cb18-21"><span class="op" style="color: #5E5E5E;">}</span></span></code></pre></div>
+<span id="cb18-19">    MPI_Finalize<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">();</span></span>
+<span id="cb18-20">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb18-21"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span></span></code></pre></div>
 <p>Now compile and run the program with MPI.</p>
-<div class="sourceCode" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><span class="ex" style="color: null;">$</span> mpicc hello-mpi.c <span class="at" style="color: #657422;">-o</span> hello-mpi</span>
-<span id="cb19-2"><span class="ex" style="color: null;">$</span> mpirun <span class="at" style="color: #657422;">-np</span> 4 hello-mpi</span>
-<span id="cb19-3"><span class="ex" style="color: null;">Hello</span> world from process 000 out of 004, processor name localhost</span>
-<span id="cb19-4"><span class="ex" style="color: null;">Hello</span> world from process 001 out of 004, processor name localhost</span>
-<span id="cb19-5"><span class="ex" style="color: null;">Hello</span> world from process 002 out of 004, processor name localhost</span>
-<span id="cb19-6"><span class="ex" style="color: null;">Hello</span> world from process 003 out of 004, processor name localhost</span></code></pre></div>
+<div class="sourceCode" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> mpicc hello-mpi.c <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-o</span> hello-mpi</span>
+<span id="cb19-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">$</span> mpirun <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-np</span> 4 hello-mpi</span>
+<span id="cb19-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Hello</span> world from process 000 out of 004, processor name localhost</span>
+<span id="cb19-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Hello</span> world from process 001 out of 004, processor name localhost</span>
+<span id="cb19-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Hello</span> world from process 002 out of 004, processor name localhost</span>
+<span id="cb19-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Hello</span> world from process 003 out of 004, processor name localhost</span></code></pre></div>
 <p>Depending on your platform and choice of MPI implementation, your commands may be different. The string <code>localhost</code> in the output will be replaced with your machine’s hostname.</p>
 </section>
 <section id="install-r-packages" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="install-r-packages"><span class="header-section-number">7.5</span> Install R Packages</h2>
 <p>Download the script <a href="https://drive.google.com/uc?export=view&amp;id=12273JFSirYb1G8pPx9fRYNtgZ6IrpFGx">install.R</a> and run it in R to obtain packages which will be used in the workshop. Suppose we have placed it into the directory <code>/path/to/workshop</code>. Run the following command in R.</p>
-<div class="sourceCode" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">source</span>(<span class="st" style="color: #20794D;">"/path/to/workshop/install.R"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">source</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"/path/to/workshop/install.R"</span>)</span></code></pre></div>
 <p>To make sure your package versions are up to date, open Rstudio and click <code>Tools =&gt; Check for Package Updates</code> on the main menu.</p>
 
 
@@ -634,23 +1639,23 @@ Deleted: sha256:45761469c965421a92a69cc50e92c01e0cfa94fe026cdd1233445ea00e96289a
 
  ]]></description>
   <category>workshop</category>
-  <guid>https://andrewraim.github.io/posts/2017-12-20-Kerala-workshop.html</guid>
+  <guid>/posts/2017-12-20-Kerala-workshop.html</guid>
   <pubDate>Fri, 05 Jan 2018 05:00:00 GMT</pubDate>
-  <media:content url="https://andrewraim.github.io/images/Kerala2018/win-docker-prompt.png" medium="image" type="image/png" height="82" width="144"/>
 </item>
 <item>
   <title>Rcpp Workshop at UMBC</title>
-  <link>https://andrewraim.github.io/posts/2017-08-07-UMBC-workshop-Rcpp.html</link>
+  <link>/posts/2017-08-07-UMBC-workshop-Rcpp.html</link>
   <description><![CDATA[ 
 
 
 
-<div class="callout-note callout callout-style-default callout-captioned">
+
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -673,8 +1678,18 @@ Note
 <li>Save the program, say, as <code>example.cpp</code>.</li>
 <li>Click the <code>Source</code> button, which is located in the upper-right corner of the panel with the <code>example.cpp</code> source code. This should produce the output</li>
 </ol>
-<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">R<span class="sc" style="color: #5E5E5E;">&gt;</span> <span class="fu" style="color: #4758AB;">timesTwo</span>(<span class="dv" style="color: #AD0000;">42</span>)</span>
-<span id="cb1-2">[<span class="dv" style="color: #AD0000;">1</span>] <span class="dv" style="color: #AD0000;">84</span></span></code></pre></div>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">R<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">timesTwo</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">42</span>)</span>
+<span id="cb1-2">[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>] <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">84</span></span></code></pre></div>
 <hr>
 <p><strong>Location:</strong> University of Maryland, Baltimore County.<br>
 <strong>Room:</strong> MP 401 (Math/Stat Seminar Room).<br>
@@ -695,25 +1710,41 @@ R is the preferred computing environment for many statisticians, and is used bot
 
  ]]></description>
   <category>workshop</category>
-  <guid>https://andrewraim.github.io/posts/2017-08-07-UMBC-workshop-Rcpp.html</guid>
+  <guid>/posts/2017-08-07-UMBC-workshop-Rcpp.html</guid>
   <pubDate>Mon, 07 Aug 2017 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Web Page Migration</title>
-  <link>https://andrewraim.github.io/posts/2017-03-15-new-webpage.html</link>
+  <link>/posts/2017-03-15-new-webpage.html</link>
   <description><![CDATA[ 
 
 
 
+
 <p>I am now using <a href="https://pages.github.com">GitHub Pages</a> to host my website, along with the static site generator <a href="https://jekyllrb.com">Jekyll</a>. My <a href="http://www.umbc.edu/~araim1">previous website</a> was hosted at UMBC.</p>
-<p>Here is a quick test of Latex. An inline equation is <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20x%5E2%20e%5E%7B-x%7D"> inline. And an equation on its own line is</p>
-<p><img src="https://latex.codecogs.com/png.latex?%0A%5CPhi(x)%20=%0A%5Cint_%7B-%5Cinfty%7D%5E%7Bx%7D%20%5Cfrac%7B1%7D%7B%5Csigma%20%5Csqrt%7B2%5Cpi%7D%7D%0A%5Cexp%20%5Cleft(%20-%5Cfrac%7B1%7D%7B2%5Csigma%5E2%7D%20(t%20-%20%5Cmu)%5E2%20%5Cright)%20dt.%0A"></p>
+<p>Here is a quick test of Latex. An inline equation is <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20x%5E2%20e%5E%7B-x%7D"> inline. And an equation on its own line is <img src="https://latex.codecogs.com/png.latex?%0A%5CPhi(x)%20=%0A%5Cint_%7B-%5Cinfty%7D%5E%7Bx%7D%20%5Cfrac%7B1%7D%7B%5Csigma%20%5Csqrt%7B2%5Cpi%7D%7D%0A%5Cexp%20%5Cleft(%20-%5Cfrac%7B1%7D%7B2%5Csigma%5E2%7D%20(t%20-%20%5Cmu)%5E2%20%5Cright)%20dt.%0A"></p>
 <p>Here is an example of code.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">x <span class="ot" style="color: #003B4F;">=</span> <span class="fu" style="color: #4758AB;">rnorm</span>(<span class="dv" style="color: #AD0000;">100</span>, <span class="dv" style="color: #AD0000;">0</span>, <span class="dv" style="color: #AD0000;">1</span>)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;">hist</span>(x)</span></code></pre></div>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">hist</span>(x)</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="https://andrewraim.github.io/posts/2017-03-15-new-webpage_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<div>
+<figure class="figure">
+<p><img src="/posts/2017-03-15-new-webpage_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 
@@ -721,7 +1752,7 @@ R is the preferred computing environment for many statisticians, and is used bot
 
  ]]></description>
   <category>admin</category>
-  <guid>https://andrewraim.github.io/posts/2017-03-15-new-webpage.html</guid>
+  <guid>/posts/2017-03-15-new-webpage.html</guid>
   <pubDate>Wed, 15 Mar 2017 04:00:00 GMT</pubDate>
 </item>
 </channel>
