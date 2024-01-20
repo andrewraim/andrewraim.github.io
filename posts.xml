@@ -6,14 +6,14 @@
       version="2.0">
 <channel>
 <title>Andrew M. Raim</title>
-<link>/posts.html</link>
-<atom:link href="/posts.xml" rel="self" type="application/rss+xml"/>
+<link>https://andrewraim.github.io/posts.html</link>
+<atom:link href="https://andrewraim.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.545</generator>
 <lastBuildDate>Mon, 01 May 2023 04:00:00 GMT</lastBuildDate>
 <item>
   <title>Sending Mail from R</title>
-  <link>/posts/2023-05-01-sendmail-R.html</link>
+  <link>https://andrewraim.github.io/posts/2023-05-01-sendmail-R.html</link>
   <description><![CDATA[ 
 
 
@@ -186,12 +186,12 @@ font-style: inherit;">"localhost"</span>)</span>
 
  ]]></description>
   <category>programming</category>
-  <guid>/posts/2023-05-01-sendmail-R.html</guid>
+  <guid>https://andrewraim.github.io/posts/2023-05-01-sendmail-R.html</guid>
   <pubDate>Mon, 01 May 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Comparison of Usability Preferences with Bivariate Ordinal Regression</title>
-  <link>/posts/2023-04-20-bivariate-ordinal-maps.html</link>
+  <link>https://andrewraim.github.io/posts/2023-04-20-bivariate-ordinal-maps.html</link>
   <description><![CDATA[ 
 
 
@@ -212,12 +212,12 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 </div>
 </div></section></div> ]]></description>
   <category>article</category>
-  <guid>/posts/2023-04-20-bivariate-ordinal-maps.html</guid>
+  <guid>https://andrewraim.github.io/posts/2023-04-20-bivariate-ordinal-maps.html</guid>
   <pubDate>Thu, 20 Apr 2023 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Interactive Map with Shiny and Leaflet</title>
-  <link>/posts/2023-02-27-shiny-leaflet.html</link>
+  <link>https://andrewraim.github.io/posts/2023-02-27-shiny-leaflet.html</link>
   <description><![CDATA[ 
 
 
@@ -226,19 +226,19 @@ Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usabi
 <p>There are powerful tools for working with geographical data in R. For example, the <a href="https://cran.r-project.org/package=ggplot2">ggplot</a> and <a href="https://cran.r-project.org/package=sf">sf</a> packages can be used together to display such data. But what about interactive maps which support panning, zooming, and clicks to trigger actions (e.g., highlighting an area)?</p>
 <p>One way to accomplish this is through <a href="https://shiny.rstudio.com">Shiny</a> and <a href="https://rstudio.github.io/leaflet">Leaflet</a>. With this combination of tools, it is relatively easy to stand up an graphical interface. Shiny supports constructs beyond routine R programming which allow variables, displays, and computations to react to user inputs. Leaflet provides widgets for interactive maps.</p>
 <p>There are already a number of interesting examples on the web, but <a href="https://github.com/andrewraim/shiny-leaflet-example">here</a> is something I put together.</p>
-<p><a href="../images/shiny-leaflet-example.png"><img src="/images/shiny-leaflet-example-thumb.png" class="img-fluid"></a></p>
+<p><a href="../images/shiny-leaflet-example.png"><img src="https://andrewraim.github.io/images/shiny-leaflet-example-thumb.png" class="img-fluid"></a></p>
 <p>It displays counties in Maryland along with some randomly placed markers, and displays the count of markers within each county as a choropleth. Users can remove existing markers or add new ones, which in turn triggers the counts to be recomputed and the choropleth to be updated.</p>
 
 
 
  ]]></description>
   <category>programming</category>
-  <guid>/posts/2023-02-27-shiny-leaflet.html</guid>
+  <guid>https://andrewraim.github.io/posts/2023-02-27-shiny-leaflet.html</guid>
   <pubDate>Mon, 27 Feb 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Worker Tool for Computational Studies</title>
-  <link>/posts/2023-02-12-worker.html</link>
+  <link>https://andrewraim.github.io/posts/2023-02-12-worker.html</link>
   <description><![CDATA[ 
 
 
@@ -281,12 +281,12 @@ font-style: inherit;">'Rscript launch.R'</span></span></code></pre></div>
 
  ]]></description>
   <category>programming</category>
-  <guid>/posts/2023-02-12-worker.html</guid>
+  <guid>https://andrewraim.github.io/posts/2023-02-12-worker.html</guid>
   <pubDate>Sun, 12 Feb 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Generating Latex Tables in R</title>
-  <link>/posts/2023-02-11-latex-tables-from-R.html</link>
+  <link>https://andrewraim.github.io/posts/2023-02-11-latex-tables-from-R.html</link>
   <description><![CDATA[ 
 
 
@@ -1002,12 +1002,12 @@ font-style: inherit;">18.89</span>\\</span>
 
  ]]></description>
   <category>programming</category>
-  <guid>/posts/2023-02-11-latex-tables-from-R.html</guid>
+  <guid>https://andrewraim.github.io/posts/2023-02-11-latex-tables-from-R.html</guid>
   <pubDate>Sat, 11 Feb 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details</title>
-  <link>/posts/2022-11-15-compoissonreg.html</link>
+  <link>https://andrewraim.github.io/posts/2022-11-15-compoissonreg.html</link>
   <description><![CDATA[ 
 
 
@@ -1020,12 +1020,12 @@ font-style: inherit;">18.89</span>\\</span>
  ]]></description>
   <category>article</category>
   <category>programming</category>
-  <guid>/posts/2022-11-15-compoissonreg.html</guid>
+  <guid>https://andrewraim.github.io/posts/2022-11-15-compoissonreg.html</guid>
   <pubDate>Tue, 15 Nov 2022 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Browsing summary files from the decennial census with R</title>
-  <link>/posts/2022-08-15-sfreader.html</link>
+  <link>https://andrewraim.github.io/posts/2022-08-15-sfreader.html</link>
   <description><![CDATA[ 
 
 
@@ -1038,12 +1038,12 @@ font-style: inherit;">18.89</span>\\</span>
  ]]></description>
   <category>article</category>
   <category>programming</category>
-  <guid>/posts/2022-08-15-sfreader.html</guid>
+  <guid>https://andrewraim.github.io/posts/2022-08-15-sfreader.html</guid>
   <pubDate>Mon, 15 Aug 2022 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>knitr and Latex Documents</title>
-  <link>/posts/2022-06-27-knitr-latex.html</link>
+  <link>https://andrewraim.github.io/posts/2022-06-27-knitr-latex.html</link>
   <description><![CDATA[ 
 
 
@@ -1057,12 +1057,12 @@ font-style: inherit;">18.89</span>\\</span>
 
  ]]></description>
   <category>programming</category>
-  <guid>/posts/2022-06-27-knitr-latex.html</guid>
+  <guid>https://andrewraim.github.io/posts/2022-06-27-knitr-latex.html</guid>
   <pubDate>Mon, 27 Jun 2022 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Presentation for 2020 Joint Statistical Meetings</title>
-  <link>/posts/2020-08-03-JSM2020.html</link>
+  <link>https://andrewraim.github.io/posts/2020-08-03-JSM2020.html</link>
   <description><![CDATA[ 
 
 
@@ -1074,12 +1074,12 @@ font-style: inherit;">18.89</span>\\</span>
 
  ]]></description>
   <category>conference</category>
-  <guid>/posts/2020-08-03-JSM2020.html</guid>
+  <guid>https://andrewraim.github.io/posts/2020-08-03-JSM2020.html</guid>
   <pubDate>Mon, 27 Jul 2020 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>R Workshop in Kerala</title>
-  <link>/posts/2017-12-20-Kerala-workshop.html</link>
+  <link>https://andrewraim.github.io/posts/2017-12-20-Kerala-workshop.html</link>
   <description><![CDATA[ 
 
 
@@ -1105,7 +1105,7 @@ font-style: inherit;">18.89</span>\\</span>
 <p>Note that Windows users who do not have Windows 10 Pro or Enterprise - which will probably be most of us - will need a version of Docker called <a href="https://docs.docker.com/toolbox/overview/">Docker Toolbox</a>. Once it is installed, open the Docker Quickstart Terminal to issue commands, which should appear as follows.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="/images/Kerala2018/win-docker-prompt.png" class="img-fluid figure-img"></p>
+<p><img src="https://andrewraim.github.io/images/Kerala2018/win-docker-prompt.png" class="img-fluid figure-img"></p>
 <figcaption>Logging into Rstudio Server</figcaption>
 </figure>
 </div>
@@ -1278,14 +1278,14 @@ font-style: inherit;">$</span> docker-machine ls</span></code></pre></div>
 <p>A login prompt should appear in your browser. Enter <code>rstudio</code> as both the username and the password.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="/images/Kerala2018/rstudio-server-login.png" class="img-fluid figure-img"></p>
+<p><img src="https://andrewraim.github.io/images/Kerala2018/rstudio-server-login.png" class="img-fluid figure-img"></p>
 <figcaption>Logging into Rstudio Server</figcaption>
 </figure>
 </div>
 <p>Now you should be ready to use Rstudio in your web browser.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="/images/Kerala2018/rstudio-server-screen.png" class="img-fluid figure-img"></p>
+<p><img src="https://andrewraim.github.io/images/Kerala2018/rstudio-server-screen.png" class="img-fluid figure-img"></p>
 <figcaption>Rstudio Server in browser</figcaption>
 </figure>
 </div>
@@ -1639,12 +1639,12 @@ font-style: inherit;">"/path/to/workshop/install.R"</span>)</span></code></pre><
 
  ]]></description>
   <category>workshop</category>
-  <guid>/posts/2017-12-20-Kerala-workshop.html</guid>
+  <guid>https://andrewraim.github.io/posts/2017-12-20-Kerala-workshop.html</guid>
   <pubDate>Fri, 05 Jan 2018 05:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Rcpp Workshop at UMBC</title>
-  <link>/posts/2017-08-07-UMBC-workshop-Rcpp.html</link>
+  <link>https://andrewraim.github.io/posts/2017-08-07-UMBC-workshop-Rcpp.html</link>
   <description><![CDATA[ 
 
 
@@ -1710,12 +1710,12 @@ R is the preferred computing environment for many statisticians, and is used bot
 
  ]]></description>
   <category>workshop</category>
-  <guid>/posts/2017-08-07-UMBC-workshop-Rcpp.html</guid>
+  <guid>https://andrewraim.github.io/posts/2017-08-07-UMBC-workshop-Rcpp.html</guid>
   <pubDate>Mon, 07 Aug 2017 04:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Web Page Migration</title>
-  <link>/posts/2017-03-15-new-webpage.html</link>
+  <link>https://andrewraim.github.io/posts/2017-03-15-new-webpage.html</link>
   <description><![CDATA[ 
 
 
@@ -1742,7 +1742,7 @@ font-style: inherit;">hist</span>(x)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="/posts/2017-03-15-new-webpage_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="https://andrewraim.github.io/posts/2017-03-15-new-webpage_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1752,7 +1752,7 @@ font-style: inherit;">hist</span>(x)</span></code></pre></div>
 
  ]]></description>
   <category>admin</category>
-  <guid>/posts/2017-03-15-new-webpage.html</guid>
+  <guid>https://andrewraim.github.io/posts/2017-03-15-new-webpage.html</guid>
   <pubDate>Wed, 15 Mar 2017 04:00:00 GMT</pubDate>
 </item>
 </channel>
