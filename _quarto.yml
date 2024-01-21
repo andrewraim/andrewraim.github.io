@@ -6,7 +6,7 @@ project:
 
 website:
   title: "Andrew M. Raim"
-  site-url: /
+  site-url: "https://andrewraim.github.io"
   navbar:
     right:
       - href: posts.qmd
