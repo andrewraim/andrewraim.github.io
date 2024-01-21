@@ -20,12 +20,15 @@ about:
 
 :::{#about-heading}
 
-Welcome to my website! I am a statistician and work in the
-[Center for Statistical Research and Methodology](https://www.census.gov/topics/research/stat-research.html)
-at the [U.S. Census Bureau](http://www.census.gov).
-I try to post public work here. Contact me (andrew dot raim at gmail dot com)
-if you are looking for something in particular that you cannot find it or have
-other questions or feedback.
+Welcome! I have been a statistician at the U.S. Census Bureau Center for
+Statistical Research and
+Methodology ([CSRM](https://www.census.gov/topics/research/stat-research.html)) since
+2014. I was previously a graduate student at University of Maryland, Baltimore
+County ([UMBC](https://mathstat.umbc.edu)) and worked as a software engineer for the
+first part of my career at the internet advertising company Advertising.com.
+
+Most of my publicly released work is accessible on this web site. If you would
+like to contact me, send email to `andrew dot raim at gmail dot com`.
 
 :::
 
