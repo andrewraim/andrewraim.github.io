@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-11-15">
+<meta name="dcterms.date" content="2024-01-19">
 
-<title>Andrew M. Raim - COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details</title>
+<title>Andrew M. Raim - Rejection Sampling with Vertical Weighted Strips</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -104,10 +124,9 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details</h1>
+<h1 class="title">Rejection Sampling with Vertical Weighted Strips</h1>
   <div class="quarto-categories">
     <div class="quarto-category">article</div>
-    <div class="quarto-category">programming</div>
   </div>
   </div>
 
@@ -119,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 15, 2022</p>
+      <p class="date">January 19, 2024</p>
     </div>
   </div>
   
@@ -131,11 +150,26 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>I have been maintaining the <a href="https://CRAN.R-project.org/package=COMPoissonReg">COMPoissonReg</a> package, which facilitates use of the Conway-Maxwell Poisson (CMP) distribution. The normalizing constant of the CMP distribution is central to many computations in the package. Users have occasionally reported strange results that can be traced back to problems computing the normalizing constant. Early versions computed the constant by truncating the series to an finite sum with a fixed number of terms; however, this may yield inaccurate results. We addressed this to some degree in more recent versions in an ad hoc way. In the latest version (0.8.0) of the package, these computations have been revisited in a more principled way. Kimberly Sellers and I recently completed a <a href="https://www.census.gov/library/working-papers/2022/adrm/RRC2022-01.html">report</a> describing the updated method, which also demonstrates general use of the package. A vignette version of this report will be included in the package and updated along with any changes in the software.</p>
+<p>Rejection sampling is a classical algorithm <span class="citation" data-cites="vonNeumann1951">(<a href="#ref-vonNeumann1951" role="doc-biblioref">Neumann 1951</a>)</span> to generate variates from a target distribution that may not otherwise have a well-known construction method—e.g., by composing other random variables. A benefit of rejection sampling is that accepted draws follow the target distribution exactly. However, coming up with a good proposal for rejection sampling can take some creativity while a poor choice can result in extremely low acceptance rates where practically no draws can be accepted from a very large number of candidates.</p>
+<p><span class="citation" data-cites="VWS2024">Raim, Livsey, and Irimata (<a href="#ref-VWS2024" role="doc-biblioref">2024+</a>)</span> explore an approach to construct proposals by regarding the target as a weighted density and majorizing the weight function. This yields another weighted density whose unnormalized form can be used as an envelope in the acceptance ratio. If designed purposefully, the normalized form can also be used to draw candidate variates to complete the rejection sampler. An improved proposal can be obtained by partitioning the support and majorizing within each region; this results in a finite mixture. The method is referred to as “vertical weighted strips” because it can be regarded as an extension of the vertical strips method <span class="citation" data-cites="Devroye1986 MartinoLuengoMiguez2018">(<a href="#ref-Devroye1986" role="doc-biblioref">Devroye 1986, sec. 3.6</a>; <a href="#ref-MartinoLuengoMiguez2018" role="doc-biblioref">Martino, Luengo, and Míguez 2018, chap. VIII</a>)</span>, with the weighted form introducing an additional degree of flexibility for algorithm development.</p>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Devroye1986" class="csl-entry" role="listitem">
+Devroye, Luc. 1986. <em>Non-Uniform Random Variate Generation</em>. Springer.
+</div>
+<div id="ref-MartinoLuengoMiguez2018" class="csl-entry" role="listitem">
+Martino, Luca, David Luengo, and Joaquín Míguez. 2018. <em>Independent Random Sampling Methods</em>. Springer. https://doi.org/<a href="https://dx.doi.org/10.1007/978-3-319-72634-2">https://dx.doi.org/10.1007/978-3-319-72634-2</a>.
+</div>
+<div id="ref-vonNeumann1951" class="csl-entry" role="listitem">
+Neumann, John von. 1951. <span>“Various Techniques in Connection with Random Digits.”</span> In <em>Monte Carlo Methods</em>, edited by A. S. Householder, G. E. Forsythe, and H. H. Germond, 36–38. National Bureau of Standards Applied Mathematics Series. U.S. Government Printing Office, Washington, DC.
+</div>
+<div id="ref-VWS2024" class="csl-entry" role="listitem">
+Raim, Andrew M., James A. Livsey, and Kyle M. Irimata. 2024+. <span>“Rejection Sampling with Vertical Weighted Strips.”</span> <a href="https://arxiv.org/abs/2401.09696">https://arxiv.org/abs/2401.09696</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

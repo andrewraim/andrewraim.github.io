@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-11-15">
 
-<title>Andrew M. Raim - COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details</title>
+<title>Andrew M. Raim</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,36 +101,283 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">article</div>
-    <div class="quarto-category">programming</div>
-  </div>
-  </div>
 
 
 
-<div class="quarto-title-meta">
+<div style="font-size: 90%;">
+<pre><code>@techreport{BivariateOrdinalMaps2023,
+  title = "A Comparison of Map Usability via Bivariate Ordinal Analysis",
+  author = "Andrew~M. Raim and Elizabeth Nichols",
+  type = "Study Series: Statistics",
+  number = {\#2023-01},
+  institution = "Center for Statistical Research and Methodology,
+                 U.S.~Census Bureau",
+  year = 2023,
+  url = "https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html",
+}
 
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 15, 2022</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
+@techreport{COMPoissonReg2022,
+  title = "{COMPoissonReg}: Usage, the Normalizing Constant, and Other
+           Computational Details",
+  author = "Andrew~M. Raim and Kimberly~F. Sellers",
+  type = "Research Report Series: Computing",
+  number = {\#2022-01},
+  institution = "Center for Statistical Research and Methodology,
+                 U.S.~Census Bureau",
+  year = 2022,
+  url = "https://www.census.gov/library/working-papers/2022/adrm/RRC2022-01.html",
+}
+
+@techreport{DPSimulation2022,
+  title = "Evaluation of {B}ayesian Hierarchical Models of Differentially
+           Private Data Based on an Approximate Data Model",
+  author = "Kyle~M. Irimata and Andrew~M. Raim and Ryan Janicki and James~A.
+            Livsey and Scott~H. Holan",
+  type = "Research Report Series: Statistics",
+  number = {\#2022-05},
+  institution = "Center for Statistical Research and Methodology,
+                 U.S.~Census Bureau",
+  year = 2022,
+  url = "https://www.census.gov/library/working-papers/2022/adrm/RRS2022-05.html",
+}
+
+@techreport{SFReader2022,
+  title = "Browsing the 2010 {C}ensus {SF2} Summary File with {R}",
+  author = "Andrew~M. Raim and James A. Livsey and Kyle M. Irimata",
+  type = "Study Series: Computing",
+  number = {\#2022-01},
+  institution = "Center for Statistical Research and Methodology,
+                 U.S.~Census Bureau",
+  year = 2022,
+  url = "https://www.census.gov/library/working-papers/2022/adrm/SSC2022-01.html"
+}
+
+@techreport{DirectSamplingDAS2021,
+  title = "Direct Sampling in {B}ayesian Regression Models with Additive
+           Disclosure Avoidance Noise",
+  author = "Andrew~M. Raim",
+  type = "Research Report Series: Statistics",
+  number = {\#2021-01},
+  institution = "Center for Statistical Research and Methodology,
+                 U.S.~Census Bureau",
+  year = 2021,
+  url = "https://www.census.gov/library/working-papers/2021/adrm/RRS2021-01.html",
+}
+
+@incollection{NicholsEtAl2020,
+  booktitle = "Human Aspects of {IT} for the Aged Population. Technologies,
+               Design and User Experience",
+  title = "Attitudinal and Behavioral Differences Between Older and Younger
+           Adults Using Mobile Devices",
+  author = "Elizabeth Nichols and Erica Olmsted-Hawala and Andrew Raim and
+            Lin Wang",
+  year = 2020,
+  publisher = "Springer Nature Switzerland AG",
+  doi = "https://doi.org/10.1007/978-3-030-50252-2_25"
+}
+
+@techreport{MailDelivery2019,
+  title = "2020 Census Research and Testing Report: The Effect of the Mail
+           Delivery Date on Survey Login Rates and Helpline Call Rates",
+  author = "Elizabeth Nichols and Sarah Konya amd Rachel Horwitz and
+            Andrew Raim",
+  type = "U.S. Census Bureau, Research and Methodology Directorate,
+          Center for Behavioral Science Methods Research Report Series
+          (Survey Methodology)",
+  number = {\#2019-01},
+  institution = "U.S.~Census Bureau",
+  year = 2019,
+  url = {https://www.census.gov/content/dam/Census/library/working-papers/2019/adrm/rsm2019-01.pdf},
+}
+
+@misc{RaimThesis2014,
+  author = "Andrew~M. Raim",
+  title = "Computational Methods in Finite Mixtures using
+           Approximate Information and Regression Linked to the Mixture Mean",
+  howpublished = "Ph.D. Thesis, Department of Mathematics and Statistics,
+                  University of Maryland, Baltimore County",
+  year = 2014,
+  preprint = {https://andrewraim.github.io/downloads/doc/araim-thesis-20140425.pdf},
+  url = "http://search.proquest.com/docview/1552496226",
+}
+
+@techreport{MAFErrorModel2015,
+  title = "Selection of Predictors to Model Coverage Errors in the
+           {M}aster {A}ddress {F}ile",
+  author = "Andrew~M. Raim and Marissa~N. Gargano",
+  type = "Research Report Series: Statistics",
+  number = {\#2015-04},
+  institution = "Center for Statistical Research and Methodology,
+                 U.S.~Census Bureau",
+  year = 2015,
+  url = "https://www.census.gov/library/working-papers/2015/adrm/rrs2015-04.html",
+}
+
+@techreport{OverdispersionModelsInR2015,
+  title = "Modeling Overdispersion in {R}",
+  author = "Andrew~M. Raim and Nagaraj~K. Neerchal and Jorge~G. Morel",
+  number = {HPCF-2015-1},
+  institution = "UMBC High Performance Computing Facility,
+                 University of Maryland, Baltimore County",
+  year = 2015,
+  webnotes = {For code and examples, see
+    \href{http://github.com/andrewraim/OverdispersionModelsInR}{OverdispersionModelsInR} on Github.
+  },
+  url = "https://hpcf.umbc.edu/publications",
+  pdf = "http://hpcf-files.umbc.edu/research/papers/OverdispersionModelsInR.pdf",
+}
+
+@techreport{pbdRtara2013,
+  author = "Andrew~M. Raim",
+  title = "Introduction to Distributed Computing with {pbdR} at the {UMBC}
+           {H}igh {P}erformance {C}omputing {F}acility",
+  number = {HPCF-2013-2},
+  institution = "UMBC High Performance Computing Facility,
+                 University of Maryland, Baltimore County",
+  year = 2013,
+  webnotes = {Files for download with this report:
+    \href{http://userpages.umbc.edu/~gobbert/papers/pbdRtara2013.tar.gz}{pbdRtara2013.tar.gz}
+  },
+  url = "https://hpcf.umbc.edu/publications",
+  pdf = "http://hpcf-files.umbc.edu/research/papers/pbdRtara2013.pdf",
+}
+
+@techreport{RaimLiuNeerchalMorel2012,
+  author = "Andrew~M. Raim and Minglei Liu and Nagaraj~K. Neerchal
+            and Jorge~G. Morel",
+  title = "An {A}pproximate {F}isher {S}coring {A}lgorithm for
+           Finite Mixtures of Multinomials",
+  year = 2012,
+  institution = "UMBC High Performance Computing Facility,
+                 University of Maryland, Baltimore County",
+  number = "HPCF-2012-14",
+  url = "https://hpcf.umbc.edu/publications",
+  pdf = "http://hpcf-files.umbc.edu/research/papers/RaimLiuNeerchalMorel2012.pdf"
+}
+
+@techreport{RaimGobbert2010Poisson,
+  author = "Andrew~M. Raim and Matthias~K. Gobbert",
+  title = "Parallel Performance Studies for an Elliptic Test Problem 
+           on the Cluster tara",
+  number = "HPCF-2010-2",
+  institution = "UMBC High Performance Computing Facility,
+                 University of Maryland, Baltimore County",
+  year = 2010,
+  url = "https://hpcf.umbc.edu/publications",
+  pdf = "http://hpcf-files.umbc.edu/research/papers/RaimGobbert2010Poisson.pdf",
+}
 
 
-</header>
+@inproceedings{MorrisRaim2023,
+  title = "Comparing trial and variable association in contingency table data
+           using multinomial models for clustered data",
+  author = "Darcy Steeg Morris and Andrew~ M. Raim",
+  booktitle = "37th International Workshop on Statistical Modelling",
+  year = 2023,
+  pages = "536--542",
+  editor = "Elisabeth Bergherr and Andreas Groll and Andreas Mayr",
+  url = "https://iwsm2023.statistik.tu-dortmund.de"
+}
 
+@inproceedings{JSM2018-CMM,
+  title = "Introducing a {C}onway-{M}axwell-Multinomial Distribution for 
+           Flexible Modeling of Categorical Data",
+  author = "Darcy Steeg Morris and Andrew~M. Raim and Kimberly~F. Sellers",
+  booktitle = "JSM Proceedings, Biometrics Section",
+  year = 2018,
+  pages = "716--733",
+  publisher = "American Statistical Association",
+  address = "Alexandria, VA",
+  preprint = {https://andrewraim.github.io/downloads/doc/MorrisRaimSellersJSM2018.pdf},
+}
 
-<p>I have been maintaining the <a href="https://CRAN.R-project.org/package=COMPoissonReg">COMPoissonReg</a> package, which facilitates use of the Conway-Maxwell Poisson (CMP) distribution. The normalizing constant of the CMP distribution is central to many computations in the package. Users have occasionally reported strange results that can be traced back to problems computing the normalizing constant. Early versions computed the constant by truncating the series to an finite sum with a fixed number of terms; however, this may yield inaccurate results. We addressed this to some degree in more recent versions in an ad hoc way. In the latest version (0.8.0) of the package, these computations have been revisited in a more principled way. Kimberly Sellers and I recently completed a <a href="https://www.census.gov/library/working-papers/2022/adrm/RRC2022-01.html">report</a> describing the updated method, which also demonstrates general use of the package. A vignette version of this report will be included in the package and updated along with any changes in the software.</p>
+@inproceedings{JSM2017-STCOS,
+  title = "A Model Selection Study for Spatio-Temporal Change of Support",
+  author = "Andrew~M. Raim and Scott~H. Holan and Jonathan~R. Bradley and
+            Christopher~K. Wikle",
+  booktitle = "JSM Proceedings, Government Statistics Section",
+  year = 2017,
+  pages = "1524--1540",
+  publisher = "American Statistical Association",
+  address = "Alexandria, VA",
+  preprint = {https://andrewraim.github.io/downloads/doc/JSM2017-STCOS.pdf},
+}
+
+@inproceedings{RaimJSM2016,
+  title = "Informing Maintenance to the {U.S.}~{C}ensus {B}ureau's {M}aster
+           {A}ddress {F}ile with Statistical Decision Theory",
+  author = "Andrew~M. Raim",
+  booktitle = "JSM Proceedings, Government Statistics Section",
+  year = 2016,
+  pages = "648--659",
+  publisher = "American Statistical Association",
+  address = "Alexandria, VA",
+  preprint = {https://andrewraim.github.io/downloads/doc/RaimJSM2016.pdf},
+}
+
+@inproceedings{HeimRaimJSM2016,
+  title = "Predicting Coverage Error on the {M}aster {A}ddress {F}ile using
+           Spatial Modeling Methods at the Block Level",
+  author = "Krista Heim and Andrew~M. Raim",
+  booktitle = "JSM Proceedings, Survey Research Methods Section",
+  year = 2016,
+  pages = "1541--1555",
+  publisher = "American Statistical Association",
+  address = "Alexandria, VA",
+  preprint = {https://andrewraim.github.io/downloads/doc/HeimRaimJSM2016.pdf},
+}
+
+@inproceedings{MixLinkJSM2015,
+  title = "Bayesian Analysis of Overdispersed Binomial Data using Mixture
+           Link Regression",
+  author = "Andrew~M. Raim and Marissa~N. Gargano and Nagaraj~K. Neerchal
+            and Jorge~G. Morel",
+  booktitle = "JSM Proceedings, Statistical Computing Section",
+  year = 2015,
+  pages = "2794--2808",
+  publisher = "American Statistical Association",
+  address = "Alexandria, VA",
+  preprint = {https://andrewraim.github.io/downloads/doc/MixLinkJSM2015.pdf},
+}
+
+@inproceedings{ApproxFIMJSM2014,
+  title = "Large Cluster Approximation to the Finite Mixture Information
+           Matrix with an Application to Meta-Analysis",
+  author = "Andrew~M. Raim and Nagaraj~K. Neerchal and Jorge~G. Morel",
+  booktitle = "JSM Proceedings, Statistical Computing Section",
+  year = 2014,
+  pages = "4025--4037",
+  publisher = "American Statistical Association",
+  address = "Alexandria, VA",
+  preprint = {https://andrewraim.github.io/downloads/doc/ApproxFIMJSM2014.pdf},
+}
+
+@inproceedings{RaimNeerchalJSM2013,
+  title = "Modeling Overdispersion in Binomial Data with Regression Linked
+           to a Finite Mixture Probability of Success",
+  author = "Andrew~M. Raim and Nagaraj~K. Neerchal",
+  booktitle = "JSM Proceedings, Statistical Computing Section",
+  year = 2013,
+  pages = "2760--2774",
+  publisher = "American Statistical Association",
+  address = "Alexandria, VA",
+  preprint = {https://andrewraim.github.io/downloads/doc/RaimNeerchalJSM2013.pdf},
+}
+
+@inproceedings{RaimFlemingNeerchalJSM2012,
+  title = "An Analysis of Categorical Injury Data using Mixtures of
+           Multinomials",
+  author = "Andrew~M. Raim and Brandon~E. Fleming and Nagaraj~K. Neerchal",
+  booktitle = "JSM Proceedings, Statistical Computing Section",
+  year = 2012,
+  pages = "2444--2458",
+  publisher = "American Statistical Association",
+  address = "Alexandria, VA",
+  preprint = {https://andrewraim.github.io/downloads/doc/RaimFlemingNeerchalJSM2012.pdf},
+}
+
+</code></pre>
+</div>
 
 
 

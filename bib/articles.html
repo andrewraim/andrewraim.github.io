@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-11-15">
 
-<title>Andrew M. Raim - COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details</title>
+<title>Andrew M. Raim</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,36 +101,244 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">COMPoissonReg: Usage, the Normalizing Constant, and Other Computational Details</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">article</div>
-    <div class="quarto-category">programming</div>
-  </div>
-  </div>
 
 
 
-<div class="quarto-title-meta">
+<div style="font-size: 90%;">
+<pre><code>@article{NRFUExperiments2023,
+  title = {Design and Sample Size Determination for Experiments on Nonresponse
+           Followup using a Sequential Regression Model},
+  author = {Andrew M. Raim and Thomas Mathew and Kimberly F. Sellers and Renee
+            Ellis and Mikelyn Meyers},
+  journal = {Journal of Official Statistics},
+  year = 2023,
+  volume = 39,
+  number = 2,
+  pages = {173--202},
+  doi = {doi:10.2478/jos-2023-0009},
+  url = {https://doi.org/10.2478/jos-2023-0009},
+  preprint = "https://www.census.gov/library/working-papers/2020/adrm/RRS2020-03.html",
+}
 
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 15, 2022</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
+@article{CallUniformity2023,
+  title = {A Statistical Comparison of Call Volume Uniformity Due to Mailing
+           Strategy},
+  author = {Andrew~M. Raim and Elizabeth Nichols and Thomas Mathew},
+  journal = {Journal of Official Statistics},
+  year = 2023,
+  volume = 39,
+  number = 1,
+  pages = {103--121},
+  preprint = "https://www.census.gov/library/working-papers/2018/adrm/RRS2018-09.html",
+  doi = {10.2478/jos-2023-0005},
+  url = {https://doi.org/10.2478/jos-2023-0005},
+}
 
+@article{DirectSamplingStep2023,
+  title = {Direct sampling with a step function},
+  author = {Raim, Andrew M.},
+  journal = {Statistics and Computing},
+  year = 2023,
+  volume = 33,
+  number = 1,
+  issn = {1573-1375},
+  doi = {10.1007/s11222-022-10188-x},
+  preprint = {https://arxiv.org/abs/2203.15852},
+}
+  url = {10.1007/s11222-022-10188-x},
+  pages = 22,
 
-</header>
+@article{ACSST2022,
+  title = {{Bayesian nonparametric multivariate spatial mixture mixed effects
+            models with application to American Community Survey special
+            tabulations}},
+  author = {Ryan Janicki and Andrew~M. Raim and Scott~H. Holan and Jerry~J. Maples},
+  journal = {The Annals of Applied Statistics},
+  year = 2022,
+  volume = 16,
+  number = 1,
+  pages = {144--168},
+  preprint = "https://arxiv.org/abs/2009.12351",
+  primaryClass = {stat.AP},
+  doi = {10.1214/21-AOAS1494},
+  url = {https://dx.doi.org/10.1214/21-AOAS1494},
+}
 
+@article{STCOS2021,
+  title = "Spatio-Temporal Change of Support Modeling with {R}",
+  author = "Andrew~M. Raim and Scott~H. Holan and Jonathan~R. Bradley
+            and Christopher~K. Wikle",
+  journal = "Computational Statistics",
+  year = 2021,
+  volume = 36,
+  number = 1,
+  pages = "749--780",
+  preprint = {https://arxiv.org/abs/1904.12092},
+  primaryClass = {stat.CO},
+  doi = "10.1007/s00180-020-01029-4",
+  url = "https://dx.doi.org/10.1007/s00180-020-01029-4",
+}
 
-<p>I have been maintaining the <a href="https://CRAN.R-project.org/package=COMPoissonReg">COMPoissonReg</a> package, which facilitates use of the Conway-Maxwell Poisson (CMP) distribution. The normalizing constant of the CMP distribution is central to many computations in the package. Users have occasionally reported strange results that can be traced back to problems computing the normalizing constant. Early versions computed the constant by truncating the series to an finite sum with a fixed number of terms; however, this may yield inaccurate results. We addressed this to some degree in more recent versions in an ad hoc way. In the latest version (0.8.0) of the package, these computations have been revisited in a more principled way. Kimberly Sellers and I recently completed a <a href="https://www.census.gov/library/working-papers/2022/adrm/RRC2022-01.html">report</a> describing the updated method, which also demonstrates general use of the package. A vignette version of this report will be included in the package and updated along with any changes in the software.</p>
+@article{CMM2020,
+  title = "A {C}onway-{M}axwell-multinomial distribution for flexible
+           modeling of clustered categorical data",
+  author = "Darcy Steeg Morris and Andrew M. Raim and Kimberly F. Sellers",
+  journal = "Journal of Multivariate Analysis",
+  year = "2020",
+  volume = 179,
+  pages = "104651",
+  issn = "0047-259X",
+  doi = "10.1016/j.jmva.2020.104651",
+  url = "https://www.sciencedirect.com/science/article/pii/S0047259X20302323",
+  preprint = {https://arxiv.org/abs/1911.02131},
+  primaryClass = {stat.ME},
+}
+
+@article{ManifoldOptim2020,
+  title = "{ManifoldOptim}: An {R} Interface to the {ROPTLIB} Library for
+           {R}iemannian Manifold Optimization",
+  author = {Sean Martin and Andrew Raim and Wen Huang and Kofi Adragni},
+  journal = {Journal of Statistical Software},
+  year = 2020,
+  volume = 93,
+  number = 1,
+  issn = {1548-7660},
+  pages = {1--32},
+  primaryClass = {stat.CO},
+  preprint = {arXiv:1612.03930},
+  doi = {10.18637/jss.v093.i01},
+  url = {https://www.jstatsoft.org/v093/i01},
+}
+
+@article{PopuriEtAlBinomial2018,
+  author = {Sai~K. Popuri and Andrew~M. Raim and Nagaraj~K. Neerchal and
+            Matthias~K. Gobbert},
+  title = {Parallelizing computation of expected values in recombinant
+           binomial trees},
+  journal = {Journal of Statistical Computation and Simulation},
+  year  = 2018,
+  volume = 88,
+  number = 4,
+  pages = {657--674},
+  primaryClass = {stat.CO},
+  preprint = {https://arxiv.org/abs/1701.03512},
+  doi = {10.1080/00949655.2017.1402898},
+  url = {https://dx.doi.org/10.1080/00949655.2017.1402898},
+}
+
+@article{MixLinkGLM2018,
+  title = "An Extension of Generalized Linear Models to Finite Mixture Outcome
+           Distributions",
+  author = "Andrew~M. Raim and Nagaraj~K. Neerchal and Jorge~G. Morel",
+  journal = "Journal of Computational and Graphical Statistics",
+  year = 2018,
+  volume = 27,
+  number = 3,
+  pages = "587--601",
+  primaryClass = {stat.ME},
+  preprint = {https://arxiv.org/abs/1612.03302},
+  doi = "10.1080/10618600.2017.1391698",
+  url = "https://dx.doi.org/10.1080/10618600.2017.1391698",
+}
+
+@article{RaimEtAlAfimExpFam2017,
+  title = "An Approximation to the Information Matrix of Exponential Family
+           Finite Mixtures",
+  author = "Andrew~M. Raim and Nagaraj~K. Neerchal and Jorge~G. Morel",
+  journal = "Annals of the Institute of Statistical Mathematics",
+  pages = "333--364",
+  volume = 69,
+  number = 2,
+  year = 2017,
+  doi = "10.1007/s10463-015-0542-9",
+  url = "https://dx.doi.org/10.1007/s10463-015-0542-9",
+  preprint = {https://andrewraim.github.io/downloads/doc/RaimEtAlAfimExpFam2014.pdf},
+}
+
+@article{YoungRaimJohnsonMAF2017,
+  author = "Young, Derek~S. and Raim, Andrew~M. and Johnson, Nancy~R.",
+  title = "Zero-inflated modelling for characterizing coverage errors of
+           extracts from the {US} {C}ensus {B}ureau's {M}aster {A}ddress
+           {F}ile",
+  journal = "Journal of the Royal Statistical Society: Series A",
+  volume = 180,
+  number = 1,
+  pages = "73--97",
+  year = 2017,
+  url = "https://dx.doi.org/10.1111/rssa.12183",
+  doi = "10.1111/rssa.12183",
+}
+
+@article{SellersRaimZICMP2016,
+  title = "A flexible zero-inflated model to address data dispersion",
+  author = "Kimberly F. Sellers and Andrew Raim",
+  journal = "Computational Statistics and Data Analysis",
+  volume = 99,
+  pages = "68--80",
+  year = 2016,
+  doi = "10.1016/j.csda.2016.01.007",
+  url = "https://www.sciencedirect.com/science/article/pii/S0167947316000165",
+  preprint = "https://faculty.georgetown.edu/kfs7/MY%20PUBLICATIONS/SellersAndRaim2016CSDA.pdf",
+}
+
+@article{AdragniEtAlCOST2016,
+  title = "Group-wise sufficient dimension reduction with principal fitted
+           components",
+  author = "Kofi~P. Adragni and Elias Al-Najjar and Sean Martin and
+            Sai~K. Popuri and Andrew~M. Raim",
+  year = 2016,
+  journal = "Computational Statistics",
+  volume = "31",
+  number = "3",
+  pages = "923--941",
+  doi = "10.1007/s00180-015-0611-9",
+  url = "https://dx.doi.org/10.1007/s00180-015-0611-9",
+}
+
+@article{AdragniRaimLDR2014,
+  author =  "Kofi Placid Adragni and Andrew M. Raim",
+  title = "{ldr}: An {R} Software Package for Likelihood-Based Sufficient
+             Dimension Reduction",
+  journal = "Journal of Statistical Software",
+  volume = 61,
+  number = 3,
+  year = 2014,
+  URL = "https://www.jstatsoft.org/v61/i03",
+}
+
+@article{RaimEtAlStamet2014,
+  title = "On the method of approximate {F}isher scoring for finite mixtures
+           of multinomials",
+  author = "Andrew~M. Raim and Minglei Liu and Nagaraj~K. Neerchal and
+            Jorge~G. Morel",
+  journal = "Statistical Methodology",
+  volume = "18",
+  pages = "115--130",
+  year = "2014",
+  note = "",
+  issn = "1572-3127",
+  preprint = {https://andrewraim.github.io/downloads/doc/RaimEtAlStamet2014.pdf},
+  url = "https://www.sciencedirect.com/science/article/pii/S1572312713000841",
+  doi = "10.1016/j.stamet.2013.10.002",
+}
+
+@article{RaimEtAlJSCS2013,
+  author = "Raim, Andrew~M. and Gobbert, Matthias~K. and Neerchal, Nagaraj~K.
+            and Morel, Jorge~G.",
+  title = "Maximum-likelihood Estimation of the Random-Clumped Multinomial
+           Model as a Prototype Problem for Large-Scale Statistical Computing",
+  journal = "Journal of Statistical Computation and Simulation",
+  volume = 83,
+  number = 12,
+  pages = "2178--2194",
+  year = 2013,
+  url = "http://www.tandfonline.com/doi/abs/10.1080/00949655.2012.684095",
+  preprint = "https://userpages.umbc.edu/~gobbert/papers/RaimEtAlJSCS2010.pdf",
+  doi = "10.1080/00949655.2012.684095",
+}
+
+</code></pre>
+</div>
 
 
 
