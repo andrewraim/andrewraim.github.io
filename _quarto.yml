@@ -30,7 +30,7 @@ format:
       - default
       - styles.css
     toc: false
-    linestretch: 1.4
+    linestretch: 1.2
     fontsize: 12pt
     mainfont: arial
 
