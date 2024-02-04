@@ -11,105 +11,105 @@ Bibtex entries for the following are [here](bib/manuscripts.qmd).
 
 1. Raim, A. M., Livsey, J. A., & Irimata, K. M. (2024+). Rejection sampling
    with vertical weighted strips. (Submitted).
-   [[preprint]](https://arxiv.org/abs/2401.09696).
+   [[preprint](https://arxiv.org/abs/2401.09696)].
 
 # Selected Journal Articles
 Bibtex entries for the following are [here](bib/articles.qmd).
 
 1. Andrew M. Raim (2023). Direct sampling with a step function. Statistics and
    Computing, 33(1).
-   [[preprint]](https://arxiv.org/abs/2203.15852)
-   [[doi]](https://doi.org/10.1007/s11222-022-10188-x).
+   [[preprint](https://arxiv.org/abs/2203.15852)]
+   [[doi](https://doi.org/10.1007/s11222-022-10188-x)].
 
 1. Andrew M. Raim, Thomas Mathew, Kimberly F. Sellers, Renee Ellis, and Mikelyn
    Meyers (2023). Design and sample size determination for experiments on
    nonresponse followup using a sequential regression model. Journal of
    Official Statistics, 39(2), 173-202.
-   [[preprint]](https://www.census.gov/library/working-papers/2020/adrm/RRS2020-03.html)
-   [[doi]](https://doi.org/doi:10.2478/jos-2023-0009).
+   [[preprint](https://www.census.gov/library/working-papers/2020/adrm/RRS2020-03.html)]
+   [[doi](https://doi.org/doi:10.2478/jos-2023-0009)].
 
 1. Andrew M. Raim, Elizabeth Nichols, and Thomas Mathew (2023). A statistical
    comparison of call volume uniformity due to mailing strategy. Journal of
    Official Statistics, 39(1), 103-121.
-   [[preprint]](https://www.census.gov/library/working-papers/2018/adrm/RRS2018-09.html)
-   [[doi]](https://doi.org/10.2478/jos-2023-0005).
+   [[preprint](https://www.census.gov/library/working-papers/2018/adrm/RRS2018-09.html)]
+   [[doi](https://doi.org/10.2478/jos-2023-0005)].
 
 1. Ryan Janicki, Andrew M. Raim, Scott H. Holan, and Jerry J. Maples (2022).
    Bayesian nonparametric multivariate spatial mixture mixed effects models
    with application to American Community Survey special tabulations. The
    Annals of Applied Statistics, 16(1), 144-168.
-   [[preprint]](https://arxiv.org/abs/2009.12351)
-   [[doi]](https://doi.org/10.1214/21-AOAS1494).
+   [[preprint](https://arxiv.org/abs/2009.12351)]
+   [[doi](https://doi.org/10.1214/21-AOAS1494)].
 
 1. Andrew M. Raim, Scott H. Holan, Jonathan R. Bradley, and Christopher K.
    Wikle (2021). Spatio-temporal change of support modeling with R.
    Computational Statistics, 36(1), 749-780.
-   [[preprint]](https://arxiv.org/abs/1904.12092)
-   [[doi]](https://doi.org/10.1007/s00180-020-01029-4).
+   [[preprint](https://arxiv.org/abs/1904.12092)]
+   [[doi](https://doi.org/10.1007/s00180-020-01029-4)].
 
 1. Sean Martin, Andrew Raim, Wen Huang, and Kofi Adragni (2020). ManifoldOptim:
    An R interface to the ROPTLIB library for Riemannian manifold optimization.
    Journal of Statistical Software, 93(1), 1-32.
-   [[doi]](https://doi.org/10.18637/jss.v093.i01).
+   [[doi](https://doi.org/10.18637/jss.v093.i01)].
 
 1. Darcy Steeg Morris, Andrew M. Raim, and Kimberly F. Sellers (2020). A
    Conway-Maxwell-multinomial distribution for flexible modeling of clustered
    categorical data. Journal of Multivariate Analysis, 179, 104651.
-   [[preprint]](https://arxiv.org/abs/1911.02131)
-   [[doi]](https://doi.org/10.1016/j.jmva.2020.104651).
+   [[preprint](https://arxiv.org/abs/1911.02131)]
+   [[doi](https://doi.org/10.1016/j.jmva.2020.104651)].
 
 1. Sai K. Popuri, Andrew M. Raim, Nagaraj K. Neerchal, and Matthias K. Gobbert
    (2018). Parallelizing computation of expected values in recombinant binomial
    trees. Journal of Statistical Computation and Simulation, 88(4), 657-674.
-   [[preprint]](https://arxiv.org/abs/1701.03512)
-   [[doi]](https://doi.org/10.1080/00949655.2017.1402898).
+   [[preprint](https://arxiv.org/abs/1701.03512)]
+   [[doi](https://doi.org/10.1080/00949655.2017.1402898)].
 
 1. Andrew M. Raim, Nagaraj K. Neerchal, and Jorge G. Morel (2018). An extension
    of generalized linear models to finite mixture outcome distributions.
    Journal of Computational and Graphical Statistics, 27(3), 587-601.
-   [[preprint]](https://arxiv.org/abs/1612.03302)
-   [[doi]](https://doi.org/10.1080/10618600.2017.1391698).
+   [[preprint](https://arxiv.org/abs/1612.03302)]
+   [[doi](https://doi.org/10.1080/10618600.2017.1391698)].
 
 1. Andrew M. Raim, Nagaraj K. Neerchal, and Jorge G. Morel (2017). An
    approximation to the information matrix of exponential family finite
    mixtures. Annals of the Institute of Statistical Mathematics, 69(2), 333-364.
-   [[preprint]](https://andrewraim.github.io/downloads/doc/RaimEtAlAfimExpFam2014.pdf)
-   [[doi]](https://doi.org/10.1007/s10463-015-0542-9).
+   [[preprint](https://andrewraim.github.io/downloads/doc/RaimEtAlAfimExpFam2014.pdf)]
+   [[doi](https://doi.org/10.1007/s10463-015-0542-9)].
 
 1. Derek S. Young, Andrew M. Raim, and Nancy R. Johnson (2017). Zero-inflated
    modelling for characterizing coverage errors of extracts from the US Census
    Bureau’s Master Address File. Journal of the Royal Statistical Society:
    Series A, 180(1), 73-97.
-   [[doi]](https://doi.org/10.1111/rssa.12183).
+   [[doi](https://doi.org/10.1111/rssa.12183)].
 
 1. Kofi P. Adragni, Elias Al-Najjar, Sean Martin, Sai K. Popuri, and Andrew M.
    Raim (2016). Group-wise sufficient dimension reduction with principal fitted
    components. Computational Statistics, 31(3), 923-941.
-   [[doi]](https://doi.org/10.1007/s00180-015-0611-9).
+   [[doi](https://doi.org/10.1007/s00180-015-0611-9)].
 
 1. Kimberly F. Sellers and Andrew Raim (2016). A flexible zero-inflated model
    to address data dispersion. Computational Statistics and Data Analysis, 99,
    68-80.
-   [[preprint]](https://faculty.georgetown.edu/kfs7/MY%20PUBLICATIONS/SellersAndRaim2016CSDA.pdf)
-   [[doi]](https://doi.org/10.1016/j.csda.2016.01.007).
+   [[preprint](https://faculty.georgetown.edu/kfs7/MY%20PUBLICATIONS/SellersAndRaim2016CSDA.pdf)]
+   [[doi](https://doi.org/10.1016/j.csda.2016.01.007)].
 
 1. Kofi Placid Adragni and Andrew M. Raim (2014). ldr: An R software package
    for likelihood-based sufficient dimension reduction. Journal of Statistical
    Software, 61(3).
-   [[doi]](https://doi.org/10.18637/jss.v061.i03).
+   [[doi](https://doi.org/10.18637/jss.v061.i03)].
 
 1. Andrew M. Raim, Minglei Liu, Nagaraj K. Neerchal, and Jorge G. Morel (2014).
    On the method of approximate Fisher scoring for finite mixtures of
    multinomials. Statistical Methodology, 18, 115-130.
-   [[preprint]](https://andrewraim.github.io/downloads/doc/RaimEtAlStamet2014.pdf)
-   [[doi]](https://doi.org/10.1016/j.stamet.2013.10.002).
+   [[preprint](https://andrewraim.github.io/downloads/doc/RaimEtAlStamet2014.pdf)]
+   [[doi](https://doi.org/10.1016/j.stamet.2013.10.002)].
 
 1. Andrew M. Raim, Matthias K. Gobbert, Nagaraj K. Neerchal, and Jorge G. Morel
    (2013). Maximum-likelihood estimation of the random-clumped multinomial
    model as a prototype problem for large-scale statistical computing. Journal
    of Statistical Computation and Simulation, 83(12), 2178-2194.
-   [[preprint]](https://userpages.umbc.edu/~gobbert/papers/RaimEtAlJSCS2010.pdf)
-   [[doi]](https://doi.org/10.1080/00949655.2012.684095).
+   [[preprint](https://userpages.umbc.edu/~gobbert/papers/RaimEtAlJSCS2010.pdf)]
+   [[doi](https://doi.org/10.1080/00949655.2012.684095)].
 
 # Selected Reports, Proceedings, and Others
 Bibtex entries for the following are [here](bib/reports.qmd).
@@ -119,127 +119,126 @@ Bibtex entries for the following are [here](bib/reports.qmd).
    clustered data.  In Elisabeth Bergherr, Andreas Groll, and Andreas Mayr,
    editors, 37th International Workshop on Statistical Modelling, pages
    536-542.
-   [[url]](https://iwsm2023.statistik.tu-dortmund.de).
+   [[url](https://iwsm2023.statistik.tu-dortmund.de)].
 
 1. Andrew M. Raim and Elizabeth Nichols (2023). A comparison of map usability
    via bivariate ordinal analysis. Study Series: Statistics #2023-01. Center
    for Statistical Research and Methodology, U.S. Census Bureau.
-   [[url]](https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html).
+   [[url](https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html)].
 
 1. Andrew M. Raim and Kimberly F. Sellers (2022). COMPoissonReg: Usage, the
    normalizing constant, and other computational details. Research Report
    Series: Computing #2022-01. Center for Statistical Research and Methodology,
    U.S. Census Bureau.
-   [[url]](https://www.census.gov/library/working-papers/2022/adrm/RRC2022-01.html).
+   [[url](https://www.census.gov/library/working-papers/2022/adrm/RRC2022-01.html)].
 
 1. Kyle M. Irimata, Andrew M. Raim, Ryan Janicki, James A. Livsey, and Scott H.
    Holan (2022). Evaluation of Bayesian hierarchical models of differentially
    private data based on an approximate data model. Research Report Series:
    Statistics #2022-05. Center for Statistical Research and Methodology, U.S.
    Census Bureau.
-   [[url]](https://www.census.gov/library/working-papers/2022/adrm/RRS2022-05.html).
+   [[url](https://www.census.gov/library/working-papers/2022/adrm/RRS2022-05.html)].
 
 1. Andrew M. Raim, James A. Livsey, and Kyle M. Irimata (2022). Browsing the
    2010 Census SF2 summary file with R. Study Series: Computing #2022-01.
    Center for Statistical Research and Methodology, U.S. Census Bureau.
-   [[url]](https://www.census.gov/library/working-papers/2022/adrm/SSC2022-01.html).
+   [[url](https://www.census.gov/library/working-papers/2022/adrm/SSC2022-01.html)].
 
 1. Andrew M. Raim (2021). Direct sampling in Bayesian regression models with
    additive disclosure avoidance noise. Research Report Series: Statistics
    #2021-01. Center for Statistical Research and Methodology, U.S. Census
    Bureau.
-   [[url]](https://www.census.gov/library/working-papers/2021/adrm/RRS2021-01.html).
+   [[url](https://www.census.gov/library/working-papers/2021/adrm/RRS2021-01.html)].
 
 1. Elizabeth Nichols, Erica Olmsted-Hawala, Andrew Raim, and Lin Wang (2020).
    Attitudinal and behavioral differences between older and younger adults
    using mobile devices. In Human aspects of IT for the aged population.
    Technologies, design and user experience. Springer Nature Switzerland AG.
-   [[doi]](https://doi.org/10.1007/978-3-030-50252-2_25).
+   [[doi](https://doi.org/10.1007/978-3-030-50252-2_25)].
 
 1. Elizabeth Nichols, Sarah Konya, Rachel Horwitz, and Andrew Raim (2019). 2020
    census research and testing report: The effect of the mail delivery date on
    survey login rates and helpline call rates. U.S. Census Bureau, Research and
    Methodology Directorate, Center for Behavioral Science Methods Research
    Report Series (Survey Methodology) #2019-01. U.S. Census Bureau.
-   [[url]](https://www.census.gov/content/dam/Census/library/working-papers/2019/adrm/rsm2019-01.pdf).
+   [[url](https://www.census.gov/content/dam/Census/library/working-papers/2019/adrm/rsm2019-01.pdf)].
 
 1. Darcy Steeg Morris, Andrew M. Raim, and Kimberly F. Sellers (2018).
    Introducing a Conway-Maxwell-multinomial distribution for flexible modeling
    of categorical data. In JSM Proceedings, Biometrics Section, pages 716-733,
    Alexandria, VA. American Statistical Association.
-   [[preprint]](https://andrewraim.github.io/downloads/doc/MorrisRaimSellersJSM2018.pdf).
+   [[preprint](https://andrewraim.github.io/downloads/doc/MorrisRaimSellersJSM2018.pdf)].
 
 1. Andrew M. Raim, Scott H. Holan, Jonathan R. Bradley, and Christopher K.
    Wikle (2017). A model selection study for spatio-temporal change of support.
    In JSM Proceedings, Government Statistics Section, pages 1524-1540,
    Alexandria, VA. American Statistical Association.
-   [[preprint]](https://andrewraim.github.io/downloads/doc/JSM2017-STCOS.pdf).
+   [[preprint](https://andrewraim.github.io/downloads/doc/JSM2017-STCOS.pdf)].
 
 1. Krista Heim and Andrew M. Raim (2016). Predicting coverage error on the
    Master Address File using spatial modeling methods at the block level. In
    JSM Proceedings, Survey Research Methods Section, pages 1541-1555,
    Alexandria, VA. American Statistical Association.
-   [[preprint]](https://andrewraim.github.io/downloads/doc/HeimRaimJSM2016.pdf).
+   [[preprint](https://andrewraim.github.io/downloads/doc/HeimRaimJSM2016.pdf)].
 
 1. Andrew M. Raim (2016). Informing maintenance to the U.S. Census Bureau's
    Master Address File with statistical decision theory. In JSM Proceedings,
    Government Statistics Section, pages 648-659, Alexandria, VA. American
    Statistical Association.
-   [[preprint]](https://andrewraim.github.io/downloads/doc/RaimJSM2016.pdf).
+   [[preprint](https://andrewraim.github.io/downloads/doc/RaimJSM2016.pdf)].
 
 1. Andrew M. Raim and Marissa N. Gargano (2015). Selection of predictors to
    model coverage errors in the Master Address File. Research Report Series:
    Statistics #2015-04. Center for Statistical Research and Methodology, U.S.
    Census Bureau.
-   [[url]](https://www.census.gov/library/working-papers/2015/adrm/rrs2015-04.html).
+   [[url](https://www.census.gov/library/working-papers/2015/adrm/rrs2015-04.html)].
 
 1. Andrew M. Raim, Marissa N. Gargano, Nagaraj K. Neerchal, and Jorge G. Morel
    (2015). Bayesian analysis of overdispersed binomial data using mixture link
    regression. In JSM Proceedings, Statistical Computing Section, pages
    2794-2808, Alexandria, VA, 2015. American Statistical Association.
-   [[preprint]](https://andrewraim.github.io/downloads/doc/MixLinkJSM2015.pdf).
+   [[preprint](https://andrewraim.github.io/downloads/doc/MixLinkJSM2015.pdf)].
 
 1. Andrew M. Raim, Nagaraj K. Neerchal, and Jorge G. Morel (2015). Modeling
    overdispersion in R. Technical Report HPCF-2015-1. UMBC High Performance
    Computing Facility, University of Maryland, Baltimore County.
-   [[github]](http://github.com/andrewraim/OverdispersionModelsInR)
-   [[url]](https://hpcf.umbc.edu/publications).
+   [[preprint](https://andrewraim.github.io/downloads/doc/OverdispersionModelsInR.pdf)]
+   [[github](http://github.com/andrewraim/OverdispersionModelsInR)].
 
 1. Andrew M. Raim (2014). Computational methods in finite mixtures using
    approximate information and regression linked to the mixture mean. Ph.D.
    Thesis, Department of Mathematics and Statistics, University of Maryland,
    Baltimore County.
-   [[preprint]](https://andrewraim.github.io/downloads/doc/araim-thesis-20140425.pdf)
-   [[url]](http://search.proquest.com/docview/1552496226).
+   [[pdf](https://andrewraim.github.io/downloads/doc/araim-thesis-20140425.pdf)]
+   [[url](http://search.proquest.com/docview/1552496226)].
 
 1. Andrew M. Raim, Nagaraj K. Neerchal, and Jorge G. Morel (2014). Large
    cluster approximation to the finite mixture information matrix with an
    application to meta-analysis. In JSM Proceedings, Statistical Computing
    Section, pages 4025-4037, Alexandria, VA. American Statistical Association.
-   [[preprint]](https://andrewraim.github.io/downloads/doc/ApproxFIMJSM2014.pdf).
+   [[preprint](https://andrewraim.github.io/downloads/doc/ApproxFIMJSM2014.pdf)].
 
 1. Andrew M. Raim (2013). Introduction to distributed computing with pbdR at
    the UMBC High Performance Computing Facility.Technical Report HPCF-2013-2.
    UMBC High Performance Computing Facility, University of Maryland, Baltimore
    County.
-   [[files]](http://userpages.umbc.edu/~gobbert/papers/pbdRtara2013.tar.gz)
-   [[url]](https://hpcf.umbc.edu/publications).
+   [[files](http://userpages.umbc.edu/~gobbert/papers/pbdRtara2013.tar.gz)]
+   [[url](https://hpcf.umbc.edu/publications)].
 
 1. Andrew M. Raim and Nagaraj K. Neerchal (2013). Modeling overdispersion in
    binomial data with regression linked to a finite mixture probability of
    success. In JSM Proceedings, Statistical Computing Section, pages 2760-2774,
    Alexandria, VA. American Statistical Association.
-   [[preprint]](https://andrewraim.github.io/downloads/doc/RaimNeerchalJSM2013.pdf).
+   [[preprint](https://andrewraim.github.io/downloads/doc/RaimNeerchalJSM2013.pdf)].
 
 1. Andrew M. Raim, Brandon E. Fleming, and Nagaraj K. Neerchal (2012). An
    analysis of categorical injury data using mixtures of multinomials. In JSM
    Proceedings, Statistical Computing Section, pages 2444-2458, Alexandria, VA.
    American Statistical Association.
-   [[preprint]](https://andrewraim.github.io/downloads/doc/RaimFlemingNeerchalJSM2012.pdf).
+   [[preprint](https://andrewraim.github.io/downloads/doc/RaimFlemingNeerchalJSM2012.pdf)].
 
 1. Andrew M. Raim and Matthias K. Gobbert (2010). Parallel performance studies
    for an elliptic test problem on the cluster tara. Technical Report
    HPCF-2010-2. UMBC High Performance Computing Facility, University of
    Maryland, Baltimore County.
-   [[url]](https://hpcf.umbc.edu/publications).
-
+   [[preprint](https://andrewraim.github.io/downloads/doc/RaimGobbert2010Poisson.pdf)].

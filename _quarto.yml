@@ -13,6 +13,8 @@ website:
         text: Posts
       - href: publications.qmd
         text: Publications
+      - href: presentations.qmd
+        text: Presentations
       - href: software.qmd
         text: Software
       - href: links.qmd
