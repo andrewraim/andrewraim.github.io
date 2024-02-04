@@ -1,0 +1,145 @@
+1. Statistical modeling of the Mobile Questionnaire Assistance operation. Talk
+   presented at 2023 Joint Statistical Meetings in Toronto, Canada on 8/8/2023.
+
+1. Rejection sampling for weighted densities by majorization. Talk presented at
+   U.S. Census Bureau, Center for Statistical Research & Methodology Seminar
+   (virtual seminar) on 6/8/2023.
+   [[slides]](downloads/presentations/census2023.pdf)
+
+1. Rejection sampling for weighted densities by majorization. Poster with
+   lighting talk presented at 2023 Symposium on Data Science and Statistics in
+   St. Louis, MO on 5/24/2023-5/25/2023.
+   [[poster]](downloads/presentations/sdss2023.pdf)
+
+1. Direct sampling in Bayesian hierarchical models for privacy protected data.
+   Talk presented at 2021 International Conference on Advances in
+   Interdisciplinary Statistics and Combinatorics (virtual meeting) on
+   10/8/2021.
+   [[slides]](downloads/presentations/aisc2021.pdf)
+
+1. Direct sampling in Bayesian regression models with additive disclosure
+   avoidance noise. Talk presented at U.S. Census Bureau, Center for
+   Statistical Research & Methodology Seminar (virtual seminar) on 4/6/2021.
+   [[slides]](downloads/presentations/census2021.pdf)
+
+1. Direct sampling in Bayesian regression models with additive disclosure
+   avoidance noise. University of Kentucky Statistics Seminar Series (virtual
+   seminar) on 4/2/2021.
+
+1. Sample size selection in continuation-ratio logit models. Poster presented
+   at 2020 Joint Statistical Meetings (virtual meeting) on 8/3/2020.
+   [[poster]](downloads/presentations/jsm2020.pdf)
+
+1. Statistical assessment of bovine body weight via functional gait data. Speed
+   talk/poster presented at 2019 Joint Statistical Meetings in Denver, CO on
+   7/29/2019.
+
+1. A statistical comparison of call volume uniformity due to mailing strategy.
+   Talk presented at 2018 Joint Statistical Meetings in Vancouver, CA on
+   7/31/2018.
+   [[slides]](downloads/presentations/jsm2018.pdf)
+
+1. An R package for spatio-temporal change of support. Talk presented at ICSA
+   2018: International Conference on Recent Advances in Statistical
+   Methodologies with Applications in Clinical & Official Statistics in Kerala,
+   India on 1/3/2018.
+   [[slides]](downloads/presentations/kerala2018.pdf)
+
+1. An R package for spatio-temporal change of support. Talk presented at 2017
+   Joint Statistical Meetings in Baltimore, MD on 8/2/2017.
+   [[slides]](downloads/presentations/jsm2017.pdf)
+
+1. A flexible zero-inflated model to address data dispersion. Talk presented at
+   International Conference on Statistical Distributions and Applications in
+   Niagara Falls, Canada on 10/15/2016.
+   [[slides]](downloads/presentations/icosda2016.pdf)
+
+1. Informing maintenance to the U.S. Census Bureau’s Master Address File with
+   statistical decision theory. Poster presented at 2016 Joint Statistical
+   Meetings in Chicago, IL on 8/2/2016.
+   [[poster]](downloads/presentations/jsm2016.pdf)
+
+1. An extension of generalized linear models to finite mixture outcomes. Talk
+   presented at UMBC Statistics seminar on 2/19/2016.
+   [[slides]](downloads/presentations/umbc2016.pdf)
+
+1. Selection of predictors to model coverage errors in the Master Address File.
+   Talk presented at "What’s Up: Updates on Three Decennial-Related Projects
+   Edition" at Census Bureau, hosted by Research & Methodology Directorate on
+   9/30/2015.
+
+1. Selection of predictors to model coverage errors in the Master Address File.
+   Talk presented at 2015 International Total Survey Error Conference in
+   Baltimore, MD on 9/20/2015.
+   [[slides]](downloads/presentations/tse2015.pdf)
+
+1. Mixture link models for binomial data with overdispersion. Talk presented at
+   2015 Joint Statistical Meetings in Seattle, WA on 8/9/2015.
+   [[slides]](downloads/presentations/umbc2015.pdf)
+
+1. Mixture link models for binomial data with overdispersion. Talk presented at
+   9th Annual Probability and Statistics Day at UMBC, Special Alumni Session,
+   on 4/18/2015.
+   [[slides]](downloads/presentations/psday2015.pdf)
+
+1. Large cluster approximation to the information matrix using complete data.
+   Talk presented at 2014 Joint Statistical Meetings in Boston, MA on 8/7/2014.
+   [[slides]](downloads/presentations/jsm2014-approxfim.pdf)
+
+1. Zero-inflated regression modeling for coverage errors of the Master Address
+   File. Talk presented at 2014 Joint Statistical Meetings in Boston, MA on
+   8/7/2014 as substitute speaker for Derek S. Young.
+   [[slides]](downloads/presentations/jsm2014-maf.pdf)
+
+1. Mixture link models for binomial data with overdispersion. Talk presented at
+   U.S. Census Bureau, Center for Statistical Research & Methodology Seminar on
+   11/23/2013.
+   [[slides]](downloads/presentations/census2013.pdf)
+
+1. Modeling overdispersion using finite mixtures with a regression linked to
+   the mean. Poster presented at 2013 Joint Statistical Meetings in Montreal,
+   Canada on 8/6/2013.
+   [[poster]](downloads/presentations/jsm2013.pdf)
+
+1. An analysis of categorical injury data using mixtures of multinomials.
+   Poster presented at 7th Annual Probability and Statistics Day at UMBC on
+   4/27/2013.
+   [[slides]](downloads/presentations/psday2013.pdf)
+
+1. An approximate Fisher scoring algorithm for finite mixtures of multinomials.
+   Talk presented at 2012 Joint Statistical Meetings in San Diego, CA on
+   7/31/2012.
+
+1. An approximate Fisher scoring algorithm for finite mixtures of multinomials.
+   Talk presented at 34th Annual Graduate Research Conference at UMBC on
+   4/27/2012.
+
+1. An approximate Fisher scoring algorithm for finite mixtures of multinomials.
+   Talk presented at 6th Annual Probability and Statistics Day at UMBC on
+   4/21/2012.
+
+1. Maximum likelihood estimation of multinomial mixture models using high
+   performance computing. Talk presented at 39th Annual Meeting of the
+   Statistical Society of Canada, 6/14/2011 at Acadia University, Wolfville, NS,
+   Canada.
+
+1. The approximate Fisher information matrix for multinomial mixture models.
+   Poster presented at 5th Annual Probability and Statistics Day at UMBC on
+   4/23/2011.
+
+1. Maximum likelihood estimation of the random-clumped multinomial model using
+   high performance computing. Poster presented at Fourth Annual Probability
+   and Statistics Day at UMBC 2010 on 4/24/2010.
+
+1. UMBC High Performance Computing Facility. Poster presented at recruiting
+   event "U(2) Can Do Math+Stat Beyond College" recruiting event for graduate
+   students on 10/9/2009.
+
+1. An application of parallel computing to maximum likelihood estimation.
+   Poster presented at 3rd Annual Proba1. bility and Statistics Day at UMBC on
+   8/25/2009.
+
+1. An application of parallel computing to maximum likelihood estimation.
+   Poster presented at 31st Annual Graduate Research Conference at UMBC on
+   8/24/2009.
+
