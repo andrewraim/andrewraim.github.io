@@ -7,10 +7,10 @@ Bibtex entries for the following are [here](bib/manuscripts.qmd).
 
 1. Raim, A. M., Ellis, R., & Meyers, M. (2024+). A multinomial analysis of
    bilingual training and nonresponse followup contact rates in the 2020
-   decennial census. (Under Internal Review).
+   decennial census. [Under Internal Review].
 
 1. Raim, A. M., Livsey, J. A., & Irimata, K. M. (2024+). Rejection sampling
-   with vertical weighted strips. (Submitted).
+   with vertical weighted strips.
    [[preprint](https://arxiv.org/abs/2401.09696)].
 
 # Selected Journal Articles
