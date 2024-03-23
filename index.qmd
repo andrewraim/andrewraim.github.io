@@ -20,15 +20,17 @@ about:
 
 :::{#about-heading}
 
-Welcome! I have been a statistician at the U.S. Census Bureau Center for
-Statistical Research and
-Methodology ([CSRM](https://www.census.gov/topics/research/stat-research.html)) since
-2014. I was previously a graduate student at University of Maryland, Baltimore
-County ([UMBC](https://mathstat.umbc.edu)) and worked as a software engineer for the
-first part of my career at the internet advertising company Advertising.com.
+Welcome! This website is intended to share my publicly released work with
+anyone who may be interested. And to be able to find it myself. If you would
+like contact me, the best way is to send email to `andrew dot raim at gmail dot
+com`.
 
-Most of my publicly released work is accessible on this web site. If you would
-like to contact me, send email to `andrew dot raim at gmail dot com`.
+I have been a statistician at the U.S. Census Bureau Center for Statistical
+Research and Methodology
+([CSRM](https://www.census.gov/topics/research/stat-research.html)) since 2014.
+I was previously a graduate student at University of Maryland, Baltimore County
+([UMBC](https://mathstat.umbc.edu)) and worked as a software engineer for the
+first part of my career at the internet advertising company Advertising.com.
 
 :::
 
