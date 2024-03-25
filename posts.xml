@@ -794,7 +794,7 @@ font-style: inherit;">print</span>(out)</span>
 <span id="cb6-2">\begin{table}[<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>h]</span>
-<span id="cb6-3"></span>
+<span id="cb6-3">\centering</span>
 <span id="cb6-4">\caption{\label{tab<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">:</span>airquality}My formatted airquality table.}</span>
