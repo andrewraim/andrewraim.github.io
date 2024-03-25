@@ -75,7 +75,7 @@ readily-available software that has been developed under this philopsophy.
 - [Git](https://git-scm.com) Tool for source control management. Especially
   suitable for text-oriented material such as source code.
 
-- [Codeberg](https://codeberg.org/): a free hosting service for Git projects
+- [Codeberg](https://codeberg.org/) a free hosting service for Git projects
   which is maintained by a non-profit organization in Berlin.
 
 - The following are paid services that host Git projects
