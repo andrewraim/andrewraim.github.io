@@ -1,24 +1,18 @@
 # R packages
 
-- [sfreader](https://github.com/andrewraim/sfreader): An R Package to Read
-  Census Summary Files. Currently focused on the 2010 SF2 summary file.
+- [allocation](https://github.com/andrewraim/allocation): Exact optimal
+  allocation algorithms for stratified sampling.
+
+- [COMMultReg](https://github.com/andrewraim/COMMultReg): Conway-Maxwell
+  multinomial regression.
+
+- [COMPoissonReg](https://cran.r-project.org/package=COMPoissonReg):
+  Conway-Maxwell Poisson (COM-Poisson) regression.
 
 - [DirectSampling](https://github.com/andrewraim/DirectSampling): Direct
   sampling with a step function. Also see
   [DirectSampling.jl](https://github.com/andrewraim/DirectSampling.jl) for
   a Julia implementation.
-
-- [COMMultReg](https://github.com/andrewraim/COMMultReg): Conway-Maxwell
-  multinomial regression.
-
-- [allocation](https://github.com/andrewraim/allocation): Exact optimal
-  allocation algorithms for stratified sampling.
-
-- [stcos](https://cran.r-project.org/package=stcos): Space-time change of support.
-
-- [OverdispersionModelsInR](http://github.com/andrewraim/OverdispersionModelsInR):
-  Some tools to help with MLE computation, especially for non-standard
-  likelihoods found in overdispersion models.
 
 - [ldr](https://cran.r-project.org/package=ldr): Methods for likelihood-based
   dimension reduction in regression
@@ -28,8 +22,18 @@
 
 - [MixLink](https://cran.r-project.org/package=mixlink): Mixture link regression.
 
-- [COMPoissonReg](https://cran.r-project.org/package=COMPoissonReg):
-  Conway-Maxwell Poisson (COM-Poisson) regression.
+- [OverdispersionModelsInR](http://github.com/andrewraim/OverdispersionModelsInR):
+  Some tools to help with MLE computation, especially for non-standard
+  likelihoods found in overdispersion models.
+
+- [raim](https://github.com/andrewraim/raim): a collection of my utility
+  functions.
+
+- [sfreader](https://github.com/andrewraim/sfreader): An R Package to Read
+  Census Summary Files. Currently focused on the 2010 SF2 summary file.
+ 
+- [stcos](https://cran.r-project.org/package=stcos): Space-time change of support.
+
 
 # LaTeX templates
 

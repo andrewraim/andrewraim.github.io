@@ -19,11 +19,7 @@ about:
 ---
 
 :::{#about-heading}
-
-Welcome! This website is intended to share my publicly released work with
-anyone who may be interested. And to be able to find it myself. If you would
-like contact me, the best way is to send email to `andrew dot raim at gmail dot
-com`.
+Welcome! This website hosts my publicly released work.
 
 I have been a statistician at the U.S. Census Bureau Center for Statistical
 Research and Methodology
@@ -32,5 +28,7 @@ I was previously a graduate student at University of Maryland, Baltimore County
 ([UMBC](https://mathstat.umbc.edu)) and worked as a software engineer for the
 first part of my career at the internet advertising company Advertising.com.
 
+The best way to contact me is to send email to `andrew dot raim at gmail dot
+com`.
 :::
 
