@@ -126,7 +126,6 @@ readily-available software that has been developed under this philopsophy.
   [DropBox](https://www.dropbox.com),
   [Google Drive](https://drive.google.com)
   Shared storage, for files other than source code
-  
 
 # Productivity Tools
 
@@ -269,11 +268,17 @@ readily-available software that has been developed under this philopsophy.
 
 - [Center for Interdisciplinary Consulting](https://www.umbc.edu/circ)
 
-# Historical
+# Nostaglia
 
 - [M-Net](https://www.arbornet.org/m-net.php) One of the first public-access
   UNIX systems. Hosted by the Arbornet organization in Ann Arbor, Michigan.
 
-- [Gopher](https://mncomputinghistory.com/gopher-protocol) Gopher was an early
-  alternative to HTTP as a protocol for browsing the web.
+- [GeoCities](https://thehistoryoftheweb.com/an-ode-to-geocities) Provided free
+  hosting for personal websites.
+
+- [Gopher](https://mncomputinghistory.com/gopher-protocol) An early protocol
+  for browsing the web through a system of terminal-based menus. It lost
+  traction as graphical HTTP-based browsers such as
+  [NCSA Mosiac](https://www.ncsa.illinois.edu/research/project-highlights/ncsa-mosaic)
+  became widely used.
 
