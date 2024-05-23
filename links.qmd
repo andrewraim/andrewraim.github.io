@@ -28,8 +28,10 @@ readily-available software that has been developed under this philopsophy.
 - [pbdR](https://pbdr.org) Packages for high-performance computing, including
   a Message Passing Interface (MPI) for R.
 
-- [Rcpp](https://www.rcpp.org) Framework for integrating C++ into R. The
-  [Rcpp API][RcppAPI] project documents the API in a user-friendly way.
+- [Rcpp](https://www.rcpp.org) Framework for integrating C++ into R.
+
+- The [Rcpp API][RcppAPI] project documents the API in a human-readable way.
+  Appears to be curated manually by the author and not auto-generated.
 
 - [R-Nimble](https://r-nimble.org) Framework for constructing hierarchical
   models with compiled code for high performance.
