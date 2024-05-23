@@ -1,3 +1,9 @@
+---
+toc: true
+toc-location: left
+number-sections: true
+---
+
 Much of the software listed here is free and open source with major
 contributions from - or developed entirely by - dedicated community members. I
 am grateful for the vast selection of reliable, high quality, and
@@ -19,9 +25,11 @@ readily-available software that has been developed under this philopsophy.
 - [tidyverse](https://www.tidyverse.org) Packages for data wrangling,
   plotting, and other fundamental data science tasks.
 
-- [pbdR](https://pbdr.org) Packages for high-performance computing.
+- [pbdR](https://pbdr.org) Packages for high-performance computing, including
+  a Message Passing Interface (MPI) for R.
 
-- [Rcpp](https://www.rcpp.org) Framework for integrating C++ into R.
+- [Rcpp](https://www.rcpp.org) Framework for integrating C++ into R. The
+  [Rcpp API][RcppAPI] project documents the API in a user-friendly way.
 
 - [R-Nimble](https://r-nimble.org) Framework for constructing hierarchical
   models with compiled code for high performance.
@@ -29,41 +37,53 @@ readily-available software that has been developed under this philopsophy.
 - [LaplacesDemon](https://github.com/LaplacesDemonR/LaplacesDemon)
   Full-featured library for Bayesian computation.
 
+- [Roxygen2](https://cran.r-project.org/web/packages/roxygen2) Tool for
+  documenting R packages by adding comment blocks with markup.
+
+[RcppAPI]: https://thecoatlessprofessor.com/programming/cpp/unofficial-rcpp-api-documentation
+
+
 # Platforms for Statistical and Scientific Computing
 
 - [Stan](https://mc-stan.org) Declare Bayesian models and compile into fast
-  executable programs that sample posterior by Hamiltonian Monte Carlo;
-  integrates with R and some other general purpose languages.
+  executable programs that sample from the posterior by Hamiltonian Monte
+  Carlo. Integrates with several other programming languages including R via
+  the [rstan](https://cran.r-project.org/package=rstan) package.
 
-- [OpenBUGS](https://www.mrc-bsu.cam.ac.uk/software/bugs/openbugs) Linux
-  variant of WinBUGS, one of the first (as far as I know) Bayesian modeling
-  platforms that automate MCMC based on a user's model specification.
+- [MultiBUGS](https://www.multibugs.org) An actively maintained BUGS platform
+  for Bayesian modeling, which automates MCMC sampling given a user's model
+  specification. Other BUGS variants are
+  [OpenBUGS](https://www.mrc-bsu.cam.ac.uk/software/bugs/openbugs)
+  and WinBUGS. [JAGS](https://mcmc-jags.sourceforge.io) also follows a similar
+  paradigm.
 
 - [The Julia Language](https://julialang.org)
   A high-level and high-performance language for technical computing.
 
+- [Python](https://www.python.org) High-level language for data science and
+  general computing.
+
 - [GNU Octave](https://octave.org) A scientific computing platform that is
   largely compatible with
-  [MATLAB](https://www.mathworks.com/products/matlab.html), but is open source.
+  [MATLAB](https://www.mathworks.com/products/matlab.html) syntax, but is
+  open source.
 
 - [Wolfram Alpha](https://www.wolframalpha.com) Search engine that can compute
   integrals, limits, etc.
-
-- [Python](https://www.python.org) High-level language for data science and
-  general computing.
 
 # Libraries
 
 - [GSL](https://www.gnu.org/software/gsl) The GNU Scientific Library.
   Implements a number of numerical methods including integration,
-  optimization, and root-finding.A
+  optimization, and root-finding.
 
 - [Netlib](https://www.netlib.org) A repository of code and documentation for
   numerical methods. A good place to find definitions of standard FORTRAN codes
   for standards such as BLAS and LAPACK.
 
 - [Armadillo](https://arma.sourceforge.net) A matrix algebra library for C++.
-  Accessible to Rcpp users through the package
+  Its interface is intuitive and well-documented. The library is accessible to
+  Rcpp users through the package
   [RcppArmadillo](https://cran.r-project.org/package=RcppArmadillo).
 
 - [Eigen](https://eigen.tuxfamily.org) Another matrix algebra library for C++.
@@ -71,36 +91,40 @@ readily-available software that has been developed under this philopsophy.
   [RcppEigen](https://cran.r-project.org/package=RcppEigen).
   I find this one more difficult to use than Armadillo. 
 
-- [STL](https://cplusplus.com/reference/) The C++ Standard Template Library
-  provides a number of data structures, iterators, and algorithms for working
-  in C++.
+- [STL](https://cplusplus.com/reference) The C++ Standard Template Library
+  provides a number of data structures, iterators, and algorithms for C++
+  programs.
 
 - [Boost](https://www.boost.org) Provides a suite of data structures,
   iterators, and algorithms like the STL. However, the STL is typically
   installed on machines with C++ compilers while Boost seems to be less
   standard.
 
-# Documentation Tools
+# Document Authoring Tools
 
 - [Latex](https://www.latex-project.org) System for preparing high quality
-  documents. Especially useful for typsetting mathematical expressions.
+  documents. Especially useful for typsetting mathematics. A large selection
+  of contributed packages is available on [CTAN](https://ctan.org).
 
-- [beamer](https://ctan.org/pkg/beamer) Package for making slides with Latex.
+- [Quarto](https://quarto.org) System for preparing articles, websites,
+  books, and other documents with markdown and embedded R, Python, or Julia
+  code. Code can be displayed with syntax highlighting and run dynamically as
+  documents are compiled to facilitate reproducibility. Supports embedded Latex
+  for typesetting math, [BibTeX](https://www.bibtex.org) for references, and
+  many other conveniences.
+
+- [Beamer](https://ctan.org/pkg/beamer) Package for making slides with Latex.
 
 - [UMBCposter](https://www.math.umbc.edu/~rouben/umbcposter) A Latex package
   for making posters. Developed and maintained by Dr. Rouben Rostamian at UMBC.
-
-- [beamerposter](https://ctan.org/pkg/beamerposter) Another Latex package for
-  making conference posters.
+  Some alternatives are [beamerposter](https://ctan.org/pkg/beamerposter) and
+  [tikzposter](https://ctan.org/pkg/tikzposter).
 
 - [TeXstudio](https://www.texstudio.org) IDE for authoring Latex documents.
 
-- [pgf](https://ctan.org/pkg/pgf) Latex package for technical graphics. Also
-  see [pgfplots](https://ctan.org/pkg/pgfplots).
-
-- [Quarto](https://quarto.org) Framework to generate articles, websites,
-  books, and other documents with markdown and embedded R, Python, or Julia
-  code.
+- [Tikz](https://tikz.net) Extensive Latex package for technical graphics such
+  as diagrams and plots. Also see [PGF](https://ctan.org/pkg/pgf) and
+  see [PGFPlots](https://ctan.org/pkg/pgfplots).
 
 # Collaboration
 
@@ -129,6 +153,19 @@ readily-available software that has been developed under this philopsophy.
 
 # Productivity Tools
 
+- [The GNU Project](https://www.gnu.org) hosts a number of open source software
+  projects, including the [gcc](https://www.gnu.org/software/gcc) compiler,
+  [make](https://www.gnu.org/software/make) and
+  [autoconf](https://www.gnu.org/software/autoconf/) build tools, as well as
+  some of the other tools listed on the present page.
+
+- [Slurm](https://slurm.schedmd.com) A scheduler to queue up computing jobs
+  and run them as processors become available. Useful for running large
+  simulations which can require hours or days. Most commonly used on multi-user
+  systems and distributed computing clusters, but also useful on a PC.
+
+## Linux
+
 - [Ubuntu](https://ubuntu.com) A distribution of Linux maintained by
   the Canonical company. A number of variants are available such as a server
   edition and desktop editions with various window managers.
@@ -142,19 +179,17 @@ readily-available software that has been developed under this philopsophy.
   as a personal project by Linus Torvalds and became a collaboration with
   contributors from around the world.
 
-- [Cygwin](https://www.cygwin.com) A collection of open source tools that
-  provides a Linux-like experience in Windows, especially through the command
-  line.
-
-- [Virtual Machine Manager](https://virt-manager.org) An application to run and
-  manage virtual machines. Uses the [libvirt](https://libvirt.org/)
-  virtualization API. Both of these are open source.
+## Graphical
 
 - [Firefox](https://www.mozilla.org/en-US/firefox) A popular open source web
   browser.
 
 - [Chromium](https://www.chromium.org) The open source web browser on which
-  [Google Chrome](https://www.google.com/chrome/) is built.
+  [Google Chrome](https://www.google.com/chrome) is built.
+
+- [Virtual Machine Manager](https://virt-manager.org) An application to run and
+  manage virtual machines. Uses the [libvirt](https://libvirt.org/)
+  virtualization API. Both of these are open source.
 
 - [OBS Studio](https://obsproject.com) Capture your PC's display, audio, and
   video for recording or streaming.
@@ -176,6 +211,23 @@ readily-available software that has been developed under this philopsophy.
   which can be leveraged to create user defined menus. Menus can be traversed
   with the keyboard through fuzzy search. Something similar can be accomplished
   on the command line with [fzf](https://github.com/junegunn/fzf).
+
+- [Xournalpp](https://xournalpp.github.io) Take handwritten notes on your
+  computer which can be edited and maintained as files. Especially useful with
+  a writing tablet such as the
+  [Wacom Intuous](https://www.wacom.com/en-us/products/pen-tablets/wacom-intuos).
+
+- [Write](https://www.styluslabs.com) Another excellent program for handwritten
+  notes by Stylus Labs. Appears to be free but not completely open source like
+  Xournal.
+
+- [Dia](https://wiki.gnome.org/Apps/Dia) Open source tool for drawing diagrams.
+
+## Terminal
+
+- [Cygwin](https://www.cygwin.com) A collection of open source tools that
+  provides a Linux-like experience in Windows, especially through the command
+  line.
 
 - [tmux](https://github.com/tmux/tmux/wiki) Persistent terminal sessions that
   can be detached/attached and split into multiple panes. Here is a
@@ -207,28 +259,6 @@ readily-available software that has been developed under this philopsophy.
 - [Alpine](https://alpineapp.email) The successor of
   [Pine](https://web.archive.org/web/20190328145000/http://www.washington.edu/pine)
   which was another widely used email client for the terminal.
-
-- [Slurm](https://slurm.schedmd.com) A scheduler to queue up computing jobs
-  and run them as processors become available. Useful for running large
-  simulations which can require hours or days. Most commonly used on multi-user
-  systems and distributed computing clusters, but also useful on a PC.
-
-- [Xournalpp](https://xournalpp.github.io) Take handwritten notes on your
-  computer which can be edited and maintained as files. Especially useful with
-  a writing tablet such as the
-  [Wacom Intuous](https://www.wacom.com/en-us/products/pen-tablets/wacom-intuos).
-
-- [Write](https://www.styluslabs.com) Another excellent program for handwritten
-  notes by Stylus Labs. Appears to be free but not completely open source like
-  Xournal.
-
-- [Dia](https://wiki.gnome.org/Apps/Dia) Open source tool for drawing diagrams.
-
-- [The GNU Project](https://www.gnu.org) hosts a number of open source software
-  projects, including the [gcc](https://www.gnu.org/software/gcc) compiler,
-  [make](https://www.gnu.org/software/make) and
-  [autoconf](https://www.gnu.org/software/autoconf/) build tools, as well as
-  some of the other tools listed on the present page.
 
 # Professional Associations
 
