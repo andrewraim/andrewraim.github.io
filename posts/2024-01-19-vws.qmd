@@ -23,7 +23,7 @@ to draw candidate variates to complete the rejection sampler. An improved
 proposal can be obtained by partitioning the support and majorizing within each
 region. Here the proposal is a finite mixture. The method is referred to as
 "vertical weighted strips" because it can be regarded as an extension of the
-vertical strips method [@Devroye1986, Section 3.6; @MartinoLuengoMiguez2018,
-Chapter VIII], with the weighted form introducing an additional degree of
+vertical strips method [@Devroye1986, Chapter VIII; @MartinoLuengoMiguez2018,
+Section 3.6], with the weighted form introducing an additional degree of
 flexibility for algorithm development.
 
