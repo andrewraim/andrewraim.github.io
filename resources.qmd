@@ -5,9 +5,11 @@ number-sections: true
 ---
 
 Much of the software listed here is free and open source with major
-contributions from - or developed entirely by - dedicated community members. I
-am grateful for the vast selection of reliable, high quality, and
-readily-available software that has been developed under this philopsophy.
+contributions from - or developed entirely by - dedicated community members.
+These efforts have resulted in a vast selection of reliable, high quality, and
+readily-available software. I especially attempt to highlight projects
+developed under this philopsophy that I have personally found to be useful or
+interesting.
 
 # The R Project
 

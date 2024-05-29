@@ -17,8 +17,8 @@ website:
         text: Presentations
       - href: software.qmd
         text: Software
-      - href: links.qmd
-        text: Links
+      - href: resources.qmd
+        text: Resources
   search: false
   page-footer: 
     left:

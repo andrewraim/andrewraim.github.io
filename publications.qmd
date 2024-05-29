@@ -122,31 +122,31 @@ Bibtex entries for the following are [here](bib/reports.qmd).
    [[url](https://iwsm2023.statistik.tu-dortmund.de)].
 
 1. Andrew M. Raim and Elizabeth Nichols (2023). A comparison of map usability
-   via bivariate ordinal analysis. Study Series: Statistics #2023-01. Center
+   via bivariate ordinal analysis. Study Series: Statistics \#2023-01. Center
    for Statistical Research and Methodology, U.S. Census Bureau.
    [[url](https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html)].
 
 1. Andrew M. Raim and Kimberly F. Sellers (2022). COMPoissonReg: Usage, the
    normalizing constant, and other computational details. Research Report
-   Series: Computing #2022-01. Center for Statistical Research and Methodology,
+   Series: Computing \#2022-01. Center for Statistical Research and Methodology,
    U.S. Census Bureau.
    [[url](https://www.census.gov/library/working-papers/2022/adrm/RRC2022-01.html)].
 
 1. Kyle M. Irimata, Andrew M. Raim, Ryan Janicki, James A. Livsey, and Scott H.
    Holan (2022). Evaluation of Bayesian hierarchical models of differentially
    private data based on an approximate data model. Research Report Series:
-   Statistics #2022-05. Center for Statistical Research and Methodology, U.S.
+   Statistics \#2022-05. Center for Statistical Research and Methodology, U.S.
    Census Bureau.
    [[url](https://www.census.gov/library/working-papers/2022/adrm/RRS2022-05.html)].
 
 1. Andrew M. Raim, James A. Livsey, and Kyle M. Irimata (2022). Browsing the
-   2010 Census SF2 summary file with R. Study Series: Computing #2022-01.
+   2010 Census SF2 summary file with R. Study Series: Computing \#2022-01.
    Center for Statistical Research and Methodology, U.S. Census Bureau.
    [[url](https://www.census.gov/library/working-papers/2022/adrm/SSC2022-01.html)].
 
 1. Andrew M. Raim (2021). Direct sampling in Bayesian regression models with
    additive disclosure avoidance noise. Research Report Series: Statistics
-   #2021-01. Center for Statistical Research and Methodology, U.S. Census
+   \#2021-01. Center for Statistical Research and Methodology, U.S. Census
    Bureau.
    [[url](https://www.census.gov/library/working-papers/2021/adrm/RRS2021-01.html)].
 
@@ -160,7 +160,7 @@ Bibtex entries for the following are [here](bib/reports.qmd).
    census research and testing report: The effect of the mail delivery date on
    survey login rates and helpline call rates. U.S. Census Bureau, Research and
    Methodology Directorate, Center for Behavioral Science Methods Research
-   Report Series (Survey Methodology) #2019-01. U.S. Census Bureau.
+   Report Series (Survey Methodology) \#2019-01. U.S. Census Bureau.
    [[url](https://www.census.gov/content/dam/Census/library/working-papers/2019/adrm/rsm2019-01.pdf)].
 
 1. Darcy Steeg Morris, Andrew M. Raim, and Kimberly F. Sellers (2018).
@@ -189,7 +189,7 @@ Bibtex entries for the following are [here](bib/reports.qmd).
 
 1. Andrew M. Raim and Marissa N. Gargano (2015). Selection of predictors to
    model coverage errors in the Master Address File. Research Report Series:
-   Statistics #2015-04. Center for Statistical Research and Methodology, U.S.
+   Statistics \#2015-04. Center for Statistical Research and Methodology, U.S.
    Census Bureau.
    [[url](https://www.census.gov/library/working-papers/2015/adrm/rrs2015-04.html)].
 
