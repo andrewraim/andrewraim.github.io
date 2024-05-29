@@ -15,7 +15,7 @@ sampling can take some creativity. A poor choice can result in extremely low
 acceptance rates where practically no draws are accepted from a very large
 number of candidates.
 
-@VWS2024 explores an approach to construct proposals by regarding the target as
+@VWS2024 explore an approach to construct proposals by regarding the target as
 a weighted density and majorizing the weight function. This yields another
 weighted density whose unnormalized form can be used as an envelope in the
 acceptance ratio. If designed consciously, the normalized form can also be used
