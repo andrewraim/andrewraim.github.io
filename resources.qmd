@@ -104,6 +104,18 @@ interesting.
   installed on machines with C++ compilers while Boost seems to be less
   standard.
 
+- [autodiff](https://autodiff.github.io) Automatic differentiation (AD) in C++.
+  Using special variables and operations to code functions, analytical
+  derivatives may be calculated automatically. Helps to avoid tedious
+  hand calculations and numerical accuracy issues in numerical derivatives, 
+  Implements a reverse mode and forward mode algorithm.
+  [Stan](https://mc-stan.org) also has a library for AD
+  which can be accessed in C++ with [some work][stan-ad]. A list of many other
+  AD tools for various programming languages are listed at
+  [autodiff.org](https://www.autodiff.org).
+
+[stan-ad]: https://www.r-bloggers.com/2022/01/automatic-differentiation-in-r-with-stan-math
+
 # Document Authoring Tools
 
 - [Latex](https://www.latex-project.org) System for preparing high quality
