@@ -1,6 +1,8 @@
 Selected slides and posters. In cases where similar material was presented in
 several places, only one version of the files are given here.
 
+1. Vertical Weighted Strips in R.
+   [[poster](downloads/presentations/sdss2024.pdf)]
 1. Rejection sampling for weighted densities by majorization.
    [[slides](downloads/presentations/census2023.pdf)]
    [[poster](downloads/presentations/sdss2023.pdf)]
