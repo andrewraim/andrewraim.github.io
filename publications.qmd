@@ -1,17 +1,16 @@
-Some additional works not listed here can be found on my Google Scholar
-[profile](https://scholar.google.com/citations?user=3Ai29GIAAAAJ)
-and the HPCF Technical Reports [website](https://hpcf.umbc.edu/publications).
+Some additional works not listed here can be found on
+[Google Scholar](https://scholar.google.com/citations?user=3Ai29GIAAAAJ)
+and at [HPCF Technical Reports](https://hpcf.umbc.edu/publications).
 
 # Manuscripts
 Bibtex entries for the following are [here](bib/manuscripts.qmd).
 
-1. Raim, A. M., Ellis, R., & Meyers, M. (2024+). A multinomial analysis of
-   bilingual training and nonresponse followup contact rates in the 2020
-   decennial census. [Under Internal Review].
-
 1. Raim, A. M., Livsey, J. A., & Irimata, K. M. (2024+). Rejection sampling
    with vertical weighted strips.
    [[preprint](https://arxiv.org/abs/2401.09696)].
+
+1. Raim, A. M., Livsey, J. A., & Irimata, K. M. (2024+). Vertical Weighted
+   Strips in R. (In Preparation).
 
 # Selected Journal Articles
 Bibtex entries for the following are [here](bib/articles.qmd).
@@ -113,6 +112,12 @@ Bibtex entries for the following are [here](bib/articles.qmd).
 
 # Selected Reports, Proceedings, and Others
 Bibtex entries for the following are [here](bib/reports.qmd).
+
+1. Raim, A. M., Ellis, R., & Meyers, M. (2024+). A multinomial analysis of
+   bilingual training and nonresponse followup contact rates in the 2020
+   decennial census. Study Series: Statistics \#2024-01. Center
+   for Statistical Research and Methodology, U.S. Census Bureau.
+   [[url](https://www.census.gov/library/working-papers/2023/adrm/SSS2024-01.html)].
 
 1. Darcy Steeg Morris and Andrew M. Raim (2023). Comparing trial and variable
    association in contingency table data using multinomial models for
