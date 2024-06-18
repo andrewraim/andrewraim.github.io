@@ -1,6 +1,10 @@
 Some additional works not listed here can be found on
-[Google Scholar](https://scholar.google.com/citations?user=3Ai29GIAAAAJ)
-and at [HPCF Technical Reports](https://hpcf.umbc.edu/publications).
+[Google Scholar][scholar-url] and at [HPCF Technical Reports][hpcf-url].
+My ORCID is [0000-0002-4440-2330][orcid-url].
+
+[scholar-url]: https://scholar.google.com/citations?user=3Ai29GIAAAAJ
+[hpcf-url]: https://hpcf.umbc.edu/publications
+[orcid-url]: https://orcid.org/0000-0002-4440-2330
 
 # Manuscripts
 Bibtex entries for the following are [here](bib/manuscripts.qmd).
