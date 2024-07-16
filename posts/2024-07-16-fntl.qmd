@@ -1,0 +1,29 @@
+---
+title: "fntl: Numerical Tools for Rcpp and Lambda Functions"
+date: 2024-07-16
+categories:
+  - article
+bibliography: ../bib/web.bib
+---
+
+[Lambda functions][lambda-url] were added to C++ in the C++11 specification.
+They are functions which can be defined on the fly in the course of a program,
+make use of variables in the environment within their body, and be passed as
+arguments to other functions. Use of lambdas may be especially appealing for
+Rcpp programmers who are accustomed to working with function objects in R but
+occasionally need C++ when performance becomes a concern.
+
+The objective of the R package `fntl` [@fntl] is to facilitate programming in
+Rcpp with lambda functions by providing an API to routinely needed numerical
+tools such as integration, root-finding, and optimization. Such functions
+require one or more functions as a primary argument; these are supplied as
+lambdas to `fntl`. Where possible, the `fntl` API utilizes methods exposed from
+the [R API][Rapi-url] so that the same numerical methods are used as in R. In
+cases where methods are not exposed from the R API, `fntl` implements methods
+that are intended to be comparable. A detailed guide to the `fntl` API is
+provided in the package vignette [@fntl2024].
+
+[lambda-url]: https://en.cppreference.com/w/cpp/language/lambda
+[fntl-url]: https://github.com/andrewraim/fntl
+[Rapi-url]: https://cran.r-project.org/doc/manuals/r-release/R-exts.html#The-R-API
+

@@ -14,6 +14,9 @@
   [DirectSampling.jl](https://github.com/andrewraim/DirectSampling.jl) for
   a Julia implementation.
 
+- [fntl](https://github.com/andrewraim/fntl): Numerical Tools for Rcpp and
+  Lambda Functions.
+
 - [ldr](https://cran.r-project.org/package=ldr): Methods for likelihood-based
   dimension reduction in regression
 
