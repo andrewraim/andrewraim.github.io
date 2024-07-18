@@ -9,8 +9,34 @@
 <link>https://andrewraim.github.io/posts.html</link>
 <atom:link href="https://andrewraim.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.4.554</generator>
-<lastBuildDate>Fri, 19 Jan 2024 05:00:00 GMT</lastBuildDate>
+<generator>quarto-1.5.54</generator>
+<lastBuildDate>Tue, 16 Jul 2024 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>fntl: Numerical Tools for Rcpp and Lambda Functions</title>
+  <link>https://andrewraim.github.io/posts/2024-07-16-fntl.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><a href="https://en.cppreference.com/w/cpp/language/lambda">Lambda functions</a> were added to C++ in the C++11 specification. They are functions which can be defined on the fly in the course of a program, make use of variables in the environment within their body, and be passed as arguments to other functions. Use of lambdas may be especially appealing for Rcpp programmers who are accustomed to working with function objects in R but occasionally need C++ when performance becomes a concern.</p>
+<p>The objective of the R package <code>fntl</code> <span class="citation" data-cites="fntl">(Raim 2024a)</span> is to facilitate programming in Rcpp with lambda functions by providing an API to routinely needed numerical tools such as integration, root-finding, and optimization. Such functions require one or more functions as a primary argument; these are supplied as lambdas to <code>fntl</code>. Where possible, the <code>fntl</code> API utilizes methods exposed from the <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#The-R-API">R API</a> so that the same numerical methods are used as in R. In cases where methods are not exposed from the R API, <code>fntl</code> implements methods that are intended to be comparable. A detailed guide to the <code>fntl</code> API is provided in the package vignette <span class="citation" data-cites="fntl2024">(Raim 2024b)</span>.</p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-fntl" class="csl-entry">
+Raim, Andrew M. 2024a. <em><span class="nocase">fntl</span>: Numerical Tools for <span>Rcpp</span> and Lambda Functions</em>. <a href="https://github.com/andrewraim/fntl">https://github.com/andrewraim/fntl</a>.
+</div>
+<div id="ref-fntl2024" class="csl-entry">
+———. 2024b. <span>“<span class="nocase">fntl</span>: Numerical Tools for <span>Rcpp</span> and Lambda Functions.”</span> Research Report Series: Computing #2024-01. Center for Statistical Research; Methodology, U.S.&nbsp;Census Bureau. <a href="https://www.census.gov/library/working-papers/2024/adrm/RRC2024-01.html">https://www.census.gov/library/working-papers/2024/adrm/RRC2024-01.html</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>article</category>
+  <guid>https://andrewraim.github.io/posts/2024-07-16-fntl.html</guid>
+  <pubDate>Tue, 16 Jul 2024 04:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Rejection Sampling with Vertical Weighted Strips</title>
   <link>https://andrewraim.github.io/posts/2024-01-19-vws.html</link>
@@ -20,7 +46,7 @@
 
 
 <p>Rejection sampling is a classical algorithm <span class="citation" data-cites="vonNeumann1951">(Neumann 1951)</span> to generate variates from a target distribution where a constructive sampling method—e.g., by composing other random variables—may not be apparent. A benefit of rejection sampling is that accepted draws follow the target distribution exactly. However, coming up with a good proposal for rejection sampling can take some creativity. A poor choice can result in extremely low acceptance rates where practically no draws are accepted from a very large number of candidates.</p>
-<p><span class="citation" data-cites="VWS2024">Raim, Livsey, and Irimata (2024+)</span> explores an approach to construct proposals by regarding the target as a weighted density and majorizing the weight function. This yields another weighted density whose unnormalized form can be used as an envelope in the acceptance ratio. If designed consciously, the normalized form can also be used to draw candidate variates to complete the rejection sampler. An improved proposal can be obtained by partitioning the support and majorizing within each region. Here the proposal is a finite mixture. The method is referred to as “vertical weighted strips” because it can be regarded as an extension of the vertical strips method <span class="citation" data-cites="Devroye1986 MartinoLuengoMiguez2018">(Devroye 1986, chap. VIII; Martino, Luengo, and Míguez 2018, sec. 3.6)</span>, with the weighted form introducing an additional degree of flexibility for algorithm development.</p>
+<p><span class="citation" data-cites="VWS2024">Raim, Livsey, and Irimata (2024+)</span> explore an approach to construct proposals by regarding the target as a weighted density and majorizing the weight function. This yields another weighted density whose unnormalized form can be used as an envelope in the acceptance ratio. If designed consciously, the normalized form can also be used to draw candidate variates to complete the rejection sampler. An improved proposal can be obtained by partitioning the support and majorizing within each region. Here the proposal is a finite mixture. The method is referred to as “vertical weighted strips” because it can be regarded as an extension of the vertical strips method <span class="citation" data-cites="Devroye1986 MartinoLuengoMiguez2018">(Devroye 1986, chap. VIII; Martino, Luengo, and Míguez 2018, sec. 3.6)</span>, with the weighted form introducing an additional degree of flexibility for algorithm development.</p>
 
 
 
@@ -110,6 +136,7 @@ font-style: inherit;">"localhost"</span>)</span>
 background-color: null;
 font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(x) { <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">stop</span>(<span class="st" style="color: #20794D;
@@ -119,6 +146,7 @@ font-style: inherit;">"An exception!"</span>) }</span>
 background-color: null;
 font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(x) { <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">f</span>(x) }</span>
@@ -139,6 +167,7 @@ font-style: inherit;">10</span>)</span>
 background-color: null;
 font-style: inherit;">error =</span> <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">function</span>(e) {</span>
 <span id="cb3-7">    result <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1182,10 +1211,12 @@ background-color: null;
 font-style: inherit;">"hello-world"</span> image from the Docker Hub.</span>
 <span id="cb2-7">    <span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">(</span><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">amd64</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">)</span></span>
 <span id="cb2-8"> <span class="ex" style="color: null;
 background-color: null;
@@ -1288,10 +1319,12 @@ font-style: inherit;">rstudio@a8f9a900c791:~$</span> R</span>
 background-color: null;
 font-style: inherit;">&gt;</span> cat<span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">(</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Hello world\n"</span><span class="kw" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">)</span></span>
 <span id="cb8-3"><span class="ex" style="color: null;
 background-color: null;
@@ -1620,6 +1653,7 @@ background-color: null;
 font-style: inherit;">();</span></span>
 <span id="cb18-20">    <span class="cf" style="color: #003B4F;
 background-color: null;
+font-weight: bold;
 font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span><span class="op" style="color: #5E5E5E;

@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2020-07-27">
+<meta name="dcterms.date" content="2024-07-16">
 
-<title>Presentation for 2020 Joint Statistical Meetings – Andrew M. Raim</title>
+<title>fntl: Numerical Tools for Rcpp and Lambda Functions – Andrew M. Raim</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -108,9 +128,9 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Presentation for 2020 Joint Statistical Meetings</h1>
+<h1 class="title">fntl: Numerical Tools for Rcpp and Lambda Functions</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">conference</div>
+    <div class="quarto-category">article</div>
   </div>
   </div>
 
@@ -122,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 27, 2020</p>
+      <p class="date">July 16, 2024</p>
     </div>
   </div>
   
@@ -134,11 +154,20 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>For this year’s virtual JSM, I am presenting in the session listed <a href="https://ww2.amstat.org/meetings/jsm/2020/onlineprogram/AbstractDetails.cfm?abstractid=309805">here</a>. Here are links to download the poster <a href="https://drive.google.com/uc?export=view&amp;id=1m4NIMm0kfrVRwsfigFHJDSUqOkCEHObA">PDF</a> and voiceover <a href="https://drive.google.com/uc?export=view&amp;id=1keGcR_2ZJ87nFicBbrPnvPh6nyGsvOLk">MP4</a>. Note that the files are hosted on Google Drive: if this is not accessible to you, email me for copies of the files.</p>
+<p><a href="https://en.cppreference.com/w/cpp/language/lambda">Lambda functions</a> were added to C++ in the C++11 specification. They are functions which can be defined on the fly in the course of a program, make use of variables in the environment within their body, and be passed as arguments to other functions. Use of lambdas may be especially appealing for Rcpp programmers who are accustomed to working with function objects in R but occasionally need C++ when performance becomes a concern.</p>
+<p>The objective of the R package <code>fntl</code> <span class="citation" data-cites="fntl">(<a href="#ref-fntl" role="doc-biblioref">Raim 2024a</a>)</span> is to facilitate programming in Rcpp with lambda functions by providing an API to routinely needed numerical tools such as integration, root-finding, and optimization. Such functions require one or more functions as a primary argument; these are supplied as lambdas to <code>fntl</code>. Where possible, the <code>fntl</code> API utilizes methods exposed from the <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#The-R-API">R API</a> so that the same numerical methods are used as in R. In cases where methods are not exposed from the R API, <code>fntl</code> implements methods that are intended to be comparable. A detailed guide to the <code>fntl</code> API is provided in the package vignette <span class="citation" data-cites="fntl2024">(<a href="#ref-fntl2024" role="doc-biblioref">Raim 2024b</a>)</span>.</p>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-fntl" class="csl-entry" role="listitem">
+Raim, Andrew M. 2024a. <em><span class="nocase">fntl</span>: Numerical Tools for <span>Rcpp</span> and Lambda Functions</em>. <a href="https://github.com/andrewraim/fntl">https://github.com/andrewraim/fntl</a>.
+</div>
+<div id="ref-fntl2024" class="csl-entry" role="listitem">
+———. 2024b. <span>“<span class="nocase">fntl</span>: Numerical Tools for <span>Rcpp</span> and Lambda Functions.”</span> Research Report Series: Computing #2024-01. Center for Statistical Research; Methodology, U.S.&nbsp;Census Bureau. <a href="https://www.census.gov/library/working-papers/2024/adrm/RRC2024-01.html">https://www.census.gov/library/working-papers/2024/adrm/RRC2024-01.html</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
