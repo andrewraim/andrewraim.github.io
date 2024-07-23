@@ -117,11 +117,16 @@ Bibtex entries for the following are [here](bib/articles.qmd).
 # Selected Reports, Proceedings, and Others
 Bibtex entries for the following are [here](bib/reports.qmd).
 
-1. Raim, A. M., Ellis, R., & Meyers, M. (2024+). A multinomial analysis of
-   bilingual training and nonresponse followup contact rates in the 2020
-   decennial census. Study Series: Statistics \#2024-01. Center
+1. Andrew M. Raim (2024). fntl: Numerical Tools for Rcpp and Lambda
+   Functions. Research Report Series: Computing \#2024-01. Center for
+   Statistical Research and Methodology, U.S. Census Bureau.
+   [[url](https://www.census.gov/library/working-papers/2024/adrm/RRC2024-01.html)].
+
+1. Andrew M. Raim, Renee Ellis, & Mikelyn Meyers. (2024). A multinomial
+   analysis of bilingual training and nonresponse followup contact rates in the
+   2020 Decennial Census. Study Series: Statistics \#2024-01. Center
    for Statistical Research and Methodology, U.S. Census Bureau.
-   [[url](https://www.census.gov/library/working-papers/2023/adrm/SSS2024-01.html)].
+   [[url](https://www.census.gov/library/working-papers/2024/adrm/SSS2024-01.html)].
 
 1. Darcy Steeg Morris and Andrew M. Raim (2023). Comparing trial and variable
    association in contingency table data using multinomial models for
