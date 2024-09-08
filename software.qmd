@@ -14,14 +14,15 @@
   [DirectSampling.jl](https://github.com/andrewraim/DirectSampling.jl) for
   a Julia implementation.
 
-- [fntl](https://github.com/andrewraim/fntl): Numerical Tools for Rcpp and
+- [fntl](https://cran.r-project.org/package=fntl): Numerical Tools for Rcpp and
   Lambda Functions.
 
 - [ldr](https://cran.r-project.org/package=ldr): Methods for likelihood-based
   dimension reduction in regression
 
 - [ManifoldOptim](https://cran.r-project.org/package=ManifoldOptim): An R
-  interface to the ROPTLIB library for Riemannian manifold optimization.
+  interface to the [ROPTLIB][roptlib-url] library for Riemannian manifold
+  optimization.
 
 - [MixLink](https://cran.r-project.org/package=mixlink): Mixture link regression.
 
@@ -37,6 +38,7 @@
  
 - [stcos](https://cran.r-project.org/package=stcos): Space-time change of support.
 
+[roptlib-url]: https://www.math.fsu.edu/~whuang2/Indices/index_ROPTLIB.html
 
 # LaTeX templates
 
