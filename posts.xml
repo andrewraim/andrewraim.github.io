@@ -19,8 +19,13 @@
 
 
 
-<p><a href="https://en.cppreference.com/w/cpp/language/lambda">Lambda functions</a> were added to C++ in the C++11 specification. They are functions which can be defined on the fly in the course of a program, make use of variables in the environment within their body, and be passed as arguments to other functions. Use of lambdas may be especially appealing for Rcpp programmers who are accustomed to working with function objects in R but occasionally need C++ when performance becomes a concern.</p>
+<p><a href="https://en.cppreference.com/w/cpp/language/lambda">Lambda functions</a> were added to C++ in the C++11 specification. They are functions which can be defined on the fly in the course of a program, can make use of variables in the environment within their body, and be passed as arguments to other functions. Use of lambdas may be especially appealing for Rcpp programmers who are accustomed to working with function objects in R but occasionally need C++ when performance becomes a concern.</p>
 <p>The objective of the R package <code>fntl</code> <span class="citation" data-cites="fntl">(Raim 2024a)</span> is to facilitate programming in Rcpp with lambda functions by providing an API to routinely needed numerical tools such as integration, root-finding, and optimization. Such functions require one or more functions as a primary argument; these are supplied as lambdas to <code>fntl</code>. Where possible, the <code>fntl</code> API utilizes methods exposed from the <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#The-R-API">R API</a> so that the same numerical methods are used as in R. In cases where methods are not exposed from the R API, <code>fntl</code> implements methods that are intended to be comparable. A detailed guide to the <code>fntl</code> API is provided in the package vignette <span class="citation" data-cites="fntl2024">(Raim 2024b)</span>.</p>
+<p><code>fntl</code> package</p>
+<ul>
+<li>Deployed on <a href="https://cran.r-project.org/package=fntl">CRAN</a></li>
+<li>Source on <a href="https://github.com/andrewraim/fntl">Github</a></li>
+</ul>
 
 
 
