@@ -1,0 +1,174 @@
+---
+title: "Numerical Maximum Likelihood with the stats4 Package"
+date: 2024-12-11
+categories:
+  - programming
+format:
+  html:
+    toc: true
+    number-sections: true
+bibliography: ../bib/web.bib
+---
+
+```{r}
+#| echo: false
+library(stats4)
+```
+
+# Introduction
+
+The [stats4][stats4-url] package included in R provides a layer of usability on top of
+`optim` for numerial maximum likelihood (ML). For example, the user can request 
+an estimate of the covariance matrix associated with the ML estimates rather
+than computing it manually. According to @HenningsenToomet2011, `stats4` has
+been bundled into R since 2003, but I only found out about it recently. In this
+post, we will present some brief examples using `stats4`. Note that the [maxLik][maxLik-url]
+package presented by @HenningsenToomet2011 covers similar ground with additional
+functionality; therefore it may also be of interest.
+
+[stats4-url]: https://stat.ethz.ch/R-manual/R-devel/library/stats4/html/00Index.html
+[maxLik-url]: https://cran.r-project.org/package=maxLik
+
+# Poisson Regression Example
+
+Consider a Poisson regression setting with $Y_i \sim \text{Poisson}(\lambda_i)$,
+independently distributed for $i = 1, \ldots, n$ where
+$\lambda_i = \exp(x_i^\top \beta)$ for covariate $x_i \in \mathbb{R}^d$ and
+unknown coefficient $\beta \in \mathbb{R}^d$.
+
+Let us simulate a dataset from this setting.
+
+```{r}
+set.seed(1235)
+n = 200
+x = rnorm(n)
+X = cbind(1, x)
+d = ncol(X)
+beta_true = c(1, -0.25)
+lambda_true = exp(X %*% beta_true)
+y = rpois(n, lambda_true)
+```
+
+Of course we can use the `glm` function to obtain the MLE $\hat{\beta}$ in this
+setting. Let us do that as a point of comparison.
+
+```{r}
+glm_out = glm(y ~ x, family = poisson)
+summary(glm_out)
+```
+
+# Using the `mle` Function in `stats4`
+
+Recall that the loglikelihood for this model is
+<!-- -->
+$$
+\log \mathcal{L}(\beta) = \sum_{i=1}^n \Big\{ y_i \log \lambda_i - \lambda_i - \log \Gamma(y_i + 1) \Big\}.
+$$
+<!-- -->
+If this were a nonstandard likelihood, we would need to be able to code and
+optimize it ourselves. The `stats4` package allows us to do this. Here are the
+arguments of the `stats4::mle` function which may be used to fit the MLE.
+
+```{r}
+str(mle, give.attr = F)
+```
+
+Note that the first argument expects the negative loglikelihood; the
+optimization is then carried out as a minimization. Let us code it.
+
+```{r}
+nloglik = function(beta = numeric(d)) {
+	-sum(dpois(y, lambda = exp(X %*% beta), log = TRUE))
+}
+
+mle_out = mle(nloglik, method = "L-BFGS-B", nobs = length(y))
+```
+
+A variety of included accessors can be used to work with the result.
+
+```{r}
+summary(mle_out)
+coef(mle_out)
+logLik(mle_out)
+AIC(mle_out)
+BIC(mle_out)
+confint(mle_out, level = 0.90)
+vcov(mle_out)
+profile(mle_out)
+```
+
+# Fixed Parameters
+
+An argument of `mle` that can be useful is `fixed`, where we can specify some
+parameters to be held fixed during the optimization. In our example with
+$\beta = (\beta_1, \beta_2)$ let us consider another fit with the slope
+coefficient fixed at $\beta_2 = 0$ .
+
+```{r}
+mle0_out = mle(nloglik, method = "L-BFGS-B", nobs = length(y),
+	fixed = list(beta = c(NA, 0)))
+print(mle0_out)
+```
+
+Note that `NA` was associated with $\beta_1$ to indicate that it should not
+remain fixed. We can compute a likelihood ratio test of the hypothesis
+$H_0: \beta_2 = 0$ versus $H_1: \beta_2 \neq 0$ using the two fits `mle_out`
+and `mle0_out`.
+
+```{r}
+lrt = 2 * (logLik(mle_out) - logLik(mle0_out))
+pval = pchisq(lrt, df = 1, lower.tail = F)
+cat("LRT was computed with test statistic", lrt, "and p-value", pval, ".\n")
+```
+
+# Transforming Parameters
+
+A convenient property of ML estimates (MLEs) is the invariance property: suppose
+the MLE of $\beta$ is $\hat{\beta}$, then the MLE of a function $g(\beta)$ is
+$g(\hat{\beta})$. An associated variance estimate is given by
+<!-- -->
+$$
+\widehat{\text{Var}}(g(\hat{\beta})) =
+[J(\hat{\beta})]
+\widehat{\text{Var}}(\hat{\beta})
+[J(\hat{\beta})]^\top
+$$
+<!-- -->
+where $J(\beta) = \partial g(\beta) / \partial \beta$ is the Jacobian of
+the transformation. Here is an R function to compute the transformed variance.
+Note that we use the `numDeriv` package.
+
+```{r}
+vcov_tx = function(object, tx) {
+	J = numDeriv::jacobian(func = tx, x = coef(object))
+	V = vcov(object)
+	J %*% tcrossprod(V, J)
+}
+```
+
+As an example, let us estimate each $\lambda_i = \exp(x_i^\top \beta)$ and its
+variance, and construct an associated confidence interval with level 90%
+nominal coverage level.
+
+```{r}
+alpha = 0.10
+tx = function(beta) { exp(X %*% beta) }
+tx_hat = tx(coef(mle_out))
+sd_tx_hat = sqrt(diag(vcov_tx(mle_out, tx)))
+tx_lo = tx_hat - qnorm(1 - alpha/2) * sd_tx_hat
+tx_hi = tx_hat + qnorm(1 - alpha/2) * sd_tx_hat
+```
+
+Here are the results in a data frame.
+
+```{r}
+#| message: false
+library(tidyverse)
+library(kableExtra)
+data.frame(EST = tx_hat, SD = sd_tx_hat, LO = tx_lo, HI = tx_hi) %>%
+	mutate(TRUTH = lambda_true) %>%
+	head() %>%
+	kbl(booktabs = T)
+```
+
+# References
