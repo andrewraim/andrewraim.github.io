@@ -9,8 +9,595 @@
 <link>https://andrewraim.github.io/posts.html</link>
 <atom:link href="https://andrewraim.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.5.54</generator>
-<lastBuildDate>Tue, 16 Jul 2024 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.6.39</generator>
+<lastBuildDate>Wed, 11 Dec 2024 05:00:00 GMT</lastBuildDate>
+<item>
+  <title>Numerical Maximum Likelihood with the stats4 Package</title>
+  <link>https://andrewraim.github.io/posts/2024-12-11-stats4.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>The <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats4/html/00Index.html">stats4</a> package included in R provides a layer of usability on top of <code>optim</code> for numerial maximum likelihood (ML). For example, the user can request an estimate of the covariance matrix associated with the ML estimates rather than computing it manually. According to <span class="citation" data-cites="HenningsenToomet2011">Henningsen and Toomet (2011)</span>, <code>stats4</code> has been bundled into R since 2003, but I only found out about it recently. In this post, we will present some brief examples using <code>stats4</code>. Note that the <a href="https://cran.r-project.org/package=maxLik">maxLik</a> package presented by <span class="citation" data-cites="HenningsenToomet2011">Henningsen and Toomet (2011)</span> covers similar ground with additional functionality; therefore it may also be of interest.</p>
+</section>
+<section id="poisson-regression-example" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Poisson Regression Example</h1>
+<p>Consider a Poisson regression setting with <img src="https://latex.codecogs.com/png.latex?Y_i%20%5Csim%20%5Ctext%7BPoisson%7D(%5Clambda_i)">, independently distributed for <img src="https://latex.codecogs.com/png.latex?i%20=%201,%20%5Cldots,%20n"> where <img src="https://latex.codecogs.com/png.latex?%5Clambda_i%20=%20%5Cexp(x_i%5E%5Ctop%20%5Cbeta)"> for covariate <img src="https://latex.codecogs.com/png.latex?x_i%20%5Cin%20%5Cmathbb%7BR%7D%5Ed"> and unknown coefficient <img src="https://latex.codecogs.com/png.latex?%5Cbeta%20%5Cin%20%5Cmathbb%7BR%7D%5Ed">.</p>
+<p>Let us simulate a dataset from this setting.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set.seed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1235</span>)</span>
+<span id="cb1-2">n <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span></span>
+<span id="cb1-3">x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rnorm</span>(n)</span>
+<span id="cb1-4">X <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cbind</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, x)</span>
+<span id="cb1-5">d <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ncol</span>(X)</span>
+<span id="cb1-6">beta_true <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.25</span>)</span>
+<span id="cb1-7">lambda_true <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">exp</span>(X <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%*%</span> beta_true)</span>
+<span id="cb1-8">y <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rpois</span>(n, lambda_true)</span></code></pre></div>
+</div>
+<p>Of course we can use the <code>glm</code> function to obtain the MLE <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Cbeta%7D"> in this setting. Let us do that as a point of comparison.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">glm_out <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">glm</span>(y <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> x, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">family =</span> poisson)</span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(glm_out)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = y ~ x, family = poisson)
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  0.98109    0.04392  22.338  &lt; 2e-16 ***
+x           -0.25893    0.03908  -6.626 3.44e-11 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 272.04  on 199  degrees of freedom
+Residual deviance: 228.85  on 198  degrees of freedom
+AIC: 749.28
+
+Number of Fisher Scoring iterations: 5</code></pre>
+</div>
+</div>
+</section>
+<section id="using-the-mle-function-in-stats4" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Using the <code>mle</code> Function in <code>stats4</code></h1>
+<p>Recall that the loglikelihood for this model is <!-- --> <img src="https://latex.codecogs.com/png.latex?%0A%5Clog%20%5Cmathcal%7BL%7D(%5Cbeta)%20=%20%5Csum_%7Bi=1%7D%5En%20%5CBig%5C%7B%20y_i%20%5Clog%20%5Clambda_i%20-%20%5Clambda_i%20-%20%5Clog%20%5CGamma(y_i%20+%201)%20%5CBig%5C%7D.%0A"> <!-- --> If this were a nonstandard likelihood, we would need to be able to code and optimize it ourselves. The <code>stats4</code> package allows us to do this. Here are the arguments of the <code>stats4::mle</code> function which may be used to fit the MLE.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">str</span>(mle, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">give.attr =</span> F)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>function (minuslogl, start, optim = stats::optim, method = if (!useLim) "BFGS" else "L-BFGS-B", 
+    fixed = list(), nobs, lower, upper, ...)  </code></pre>
+</div>
+</div>
+<p>Note that the first argument expects the negative loglikelihood; the optimization is then carried out as a minimization. Let us code it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">nloglik <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">beta =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">numeric</span>(d)) {</span>
+<span id="cb6-2">    <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dpois</span>(y, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lambda =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">exp</span>(X <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%*%</span> beta), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">log =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>))</span>
+<span id="cb6-3">}</span>
+<span id="cb6-4"></span>
+<span id="cb6-5">mle_out <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mle</span>(nloglik, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"L-BFGS-B"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">nobs =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(y))</span></code></pre></div>
+</div>
+<p>A variety of included accessors can be used to work with the result.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(mle_out)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Maximum likelihood estimation
+
+Call:
+mle(minuslogl = nloglik, method = "L-BFGS-B", nobs = length(y))
+
+Coefficients:
+        Estimate Std. Error
+beta1  0.9810935 0.04392105
+beta2 -0.2589335 0.03907591
+
+-2 log L: 745.2773 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coef</span>(mle_out)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     beta1      beta2 
+ 0.9810935 -0.2589335 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">logLik</span>(mle_out)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'log Lik.' -372.6387 (df=2)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">AIC</span>(mle_out)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 749.2773</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">BIC</span>(mle_out)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 755.874</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">confint</span>(mle_out, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">level =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.90</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Profiling...</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             5 %      95 %
+beta1  0.9079239  1.052437
+beta2 -0.3230551 -0.194514</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vcov</span>(mle_out)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             beta1        beta2
+beta1 0.0019290582 0.0004114616
+beta2 0.0004114616 0.0015269270</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">profile</span>(mle_out)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>An object of class "profile.mle"
+Slot "profile":
+$beta1
+            z par.vals.beta1 par.vals.beta2
+1  -3.0192356      0.8453337     -0.2894697
+2  -2.5258203      0.8679603     -0.2841583
+3  -2.0285449      0.8905870     -0.2789366
+4  -1.5273678      0.9132136     -0.2738039
+5  -1.0222468      0.9358402     -0.2687598
+6  -0.5131396      0.9584668     -0.2638030
+7   0.0000000      0.9810935     -0.2589335
+8   0.5172066      1.0037201     -0.2541504
+9   1.0385329      1.0263467     -0.2494528
+10  1.5640206      1.0489733     -0.2448400
+11  2.0937147      1.0716000     -0.2403112
+12  2.6276606      1.0942266     -0.2358654
+
+$beta2
+            z par.vals.beta1 par.vals.beta2
+1  -2.5855783      0.9478931     -0.3595864
+2  -2.0668516      0.9555116     -0.3394558
+3  -1.5489482      0.9626386     -0.3193253
+4  -1.0318503      0.9692764     -0.2991947
+5  -0.5155395      0.9754273     -0.2790641
+6   0.0000000      0.9810935     -0.2589335
+7   0.5147983      0.9862771     -0.2388029
+8   1.0288654      0.9909803     -0.2186724
+9   1.5422257      0.9952050     -0.1985418
+10  2.0549007      0.9989531     -0.1784112
+11  2.5669123      1.0022264     -0.1582806
+12  3.0782832      1.0050266     -0.1381501
+
+
+Slot "summary":
+Maximum likelihood estimation
+
+Call:
+mle(minuslogl = nloglik, method = "L-BFGS-B", nobs = length(y))
+
+Coefficients:
+        Estimate Std. Error
+beta1  0.9810935 0.04392105
+beta2 -0.2589335 0.03907591
+
+-2 log L: 745.2773 </code></pre>
+</div>
+</div>
+</section>
+<section id="fixed-parameters" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Fixed Parameters</h1>
+<p>An argument of <code>mle</code> that can be useful is <code>fixed</code>, where we can specify some parameters to be held fixed during the optimization. In our example with <img src="https://latex.codecogs.com/png.latex?%5Cbeta%20=%20(%5Cbeta_1,%20%5Cbeta_2)"> let us consider another fit with the slope coefficient fixed at <img src="https://latex.codecogs.com/png.latex?%5Cbeta_2%20=%200"> .</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1">mle0_out <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mle</span>(nloglik, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"L-BFGS-B"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">nobs =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(y),</span>
+<span id="cb24-2">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">fixed =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">beta =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)))</span>
+<span id="cb24-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(mle0_out)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+mle(minuslogl = nloglik, method = "L-BFGS-B", fixed = list(beta = c(NA, 
+    0)), nobs = length(y))
+
+Coefficients:
+   beta1    beta2 
+1.011601 0.000000 </code></pre>
+</div>
+</div>
+<p>Note that <code>NA</code> was associated with <img src="https://latex.codecogs.com/png.latex?%5Cbeta_1"> to indicate that it should not remain fixed. We can compute a likelihood ratio test of the hypothesis <img src="https://latex.codecogs.com/png.latex?H_0:%20%5Cbeta_2%20=%200"> versus <img src="https://latex.codecogs.com/png.latex?H_1:%20%5Cbeta_2%20%5Cneq%200"> using the two fits <code>mle_out</code> and <code>mle0_out</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1">lrt <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> (<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">logLik</span>(mle_out) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">logLik</span>(mle0_out))</span>
+<span id="cb26-2">pval <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pchisq</span>(lrt, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">df =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lower.tail =</span> F)</span>
+<span id="cb26-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cat</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LRT was computed with test statistic"</span>, lrt, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"and p-value"</span>, pval, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">".</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">\n</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>LRT was computed with test statistic 43.19441 and p-value 4.956214e-11 .</code></pre>
+</div>
+</div>
+</section>
+<section id="transforming-parameters" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Transforming Parameters</h1>
+<p>A convenient property of ML estimates (MLEs) is the invariance property: suppose the MLE of <img src="https://latex.codecogs.com/png.latex?%5Cbeta"> is <img src="https://latex.codecogs.com/png.latex?%5Chat%7B%5Cbeta%7D">, then the MLE of a function <img src="https://latex.codecogs.com/png.latex?g(%5Cbeta)"> is <img src="https://latex.codecogs.com/png.latex?g(%5Chat%7B%5Cbeta%7D)">. An associated variance estimate is given by <!-- --> <img src="https://latex.codecogs.com/png.latex?%0A%5Cwidehat%7B%5Ctext%7BVar%7D%7D(g(%5Chat%7B%5Cbeta%7D))%20=%0A%5BJ(%5Chat%7B%5Cbeta%7D)%5D%0A%5Cwidehat%7B%5Ctext%7BVar%7D%7D(%5Chat%7B%5Cbeta%7D)%0A%5BJ(%5Chat%7B%5Cbeta%7D)%5D%5E%5Ctop%0A"> <!-- --> where <img src="https://latex.codecogs.com/png.latex?J(%5Cbeta)%20=%20%5Cpartial%20g(%5Cbeta)%20/%20%5Cpartial%20%5Cbeta"> is the Jacobian of the transformation. Here is an R function to compute the transformed variance. Note that we use the <code>numDeriv</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">vcov_tx <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(object, tx) {</span>
+<span id="cb28-2">    J <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> numDeriv<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">jacobian</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">func =</span> tx, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coef</span>(object))</span>
+<span id="cb28-3">    V <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vcov</span>(object)</span>
+<span id="cb28-4">    J <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%*%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tcrossprod</span>(V, J)</span>
+<span id="cb28-5">}</span></code></pre></div>
+</div>
+<p>As an example, let us estimate each <img src="https://latex.codecogs.com/png.latex?%5Clambda_i%20=%20%5Cexp(x_i%5E%5Ctop%20%5Cbeta)"> and its variance, and construct an associated confidence interval with level 90% nominal coverage level.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1">alpha <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.10</span></span>
+<span id="cb29-2">tx <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">function</span>(beta) { <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">exp</span>(X <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%*%</span> beta) }</span>
+<span id="cb29-3">tx_hat <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tx</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coef</span>(mle_out))</span>
+<span id="cb29-4">sd_tx_hat <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">diag</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vcov_tx</span>(mle_out, tx)))</span>
+<span id="cb29-5">tx_lo <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> tx_hat <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">qnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> alpha<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> sd_tx_hat</span>
+<span id="cb29-6">tx_hi <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> tx_hat <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">qnorm</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> alpha<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> sd_tx_hat</span></code></pre></div>
+</div>
+<p>Here are the results in a data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb30-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(kableExtra)</span>
+<span id="cb30-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">EST =</span> tx_hat, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">SD =</span> sd_tx_hat, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">LO =</span> tx_lo, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">HI =</span> tx_hi) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb30-4">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">TRUTH =</span> lambda_true) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb30-5">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb30-6">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kbl</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">booktabs =</span> T)</span></code></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">EST</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">SD</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">LO</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">HI</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">TRUTH</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">3.195763</td>
+<td style="text-align: right;">0.1463983</td>
+<td style="text-align: right;">2.954960</td>
+<td style="text-align: right;">3.436567</td>
+<td style="text-align: right;">3.236515</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3.720229</td>
+<td style="text-align: right;">0.2166837</td>
+<td style="text-align: right;">3.363816</td>
+<td style="text-align: right;">4.076642</td>
+<td style="text-align: right;">3.747967</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2.064235</td>
+<td style="text-align: right;">0.1344154</td>
+<td style="text-align: right;">1.843142</td>
+<td style="text-align: right;">2.285329</td>
+<td style="text-align: right;">2.122321</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2.591277</td>
+<td style="text-align: right;">0.1170420</td>
+<td style="text-align: right;">2.398760</td>
+<td style="text-align: right;">2.783794</td>
+<td style="text-align: right;">2.643374</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2.589646</td>
+<td style="text-align: right;">0.1170497</td>
+<td style="text-align: right;">2.397117</td>
+<td style="text-align: right;">2.782176</td>
+<td style="text-align: right;">2.641767</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1.718365</td>
+<td style="text-align: right;">0.1510794</td>
+<td style="text-align: right;">1.469862</td>
+<td style="text-align: right;">1.966869</td>
+<td style="text-align: right;">1.777932</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="references" class="level1" data-number="6">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">6 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="ref-HenningsenToomet2011" class="csl-entry">
+Henningsen, Arne, and Ott Toomet. 2011. <span>“maxLik: A Package for Maximum Likelihood Estimation in <span>R</span>.”</span> <em>Computational Statistics</em> 26 (3): 443–58. <a href="https://doi.org/10.1007/s00180-010-0217-1">https://doi.org/10.1007/s00180-010-0217-1</a>.
+</div>
+</div></section></div> ]]></description>
+  <category>programming</category>
+  <guid>https://andrewraim.github.io/posts/2024-12-11-stats4.html</guid>
+  <pubDate>Wed, 11 Dec 2024 05:00:00 GMT</pubDate>
+</item>
 <item>
   <title>fntl: Numerical Tools for Rcpp and Lambda Functions</title>
   <link>https://andrewraim.github.io/posts/2024-07-16-fntl.html</link>
