@@ -4,47 +4,74 @@ date: 2023-02-12
 categories: programming
 ---
 
-In a large statistical simulation or other computational study, it can be
-labor intensive to kick off all of the runs whose results will be harvested and
-summarized. [Worker](https://github.com/andrewraim/worker) is a lightweight
-tool that seeks to help automate this process. This post gives a brief
-description; see the webpage for details.
+Large statistical simulations and other computational studies often consist of
+a collection of independent tasks to be processed. For example, to study
+properties of an estimator, we may wish to vary the parameters of an assumed
+data-generating mechanism along with the sample size. The estimator requires
+substantial amount of computation because it makes use of a Markov chain Monte
+Carlo (MCMC) procedure. We generate 500 datasets in each setting, evaluate the
+estimator, and save the results to be summarized and later. From a parallel
+computing perspective, such tasks are described as [embarrassingly
+parallel][wiki-ep] because they do not need to interact while they run.
 
-Suppose our study consists of a parameter that is varied in some way, and we
-have determined that there are 999 levels of interest. Suppose that we have set
-up 999 corresponding directories, named as follows.
+There are usually many more tasks than available processors. Suppose we are
+limited to the use of $k$ processors; we would like to keep these $k$
+processors busy with our workload without using additional processors. Ideally,
+we would like to do this without the need for manual intervention.
+[Worker][worker] is a lightweight tool to help automate this process.
 
-```{r, eval = FALSE}
+Suppose our study consists of a one parameter with 1000 levels. Suppose that we
+have set up 1000 corresponding directories, named as follows.
+
+```
 $ ls -1
+run000
 run001
-run002
 ...
 run999
 ```
 
 In each folder, suppose there is a script `launch.R` that runs the
 corresponding level of the simulation. An output file `output.csv` is placed in
-the directory upon successful completion of `launch.R`. Running the `launch.R`
-scripts manually would be extremely tedious, but we could write a loop in our
-preferred shell scripting language to automate this.
+the directory upon successful completion of `launch.R`. 
 
-The worker takes this concept slightly further; it loops through jobs and runs
-them sequentially, but multiple workers can be run simultaneously on the same
-study to achieve "embarrassingly parallel" parallel computing. Workers make use
-of use lock files to avoid stepping on each other's toes. This paradigm can
-be useful in shared computing environments, where users may be asked to limit
-the number of CPUs requested at any given time. We can start, say, ten workers
-rather than having to continually monitor a scheduler's queue and submit more
-jobs.
+```
+$ ls run000
+launch.R    output.csv
+```
 
-Here is an example of the syntax currently used to invoke each worker in this
-example.
+We would like to run $k$ of the `launch.R` scripts at a time until the
+collection of 1000 tasks is complete. The worker script attempts to automate
+this in a way that is agnostic of the underlying simulation. It loops through
+tasks and runs them sequentially, but multiple workers can be run
+simultaneously on the same study to achieve "embarrassingly parallel" parallel
+computing. Workers make use of lock files to avoid stepping on each other's
+toes: each task is taken up by only one worker. This paradigm can be useful
+in shared computing environments where users may be asked to limit the number
+of processors requested at any given time. We can start, say, ten workers to
+ensure ten simultaneous tasks rather than having to continually monitor a
+scheduler's queue and submit more tasks.
 
-```{r, eval = FALSE}
+Here is an example of the syntax used to invoke each worker in this example.
+
+```
 $ worker.sh -p 'run???' -c 'Rscript launch.R'
 ```
 
+The worker looks for folders whose names match pattern `run???`. When such a
+folder is found, it enters the folder and first checks to see if the task has
+previously been claimed by a worker (including itself in a previous iteration).
+If not, it claims the task and launches it via the specified command
+`Rscript launch.R`. The task is run in the worker's foreground until
+completion. The worker terminates when it is no longer actively engaged and
+there are no unclaimed jobs remaining.
+
 After all of the runs are completed, we will likely want to load each of the
-`output.csv` files and construct tables and plots to summarize the results. This
-[post](2023-02-11-latex-tables-from-R.qmd) may be helpful if you are looking to
-construct Latex tables from a computational study.
+`output.csv` files and construct tables and plots to summarize the results.
+This [post][tables] may be helpful if you are looking to construct Latex tables
+from a computational study.
+
+[wiki-ep]: https://en.wikipedia.org/wiki/Embarrassingly_parallel
+[worker]: https://github.com/andrewraim/worker
+[tables]: 2023-02-11-latex-tables-from-R.qmd
+
