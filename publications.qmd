@@ -122,6 +122,12 @@ Bibtex entries for the following are [here](bib/articles.qmd).
 # Selected Reports, Proceedings, and Others
 Bibtex entries for the following are [here](bib/reports.qmd).
 
+1. Mikelyn Meyers, Renee Ellis, Andrew Raim, Patricia Goerman, Kathleen
+   Kephart, Kim Aspinwall, Patricia LeBaron, and Emilia Peytcheva (2025). 2020
+   census experiment: Spanish-speaking enumerator training. Report Series:
+   Census Evaluations and Experiments.
+   [[url](cpex2025)].
+
 1. Andrew M. Raim (2024). fntl: Numerical Tools for Rcpp and Lambda
    Functions. Research Report Series: Computing \#2024-01. Center for
    Statistical Research and Methodology, U.S. Census Bureau.
@@ -261,3 +267,7 @@ Bibtex entries for the following are [here](bib/reports.qmd).
    HPCF-2010-2. UMBC High Performance Computing Facility, University of
    Maryland, Baltimore County.
    [[preprint](https://andrewraim.github.io/downloads/doc/RaimGobbert2010Poisson.pdf)].
+
+<!-- URLs -->
+[cpex2025]: https://www.census.gov/programs-surveys/decennial-census/decade/2020/planning-management/evaluate/eae/2020-experiment-spanish-speaking-enumerator-training.html
+
