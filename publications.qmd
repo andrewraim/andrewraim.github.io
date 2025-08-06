@@ -9,10 +9,6 @@ My ORCID is [0000-0002-4440-2330][orcid-url].
 # Manuscripts
 Bibtex entries for the following are [here](bib/manuscripts.qmd).
 
-1. Andrew M. Raim, James A. Livsey, and Kyle M. Irimata (2024+). Rejection
-   sampling with vertical weighted strips.
-   [[preprint](https://arxiv.org/abs/2401.09696)].
-
 1. Andrew M. Raim, James A. Livsey, and Kyle M. Irimata (2024+). Vertical
    Weighted Strips in R. (In preparation).
 
@@ -20,6 +16,14 @@ Bibtex entries for the following are [here](bib/manuscripts.qmd).
    (2024+). Latent propensity score approach for average causal effect
    estimation in observational studies with covariate measurement error. (In
    preparation).
+
+1. Andrew M. Raim, Kyle M. Irimata, and James A. Livsey (2025+). Self-tuned
+   rejection sampling within Gibbs and a case study in small area estimation.
+   (In preparation).
+
+1. Andrew M. Raim, James A. Livsey, and Kyle M. Irimata (2024+). Rejection
+   sampling with vertical weighted strips.
+   [[preprint](https://arxiv.org/abs/2401.09696)].
 
 # Selected Journal Articles
 Bibtex entries for the following are [here](bib/articles.qmd).
