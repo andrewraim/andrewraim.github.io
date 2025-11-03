@@ -9,16 +9,16 @@ My ORCID is [0000-0002-4440-2330][orcid-url].
 # Manuscripts
 Bibtex entries for the following are [here](bib/manuscripts.qmd).
 
-1. Andrew M. Raim, James A. Livsey, and Kyle M. Irimata (2024+). Self-Tuned
-   Rejection Sampling within Gibbs and a Case Study in Small Area Estimation.
-   [[preprint](https://arxiv.org/abs/2509.17155)].
-
-1. Andrew M. Raim, Kyle M. Irimata, and James A. Livsey (2025+). Rejection
+1. Andrew M. Raim, James A. Livsey, and Kyle M. Irimata (2025+). Rejection
    sampling with vertical weighted strips.
    [[preprint](https://arxiv.org/abs/2401.09696)].
 
-1. Andrew M. Raim, James A. Livsey, and Kyle M. Irimata (2024+). Vertical
-   Weighted Strips in R. (In preparation).
+1. Andrew M. Raim, Kyle M. Irimata, and James A. Livsey (2025+). Self-Tuned
+   Rejection Sampling within Gibbs and a Case Study in Small Area Estimation.
+   [[preprint](https://arxiv.org/abs/2509.17155)].
+
+1. Andrew M. Raim (2025+). Vertical Weighted Strips in R using C++.
+   [[preprint](https://cran.r-project.org/web/packages/vws/vignettes/vws.pdf)].
 
 1. Yi Huang, Karen Bandeen-Roche, Xiaoyu Dong, Andrew M. Raim, and Cunlin Wang
    (2024+). Latent propensity score approach for average causal effect
