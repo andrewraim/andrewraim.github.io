@@ -23,10 +23,10 @@ long been able](https://yihui.org/knitr/demo/sweave/) to do this.
 
 Examples of Sweave with knitr can be found online, but I thought it would be
 worthwhile to post several more. See the repo 
-<https://github.com/andrewraim/sweave-examples>
+<https://github.com/andrewraim/sweave-templates>
 for an example in article format
-[(pdf)](https://github.com/andrewraim/sweave-examples/raw/master/article/article-knitr.pdf)
+[(pdf)](https://github.com/andrewraim/sweave-templates/raw/master/article/article-knitr.pdf)
 and one in Beamer slide format
-[(pdf)](https://github.com/andrewraim/sweave-examples/raw/master/slides/slides-knitr.pdf).
+[(pdf)](https://github.com/andrewraim/sweave-templates/raw/master/slides/slides-knitr.pdf).
 
 

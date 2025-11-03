@@ -36,7 +36,11 @@
 - [sfreader](https://github.com/andrewraim/sfreader): An R Package to Read
   Census Summary Files. Currently focused on the 2010 SF2 summary file.
  
-- [stcos](https://cran.r-project.org/package=stcos): Space-time change of support.
+- [stcos](https://cran.r-project.org/package=stcos): Space-time change of
+  support.
+
+- [vws](https://cran.r-project.org/package=vws): Vertical Weighted Strips in R
+  using C++.
 
 [roptlib-url]: https://www.math.fsu.edu/~whuang2/Indices/index_ROPTLIB.html
 

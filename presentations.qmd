@@ -37,3 +37,4 @@ several places, only one version of the files are given here.
 1. Maximum likelihood estimation of multinomial mixture models using high
    performance computing.
    [[slides](downloads/presentations/ssc2011.pdf)]
+
