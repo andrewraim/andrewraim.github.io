@@ -34,5 +34,5 @@ format:
     toc: false
     linestretch: 1.2
     fontsize: 12pt
-    mainfont: arial
+    mainfont: sans-serif
 

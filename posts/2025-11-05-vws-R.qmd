@@ -1,0 +1,36 @@
+---
+title: "`vws`: Vertical Weighted Strips in R using C++"
+date: 2025-11-05
+categories:
+  - article
+  - programming
+bibliography: ../bib/web.bib
+---
+
+@VWS2024 consider a method of proposal construction for rejection sampling
+referred to as vertical weighted strips (VWS). Here, the target density is
+regarded as a weighted density; i.e., the product of a weight function and a
+simpler ("base") density function. The practitioner majorizes the weight
+function by providing another function that bounds it from above.  The
+majorizing function is combined with the base density to form a proposal
+distribution. In many cases, it is useful (and also more convenient) to
+partition the support of the target and use a piecewise majorizer. In this
+case, the proposal distribution can be regarded as a finite mixture whose
+components are correspond to the regions in the partition.
+
+The `vws` package has been developed to support development of such proposals
+and their use in rejection sampling. Coding is primarily done in C++ using the
+provided API. Sampling functions may be then exposed in R via [Rcpp][rcpp] for
+use in applications. A detailed guide to `vws` programming - including several
+worked examples - is provided in the package vignette.
+
+`vws` package
+
+- Deployed on [CRAN][cran]
+- Source on [Github][github]
+
+
+[github]: https://github.com/andrewraim/vws
+[cran]: https://cran.r-project.org/package=vws
+[rcpp]: https://cran.r-project.org/package=Rcpp
+

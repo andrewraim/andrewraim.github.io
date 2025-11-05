@@ -1,0 +1,34 @@
+---
+title: "Self-Tuned VWS within Gibbs and Small Area Estimation"
+date: 2025-09-23
+categories:
+  - article
+bibliography: ../bib/web.bib
+---
+
+@SAEVWS2025 consider an application of the vertical weighted strips (VWS)
+method [@VWS2024] to small area estimation (SAE). SAE is used in official
+statistics to augment estimates from sample surveys (“direct estimates”) with a
+model. "Small areas" are cross-sections of a population - based on geography or
+other characteristics - where the sample size from the survey is small.
+
+In particular, @You2021 presents an SAE model with regressions on both direct
+point estimates and corresponding variance estimates. A Gibbs sampler is
+proposed for Bayesian analysis, with one family of conditionals being an
+unfamiliar distribution that arises from assuming a lognormal regression in the
+variance model. VWS may be used to generate from this family for each small
+area. We find that some of the latent variances mix poorly using the
+independent Metropolis-Hastings step considered in @You2021, which is a routine
+choice for use within Gibbs samplers. In these cases, mixing is seen to be
+greatly improved by taking exact draws from the conditionals with rejection
+sampling. 
+
+It is computationally burdensome to construct new VWS proposals for each small
+area over the course of many Gibbs sampling iterations. To address this, we
+consider a rule-of-thumb to adjust the proposals as the chain evolves. In
+particular, knots are added using rejected draws when the probability of
+rejection is too large. Knots are removed when the probability of rejection is
+sufficiently small and their corresponding regions are found to have a low
+contribution. The number of adjustments is seen to diminish as the chain moves
+to the target posterior distribution.
+
