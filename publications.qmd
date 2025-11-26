@@ -17,9 +17,6 @@ Bibtex entries for the following are [here](bib/manuscripts.qmd).
    Rejection Sampling within Gibbs and a Case Study in Small Area Estimation.
    [[preprint](https://arxiv.org/abs/2509.17155)].
 
-1. Andrew M. Raim (2025+). Vertical Weighted Strips in R using C++.
-   [[preprint](https://cran.r-project.org/web/packages/vws/vignettes/vws.pdf)].
-
 1. Yi Huang, Karen Bandeen-Roche, Xiaoyu Dong, Andrew M. Raim, and Cunlin Wang
    (2024+). Latent propensity score approach for average causal effect
    estimation in observational studies with covariate measurement error. (In
@@ -125,6 +122,11 @@ Bibtex entries for the following are [here](bib/articles.qmd).
 
 # Selected Reports, Proceedings, and Others
 Bibtex entries for the following are [here](bib/reports.qmd).
+
+1. Andrew M. Raim (2025). vws: Vertical Weighted Strips in R using C++.
+   Research Report Series: Computing \#2025-01. Center for Statistical Research
+   and Methodology, U.S. Census Bureau.
+   [[url](https://www.census.gov/library/working-papers/2025/adrm/RRC2025-01.html)].
 
 1. Mikelyn Meyers, Renee Ellis, Andrew Raim, Patricia Goerman, Kathleen
    Kephart, Kim Aspinwall, Patricia LeBaron, and Emilia Peytcheva (2025). 2020
