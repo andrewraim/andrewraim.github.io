@@ -1,5 +1,5 @@
 ---
-title: "fntl: Numerical Tools for Rcpp and Lambda Functions"
+title: "`fntl`: Numerical Tools for Rcpp and Lambda Functions"
 date: 2024-07-16
 categories:
   - article
