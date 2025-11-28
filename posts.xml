@@ -2422,31 +2422,6 @@ R is the preferred computing environment for many statisticians, and is used bot
 
 
 <p>I am now using <a href="https://pages.github.com">GitHub Pages</a> to host my website, along with the static site generator <a href="https://jekyllrb.com">Jekyll</a>. My <a href="http://www.umbc.edu/~araim1">previous website</a> was hosted at UMBC.</p>
-<p>Here is a quick test of Latex. An inline equation is <img src="https://latex.codecogs.com/png.latex?f(x)%20=%20x%5E2%20e%5E%7B-x%7D"> inline. And an equation on its own line is <img src="https://latex.codecogs.com/png.latex?%0A%5CPhi(x)%20=%0A%5Cint_%7B-%5Cinfty%7D%5E%7Bx%7D%20%5Cfrac%7B1%7D%7B%5Csigma%20%5Csqrt%7B2%5Cpi%7D%7D%0A%5Cexp%20%5Cleft(%20-%5Cfrac%7B1%7D%7B2%5Csigma%5E2%7D%20(t%20-%20%5Cmu)%5E2%20%5Cright)%20dt.%0A"></p>
-<p>Here is an example of code.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">x <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rnorm</span>(<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">100</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)</span>
-<span id="cb1-2"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">hist</span>(x)</span></code></pre></div></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://andrewraim.github.io/posts/2017-03-15-website_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 
 
 
