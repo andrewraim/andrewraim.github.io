@@ -16,6 +16,12 @@ about:
     - icon: bucket
       href: https://bitbucket.com/andrewraim
       text: Bitbucket
+    - icon: person-square
+      href: https://orcid.org/0000-0002-4440-2330
+      text: ORCID
+    - icon: linkedin
+      href: www.linkedin.com/in/andrew-raim-4685203
+      text: LinkedIn
 ---
 
 :::{#about-heading}
