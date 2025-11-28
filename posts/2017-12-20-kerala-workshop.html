@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2018-01-05">
+
+<title>R Workshop in Kerala – Andrew M. Raim</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-81712262643d3b2b5d3fe1be0937afd4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Andrew M. Raim</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../posts.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../presentations.html"> 
+<span class="menu-text">Presentations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../software.html"> 
+<span class="menu-text">Software</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resources.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#about-the-workshop" id="toc-about-the-workshop" class="nav-link active" data-scroll-target="#about-the-workshop"><span class="header-section-number">1</span> About the Workshop</a></li>
+  <li><a href="#installing-docker" id="toc-installing-docker" class="nav-link" data-scroll-target="#installing-docker"><span class="header-section-number">2</span> Installing Docker</a>
+  <ul class="collapse">
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows"><span class="header-section-number">2.1</span> Windows</a></li>
+  <li><a href="#linux" id="toc-linux" class="nav-link" data-scroll-target="#linux"><span class="header-section-number">2.2</span> Linux</a></li>
+  <li><a href="#mac" id="toc-mac" class="nav-link" data-scroll-target="#mac"><span class="header-section-number">2.3</span> Mac</a></li>
+  <li><a href="#a-quick-test-of-your-docker-setup" id="toc-a-quick-test-of-your-docker-setup" class="nav-link" data-scroll-target="#a-quick-test-of-your-docker-setup"><span class="header-section-number">2.4</span> A Quick Test of your Docker Setup</a></li>
+  </ul></li>
+  <li><a href="#downloading-workshop-config-files" id="toc-downloading-workshop-config-files" class="nav-link" data-scroll-target="#downloading-workshop-config-files"><span class="header-section-number">3</span> Downloading Workshop Config Files</a></li>
+  <li><a href="#preparing-and-running-the-workshop-container" id="toc-preparing-and-running-the-workshop-container" class="nav-link" data-scroll-target="#preparing-and-running-the-workshop-container"><span class="header-section-number">4</span> Preparing and Running the Workshop Container</a></li>
+  <li><a href="#using-r-in-the-container" id="toc-using-r-in-the-container" class="nav-link" data-scroll-target="#using-r-in-the-container"><span class="header-section-number">5</span> Using R in the Container</a>
+  <ul class="collapse">
+  <li><a href="#r-on-the-command-line" id="toc-r-on-the-command-line" class="nav-link" data-scroll-target="#r-on-the-command-line"><span class="header-section-number">5.1</span> R on the Command Line</a></li>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link" data-scroll-target="#rstudio"><span class="header-section-number">5.2</span> Rstudio</a></li>
+  <li><a href="#r-commander" id="toc-r-commander" class="nav-link" data-scroll-target="#r-commander"><span class="header-section-number">5.3</span> R Commander</a></li>
+  <li><a href="#running-mpi-jobs" id="toc-running-mpi-jobs" class="nav-link" data-scroll-target="#running-mpi-jobs"><span class="header-section-number">5.4</span> Running MPI Jobs</a></li>
+  </ul></li>
+  <li><a href="#more-on-docker" id="toc-more-on-docker" class="nav-link" data-scroll-target="#more-on-docker"><span class="header-section-number">6</span> More on Docker</a></li>
+  <li><a href="#if-you-cannot-install-docker" id="toc-if-you-cannot-install-docker" class="nav-link" data-scroll-target="#if-you-cannot-install-docker"><span class="header-section-number">7</span> If You Cannot Install Docker</a>
+  <ul class="collapse">
+  <li><a href="#install-r" id="toc-install-r" class="nav-link" data-scroll-target="#install-r"><span class="header-section-number">7.1</span> Install R</a></li>
+  <li><a href="#install-rstudio" id="toc-install-rstudio" class="nav-link" data-scroll-target="#install-rstudio"><span class="header-section-number">7.2</span> Install Rstudio</a></li>
+  <li><a href="#install-the-rcpp-package" id="toc-install-the-rcpp-package" class="nav-link" data-scroll-target="#install-the-rcpp-package"><span class="header-section-number">7.3</span> Install the Rcpp package</a></li>
+  <li><a href="#install-mpi" id="toc-install-mpi" class="nav-link" data-scroll-target="#install-mpi"><span class="header-section-number">7.4</span> Install MPI</a></li>
+  <li><a href="#install-r-packages" id="toc-install-r-packages" class="nav-link" data-scroll-target="#install-r-packages"><span class="header-section-number">7.5</span> Install R Packages</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">R Workshop in Kerala</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">workshop</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 5, 2018</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="about-the-workshop" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> About the Workshop</h1>
+<p><a href="http://www.csm.ornl.gov/~ost/">George Ostrouchov</a>, <a href="http://www.math.umbc.edu/people/neerchal.htm">Nagaraj Neerchal</a> and I are giving a two-day workshop <strong>High Performance Statistical Computing using R</strong> at the <em>International Conference on Recent Advances in Statistical Methodology with Applications in Clinical and Official Statistics</em> <a href="https://icsa2018.wordpress.com/">(ICSA 2018)</a>, Department of Statistics, St.&nbsp;Thomas College, Pala, Kerala, India. An abstract and brief outline for the workshop are given <a href="https://icsa2018.wordpress.com/workshop/">here</a>.</p>
+<p>The workshop builds up to parallel and distributed computing in R, but begins by introducing basics of working in R. Previous experience with R and Rstudio will be helpful, but much of the material should be accessible to new R users with experience in another technical computing language such as Matlab, Python, or Julia. Applications involving statistical and machine learning methods will be presented throughout the workshop. A bachelors degree in a discipline such as statistics, computer science, or mathematics - OR equivalent work experience - should be sufficient to understand the methodology.</p>
+<p>Attendees are encouraged to bring their laptops. Many example codes will be provided, and there will be opportunities at some points during the workshop for users to follow along. If you will be bringing your laptop, the remainder of this page discusses how to prepare it for the workshop.</p>
+<ul>
+<li><p>It is possible to manually install R, Rstudio, and all packages that will be used in the workshop. But this is quite impractical, especially for the material on parallel and distributed programming which varies somewhat based on the computing platform (Windows, Mac, Linux). Therefore, we highly suggest a second option…</p></li>
+<li><p>Instead, we have prepared a <a href="https://www.docker.com">Docker</a> container, which is like a virtual machine. This will provide all attendees with the same programming environment which contains all the software needed for the workshop.</p></li>
+</ul>
+<p>Instructions to obtain and run the Docker container are given below. For attendees who cannot install Docker, alternative instructions are provided further below.</p>
+<p>Workshop contents such as slides, programs, and dataset will be provided at the start of the workshop.</p>
+</section>
+<section id="installing-docker" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Installing Docker</h1>
+<p>Follow instructions to install Docker based on your computing platform (Windows, Mac, or Linux). Look for the Community Edition, for which there is no cost to use. Also, we recommend the Stable release rather than the Edge release. Here are some brief notes specific to platform.</p>
+<section id="windows" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="windows"><span class="header-section-number">2.1</span> Windows</h2>
+<p>Note that Windows users who do not have Windows 10 Pro or Enterprise - which will probably be most of us - will need a version of Docker called <a href="https://docs.docker.com/toolbox/overview/">Docker Toolbox</a>. Once it is installed, open the Docker Quickstart Terminal to issue commands, which should appear as follows.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/Kerala2018/win-docker-prompt.png" class="img-fluid figure-img"></p>
+<figcaption>Logging into Rstudio Server</figcaption>
+</figure>
+</div>
+<p>Take note of the IP address listed in the output; we will use it later when connecting to Rstudio.</p>
+<p>I initially had some trouble installing Docker Toolbox on Windows 10 Home. I believe it was due to low disk space - I suggest having at least a 5-10 GB available before installing. For me, a solution was to remove Docker Toolbox, and the Oracle VirtualBox program installed with it, remove the <code>.docker</code> and <code>.virtualbox</code> subdirectories in <code>C:\Users\Andrew</code>, and rerun the Docker Toolbox installer. It may also be helpful to temporarily turn off Windows Firewall, or your antivirus program’s firewall if you have one, during the installation.</p>
+</section>
+<section id="linux" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="linux"><span class="header-section-number">2.2</span> Linux</h2>
+<p>Linux users should follow the <a href="https://docs.docker.com/engine/installation/">installation instructions</a> specific to their Linux distribution (Ubuntu, CentOS, etc). Once it is installed, Docker can be controlled through the system terminal.</p>
+<p>Note that Docker commands on Linux need administrator-level access, and must be prefixed with <code>sudo</code>. Because we anticipate mostly Windows users in attendance, the <code>sudo</code> has been left out of the commands shown on the remainder of this page.</p>
+</section>
+<section id="mac" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="mac"><span class="header-section-number">2.3</span> Mac</h2>
+<p>Mac users should follow their set of <a href="https://docs.docker.com/engine/installation/">installation instructions</a>. As with Linux, once Docker is installed on a Mac, it can be controlled through the Terminal application. <code>sudo</code> is also needed for Mac when executing Docker commands.</p>
+</section>
+<section id="a-quick-test-of-your-docker-setup" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="a-quick-test-of-your-docker-setup"><span class="header-section-number">2.4</span> A Quick Test of your Docker Setup</h2>
+<p>In your terminal, issue the following command.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run hello-world</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Here, <code>$</code> represents the prompt, which is not part of the command. If your Docker setup is working, you should get the following result.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run hello-world</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> from Docker!</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">This</span> message shows that your installation appears to be working correctly.</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> generate this message, Docker took the following steps:</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a> <span class="ex">1.</span> The Docker client contacted the Docker daemon.</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a> <span class="ex">2.</span> The Docker daemon pulled the <span class="st">"hello-world"</span> image from the Docker Hub.</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">(</span><span class="ex">amd64</span><span class="kw">)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a> <span class="ex">3.</span> The Docker daemon created a new container from that image which runs the</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">executable</span> that produces the output you are currently reading.</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a> <span class="ex">4.</span> The Docker daemon streamed that output to the Docker client, which sent it</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">to</span> your terminal.</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> try something more ambitious, you can run an Ubuntu container with:</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a> <span class="ex">$</span> docker run <span class="at">-it</span> ubuntu bash</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">Share</span> images, automate workflows, and more with a free Docker ID:</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a> <span class="ex">https://cloud.docker.com/</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ex">For</span> more examples and ideas, visit:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a> <span class="ex">https://docs.docker.com/engine/userguide/</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="downloading-workshop-config-files" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Downloading Workshop Config Files</h1>
+<p>Download the workshop’s <a href="https://drive.google.com/uc?export=view&amp;id=1CEnhcye1ifSdQHJKBalf20ZiVdeIyZII">Dockerfile</a> and accompanying <a href="https://drive.google.com/uc?export=view&amp;id=15hFA_kSpGmUddMa8tSyqN574h-SIB_zA">start.sh</a>. Save the files to a folder where you will keep workshop materials. Let us call this directory <code>/path/to/workshop</code>.</p>
+<p>In Windows, my web browser renamed <code>Dockerfile</code> to <code>Dockerfile.txt</code> when it was downloaded. If this happens, rename the file and remove the <code>.txt</code> extension.</p>
+<p>After downloading <code>start.sh</code>, Linux and Mac users may need to modify its permissions before the Docker container will run. Ensure that the script can be executed via the following command.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> chmod +x start.sh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="preparing-and-running-the-workshop-container" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Preparing and Running the Workshop Container</h1>
+<p>The following “build” command downloads and builds all of the prerequisites used in the container. It may take a while to run, especially on a slower network or a slower computer. For me it typically takes 20 or 30 minutes (roughly).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker build <span class="at">-t</span> rworkshop /path/to/workshop</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The build command does not need to be run again unless the Dockerfile is changed, or unless your deployment changes. If the build was successful, the last few lines of output should be something like the following.</p>
+<pre><code>Successfully built f5055a2787e5
+Successfully tagged rworkshop:latest</code></pre>
+<p>The container can now be run using the following “run” command (which is proceeded by defining two environment variables for our convenience).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export XSOCK=/tmp/.X11-unix/X0</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> export EXT=/path/to/workshop</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker run <span class="at">-v</span> <span class="va">$XSOCK</span>:<span class="va">$XSOCK</span> <span class="at">-v</span> <span class="va">$EXT</span>:/home/rstudio/ext <span class="dt">\</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">-p</span> 8787:8787 <span class="at">-i</span> <span class="at">-t</span> rworkshop</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Note that: * The option <code>-v $XSOCK:$XSOCK</code> allows the container to display graphics. This is useful for packages such as <code>Rcmdr</code>. * The option <code>-v $EXT:/home/rstudio/ext</code> makes the directory <code>$EXT</code> on your computer available inside the container as <code>/home/rstudio/ext</code>. This will allow you to load files from your local machine into the container, and to save work from the container back to your local machine. * The option <code>-p 8787:8787</code> exposes port 8787 from the container on your computer. This is needed to use Rstudio in the container. * The flags <code>-i</code> and <code>-t</code> are specified because the container is interactive. * The <code>\</code> character is used to break up a long command into multiple lines.</p>
+</section>
+<section id="using-r-in-the-container" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Using R in the Container</h1>
+<p>Once the container is successfully started, you will encounter a Linux command prompt like the following.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rstudio@a8f9a900c791:~$</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="r-on-the-command-line" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="r-on-the-command-line"><span class="header-section-number">5.1</span> R on the Command Line</h2>
+<p>To start R on the command line, issue the <code>R</code> command.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rstudio@a8f9a900c791:~$</span> R</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> cat<span class="kw">(</span><span class="st">"Hello world\n"</span><span class="kw">)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="rstudio" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">5.2</span> Rstudio</h2>
+<p>To connect to Rstudio server, open a web browser on your laptop.</p>
+<ul>
+<li><p><strong>Mac</strong> and <strong>Linux</strong> users should navigate to the URL <a href="http://localhost:8787" class="uri">http://localhost:8787</a>.</p></li>
+<li><p><strong>Windows</strong> users should recall the IP address they noted back in section 2.1. Suppose your assigned IP was <code>192.168.99.100</code> (which is the one I have in the screenshot); navigate to the URL <a href="http://192.168.99.100:8787" class="uri">http://192.168.99.100:8787</a>. If you forgot the IP address, start up another Docker Terminal and run the following.</p></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker-machine ls</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>A login prompt should appear in your browser. Enter <code>rstudio</code> as both the username and the password.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/Kerala2018/rstudio-server-login.png" class="img-fluid figure-img"></p>
+<figcaption>Logging into Rstudio Server</figcaption>
+</figure>
+</div>
+<p>Now you should be ready to use Rstudio in your web browser.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/Kerala2018/rstudio-server-screen.png" class="img-fluid figure-img"></p>
+<figcaption>Rstudio Server in browser</figcaption>
+</figure>
+</div>
+</section>
+<section id="r-commander" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="r-commander"><span class="header-section-number">5.3</span> R Commander</h2>
+<p>To launch the R Commander GUI, first start R via the command line or Rstudio. Then issue the following command.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(Rcmdr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="running-mpi-jobs" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="running-mpi-jobs"><span class="header-section-number">5.4</span> Running MPI Jobs</h2>
+<p>To demonstrate running an MPI job, let us use a simple Hello World example. Open a text editor on your laptop and save the following code to the file <code>/path/to/workshop/hello.R</code></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pbdMPI, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>msg <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"Hello world from process %d</span><span class="sc">\n</span><span class="st">"</span>, <span class="fu">comm.rank</span>(), <span class="fu">comm.size</span>())</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">comm.cat</span>(<span class="st">"Say hello:</span><span class="sc">\n</span><span class="st">"</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">comm.cat</span>(msg, <span class="at">all.rank =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">finalize</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Recall that this file will be accessible inside the container via the path <code>/home/rstudio/ext/hello.R</code>. Inside the container, you should be able to run the script in parallel via the <code>mpirun</code> command.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">rstudio@a8f9a900c791:~$</span> mpirun <span class="at">-np</span> 4 Rscript ~/ext/hello.R</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Say</span> hello:</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">COMM.RANK</span> = 0</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world from process 0</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ex">COMM.RANK</span> = 1</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ex">COMM.RANK</span> = 2</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world from process 1</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world from process 2</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ex">COMM.RANK</span> = 3</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world from process 3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Outputs from the container should be saved to <code>/home/rstudio/ext</code>. This will allow you to view images, PDFs, etc using the tools already installed on your laptop.</p>
+<p>If you made it this far, congratulations - your laptop is ready!</p>
+</section>
+</section>
+<section id="more-on-docker" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> More on Docker</h1>
+<p>For a list of Docker commands, see <a href="https://docs.docker.com/engine/reference/commandline/docker" class="uri">https://docs.docker.com/engine/reference/commandline/docker</a>. Here we will mention a few specific ones. If you would like a video tutorial, there appear to be several good ones on YouTube such as <a href="https://youtu.be/pa2wHWQ6WA8">this one</a>.</p>
+<p>List active Docker containers.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> [araim@araim-inspiron docker]$ docker ps</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ex">CONTAINER</span> ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ex">f117630f47b8</span>        rworkshop           <span class="st">"/etc/start.sh"</span>     8 seconds ago       Up 7 seconds        0.0.0.0:8787-<span class="op">&gt;</span>8787/tcp   hopeful_elion</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Normally, our rworkshop container will stop running when you log out of its shell. In case something went wrong with the container listed above and we wanted to kill it, we could use the following command from another terminal window.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker kill f117630f47b8</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ex">f117630f47b8</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>List Docker images that have been deployed onto your machine.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> docker images</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">REPOSITORY</span>          TAG                 IMAGE ID            CREATED             SIZE</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ex">rworkshop</span>           latest              d658ef03dc24        13 hours ago        1.98GB</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="ex">rocker/rstudio</span>      3.4.3               f206114fe549        3 weeks ago         1.08GB</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ex">hello-world</span>         latest              1815c82652c0        6 months ago        1.84kB</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>rworkshop</code> and <code>rocker/rstudio</code> images are rather large, so you may need to remove them after the workshop. Here we will remove the <code>hello-world</code> image, for demonstration purposes.</p>
+<pre class="{bash}"><code>$ docker image rm 1815c82652c0
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:f3b3b28a45160805bb16542c9531888519430e9e6d6ffc09d72261b0d26ff74f
+Deleted: sha256:1815c82652c03bfd8644afda26fb184f2ed891d921b20a0703b46768f9755c57
+Deleted: sha256:45761469c965421a92a69cc50e92c01e0cfa94fe026cdd1233445ea00e96289a</code></pre>
+</section>
+<section id="if-you-cannot-install-docker" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> If You Cannot Install Docker</h1>
+<p>Installing and running Docker requires administrator-level access to your computer. For example, if using a laptop issued by your employer, you may not have administrator access but may have R and Rstudio already installed. For the benefit of these attendees, we will list individual components that we have used in preparing the workshop.</p>
+<p>The major disadvantage of installing the components individually is that you may not be able to run some of the parallel and distributed computing examples. For example, the <a href="https://stat.ethz.ch/R-manual/R-devel/library/parallel/html/mclapply.html">mclapply function depends on forking</a>, and therefore cannot be used directly in Windows. Also, our distributed computing examples rely on MPI, but we (the presenters) do not have experience installing and configuring MPI libraries in Windows.</p>
+<p>Check the version numbers of components which you may have already installed - especially R, Rstudio, and any R packages. Some parts of the workshop may not be accessible with older versions.</p>
+<section id="install-r" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="install-r"><span class="header-section-number">7.1</span> Install R</h2>
+<p>Install R from <a href="https://cran.r-project.org/">CRAN</a>. Windows users should navigate to “Download R for Windows” at the top of the page. We are using version 3.4.3.</p>
+</section>
+<section id="install-rstudio" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="install-rstudio"><span class="header-section-number">7.2</span> Install Rstudio</h2>
+<p>Install <a href="https://www.rstudio.com/">Rstudio</a>. Click <code>Products =&gt; RStudio</code> on the top menu, and look for a button labeled <code>Download Rstudio Desktop</code>. Select <code>RStudio Desktop Open Source License</code> among the available versions. We are using version 1.1.383.</p>
+</section>
+<section id="install-the-rcpp-package" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="install-the-rcpp-package"><span class="header-section-number">7.3</span> Install the Rcpp package</h2>
+<p>See <a href="https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites" class="uri">https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites</a> for instructions to install the prerequisites (compilers, important libraries, etc). Once the prerequisites are installed, simply install <code>Rcpp</code> as you would any other package.</p>
+<p>To test your Rcpp environment, try the following in RStudio. 1. Select <code>File =&gt; New File =&gt; C++ File</code> from the main menu. This will create a simple Rcpp program.<br>
+2. Save the program, say, as <code>example.cpp</code>.<br>
+3. Click the <code>Source</code> button, which is located in the upper-right corner of the panel with the <code>example.cpp</code> source code. This should produce the following output.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">timesTwo</span>(<span class="dv">42</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">84</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="install-mpi" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="install-mpi"><span class="header-section-number">7.4</span> Install MPI</h2>
+<p>There are several MPI implementations available, such as OpenMPI and MVAPICH2. The instructions will vary based on your choice of implementation, as well as your hardware and operating system. You are on your own here; good luck! If your installation is successful, you should be able to run the following minimal example.</p>
+<p>First, create a new file called <code>hello_mpi.c</code> with the following contents.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;mpi.h&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main <span class="op">(</span><span class="dt">int</span> argc<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span>argv<span class="op">[])</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> id<span class="op">,</span> np<span class="op">;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> processor_name<span class="op">[</span>MPI_MAX_PROCESSOR_NAME<span class="op">];</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> processor_name_len<span class="op">;</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    MPI_Init<span class="op">(&amp;</span>argc<span class="op">,</span> <span class="op">&amp;</span>argv<span class="op">);</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    MPI_Comm_size<span class="op">(</span>MPI_COMM_WORLD<span class="op">,</span> <span class="op">&amp;</span>np<span class="op">);</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    MPI_Comm_rank<span class="op">(</span>MPI_COMM_WORLD<span class="op">,</span> <span class="op">&amp;</span>id<span class="op">);</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    MPI_Get_processor_name<span class="op">(</span>processor_name<span class="op">,</span> <span class="op">&amp;</span>processor_name_len<span class="op">);</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Hello world from process </span><span class="sc">%03d</span><span class="st"> out of </span><span class="sc">%03d</span><span class="st">, processor name </span><span class="sc">%s\n</span><span class="st">"</span><span class="op">,</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>        id<span class="op">,</span> np<span class="op">,</span> processor_name<span class="op">);</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    MPI_Finalize<span class="op">();</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now compile and run the program with MPI.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mpicc hello-mpi.c <span class="at">-o</span> hello-mpi</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> mpirun <span class="at">-np</span> 4 hello-mpi</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world from process 000 out of 004, processor name localhost</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world from process 001 out of 004, processor name localhost</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world from process 002 out of 004, processor name localhost</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Hello</span> world from process 003 out of 004, processor name localhost</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Depending on your platform and choice of MPI implementation, your commands may be different. The string <code>localhost</code> in the output will be replaced with your machine’s hostname.</p>
+</section>
+<section id="install-r-packages" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="install-r-packages"><span class="header-section-number">7.5</span> Install R Packages</h2>
+<p>Download the script <a href="https://drive.google.com/uc?export=view&amp;id=12273JFSirYb1G8pPx9fRYNtgZ6IrpFGx">install.R</a> and run it in R to obtain packages which will be used in the workshop. Suppose we have placed it into the directory <code>/path/to/workshop</code>. Run the following command in R.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">source</span>(<span class="st">"/path/to/workshop/install.R"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>To make sure your package versions are up to date, open Rstudio and click <code>Tools =&gt; Check for Package Updates</code> on the main menu.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/andrewraim\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+      <i class="bi bi-mailbox" role="img">
+</i> 
+ andrew dot raim at gmail dot com
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Views expressed on this site are solely those of the author.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

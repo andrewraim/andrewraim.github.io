@@ -2,6 +2,8 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/2025-11-05-vws-R.html",
+      "/posts/2025-09-23-saevws.html",
       "/posts/2024-12-11-stats4.html",
       "/posts/2024-07-16-fntl.html",
       "/posts/2024-01-19-vws.html",
@@ -13,10 +15,10 @@
       "/posts/2022-11-15-compoissonreg.html",
       "/posts/2022-08-15-sfreader.html",
       "/posts/2022-06-27-knitr-latex.html",
-      "/posts/2020-08-03-JSM2020.html",
-      "/posts/2017-12-20-Kerala-workshop.html",
-      "/posts/2017-08-07-UMBC-workshop-Rcpp.html",
-      "/posts/2017-03-15-new-webpage.html"
+      "/posts/2020-08-03-jsm2020.html",
+      "/posts/2017-12-20-kerala-workshop.html",
+      "/posts/2017-08-07-umbc-workshop-Rcpp.html",
+      "/posts/2017-03-15-website.html"
     ]
   }
 ]
