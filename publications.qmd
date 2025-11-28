@@ -126,60 +126,60 @@ Bibtex entries for the following are [here](bib/reports.qmd).
 1. Andrew M. Raim (2025). vws: Vertical Weighted Strips in R using C++.
    Research Report Series: Computing \#2025-01. Center for Statistical Research
    and Methodology, U.S. Census Bureau.
-   [[url](https://www.census.gov/library/working-papers/2025/adrm/RRC2025-01.html)].
+   [[www](https://www.census.gov/library/working-papers/2025/adrm/RRC2025-01.html)].
 
 1. Mikelyn Meyers, Renee Ellis, Andrew Raim, Patricia Goerman, Kathleen
    Kephart, Kim Aspinwall, Patricia LeBaron, and Emilia Peytcheva (2025). 2020
    census experiment: Spanish-speaking enumerator training. Report Series:
    Census Evaluations and Experiments.
-   [[url](cpex2025)].
+   [[www](cpex2025)].
 
 1. Andrew M. Raim (2024). fntl: Numerical Tools for Rcpp and Lambda
    Functions. Research Report Series: Computing \#2024-01. Center for
    Statistical Research and Methodology, U.S. Census Bureau.
-   [[url](https://www.census.gov/library/working-papers/2024/adrm/RRC2024-01.html)].
+   [[www](https://www.census.gov/library/working-papers/2024/adrm/RRC2024-01.html)].
 
 1. Andrew M. Raim, Renee Ellis, & Mikelyn Meyers. (2024). A multinomial
    analysis of bilingual training and nonresponse followup contact rates in the
    2020 Decennial Census. Study Series: Statistics \#2024-01. Center
    for Statistical Research and Methodology, U.S. Census Bureau.
-   [[url](https://www.census.gov/library/working-papers/2024/adrm/SSS2024-01.html)].
+   [[www](https://www.census.gov/library/working-papers/2024/adrm/SSS2024-01.html)].
 
 1. Darcy Steeg Morris and Andrew M. Raim (2023). Comparing trial and variable
    association in contingency table data using multinomial models for
    clustered data.  In Elisabeth Bergherr, Andreas Groll, and Andreas Mayr,
    editors, 37th International Workshop on Statistical Modelling, pages
    536-542.
-   [[url](https://iwsm2023.statistik.tu-dortmund.de)].
+   [[www](https://iwsm2023.statistik.tu-dortmund.de)].
 
 1. Andrew M. Raim and Elizabeth Nichols (2023). A comparison of map usability
    via bivariate ordinal analysis. Study Series: Statistics \#2023-01. Center
    for Statistical Research and Methodology, U.S. Census Bureau.
-   [[url](https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html)].
+   [[www](https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html)].
 
 1. Andrew M. Raim and Kimberly F. Sellers (2022). COMPoissonReg: Usage, the
    normalizing constant, and other computational details. Research Report
    Series: Computing \#2022-01. Center for Statistical Research and Methodology,
    U.S. Census Bureau.
-   [[url](https://www.census.gov/library/working-papers/2022/adrm/RRC2022-01.html)].
+   [[www](https://www.census.gov/library/working-papers/2022/adrm/RRC2022-01.html)].
 
 1. Kyle M. Irimata, Andrew M. Raim, Ryan Janicki, James A. Livsey, and Scott H.
    Holan (2022). Evaluation of Bayesian hierarchical models of differentially
    private data based on an approximate data model. Research Report Series:
    Statistics \#2022-05. Center for Statistical Research and Methodology, U.S.
    Census Bureau.
-   [[url](https://www.census.gov/library/working-papers/2022/adrm/RRS2022-05.html)].
+   [[www](https://www.census.gov/library/working-papers/2022/adrm/RRS2022-05.html)].
 
 1. Andrew M. Raim, James A. Livsey, and Kyle M. Irimata (2022). Browsing the
    2010 Census SF2 summary file with R. Study Series: Computing \#2022-01.
    Center for Statistical Research and Methodology, U.S. Census Bureau.
-   [[url](https://www.census.gov/library/working-papers/2022/adrm/SSC2022-01.html)].
+   [[www](https://www.census.gov/library/working-papers/2022/adrm/SSC2022-01.html)].
 
 1. Andrew M. Raim (2021). Direct sampling in Bayesian regression models with
    additive disclosure avoidance noise. Research Report Series: Statistics
    \#2021-01. Center for Statistical Research and Methodology, U.S. Census
    Bureau.
-   [[url](https://www.census.gov/library/working-papers/2021/adrm/RRS2021-01.html)].
+   [[www](https://www.census.gov/library/working-papers/2021/adrm/RRS2021-01.html)].
 
 1. Elizabeth Nichols, Erica Olmsted-Hawala, Andrew Raim, and Lin Wang (2020).
    Attitudinal and behavioral differences between older and younger adults
@@ -192,7 +192,7 @@ Bibtex entries for the following are [here](bib/reports.qmd).
    survey login rates and helpline call rates. U.S. Census Bureau, Research and
    Methodology Directorate, Center for Behavioral Science Methods Research
    Report Series (Survey Methodology) \#2019-01. U.S. Census Bureau.
-   [[url](https://www.census.gov/content/dam/Census/library/working-papers/2019/adrm/rsm2019-01.pdf)].
+   [[www](https://www.census.gov/content/dam/Census/library/working-papers/2019/adrm/rsm2019-01.pdf)].
 
 1. Darcy Steeg Morris, Andrew M. Raim, and Kimberly F. Sellers (2018).
    Introducing a Conway-Maxwell-multinomial distribution for flexible modeling
@@ -222,7 +222,7 @@ Bibtex entries for the following are [here](bib/reports.qmd).
    model coverage errors in the Master Address File. Research Report Series:
    Statistics \#2015-04. Center for Statistical Research and Methodology, U.S.
    Census Bureau.
-   [[url](https://www.census.gov/library/working-papers/2015/adrm/rrs2015-04.html)].
+   [[www](https://www.census.gov/library/working-papers/2015/adrm/rrs2015-04.html)].
 
 1. Andrew M. Raim, Marissa N. Gargano, Nagaraj K. Neerchal, and Jorge G. Morel
    (2015). Bayesian analysis of overdispersed binomial data using mixture link
@@ -241,7 +241,7 @@ Bibtex entries for the following are [here](bib/reports.qmd).
    Thesis, Department of Mathematics and Statistics, University of Maryland,
    Baltimore County.
    [[pdf](https://andrewraim.github.io/downloads/doc/araim-thesis-20140425.pdf)]
-   [[url](http://search.proquest.com/docview/1552496226)].
+   [[www](http://search.proquest.com/docview/1552496226)].
 
 1. Andrew M. Raim, Nagaraj K. Neerchal, and Jorge G. Morel (2014). Large
    cluster approximation to the finite mixture information matrix with an
@@ -254,7 +254,7 @@ Bibtex entries for the following are [here](bib/reports.qmd).
    UMBC High Performance Computing Facility, University of Maryland, Baltimore
    County.
    [[files](http://userpages.umbc.edu/~gobbert/papers/pbdRtara2013.tar.gz)]
-   [[url](https://hpcf.umbc.edu/publications)].
+   [[www](https://hpcf.umbc.edu/publications)].
 
 1. Andrew M. Raim and Nagaraj K. Neerchal (2013). Modeling overdispersion in
    binomial data with regression linked to a finite mixture probability of

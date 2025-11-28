@@ -1,73 +1,107 @@
 # R packages
 
-- [allocation](https://github.com/andrewraim/allocation): Exact optimal
-  allocation algorithms for stratified sampling.
+- `allocation`: Exact optimal allocation algorithms for stratified sampling.
+  [[cran](https://cran.r-project.org/package=allocation) |
+  [repo](https://github.com/andrewraim/allocation)
+  ]
 
-- [COMMultReg](https://github.com/andrewraim/COMMultReg): Conway-Maxwell
-  multinomial regression.
+- `COMMultReg`: Conway-Maxwell multinomial regression.
+  [[repo](https://github.com/andrewraim/COMMultReg)]
 
-- [COMPoissonReg](https://cran.r-project.org/package=COMPoissonReg):
-  Conway-Maxwell Poisson (COM-Poisson) regression.
+- `COMPoissonReg`: Conway-Maxwell Poisson regression.
+  [[cran](https://cran.r-project.org/package=COMPoissonReg) |
+  [repo](https://github.com/lotze/COMPoissonReg)
+  ]
 
-- [DirectSampling](https://github.com/andrewraim/DirectSampling): Direct
-  sampling with a step function. Also see
+- `DirectSampling`: Direct sampling with a step function. Also see
   [DirectSampling.jl](https://github.com/andrewraim/DirectSampling.jl) for
   a Julia implementation.
+  [[repo](https://github.com/andrewraim/DirectSampling)
+  ]
 
-- [fntl](https://cran.r-project.org/package=fntl): Numerical Tools for Rcpp and
-  Lambda Functions.
+- `fntl`: Numerical Tools for Rcpp and Lambda Functions.
+  [[cran](https://cran.r-project.org/package=fntl) |
+  [repo](https://github.com/andrewraim/fntl)
+  ]
 
-- [ldr](https://cran.r-project.org/package=ldr): Methods for likelihood-based
-  dimension reduction in regression
+- `ldr`: Methods for likelihood-based dimension reduction in regression.
+  [[cran](https://cran.r-project.org/package=ldr) |
+  [repo](https://bitbucket.org/umbc_sdr/ldr)
+  ]
 
-- [ManifoldOptim](https://cran.r-project.org/package=ManifoldOptim): An R
-  interface to the [ROPTLIB][roptlib-url] library for Riemannian manifold
-  optimization.
+- `ManifoldOptim`: An R interface to the [ROPTLIB][roptlib-url] library for
+  Riemannian manifold optimization.
+  [[cran](https://cran.r-project.org/package=ManifoldOptim) |
+  [repo](https://bitbucket.org/umbc_sdr/ManifoldOptim)
+  ]
 
-- [MixLink](https://cran.r-project.org/package=mixlink): Mixture link regression.
+- `mixlink`: Mixture link regression.
+  [[cran](https://cran.r-project.org/package=mixlink) |
+  [repo](https://github.com/andrewraim/mixlink)
+  ]
 
-- [OverdispersionModelsInR](http://github.com/andrewraim/OverdispersionModelsInR):
-  Some tools to help with MLE computation, especially for non-standard
-  likelihoods found in overdispersion models.
+- `OverdispersionModelsInR`: Some tools to help with MLE computation,
+  especially for non-standard likelihoods found in overdispersion models.
+  [[repo](https://github.com/andrewraim/OverdispersionModelsInR)
+  ]
 
-- [raim](https://github.com/andrewraim/raim): a collection of my utility
-  functions.
+- `raim`: a collection of my utility functions.
+  [[repo](https://github.com/andrewraim/raim)
+  ]
 
-- [sfreader](https://github.com/andrewraim/sfreader): An R Package to Read
-  Census Summary Files. Currently focused on the 2010 SF2 summary file.
+- `sfreader`: Read summary files with census data. Currently focused on the
+  2010 SF2 summary file.
+  [[repo](https://github.com/andrewraim/sfreader)
+  ]
  
-- [stcos](https://cran.r-project.org/package=stcos): Space-time change of
-  support.
+- `stcos`: Space-time change of support.
+  [[cran](https://cran.r-project.org/package=stcos) |
+  [repo](https://github.com/holans/ST-COS)
+  ]
 
-- [vws](https://cran.r-project.org/package=vws): Vertical Weighted Strips in R
-  using C++.
+- `vws`: Vertical Weighted Strips in R using C++.
+  [[cran](https://cran.r-project.org/package=vws) |
+  [repo](https://github.com/andrewraim/vws)
+  ]
 
 [roptlib-url]: https://www.math.fsu.edu/~whuang2/Indices/index_ROPTLIB.html
 
-# LaTeX templates
+# Templates for Documents
 
-- [latex-resume](software/latex-resume.qmd): a template for resumes/CVs.
+- `beamerthemeraim`: A custom Beamer theme.
+  [[repo](https://github.com/andrewraim/beamerthemeraim)
+  ]
 
-- [latex-business-card](software/latex-business-card.qmd): a template for
-  business cards.
+- `formula-sheet`: Formula sheets in Latex.
+  [[www](software/formula-sheet.qmd)
+  ]
 
-- [beamerthemeraim](https://github.com/andrewraim/beamerthemeraim): a
-  custom Beamer theme.
+- `latex-business-card`: Business cards in Latex.
+  [[www](software/latex-business-card.qmd)
+  ]
 
-- [formula-sheet](software/formula-sheet.qmd): a template for formula sheets.
+- `latex-resume`: CV / resume in Latex.
+  [[www](software/latex-resume.qmd)
+  ]
 
-- [sweave-examples](https://github.com/andrewraim/sweave-examples): templates
-  for Latex slides and articles using Sweave via knitr.
+- `quarto-templates`:  Documents such as an article, slides, and a vignette in
+  Quarto.
+  [[repo](https://github.com/andrewraim/quarto-templates)
+  ]
 
-Note: I am not a LaTeX programmer, so there may be room for improvement in
-these templates.
+- `sweave-templates`: Slides and articles using Sweave via knitr.
+  [[repo](https://github.com/andrewraim/sweave-templates)
+  ]
 
 # Utilities
 
-- [md-util](https://github.com/andrewraim/md-util): some command line scripts
-  and templates to facilitate compiling markdown to various formats (PDF, html,
-  Beamer) using Pandoc.
+- `md-util`: some command line scripts and templates to facilitate compiling
+  markdown to various formats (pdf, html, beamer) using Pandoc.
+  [[repo](https://github.com/andrewraim/md-util)
+  ]
 
-- [worker](https://github.com/andrewraim/worker): a tool to help run repetitive
-  computational studies such as statistical simulations.
+- `worker`: a tool to help run repetitive computational studies such as
+  statistical simulations.
+  [[repo](https://github.com/andrewraim/worker)
+  ]
 
