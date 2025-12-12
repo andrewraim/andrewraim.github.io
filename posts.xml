@@ -9,7 +9,7 @@
 <link>https://andrewraim.github.io/posts.html</link>
 <atom:link href="https://andrewraim.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.8.25</generator>
+<generator>quarto-1.8.26</generator>
 <lastBuildDate>Wed, 05 Nov 2025 05:00:00 GMT</lastBuildDate>
 <item>
   <title>vws: Vertical Weighted Strips in R using C++</title>
