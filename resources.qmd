@@ -167,7 +167,7 @@ interesting.
   [Google Drive](https://drive.google.com)
   Shared storage, for files other than source code
 
-# Productivity Tools
+# General Computing
 
 - [The GNU Project](https://www.gnu.org) hosts a number of open source software
   projects, including the [gcc](https://www.gnu.org/software/gcc) compiler,
@@ -182,23 +182,30 @@ interesting.
 
 ## Linux
 
-- [Ubuntu](https://ubuntu.com) A distribution of Linux maintained by
-  the Canonical company. A number of variants are available such as a server
-  edition and desktop editions with various window managers.
+Linux is an operating system started as a personal project by Linus Torvalds,
+who also created Git. An open source approach was taken in its development,
+allowing contributions from collaborators around the world, to become a viable
+alternative to corporate operating systems such as Microsoft Windows, Mac OS X,
+and Unix which was developed at Bell Labs. Linux is bundled in various forms
+called "distributions", which include certain variations of desktop
+environments, service managers, package managers, and prepackaged software.
+Users can select a distribution(s) which best meets their needs. The Linux
+kernel is the basis of all Linux distributions.
 
-- [Debian](https://www.debian.org) A distribution of Linux maintained by
-  the Debian cummunity. Ubuntu, Linux Mint, and many other distributions are
-  based on it. Debian may be prefered over Ubuntu if you do not want to use
-  [Snap](https://snapcraft.io) or prefer a more minimal initial installation.
+- [Debian](https://www.debian.org) A community-maintained distribution of Linux.
+  Distributions such as [Ubuntu](https://ubuntu.com),
+  [Linux Mint](https://linuxmint.com) are based on Debian. Debian may be
+  prefered over Ubuntu, for example, if you prefer not to use
+  [Snap](https://snapcraft.io), to start with a more minimal initial
+  installation, or to use something maintained by a community rather than a
+  company.
 
-- [Arch Linux](https://archlinux.org) A distribution of Linux that follows a
-  rolling release model. Good for keeping up with the most recent versions of
-  packages. Also good for customization because the initial installation is
-  minimal.
+- [Arch Linux](https://archlinux.org) A community-maintained distribution of
+  Linux that follows a rolling release model. Good for keeping up with the most
+  recent versions of packages. Also good for customization because the initial
+  installation is minimal.
 
-- [Linux](https://www.linux.org) The kernel for Linux distributions. Started
-  as a personal project by Linus Torvalds and became a collaboration with
-  contributors from around the world.
+- [Linux](https://www.linux.org) The Linux kernel.
 
 ## Window Managers and Tools
 
