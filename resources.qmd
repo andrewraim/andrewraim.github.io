@@ -188,8 +188,8 @@ interesting.
 
 - [Debian](https://www.debian.org) A distribution of Linux maintained by
   the Debian cummunity. Ubuntu, Linux Mint, and many other distributions are
-  based on it. You may prefer this over Ubuntu if you do not want to use
-  [Snap](https://snapcraft.io) or prefer to a more minimal initial installation.
+  based on it. Debian may be prefered over Ubuntu if you do not want to use
+  [Snap](https://snapcraft.io) or prefer a more minimal initial installation.
 
 - [Arch Linux](https://archlinux.org) A distribution of Linux that follows a
   rolling release model. Good for keeping up with the most recent versions of
@@ -200,7 +200,71 @@ interesting.
   as a personal project by Linus Torvalds and became a collaboration with
   contributors from around the world.
 
-## Graphical
+## Window Managers and Tools
+
+Window managers (WMs) are components of desktop environments (DEs) that control
+how windows are displayed and how users navigate them. DEs such as Gnome, KDE,
+and XFCE in Linux include window managers and suites of graphical applications.
+Operating systems such as Microsoft Windows and Mac OS X include proprietary
+DEs. In some operating systems (especially Linux) it is possible to select your
+own WM and set of graphical applications for a completely customized
+experience.
+
+Several of the following are [suckless](https://suckless.org) programs which
+follow the suckless design philosophy. These are usually written in C and
+include a core codebase with only a minimal set of features. Additional
+features may be added by applying patches and/or directly modifying the code.
+Configuration is done by editing a header file and recompiling. Use of such
+software usually requires maintaining one's own version of the code base with
+any customizations. While some people appreciate this workflow, most will
+likely prefer more immutable software which is configured by an external
+configuration file or scripts.
+
+- [dwm](https://dwm.suckless.org) A suckless tiling window manager for X11. Has
+  inspired - or been used as a basis for - a number of other tiling window
+  managers.
+
+- [slstatus](https://tools.suckless.org/slstatus) A suckless status bar for X11.
+  Pairs well with dwm for a suckless DIY setup.
+
+- [slock](https://tools.suckless.org/slock/) An extremely minimal suckless
+  screen locking tool for X11.
+
+- [dwl](https://codeberg.org/dwl) A port of dwm for Wayland.
+
+- [Awesome WM](https://awesomewm.org) A window manager for X11 started as a
+  fork of dwm that is non-suckless. Includes many features in the main code
+  base and is highly configurable and extensible via Lua scripting.
+
+- [OXWM](https://ox-docs.vercel.app) A window manager for X11 inspired by dwm
+  which is written in Rust. Like Awesome WM, it is configured via Lua to forgo
+  the suckless workflow where each user maintains their own variant of the
+  source code. OXWM seems geared toward preserving the minimalist tiling
+  experience of dwm, in contrast to Awesome, but includes sensible
+  functionality that would require patches in dwm.
+
+- [Niri](https://yalter.github.io/niri) A scrolling window manager for Wayland
+  that supports some aspects of tiling. Here, each workspace is a row of windows
+  where the windows may be spawned and removed as needed. One or more columns
+  of the workspace can be on screen at a time. The user can navigate within
+  and between workspaces, and dynamically rearrange the layout as desired.
+
+- [dmenu](https://tools.suckless.org/dmenu) A suckless X11 menu tool.
+  Can readily be leveraged in scripts to create user defined menus. Menus can
+  be quickly traversed using a fuzzy search. Something similar can be
+  accomplished on the command line with [fzf](https://github.com/junegunn/fzf).
+
+- [rofi](https://github.com/davatorium/rofi) A more sophisticated menu tool
+  with support for both X11 and Wayland. Features a "dmenu emulation" mode
+  allowing it to be used as a drop-in replacement for dmenu.
+
+- [waybar](https://waybar.org) A highly customizable status bar for use with
+  Wayland window managers.
+
+- [Awesome Wayland](https://github.com/rcalixte/awesome-wayland) A curated list
+  of tools for Wayland.
+
+## Graphical Interface
 
 - [Firefox](https://www.mozilla.org/en-US/firefox) A popular open source web
   browser.
@@ -224,15 +288,6 @@ interesting.
 
 - [VLC](https://www.videolan.org/vlc) a media player for audio and video.
 
-- [dwm](https://dwm.suckless.org) Extremely lightweight and minimalist tiling
-  window manager for X11. Also see [dwl](https://codeberg.org/dwl) for
-  Wayland.
-
-- [dmenu](https://tools.suckless.org/dmenu) A lightweight X11 menu system
-  which can be leveraged to create user defined menus. Menus can be traversed
-  with the keyboard through fuzzy search. Something similar can be accomplished
-  on the command line with [fzf](https://github.com/junegunn/fzf).
-
 - [Xournalpp](https://xournalpp.github.io) Take handwritten notes on your
   computer which can be edited and maintained as files. Especially useful with
   a writing tablet such as the
@@ -244,7 +299,7 @@ interesting.
 
 - [Dia](https://wiki.gnome.org/Apps/Dia) Open source tool for drawing diagrams.
 
-## Terminal
+## Terminal Interface
 
 - [Cygwin](https://www.cygwin.com) A collection of open source tools that
   provides a Linux-like experience in Windows, especially through the command
