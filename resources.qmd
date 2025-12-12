@@ -227,6 +227,11 @@ any customizations. While some people appreciate this workflow, most will
 likely prefer more immutable software which is configured by an external
 configuration file or scripts.
 
+There are two major windowing systems for Linux: X11 and Wayland. X11 has been
+the standard for many years, while Wayland is maturing in recent years and
+becoming more widely adopted. There is an X11 compatibility layer in Wayland,
+but window managers generally seem to be intended for one or the other.
+
 - [dwm](https://dwm.suckless.org) A suckless tiling window manager for X11. Has
   inspired - or been used as a basis for - a number of other tiling window
   managers.
@@ -236,8 +241,6 @@ configuration file or scripts.
 
 - [slock](https://tools.suckless.org/slock/) An extremely minimal suckless
   screen locking tool for X11.
-
-- [dwl](https://codeberg.org/dwl) A port of dwm for Wayland.
 
 - [Awesome WM](https://awesomewm.org) A window manager for X11 started as a
   fork of dwm that is non-suckless. Includes many features in the main code
@@ -250,11 +253,19 @@ configuration file or scripts.
   experience of dwm, in contrast to Awesome, but includes sensible
   functionality that would require patches in dwm.
 
+- [Xmonad](https://xmonad.org/) Another non-suckless window manager for X11 
+  which was inspired by dwm. Highly regarded in the online Linux community. Is
+  written in the functional language Haskell; configuration is also done via
+  Haskell.
+
+- [dwl](https://codeberg.org/dwl) A port of dwm for Wayland.
+
 - [Niri](https://yalter.github.io/niri) A scrolling window manager for Wayland
-  that supports some aspects of tiling. Here, each workspace is a row of windows
-  where the windows may be spawned and removed as needed. One or more columns
-  of the workspace can be on screen at a time. The user can navigate within
-  and between workspaces, and dynamically rearrange the layout as desired.
+  that supports some aspects of tiling. I find this one very natural and
+  intuitive. Here, each workspace is a row of windows where the windows may be
+  spawned and removed as needed. One or more columns of the workspace can be on
+  screen at a time. User can navigate within and between workspaces, and
+  dynamically rearrange the layout as desired.
 
 - [dmenu](https://tools.suckless.org/dmenu) A suckless X11 menu tool.
   Can readily be leveraged in scripts to create user defined menus. Menus can
