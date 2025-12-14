@@ -995,7 +995,7 @@ launch.R    output.csv</code></pre>
 <h1>Objective</h1>
 <p>Our objective will be to generate a Latex table for the first six rows of the <code>airquality</code> dataset.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">R<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1130,27 +1130,27 @@ font-style: inherit;">6</span></span></code></pre></div></div>
 <h1>Preparing the Data Frame</h1>
 <p>First let us load the packages we will use.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">R<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(knitr)</span>
-<span id="cb2-2">R<span class="sc" style="color: #5E5E5E;
+<span id="cb2-2"><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(dplyr)</span>
-<span id="cb2-3">R<span class="sc" style="color: #5E5E5E;
+<span id="cb2-3"><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tibble)</span>
-<span id="cb2-4">R<span class="sc" style="color: #5E5E5E;
+<span id="cb2-4"><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(stringr)</span>
-<span id="cb2-5">R<span class="sc" style="color: #5E5E5E;
+<span id="cb2-5"><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1238,7 +1238,7 @@ font-style: inherit;">select</span>(Num, Date, Ozone, Solar.R, Wind, TempC)</spa
 </ol>
 <p>This produces the following table.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">R<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1481,7 +1481,7 @@ font-style: inherit;">2</span>))</span></code></pre></div></div>
 </ol>
 <p>Printing the result yields the following Latex code.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1">R<span class="sc" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> <span class="fu" style="color: #4758AB;
 background-color: null;
