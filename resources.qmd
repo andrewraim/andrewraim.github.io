@@ -4,12 +4,15 @@ toc-location: left
 number-sections: true
 ---
 
+# Introduction {-}
+
+This page catalogues software projects and other useful resources on the web,
+especially those that I have personally found to be useful or interesting.
+
 Much of the software listed here is free and open source with major
 contributions from - or developed entirely by - dedicated community members.
 These efforts have resulted in a vast selection of reliable, high quality, and
-readily-available software. I especially attempt to highlight projects
-developed under this philopsophy that I have personally found to be useful or
-interesting.
+readily-available software. 
 
 # The R Project
 
@@ -32,7 +35,7 @@ interesting.
 
 - [Rcpp](https://www.rcpp.org) Framework for integrating C++ into R.
 
-- The [Rcpp API][RcppAPI] project documents the API in a human-readable way.
+- [Rcpp API][RcppAPI] This project documents the API in a human-readable way.
   Appears to be curated manually by the author and not auto-generated.
 
 - [R-Nimble](https://r-nimble.org) Framework for constructing hierarchical
@@ -49,10 +52,11 @@ interesting.
 
 # Platforms for Statistical and Scientific Computing
 
-- [Stan](https://mc-stan.org) Declare Bayesian models and compile into fast
-  executable programs that sample from the posterior by Hamiltonian Monte
-  Carlo. Integrates with several other programming languages including R via
-  the [rstan](https://cran.r-project.org/package=rstan) package.
+- [Stan](https://mc-stan.org) Declare Bayesian models using a high-level
+  modeling language. Models compile into fast executable programs which
+  generate samples from posterior distribution using Hamiltonian Monte Carlo.
+  Integrates with several other programming languages including R via the
+  [rstan](https://cran.r-project.org/package=rstan) package.
 
 - [MultiBUGS](https://www.multibugs.org) An actively maintained BUGS platform
   for Bayesian modeling, which automates MCMC sampling given a user's model
@@ -61,13 +65,13 @@ interesting.
   and WinBUGS. [JAGS](https://mcmc-jags.sourceforge.io) also follows a similar
   paradigm.
 
-- [The Julia Language](https://julialang.org)
-  A high-level and high-performance language for technical computing.
+- [Julia](https://julialang.org) A high-level and high-performance language for
+  technical computing.
 
 - [Python](https://www.python.org) High-level language for data science and
   general computing.
 
-- [GNU Octave](https://octave.org) A scientific computing platform that is
+- [Octave](https://octave.org) A scientific computing platform that is
   largely compatible with
   [MATLAB](https://www.mathworks.com/products/matlab.html) syntax, but is
   open source.
@@ -175,6 +179,18 @@ interesting.
   [autoconf](https://www.gnu.org/software/autoconf/) build tools, as well as
   some of the other tools listed on the present page.
 
+- [suckless](https://suckless.org) projects are open source and follow the
+  suckless design [philosophy](https://suckless.org/philosophy/). These are
+  usually written in C and consist of a core codebase with a minimal set of
+  features. Additional features may be added by applying patches (supplied by
+  the community) and/or directly modifying the code. Configuration is done by
+  editing a header file and recompiling. Use of such software usually requires
+  maintaining one's own version of the code base with any customizations and
+  managing conflicts when incorporating new code. Some folks enjoy curating
+  their own curated repo of an application with minimal bloat. However, most
+  will prefer using more immutable programs which are configured through
+  external configuration files or scripts.
+
 - [Slurm](https://slurm.schedmd.com) A scheduler to queue up computing jobs
   and run them as processors become available. Useful for running large
   simulations which can require hours or days. Most commonly used on multi-user
@@ -182,15 +198,27 @@ interesting.
 
 ## Linux
 
-Linux is an operating system started as a personal project by Linus Torvalds,
-who also created Git. An open source approach was taken in its development,
-allowing contributions from collaborators around the world, to become a viable
-alternative to corporate operating systems such as Microsoft Windows, Mac OS X,
-and Unix which was developed at Bell Labs. Linux is bundled in various forms
+Linux is an operating system (OS) started as a personal project by Linus
+Torvalds, who also created Git. An open source approach was taken in its
+development, allowing contributions from collaborators around the world, to
+become a viable alternative to corporate OS such as Microsoft Windows, Mac OS
+X, and Unix which was developed at Bell Labs. Linux is bundled in various forms
 called "distributions", which include certain variations of desktop
 environments, service managers, package managers, and prepackaged software.
 Users can select a distribution(s) which best meets their needs. The Linux
 kernel is the basis of all Linux distributions.
+
+For Windows and Mac users looking to try Linux, I recommend starting with a
+mainstream Linux distribution (e.g., Debian or Ubuntu) that includes a desktop
+environment (e.g., Xfce, KDE, or Gnome). This should provide a usable OS after
+successful installation. There are several possible installation procedures to
+consider. To try Linux without making permanent changes to your computer, you
+can create a live USB and boot into it; this environment resets each time it is
+booted. A more persistent option is to install Linux to a virtual machine. When
+ready to to set up Linux to boot as the computer's actual OS, most installers
+include tools to set up dual boot so you can select between Linux and your
+original OS at boot time. If you happen to have an older PC or laptop lying
+around, it can serve as an excellent platform for trying Linux.
 
 - [Debian](https://www.debian.org) A community-maintained distribution of Linux.
   Distributions such as [Ubuntu](https://ubuntu.com),
@@ -203,12 +231,12 @@ kernel is the basis of all Linux distributions.
 - [Arch Linux](https://archlinux.org) A community-maintained distribution of
   Linux that follows a rolling release model. Good for keeping up with the most
   recent versions of packages. Also good for customization because the initial
-  installation is minimal.
+  installation is minimal. Not ideal for new Linux users because the
+  installation process involves some command line work.
 
 - [Linux](https://www.linux.org) The Linux kernel.
 
 ## Window Managers and Tools
-
 Window managers (WMs) are components of desktop environments (DEs) that control
 how windows are displayed and how users navigate them. DEs such as Gnome, KDE,
 and XFCE in Linux include window managers and suites of graphical applications.
@@ -216,16 +244,6 @@ Operating systems such as Microsoft Windows and Mac OS X include proprietary
 DEs. In some operating systems (especially Linux) it is possible to select your
 own WM and set of graphical applications for a completely customized
 experience.
-
-Several of the following are [suckless](https://suckless.org) programs which
-follow the suckless design philosophy. These are usually written in C and
-include a core codebase with only a minimal set of features. Additional
-features may be added by applying patches and/or directly modifying the code.
-Configuration is done by editing a header file and recompiling. Use of such
-software usually requires maintaining one's own version of the code base with
-any customizations. While some people appreciate this workflow, most will
-likely prefer more immutable software which is configured by an external
-configuration file or scripts.
 
 There are two major windowing systems for Linux: X11 and Wayland. X11 has been
 the standard for many years, while Wayland is maturing in recent years and
@@ -282,13 +300,20 @@ but window managers generally seem to be intended for one or the other.
 - [Awesome Wayland](https://github.com/rcalixte/awesome-wayland) A curated list
   of tools for Wayland.
 
-## Graphical Interface
+- [Xfce](https://www.xfce.org) A desktop enviroment that is fully featured and
+  intuitive while relatively light on system resource. Is visually pleasing
+  while avoiding unnecessary graphical effects.
+
+## Graphical Programs
 
 - [Firefox](https://www.mozilla.org/en-US/firefox) A popular open source web
   browser.
 
 - [Chromium](https://www.chromium.org) The open source web browser on which
   [Google Chrome](https://www.google.com/chrome) is based.
+
+- [qutebrowser](https://qutebrowser.org) A minimalist open source web browser
+  which is primary controlled by the keyboard. Uses Vim-style keybindings.
 
 - [Virtual Machine Manager](https://virt-manager.org) An application to run and
   manage virtual machines. Uses the [libvirt](https://libvirt.org/)
@@ -317,7 +342,7 @@ but window managers generally seem to be intended for one or the other.
 
 - [Dia](https://wiki.gnome.org/Apps/Dia) Open source tool for drawing diagrams.
 
-## Terminal Interface
+## Terminal Programs
 
 - [Cygwin](https://www.cygwin.com) A collection of open source tools that
   provides a Linux-like experience in Windows, especially through the command
