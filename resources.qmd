@@ -202,34 +202,34 @@ Linux is an operating system (OS) started as a personal project by Linus
 Torvalds, who also created Git. An open source approach was taken in its
 development, allowing contributions from collaborators around the world, to
 become a viable alternative to corporate OS such as Microsoft Windows, Mac OS
-X, and Unix which was developed at Bell Labs. Linux is bundled in various forms
-called "distributions", which include certain variations of desktop
-environments, service managers, package managers, and prepackaged software.
-Users can select a distribution(s) which best meets their needs. The Linux
-kernel is the basis of all Linux distributions.
+X, and Unix which was developed at Bell Labs. Linux is bundled in various
+distributions (distros), which typically include a desktop environment, service
+manager, package manager, and prepackaged software. Users can select a distro
+which best meets their needs. The Linux kernel is the basis of all Linux
+distros.
 
 For Windows and Mac users looking to try Linux, I recommend starting with a
-mainstream Linux distribution (e.g., Debian or Ubuntu) that includes a desktop
-environment (e.g., Xfce, KDE, or Gnome). This should provide a usable OS after
+mainstream Linux distro such as Debian or Ubuntu that includes a desktop
+environment (e.g., Xfce, KDE, or Gnome). This should provide a usable OS upon
 successful installation. There are several possible installation procedures to
 consider. To try Linux without making permanent changes to your computer, you
 can create a live USB and boot into it; this environment resets each time it is
 booted. A more persistent option is to install Linux to a virtual machine. When
-ready to to set up Linux to boot as the computer's actual OS, most installers
+ready to set up Linux to boot as the computer's actual OS, most installers
 include tools to set up dual boot so you can select between Linux and your
 original OS at boot time. If you happen to have an older PC or laptop lying
 around, it can serve as an excellent platform for trying Linux.
 
-- [Debian](https://www.debian.org) A community-maintained distribution of Linux.
-  Distributions such as [Ubuntu](https://ubuntu.com),
+- [Debian](https://www.debian.org) A community-maintained Linux distro.
+  Distros such as [Ubuntu](https://ubuntu.com),
   [Linux Mint](https://linuxmint.com) are based on Debian. Debian may be
   prefered over Ubuntu, for example, if you prefer not to use
   [Snap](https://snapcraft.io), to start with a more minimal initial
   installation, or to use something maintained by a community rather than a
   company.
 
-- [Arch Linux](https://archlinux.org) A community-maintained distribution of
-  Linux that follows a rolling release model. Good for keeping up with the most
+- [Arch Linux](https://archlinux.org) A community-maintained Linux distro
+  that follows a rolling release model. Good for keeping up with the most
   recent versions of packages. Also good for customization because the initial
   installation is minimal. Not ideal for new Linux users because the
   installation process involves some command line work.
@@ -265,13 +265,12 @@ but window managers generally seem to be intended for one or the other.
   base and is highly configurable and extensible via Lua scripting.
 
 - [OXWM](https://ox-docs.vercel.app) A window manager for X11 inspired by dwm
-  which is written in Rust. Like Awesome WM, it is configured via Lua to forgo
-  the suckless workflow where each user maintains their own variant of the
-  source code. OXWM seems geared toward preserving the minimalist tiling
-  experience of dwm, in contrast to Awesome, but includes sensible
-  functionality that would require patches in dwm.
+  which is written in Rust. Like Awesome WM, it non-suckless and configured
+  via Lua. OXWM seems geared toward preserving the minimalist tiling experience
+  of dwm, in contrast to Awesome, but includes sensible functionality that
+  would require patches in dwm.
 
-- [Xmonad](https://xmonad.org/) Another non-suckless window manager for X11 
+- [Xmonad](https://xmonad.org) Another non-suckless window manager for X11 
   which was inspired by dwm. Highly regarded in the online Linux community. Is
   written in the functional language Haskell; configuration is also done via
   Haskell.
@@ -279,10 +278,10 @@ but window managers generally seem to be intended for one or the other.
 - [dwl](https://codeberg.org/dwl) A port of dwm for Wayland.
 
 - [Niri](https://yalter.github.io/niri) A scrolling window manager for Wayland
-  that supports some aspects of tiling. I find this one very natural and
+  that supports some aspects of tiling. I find this one to be very natural and
   intuitive. Here, each workspace is a row of windows where the windows may be
   spawned and removed as needed. One or more columns of the workspace can be on
-  screen at a time. User can navigate within and between workspaces, and
+  screen at a time. Users can navigate within and between workspaces, and
   dynamically rearrange the layout as desired.
 
 - [dmenu](https://tools.suckless.org/dmenu) A suckless X11 menu tool.
@@ -345,7 +344,7 @@ but window managers generally seem to be intended for one or the other.
 ## Terminal Programs
 
 - [Cygwin](https://www.cygwin.com) A collection of open source tools that
-  provides a Linux-like experience in Windows, especially through the command
+  provide a Linux-like experience in Windows, especially through the command
   line.
 
 - [tmux](https://github.com/tmux/tmux/wiki) Persistent terminal sessions that
@@ -356,13 +355,18 @@ but window managers generally seem to be intended for one or the other.
 - [screen](https://www.gnu.org/software/screen) An alternative to tmux; also
   provides persistent terminal sessions.
 
-- [Vim](https://www.vim.org) Well-estabished text editor that can be used in
-  non-graphical terminal environments. Tedious edits can often be accomplished
-  with a small number of commands or keystrokes. A
-  [cheat sheet](https://vim.rtorr.com) can be helpful to keep nearby.
+- [Vim](https://www.vim.org) Visual text editor for the terminal. Does
+  not require a graphical environment. It is a "modal" editor because usage
+  involves switching between several modes. There is a learning curve to become
+  comfortable with basic use and then incorporate more advanced capabilities.
+  Here is a browsable version of the internal [quick reference][vim-quickref].
+  Here is a more condensed [cheat sheet][vim-cheat] that is suitabe for
+  printing. There is also a universe of [plugins][vim-plugins] to add
+  functionality and customize the look and feel.
 
-- [Emacs](https://www.gnu.org/software/emacs) An alternative to Vim which has
-  a different feel.
+- [Emacs](https://www.gnu.org/software/emacs) The traditional alternative to
+  Vim which is just as extensive has has an equally dedicated user base. Emacs 
+  has a different feel which makes use of chord-style commands.
 
 - [Nano](https://www.nano-editor.org) A user-friendly text editor for the
   terminal. Recommended over Vim and Emacs for new terminal users.
@@ -375,9 +379,13 @@ but window managers generally seem to be intended for one or the other.
   Also see [NeoMutt](https://neomutt.org) which is a fork of Mutt that supports
   some additional features.
 
-- [Alpine](https://alpineapp.email) The successor of
-  [Pine](https://web.archive.org/web/20190328145000/http://www.washington.edu/pine)
-  which was another widely used email client for the terminal.
+- [Alpine](https://alpineapp.email) The successor of [Pine](pine) which was
+  another widely used email client for the terminal.
+
+[vim-cheat]: https://vim.rtorr.com
+[vim-quickref]: https://vimdoc.sourceforge.net/htmldoc/quickref.html
+[vim-plugins]: https://vimawesome.com
+[pine]: https://web.archive.org/web/20190328145000/http://www.washington.edu/pine
 
 # Professional Associations
 
