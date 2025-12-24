@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-11-05">
 
-<title>Andrew M. Raim</title>
+<title>vws: Vertical Weighted Strips in R using C++ – Andrew M. Raim</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,22 +21,43 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6fd04bf5609b48bd4af23e2afddb5934.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-aabf7386819eb4c68142384187e64324.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -62,7 +84,9 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Andrew M. Raim</span>
     </a>
   </div>
@@ -72,23 +96,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html"> 
+    <a class="nav-link" href="../posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
+    <a class="nav-link" href="../publications.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./presentations.html"> 
+    <a class="nav-link" href="../presentations.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./software.html"> 
+    <a class="nav-link" href="../software.html"> 
 <span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resources.html"> 
+    <a class="nav-link" href="../resources.html"> 
 <span class="menu-text">Resources</span></a>
   </li>  
 </ul>
@@ -106,55 +130,60 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-
-
-
-<div class="quarto-about-jolla">
-  <img src="images/araim-psday2010.jpg" class="about-image
-  rectangle " style="width: 10em;">
- <header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Andrew M. Raim</h1>
-</div>
-<div class="quarto-title-meta">
+<h1 class="title"><code>vws</code>: Vertical Weighted Strips in R using C++</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">article</div>
+    <div class="quarto-category">programming</div>
   </div>
-</header><div id="about-heading">
-<p>Welcome! This website hosts my publicly released work.</p>
-<p>I have been a statistician at the U.S. Census Bureau Center for Statistical Research and Methodology (<a href="https://www.census.gov/topics/research/stat-research.html">CSRM</a>) since 2014. I was previously a graduate student at University of Maryland, Baltimore County (<a href="https://mathstat.umbc.edu">UMBC</a>) and worked as a software engineer for the first part of my career at the internet advertising company Advertising.com.</p>
-<p>The best way to contact me is to send email to <code>andrew dot raim at gmail dot com</code>.</p>
-</div> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="/downloads/araim-cv.pdf" class="about-link" rel="" target="">
-    <i class="bi bi-filetype-pdf"></i>
-     <span class="about-link-text">CV</span>
-  </a>
-  <a href="https://github.com/andrewraim" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://bitbucket.com/andrewraim" class="about-link" rel="" target="">
-    <i class="bi bi-bucket"></i>
-     <span class="about-link-text">Bitbucket</span>
-  </a>
-  <a href="https://orcid.org/0000-0002-4440-2330" class="about-link" rel="" target="">
-    <i class="bi bi-person-square"></i>
-     <span class="about-link-text">ORCID</span>
-  </a>
-  <a href="/www.linkedin.com/in/andrew-raim-4685203" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 5, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><span class="citation" data-cites="VWS2024">Raim, Livsey, and Irimata (<a href="#ref-VWS2024" role="doc-biblioref">2024+</a>)</span> consider a method of proposal construction for rejection sampling referred to as vertical weighted strips (VWS). Here, the target density is regarded as a weighted density; i.e., the product of a weight function and a simpler (“base”) density function. The practitioner majorizes the weight function by providing another function that bounds it from above. The majorizing function is combined with the base density to form a proposal distribution. In many cases, it is useful (and also more convenient) to partition the support of the target and use a piecewise majorizer. In this case, the proposal distribution can be regarded as a finite mixture whose components are correspond to the regions in the partition.</p>
+<p>The <code>vws</code> package has been developed to support development of such proposals and their use in rejection sampling. Coding is primarily done in C++ using the provided API. Sampling functions may be then exposed in R via <a href="https://cran.r-project.org/package=Rcpp">Rcpp</a> for use in applications. A detailed guide to <code>vws</code> programming - including several worked examples - is provided in the package vignette.</p>
+<p><code>vws</code> package</p>
+<ul>
+<li>Deployed on <a href="https://cran.r-project.org/package=vws">CRAN</a></li>
+<li>Source on <a href="https://github.com/andrewraim/vws">Github</a></li>
+</ul>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-VWS2024" class="csl-entry" role="listitem">
+Raim, Andrew M., James A. Livsey, and Kyle M. Irimata. 2024+. <span>“Rejection Sampling with Vertical Weighted Strips.”</span> <a href="https://arxiv.org/abs/2401.09696">https://arxiv.org/abs/2401.09696</a>.
 </div>
-</div>
-
-
-
-
-
-</main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

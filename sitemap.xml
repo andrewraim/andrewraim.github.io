@@ -1,119 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://andrewraim.github.io/presentations.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/publications.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/software/latex-resume.html</loc>
-    <lastmod>2025-12-03T05:43:49.435Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/software/formula-sheet.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/bib/reports.html</loc>
-    <lastmod>2025-12-03T05:43:48.981Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/posts.html</loc>
-    <lastmod>2025-12-03T05:43:49.431Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/posts/2017-12-20-kerala-workshop.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/posts/2017-08-07-umbc-workshop-Rcpp.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/posts/2023-02-11-latex-tables-from-R.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/posts/2024-07-16-fntl.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/posts/2023-02-12-worker.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/posts/2025-11-05-vws-R.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/posts/2022-06-27-knitr-latex.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/posts/2024-01-19-vws.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/software.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/posts/2017-03-15-website.html</loc>
-    <lastmod>2025-12-03T05:43:49.431Z</lastmod>
+    <loc>https://andrewraim.github.io/posts/2022-11-15-compoissonreg.html</loc>
+    <lastmod>2025-11-03T16:02:37.434Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/posts/2020-08-03-jsm2020.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
+    <lastmod>2025-11-03T16:02:37.434Z</lastmod>
   </url>
   <url>
-    <loc>https://andrewraim.github.io/posts/2024-12-11-stats4.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/posts/2023-05-01-sendmail-R.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
+    <loc>https://andrewraim.github.io/posts/2025-11-05-vws-R.html</loc>
+    <lastmod>2025-11-05T14:02:22.243Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/posts/2023-02-27-shiny-leaflet.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
+    <lastmod>2025-11-03T16:02:37.435Z</lastmod>
   </url>
   <url>
-    <loc>https://andrewraim.github.io/posts/2022-08-15-sfreader.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/posts/2023-04-20-bivariate-ordinal-maps.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://andrewraim.github.io/posts/2022-11-15-compoissonreg.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
+    <loc>https://andrewraim.github.io/posts/2023-02-11-latex-tables-from-R.html</loc>
+    <lastmod>2025-11-03T16:02:37.434Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/posts/2025-09-23-saevws.html</loc>
-    <lastmod>2025-12-03T05:43:49.433Z</lastmod>
+    <lastmod>2025-11-05T14:55:28.333Z</lastmod>
   </url>
   <url>
-    <loc>https://andrewraim.github.io/bib/manuscripts.html</loc>
-    <lastmod>2025-12-03T05:43:48.981Z</lastmod>
+    <loc>https://andrewraim.github.io/posts/2024-01-19-vws.html</loc>
+    <lastmod>2025-11-03T16:02:37.435Z</lastmod>
   </url>
   <url>
-    <loc>https://andrewraim.github.io/bib/articles.html</loc>
-    <lastmod>2025-12-03T05:43:48.981Z</lastmod>
+    <loc>https://andrewraim.github.io/posts/2023-05-01-sendmail-R.html</loc>
+    <lastmod>2025-11-03T16:02:37.435Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/posts/2024-12-11-stats4.html</loc>
+    <lastmod>2025-11-03T16:02:37.435Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/bib/reports.html</loc>
+    <lastmod>2025-11-03T16:02:37.049Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/software.html</loc>
+    <lastmod>2025-11-28T13:23:05.807Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/presentations.html</loc>
+    <lastmod>2025-11-03T16:02:37.435Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/publications.html</loc>
+    <lastmod>2025-11-28T13:39:41.478Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/software/latex-business-card.html</loc>
-    <lastmod>2025-12-03T05:43:49.435Z</lastmod>
+    <lastmod>2025-11-03T16:02:37.435Z</lastmod>
   </url>
   <url>
-    <loc>https://andrewraim.github.io/index.html</loc>
-    <lastmod>2025-12-03T05:43:49.431Z</lastmod>
+    <loc>https://andrewraim.github.io/software/latex-resume.html</loc>
+    <lastmod>2025-11-03T16:02:37.435Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/software/formula-sheet.html</loc>
+    <lastmod>2025-11-03T16:02:37.435Z</lastmod>
   </url>
   <url>
     <loc>https://andrewraim.github.io/resources.html</loc>
-    <lastmod>2025-12-20T19:45:15.931Z</lastmod>
+    <lastmod>2025-12-24T13:29:49.047Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/index.html</loc>
+    <lastmod>2025-11-28T13:57:13.528Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/posts.html</loc>
+    <lastmod>2025-11-03T16:02:37.433Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/bib/articles.html</loc>
+    <lastmod>2025-11-03T16:02:37.049Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/bib/manuscripts.html</loc>
+    <lastmod>2025-11-03T16:02:37.049Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/posts/2023-02-12-worker.html</loc>
+    <lastmod>2025-11-03T16:02:37.435Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/posts/2017-08-07-umbc-workshop-Rcpp.html</loc>
+    <lastmod>2025-11-03T16:02:37.434Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/posts/2017-03-15-website.html</loc>
+    <lastmod>2025-11-28T12:32:27.432Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/posts/2024-07-16-fntl.html</loc>
+    <lastmod>2025-11-28T14:52:21.457Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/posts/2022-08-15-sfreader.html</loc>
+    <lastmod>2025-11-03T16:02:37.434Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/posts/2022-06-27-knitr-latex.html</loc>
+    <lastmod>2025-11-03T16:02:37.434Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/posts/2023-04-20-bivariate-ordinal-maps.html</loc>
+    <lastmod>2025-11-03T16:02:37.435Z</lastmod>
+  </url>
+  <url>
+    <loc>https://andrewraim.github.io/posts/2017-12-20-kerala-workshop.html</loc>
+    <lastmod>2025-11-03T16:02:37.434Z</lastmod>
   </url>
 </urlset>
