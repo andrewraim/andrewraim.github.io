@@ -378,8 +378,11 @@ but window managers generally seem to be intended for one or the other.
   Some favorite plugins are [vimwiki][vim-wiki] to use Vim as a personal Wiki
   using Markdown (or several other syntax options) and
   [lightline][vim-lightline] to give the status bar a sleek appearance. There
-  are also language-specific plugins such as [R.nvim][vim-rnvim] for R and
-  [julia-vim][vim-julia] for Julia.
+  are also language-specific plugins such as [julia-vim][vim-julia] for Julia.
+
+- [Neovim](https://neovim.io) A more recent Vim project with some enhancements.
+  The plugin [R.nvim][vim-rnvim] for R appears to turn Neovim into an IDE-like
+  environment for R programming. 
 
 - [Emacs](https://www.gnu.org/software/emacs) The traditional alternative to
   Vim which is just as extensive has has an equally dedicated user base. Emacs 
