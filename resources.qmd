@@ -260,6 +260,15 @@ but window managers generally seem to be intended for one or the other.
 - [slock](https://tools.suckless.org/slock/) An extremely minimal suckless
   screen locking tool for X11.
 
+- [st](https://st.suckless.org) The suckless terminal emulator for X11.
+  Minimal and light on memory use but can be patched into a full-featured
+  terminal.
+
+- [dmenu](https://tools.suckless.org/dmenu) A suckless X11 menu tool.
+  Can readily be leveraged in scripts to create user defined menus. Menus can
+  be quickly traversed using a fuzzy search. Something similar can be
+  accomplished on the command line with [fzf](https://github.com/junegunn/fzf).
+
 - [Awesome WM](https://awesomewm.org) A window manager for X11 started as a
   fork of dwm that is non-suckless. Includes many features in the main code
   base and is highly configurable and extensible via Lua scripting.
@@ -284,10 +293,9 @@ but window managers generally seem to be intended for one or the other.
   screen at a time. Users can navigate within and between workspaces, and
   dynamically rearrange the layout as desired.
 
-- [dmenu](https://tools.suckless.org/dmenu) A suckless X11 menu tool.
-  Can readily be leveraged in scripts to create user defined menus. Menus can
-  be quickly traversed using a fuzzy search. Something similar can be
-  accomplished on the command line with [fzf](https://github.com/junegunn/fzf).
+- [foot](https://codeberg.org/dnkl/foot) A lightweight but full-featured
+  terminal emulator for Wayland. Can be run as a daemon with clients to
+  save resources when using multiple instances.
 
 - [rofi](https://github.com/davatorium/rofi) A more sophisticated menu tool
   with support for both X11 and Wayland. Features a "dmenu emulation" mode
@@ -360,9 +368,14 @@ but window managers generally seem to be intended for one or the other.
   involves switching between several modes. There is a learning curve to become
   comfortable with basic use and then incorporate more advanced capabilities.
   Here is a browsable version of the internal [quick reference][vim-quickref].
-  Here is a more condensed [cheat sheet][vim-cheat] that is suitabe for
-  printing. There is also a universe of [plugins][vim-plugins] to add
-  functionality and customize the look and feel.
+  Here is a more condensed [cheat sheet][vim-cheat] that is suitable for
+  printing and hanging on a wall. There is also a universe of
+  [plugins][vim-plugins] to add functionality and customize the look and feel.
+  Some favorite plugins are [vimwiki][vim-wiki] to use Vim as a personal Wiki
+  using Markdown (or several other syntax options) and
+  [lightline][vim-lightline] to give the status bar a sleek appearance. There
+  are also language-specific plugins such as [R.nvim][vim-rnvim] for R and
+  [julia-vim][vim-julia] for Julia.
 
 - [Emacs](https://www.gnu.org/software/emacs) The traditional alternative to
   Vim which is just as extensive has has an equally dedicated user base. Emacs 
@@ -385,6 +398,10 @@ but window managers generally seem to be intended for one or the other.
 [vim-cheat]: https://vim.rtorr.com
 [vim-quickref]: https://vimdoc.sourceforge.net/htmldoc/quickref.html
 [vim-plugins]: https://vimawesome.com
+[vim-wiki]: https://github.com/vimwiki/vimwiki
+[vim-lightline]: https://github.com/itchyny/lightline.vim
+[vim-rnvim]: https://github.com/R-nvim/R.nvim
+[vim-julia]: https://github.com/JuliaEditorSupport/julia-vim
 [pine]: https://web.archive.org/web/20190328145000/http://www.washington.edu/pine
 
 # Professional Associations
