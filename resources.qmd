@@ -115,8 +115,8 @@ readily-available software.
   Implements a reverse mode and forward mode algorithm.
   [Stan](https://mc-stan.org) also has a library for AD
   which can be accessed in C++ with [some work][stan-ad]. A list of many other
-  AD tools for various programming languages are listed at
-  [autodiff.org](https://www.autodiff.org).
+  AD tools for various programming languages are listed
+  [here](https://www.autodiff.org).
 
 [stan-ad]: https://www.r-bloggers.com/2022/01/automatic-differentiation-in-r-with-stan-math
 
@@ -126,12 +126,15 @@ readily-available software.
   documents. Especially useful for typsetting mathematics. A large selection
   of contributed packages is available on [CTAN](https://ctan.org).
 
+- [BibTeX](https://www.bibtex.org) System for managing references with Latex.
+  Store references in a format-agnostic database file and render them to
+  whichever format is needed when making citations.
+
 - [Quarto](https://quarto.org) System for preparing articles, websites,
   books, and other documents with markdown and embedded R, Python, or Julia
   code. Code can be displayed with syntax highlighting and run dynamically as
   documents are compiled to facilitate reproducibility. Supports embedded Latex
-  for typesetting math, [BibTeX](https://www.bibtex.org) for references, and
-  many other conveniences.
+  for typesetting math, BibTeX for references, and many other conveniences.
 
 - [Beamer](https://ctan.org/pkg/beamer) Package for making slides with Latex.
 
@@ -187,9 +190,9 @@ readily-available software.
   editing a header file and recompiling. Use of such software usually requires
   maintaining one's own version of the code base with any customizations and
   managing conflicts when incorporating new code. Some folks enjoy curating
-  their own curated repo of an application with minimal bloat. However, most
-  will prefer using more immutable programs which are configured through
-  external configuration files or scripts.
+  their own repo of an application with minimal bloat. However, most will
+  prefer using more immutable programs which are configured through external
+  configuration files or scripts.
 
 - [Slurm](https://slurm.schedmd.com) A scheduler to queue up computing jobs
   and run them as processors become available. Useful for running large
@@ -205,8 +208,8 @@ become a viable alternative to corporate OS such as Microsoft Windows, Mac OS
 X, and Unix which was developed at Bell Labs. Linux is bundled in various
 distributions (distros), which typically include a desktop environment, service
 manager, package manager, and prepackaged software. Users can select a distro
-which best meets their needs. The Linux kernel is the basis of all Linux
-distros.
+which best meets their needs. The Linux [kernel](https://www.linux.org) is the
+basis of all Linux distros.
 
 For Windows and Mac users looking to try Linux, I recommend starting with a
 mainstream Linux distro such as Debian or Ubuntu that includes a desktop
@@ -219,6 +222,9 @@ ready to set up Linux to boot as the computer's actual OS, most installers
 include tools to set up dual boot so you can select between Linux and your
 original OS at boot time. If you happen to have an older PC or laptop lying
 around, it can serve as an excellent platform for trying Linux.
+
+An alternative open source Unix-based OS, which is not based on the Linux
+kernel, is [The FreeBSD Project](https://www.freebsd.org).
 
 - [Debian](https://www.debian.org) A community-maintained Linux distro.
   Distros such as [Ubuntu](https://ubuntu.com),
@@ -234,16 +240,14 @@ around, it can serve as an excellent platform for trying Linux.
   installation is minimal. Not ideal for new Linux users because the
   installation process involves some command line work.
 
-- [Linux](https://www.linux.org) The Linux kernel.
-
 ## Window Managers and Tools
+
 Window managers (WMs) are components of desktop environments (DEs) that control
 how windows are displayed and how users navigate them. DEs such as Gnome, KDE,
 and XFCE in Linux include window managers and suites of graphical applications.
 Operating systems such as Microsoft Windows and Mac OS X include proprietary
-DEs. In some operating systems (especially Linux) it is possible to select your
-own WM and set of graphical applications for a completely customized
-experience.
+DEs. Some operating systems (especially Linux) facilitate selecting your own WM
+and set of graphical applications for a completely customized experience.
 
 There are two major windowing systems for Linux: X11 and Wayland. X11 has been
 the standard for many years, while Wayland is maturing in recent years and
@@ -308,8 +312,8 @@ but window managers generally seem to be intended for one or the other.
   of tools for Wayland.
 
 - [Xfce](https://www.xfce.org) A desktop enviroment that is fully featured and
-  intuitive while relatively light on system resource. Is visually pleasing
-  while avoiding unnecessary graphical effects.
+  intuitive while remaining relatively light on system resources. Is visually
+  pleasing (subjectively) while avoiding unnecessary graphical effects.
 
 ## Graphical Programs
 
@@ -395,6 +399,12 @@ but window managers generally seem to be intended for one or the other.
 - [Alpine](https://alpineapp.email) The successor of [Pine](pine) which was
   another widely used email client for the terminal.
 
+- [Squeezelite](https://github.com/ralph-irving/squeezelite) A media streaming
+  daemon that can be used to play audio files, internet radio, and
+  other sources on a PC. Can be paired with
+  [Squeezer](https://github.com/nikclayton/android-squeezer)
+  to use an Android phone as a remote control.
+
 [vim-cheat]: https://vim.rtorr.com
 [vim-quickref]: https://vimdoc.sourceforge.net/htmldoc/quickref.html
 [vim-plugins]: https://vimawesome.com
@@ -403,6 +413,24 @@ but window managers generally seem to be intended for one or the other.
 [vim-rnvim]: https://github.com/R-nvim/R.nvim
 [vim-julia]: https://github.com/JuliaEditorSupport/julia-vim
 [pine]: https://web.archive.org/web/20190328145000/http://www.washington.edu/pine
+
+## Nostaglia
+
+- [GeoCities](https://thehistoryoftheweb.com/an-ode-to-geocities) A service
+  that provided free hosting for personal websites.
+
+- [Gopher](https://mncomputinghistory.com/gopher-protocol) An early protocol
+  for browsing the web through a system of terminal-based menus. It lost
+  traction as graphical HTTP-based browsers such as
+  [NCSA Mosiac][ncsa] became widely used.
+
+- [Internet Archive](https://archive.org) An extensive non-profit digital
+  library of texts, movies, software, music, and more.
+
+- [M-Net](https://www.arbornet.org/m-net.php) One of the first public-access
+  UNIX systems. Hosted by the Arbornet organization in Ann Arbor, Michigan.
+
+[ncsa]: https://www.ncsa.illinois.edu/research/project-highlights/ncsa-mosaic
 
 # Professional Associations
 
@@ -444,20 +472,3 @@ but window managers generally seem to be intended for one or the other.
 
 - [Center for Interdisciplinary Consulting](https://www.umbc.edu/circ)
 
-# Nostaglia
-
-- [GeoCities](https://thehistoryoftheweb.com/an-ode-to-geocities) A service
-  that provided free hosting for personal websites.
-
-- [Gopher](https://mncomputinghistory.com/gopher-protocol) An early protocol
-  for browsing the web through a system of terminal-based menus. It lost
-  traction as graphical HTTP-based browsers such as
-  [NCSA Mosiac][ncsa] became widely used.
-
-- [Internet Archive](https://archive.org) An extensive non-profit digital
-  library of texts, movies, software, music, and more.
-
-- [M-Net](https://www.arbornet.org/m-net.php) One of the first public-access
-  UNIX systems. Hosted by the Arbornet organization in Ann Arbor, Michigan.
-
-[ncsa]: https://www.ncsa.illinois.edu/research/project-highlights/ncsa-mosaic
