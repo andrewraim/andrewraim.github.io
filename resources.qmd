@@ -353,6 +353,11 @@ but window managers generally seem to be intended for one or the other.
 
 - [Dia](https://wiki.gnome.org/Apps/Dia) Open source tool for drawing diagrams.
 
+- [Synergy](https://symless.com/synergy) Control multiple computers using a
+  single mouse and keyboard. Computers may be different architectures running
+  different OSes. Commercial software by Symless based on their open source
+  project [Deskflow](https://github.com/deskflow/deskflow).
+
 ## Terminal Programs
 
 - [Cygwin](https://www.cygwin.com) A collection of open source tools that
