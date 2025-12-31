@@ -278,10 +278,10 @@ but window managers generally seem to be intended for one or the other.
   base and is highly configurable and extensible via Lua scripting.
 
 - [OXWM](https://ox-docs.vercel.app) A window manager for X11 inspired by dwm
-  which is written in Rust. Like Awesome WM, it non-suckless and configured
+  which is written in Rust. Like Awesome WM, it is non-suckless and configured
   via Lua. OXWM seems geared toward preserving the minimalist tiling experience
-  of dwm, in contrast to Awesome, but includes sensible functionality that
-  would require patches in dwm.
+  of dwm, in contrast to Awesome, but also toward a sensible dwm-like
+  experience that would require patches in dwm.
 
 - [Xmonad](https://xmonad.org) Another non-suckless window manager for X11 
   which was inspired by dwm. Highly regarded in the online Linux community. Is
@@ -358,19 +358,40 @@ but window managers generally seem to be intended for one or the other.
   different OSes. Commercial software by Symless based on their open source
   project [Deskflow](https://github.com/deskflow/deskflow).
 
+- [Screenkey](https://www.thregr.org/wavexx/software/screenkey/) Display your
+  keystokes in real time as an animated banner; useful for demonstrations.
+
+- [Featherpad](Featherpad) A lightweight graphical text editor with minimal
+  prerequisites; in particular, does not require a specific desktop
+  environment to be installed. Has some useful features like syntax
+  highlighting and tabs and uses familiar keybindings like `Ctrl-C` to copy.
+
+- [qpdfview](https://github.com/bendikro/qpdfview) A PDF viewer that supports
+  tabs for opening multiple documents. Does not require any particular desktop
+  environment to be installed. Can also view DjVu and Postscript files.
+
+- [Zathura](https://pwmt.org/projects/zathura/) A lightweight graphical PDF
+  viewer that uses Vim-like keybindings for navigation.
+
 ## Terminal Programs
+
+- [Bash](https://www.gnu.org/software/bash) One of the standard shells for
+  Linux-based systems. Supports scripting which can be used to automate tedious
+  tasks.
 
 - [Cygwin](https://www.cygwin.com) A collection of open source tools that
   provide a Linux-like experience in Windows, especially through the command
   line.
 
-- [tmux](https://github.com/tmux/tmux/wiki) Persistent terminal sessions that
-  can be detached/attached and split into multiple panes. Here is a
-  [cheat sheet](https://gist.github.com/MohamedAlaa/2961058) with some useful
-  commands and keybindings.
+- [tmux](https://github.com/tmux/tmux/wiki) Set up persistent terminal sessions
+  that you can detach from and reattach to. Sessions can be arranged into
+  tabs with multiple windows on each tab. Useful for running long interactive
+  jobs on a server where you ocassionally want to interact by issuing commands.
+  Here is a [cheat sheet](https://gist.github.com/MohamedAlaa/2961058) with
+  some useful commands and keybindings.
 
-- [screen](https://www.gnu.org/software/screen) An alternative to tmux; also
-  provides persistent terminal sessions.
+- [screen](https://www.gnu.org/software/screen) An alternative to tmux which
+  also provides persistent terminal sessions.
 
 - [Vim](https://www.vim.org) Visual text editor for the terminal. Does
   not require a graphical environment. It is a "modal" editor because usage
@@ -393,12 +414,14 @@ but window managers generally seem to be intended for one or the other.
   Vim which is just as extensive has has an equally dedicated user base. Emacs 
   has a different feel which makes use of chord-style commands.
 
-- [Nano](https://www.nano-editor.org) A user-friendly text editor for the
-  terminal. Recommended over Vim and Emacs for new terminal users.
+- [Nano](https://www.nano-editor.org) A simple user-friendly text editor for
+  the terminal. Recommended for new terminal users who are not yet acquainted
+  with Vim or Emacs.
 
-- [Bash](https://www.gnu.org/software/bash) One of the standard shells for
-  Linux-based systems. Supports scripting which can be used to automate tedious
-  tasks.
+- [Fresh](https://sinelaw.github.io/fresh) A terminal-based editor that appears
+  to be quite sophisticated but more familiar to non-Vim and non-Emacs users.
+  Uses familiar keybindings like `Crtl-C` to copy as defaults, and use of the
+  mouse is not discouraged.
 
 - [Mutt](http://www.mutt.org) A well-established email client for the terminal.
   Also see [NeoMutt](https://neomutt.org) which is a fork of Mutt that supports
@@ -412,6 +435,11 @@ but window managers generally seem to be intended for one or the other.
   other sources on a PC. Can be paired with
   [Squeezer](https://github.com/nikclayton/android-squeezer)
   to use an Android phone as a remote control.
+
+- [termtosvg](https://nbedos.github.io/termtosvg/) Record a terminal session
+  as an SVG animation. Useful for short compelling demonstrations of Linux
+  tools. Animation files take relatively little space and can be embedded on
+  a website.
 
 [vim-cheat]: https://vim.rtorr.com
 [vim-quickref]: https://vimdoc.sourceforge.net/htmldoc/quickref.html
