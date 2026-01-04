@@ -1,0 +1,158 @@
+---
+title: "Using Vim as a Simple IDE without Plugins"
+date: 2026-01-03
+published: false
+categories:
+  - programming
+---
+
+# Introduction
+
+With a vast number of options for text editors, one compelling reason to stick
+with the classic Vim is that it is included with many Unix-based operating
+systems such as Linux. The same tool can be used both on your PC and a server
+where you are not an admin. It's also free and open source, and despite it's
+humble appearance, is a powerful tool with extensive features that can be
+heavily customized.
+
+In this post, we go over some configuration changes that will let us use Vim as
+a simple IDE, where one window is used to edit and run code and the second is
+running an interpreter that we can interact with. The configuration can be used
+in your environment of choice and external plugins are not needed.
+
+The code shown in this post is written in the Vimscript scripting language.
+I am not very familiar with Vimscript and had some help from AI and forum posts
+to get things working. Therefore, it is not the most elegant code and there are
+opportunities for improvement.
+
+A file with the complete configuration is given [here](2026-01-03-vim-ide.vim).
+The easiest way to use it is to paste the contents into your own [vimrc](TBD)
+file; however, there are other [options](TBD) if you prefer a more modular
+configuration.
+
+# Embedded Terminal
+
+We first note that Vim has its own internal terminal. We will make use of this
+to run an intrepreter for our language(s) of choice. To start a terminal from
+Vim, enter `:term` from normal mode. This starts the terminal in a horizontal
+split. Try the command `:h windows` in normal mode to see how to change focus
+between windows, change their positions, resize them, etc. Exiting the terminal
+closes the split. We can also start a terminal with a vertical split using
+`:vert term` from normal mode.
+
+Suppose we have a vertical split with an R script on the left and a terminal
+running the R console on the right. We would like to be able to send text from
+the editor to be execute in the R console without too many keystrokes. We would
+also like the ability to quickly spawn that R console when we are working on
+an R script.
+
+# Define Functions
+
+We will now define two functions. The first takes a string `content` and sends
+it to the terminal. There may be multiple terminals, so we send to the first
+one.
+
+```{vim}
+" Send text to the first terminal in the terminal list
+function! SendToTerm(content)
+	let tl = term_list()
+	if len(tl) == 0
+		echom "No terminal buffer found"
+		return
+	endif
+
+	let term_buf_nr = tl[0]
+	if bufexists(term_buf_nr) && getbufvar(term_buf_nr, '&buftype') ==# 'terminal'
+		call term_sendkeys(term_buf_nr, a:content)
+	else
+		echom "No terminal buffer found"
+	endif
+endfunction
+```
+
+The second function starts a terminal with a suitable interpreter, based on the
+type of file we are currently editing. If we don't have a specific interpreter
+in mind, we will just leave the terminal on the command line. The function
+takes a boolean argument `vert`; the terminal will be started with a vertical
+split if `vert` is true, otherwise a horizontal split will be used. After the
+terminal is spawned, we exchange positions with the previous window. In
+vertical mode, this puts the script on the left and the terminal on the right.
+In horizontal mode, the script will be on top and the terminal will be
+underneath.  Also, this will shift the focus back to the script so that we can
+start stepping through it.
+
+```{vim}
+function! FileTypeToTerm(vert)
+    if &filetype == 'r'
+		let cmd = "R\n"
+    elseif &filetype == 'julia'
+		let cmd = "julia\n"
+    elseif &filetype == 'python'
+		let cmd = "python\n"
+    else
+		let cmd = ""
+    endif
+
+	if a:vert
+		execute "vertical terminal! " . cmd
+	else
+		execute "terminal! " . cmd
+	endif
+
+	execute "normal! \<c-w>x"
+endfunction
+```
+
+I have defined interpreters for three specific languages. Of course, you can
+add your own filetypes and commands as additional cases. To see the filetype
+of a certain script, open the file and run `:echo(&filetype)` in normal mode.
+Also note that when `cmd` is a non-empty command, the terminal will halt when
+the command exits. However, it will remain open in the halted state until we
+exit (e.g., via `:q`). This allows us to note any error messages from our code
+that may have crashed the console.
+
+# Define Keybindings
+
+We will set several keybindings to interact with our functions. First, let us
+define the leader key if it has not been defined already. A space is commonly
+used for this purpose.
+
+```{vim}
+let mapleader = " "
+```
+
+The following to send content from a script to the console.
+
+```{vim}
+nnoremap <silent> <leader><leader> :call SendToTerm(getline('.')."\n")<cr>g$/\S<cr>:nohl<cr>
+xnoremap <expr> <leader><leader> mode() ==# 'V' ?
+\ 'y :<c-u>call SendToTerm(@")<cr>`>' :
+\ 'y :<c-u>call SendToTerm(@")<cr>`>:<c-u>call SendToTerm("\n")<cr>`<esc>'
+```
+
+The first binding is used from normal mode. It sends the current line under the
+cursor to the console and moves cursor to the next non-whitespace character
+after the line. This allows use to type `<space><space>` repeatedly to step
+through the script and run commands line-by-line. Note that `:nohl` is used to
+suppress highlighting when we search for `/S` which is the next non-whitespace
+character.
+
+The second binding handles two distinct cases. The first case handles visual
+line mode, where entire lines are selected at a time (see `:h linewise-visual`).
+Here we send the entire select (which already includes a
+newline at the end) to the console, then move the cursor at the end of the
+selection. Note that `\`>` jumps the end of the last selection.  The second
+case handles regular visual mode which is character-by-character.  Here the
+select does not necessarily end with a newline, so we explicitly send a newline
+at the end. To use these bindinds, we highlight text in visual mode and type
+`<space><space>` to send it to the console.
+
+The next set of keybindings initializes our console: `<space>th` opens a
+console with a horizontal split and `<space>tv` opens a console with a vertical
+split.
+
+```{vim}
+nnoremap <silent> <leader>th :call FileTypeToTerm(v:false)<cr>
+nnoremap <silent> <leader>tv :call FileTypeToTerm(v:true)<cr>
+```
+
