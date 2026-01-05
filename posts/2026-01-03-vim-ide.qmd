@@ -132,15 +132,16 @@ I have defined programs for three specific languages. Of course, you can modify
 this for your own cases.
 
 ::: {.callout-tip}
-To see the filetype of a certain script, open the file and run
+The strings `'r'`, `'julia'`, and `'python'` represent designated file types in
+Vim. To display the file type for the currently open buffer, use the command
 `:echo(&filetype)` in normal mode.
 :::
 
 ::: {.callout-tip}
 When `cmd` is a non-empty command, the terminal will halt when the command
 exits. However, the Vim window will remain open in the halted state until we
-exit (e.g., via `:q`). This allows us to note any error messages from our code
-in case we crashed the console and did not exit on purpose.
+exit (e.g., via `:q`). This allows us to note any error messages from our code,
+in case the console crashed or the exit was otherwise not intentional.
 :::
 
 # Keybindings
