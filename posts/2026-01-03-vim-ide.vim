@@ -39,10 +39,11 @@ endfunction
 
 let mapleader = " "
 
-nnoremap <silent> <leader><leader> :call SendToTerm(getline('.')."\n")<cr>g$/\S<cr>:nohl<cr>
-xnoremap <expr> <leader><leader> mode() ==# 'V' ?
+nnoremap <silent> <leader><leader> :call SendToTerm(getline('.')."\n")<cr>g$
+\:call search('\S', 'W')<cr>:nohl<cr>
+xnoremap <expr> <silent> <leader><leader> mode() ==# 'V' ?
 \ 'y :<c-u>call SendToTerm(@")<cr>`>' :
-\ 'y :<c-u>call SendToTerm(@")<cr>`>:<c-u>call SendToTerm("\n")<cr>`<esc>'
+\ 'y :<c-u>call SendToTerm(@" . "\n")<cr>`>'
 
 nnoremap <silent> <leader>th :call FileTypeToTerm(v:false)<cr>
 nnoremap <silent> <leader>tv :call FileTypeToTerm(v:true)<cr>
