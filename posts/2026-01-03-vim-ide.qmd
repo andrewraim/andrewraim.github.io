@@ -25,7 +25,7 @@ using one of our keybindings, issue some R commands from the script using
 several other bindings, and then close Vim.
 
 A file with the all of the functions and keybindings is given
-[here](2026-01-03-vim-ide.vim). The easiest way to use it is to paste the
+[here](/downloads/vim-ide/vimrc). The easiest way to use it is to paste the
 contents into your own [vimrc][h-vimrc] file; however, it is also possible to
 use a more modular configuration with multiple files.
 
@@ -35,7 +35,7 @@ IDE, see [vim-slime][vim-slime], [R.nvim][R.nvim] for R and [Neovim][neovim],
 options for tmux if you'd like persistant terminal sessions or are not
 primarily focused on Vim.
 
-![A quick demonstration of Vim as an IDE.](2026-01-03-vim-ide.svg){#fig-demo}
+![A quick demonstration of Vim as an IDE.](/downloads/vim-ide/demo.svg){#fig-demo}
 
 ::: {.callout-caution}
 The code shown in this post is written in the Vimscript scripting language. I
