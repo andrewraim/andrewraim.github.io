@@ -3,16 +3,11 @@
 
 function! SendToTerm(content)
 	let tl = term_list()
+
 	if len(tl) == 0
 		echom "No terminal buffer found"
-		return
-	endif
-
-	let term_buf_nr = tl[0]
-	if bufexists(term_buf_nr) && getbufvar(term_buf_nr, '&buftype') ==# 'terminal'
-		call term_sendkeys(term_buf_nr, a:content)
 	else
-		echom "No terminal buffer found"
+		call term_sendkeys(tl[0], a:content)
 	endif
 endfunction
 
