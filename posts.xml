@@ -23,18 +23,19 @@
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>There are a vast number of options for text editors, but one compelling reason to stick with the classic Vim is that it comes packaged with many Unix-based operating systems such as Linux. It is free, open source, and available almost everywhere. Despite its humble appearance, Vim is a powerful tool with extensive features and can be heavily customized.</p>
 <p>This post demonstrates some configuration changes that will let us use Vim as a simple integrated development environment (IDE), without the need for any additional plugins or a graphical environment. Here, one Vim window can be used to edit and run code and a second Vim window can be running a console. While editing the code, we can use a few keystrokes to run snippets in the console. We also make it easy to launch the console when we are editing a file. A small demonstration of the result is given in Figure&nbsp;1; here we launch an R console using one of our keybindings, issue some R commands from the script using several other bindings, and then close Vim.</p>
-<p>A file with the all of the functions and keybindings is given <a href="2026-01-03-vim-ide.vim">here</a>. The easiest way to use it is to paste the contents into your own <a href="https://vimhelp.org/usr_05.txt.html#05.1">vimrc</a> file; however, it is also possible to use a more modular configuration with multiple files.</p>
-<p>If you would prefer something more sophisticated than DIYing for a Vim-based IDE, see <a href="https://github.com/jpalardy/vim-slime">vim-slime</a>, <a href="https://github.com/R-nvim/R.nvim">R.nvim</a> for R and <a href="https://neovim.io">Neovim</a>, <a href="https://github.com/andreypopp/julia-repl-vim">julia-repl-vim</a> for Julia. There are probably also some good options for tmux if you’d like persistant terminal sessions or are not primarily focused on Vim.</p>
 <div id="fig-demo" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://andrewraim.github.io/posts/2026-01-03-vim-ide.svg" class="img-fluid figure-img">
+<img src="https://andrewraim.github.io/downloads/vim-ide/demo.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: A quick demonstration of Vim as an IDE.
 </figcaption>
 </figure>
 </div>
+<p>A file with the all of the functions and keybindings is given <a href="../downloads/vim-ide/vimrc">here</a>. The easiest way to use it is to paste the contents into your own <a href="https://vimhelp.org/usr_05.txt.html#05.1">vimrc</a> file; however, it is also possible to use a more modular configuration with multiple files.</p>
+<p>This material was developed using version 9.1.1882 of Vim. The embedded terminal that we will need was introduced in version 8.1.</p>
+<p>If you would prefer more sophisticated IDE capabilities than DIYing, see <a href="https://github.com/jpalardy/vim-slime">vim-slime</a>, <a href="https://github.com/R-nvim/R.nvim">R.nvim</a> for R within <a href="https://neovim.io">Neovim</a>, <a href="https://github.com/andreypopp/julia-repl-vim">julia-repl-vim</a> for Julia. There are probably also some good options for tmux if you’d like persistant terminal sessions or are not primarily focused on Vim.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -58,24 +59,20 @@ Caution
 </section>
 <section id="send-text-to-the-terminal" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Send Text to the Terminal</h1>
-<p>Our first function takes a string <code>content</code> and sends it to the terminal. There may be multiple terminals; in this simple implementation - and because I have never used more than one terminal in the same session) - we will always send our content to the first terminal.</p>
+<p>Our first function takes a string <code>content</code> and sends it to the terminal. There may be multiple terminals; in this simple implementation - and because I have never used more than one terminal in the same session - we will always send our content to the first terminal in the list.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1">function! SendToTerm(content)</span>
 <span id="cb1-2">    let tl = term_list()</span>
-<span id="cb1-3">    if len(tl) == 0</span>
-<span id="cb1-4">        echom "No terminal buffer found"</span>
-<span id="cb1-5">        return</span>
-<span id="cb1-6">    endif</span>
-<span id="cb1-7"></span>
-<span id="cb1-8">    let term_buf_nr = tl[0]</span>
-<span id="cb1-9">    if bufexists(term_buf_nr) &amp;&amp; getbufvar(term_buf_nr, '&amp;buftype') ==# 'terminal'</span>
-<span id="cb1-10">        call term_sendkeys(term_buf_nr, a:content)</span>
-<span id="cb1-11">    else</span>
-<span id="cb1-12">        echom "No terminal buffer found"</span>
-<span id="cb1-13">    endif</span>
-<span id="cb1-14">endfunction</span></code></pre></div></div>
+<span id="cb1-3"></span>
+<span id="cb1-4">    if len(tl) == 0</span>
+<span id="cb1-5">        echom "No terminal buffer found"</span>
+<span id="cb1-6">    else</span>
+<span id="cb1-7">        call term_sendkeys(tl[0], a:content)</span>
+<span id="cb1-8">    endif</span>
+<span id="cb1-9">endfunction</span></code></pre></div></div>
+<p>The function <code>term_list()</code> returns an array of terminal buffer numbers. If there are no terminal buffers, a notification to the user is printed with <code>echom</code>. Otherwise, the argument <code>content</code> is sent to the selected terminal using <code>term_sendkeys</code>.</p>
 </section>
-<section id="spawn-a-terminal" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Spawn a Terminal</h1>
+<section id="spawn-a-terminal-with-a-console-program" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Spawn a Terminal with a Console Program</h1>
 <p>The second function spawns a terminal with a suitable program to handle the type of file we are currently editing. If we don’t have a specific program in mind, we will spawn the terminal and just leave it at the command line.</p>
 <p>The function takes a boolean argument <code>vert</code>; the terminal will be started with a vertical split if <code>vert</code> is true, otherwise a horizontal split will be used. After the terminal is spawned, we exchange positions with the previous window. In vertical mode, this puts the script on the left and the terminal on the right. In horizontal mode, the script will be on top and the terminal will be underneath. This will also shift focus back to the script.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1">function! FileTypeToTerm(vert)</span>
@@ -125,8 +122,8 @@ Tip
 </div>
 </div>
 </section>
-<section id="bindings" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Bindings</h1>
+<section id="keybindings" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Keybindings</h1>
 <p>We will set several keybindings to interact with our functions. First, let us define the leader key, assuming it has not been defined already. A space is commonly used for this purpose.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1">let mapleader = " "</span></code></pre></div></div>
 <p>The following to send content from a script to the console.</p>
@@ -135,9 +132,9 @@ Tip
 <span id="cb4-3">xnoremap &lt;expr&gt; &lt;silent&gt; &lt;leader&gt;&lt;leader&gt; mode() ==# 'V' ?</span>
 <span id="cb4-4">\ 'y :&lt;c-u&gt;call SendToTerm(@")&lt;cr&gt;`&gt;' :</span>
 <span id="cb4-5">\ 'y :&lt;c-u&gt;call SendToTerm(@" . "\n")&lt;cr&gt;`&gt;'</span></code></pre></div></div>
-<p>The <code>nnoremap</code> binding is used in normal mode. It sends the current line under the cursor to the console and moves cursor to the next non-whitespace character after the line. The move is accomplished by pattern-matching for <code>\S</code>, with option <code>W</code> to avoid wrapping back to the beginning when we have reached the last line of non-whitespace. Note that <code>:nohl</code> is used to suppress highlighting during pattern searching.</p>
-<p>The <code>xnoremap</code> binding handles two distinct cases. The first case handles <a href="https://vimhelp.org/visual.txt.html#visual-start">visual line mode</a>, where entire lines are selected at a time. Here we send the entire select (which already includes a newline at the end) to the console, then move the cursor at the end of the selection. Note that <code>&lt;backtick&gt;</code> then <code>&gt;</code> jumps the end of the last selection.</p>
-<p>The second case handles regular visual mode which is character-by-character. Here the select does not necessarily end with a newline, so we explicitly send a newline at the end.</p>
+<p>The <code>nnoremap</code> binding is used in normal mode. It sends the current line under the cursor to the console and moves cursor to the next non-whitespace character after the line. The move is accomplished by pattern-matching for <code>\S</code>, with option <code>W</code> to avoid wrapping back to the beginning when we have reached the last line of non-whitespace. The command <code>:nohl</code> is used to suppress highlighting during pattern searching.</p>
+<p>The <code>xnoremap</code> binding handles two distinct cases. The first case handles <a href="https://vimhelp.org/visual.txt.html#visual-start">visual line mode</a>, where entire lines are selected at a time. Here we send the entire selection - which already includes a newline at the end - to the console, then move the cursor at the end of the selection using <code>&lt;backtick&gt;</code> then <code>&gt;</code>.</p>
+<p>The second case handles regular visual mode which is character-by-character. Here the selection ends with a non-newline character, so we explicitly send a newline at the end.</p>
 <p>The normal mode binding allows us to type <code>&lt;space&gt;&lt;space&gt;</code> repeatedly to step through the script and run commands line-by-line. The visual mode bindings allow us to highlight text in visual mode and type <code>&lt;space&gt;&lt;space&gt;</code> to send it to the console.</p>
 <p>The next set of keybindings initializes our console: <code>&lt;space&gt;th</code> opens a console with a horizontal split and <code>&lt;space&gt;tv</code> opens a console with a vertical split.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1">nnoremap &lt;silent&gt; &lt;leader&gt;th :call FileTypeToTerm(v:false)&lt;cr&gt;</span>
