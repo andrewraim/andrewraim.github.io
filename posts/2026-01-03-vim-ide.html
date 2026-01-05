@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-11-05">
+<meta name="dcterms.date" content="2026-01-03">
 
-<title>vws: Vertical Weighted Strips in R using C++ – Andrew M. Raim</title>
+<title>Using Vim as a Simple IDE without Plugins – Andrew M. Raim</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,27 +21,42 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -54,10 +69,10 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-aabf7386819eb4c68142384187e64324.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-6fd04bf5609b48bd4af23e2afddb5934.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -84,8 +99,6 @@ div.csl-indent {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Andrew M. Raim</span>
     </a>
@@ -132,9 +145,8 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><code>vws</code>: Vertical Weighted Strips in R using C++</h1>
+<h1 class="title">Using Vim as a Simple IDE without Plugins</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">article</div>
     <div class="quarto-category">programming</div>
   </div>
   </div>
@@ -147,7 +159,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 5, 2025</p>
+      <p class="date">January 3, 2026</p>
     </div>
   </div>
   
@@ -159,22 +171,134 @@ div.csl-indent {
 </header>
 
 
-<p><span class="citation" data-cites="VWS2024">Raim, Livsey, and Irimata (<a href="#ref-VWS2024" role="doc-biblioref">2024+</a>)</span> consider a method of proposal construction for rejection sampling referred to as vertical weighted strips (VWS). Here, the target density is regarded as a weighted density; i.e., the product of a weight function and a simpler (“base”) density function. The practitioner majorizes the weight function by providing another function that bounds it from above. The majorizing function is combined with the base density to form a proposal distribution. In many cases, it is useful (and also more convenient) to partition the support of the target and use a piecewise majorizer. In this case, the proposal distribution can be regarded as a finite mixture whose components are correspond to the regions in the partition.</p>
-<p>The <code>vws</code> package has been developed to support development of such proposals and their use in rejection sampling. Coding is primarily done in C++ using the provided API. Sampling functions may be then exposed in R via <a href="https://cran.r-project.org/package=Rcpp">Rcpp</a> for use in applications. A detailed guide to <code>vws</code> programming - including several worked examples - is provided in the package vignette.</p>
-<p><code>vws</code> package</p>
-<ul>
-<li>Deployed on <a href="https://cran.r-project.org/package=vws">CRAN</a></li>
-<li>Source on <a href="https://github.com/andrewraim/vws">Github</a></li>
-</ul>
-
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-VWS2024" class="csl-entry" role="listitem">
-Raim, Andrew M., James A. Livsey, and Kyle M. Irimata. 2024+. <span>“Rejection Sampling with Vertical Weighted Strips.”</span> <a href="https://arxiv.org/abs/2401.09696">https://arxiv.org/abs/2401.09696</a>.
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>There are a vast number of options for text editors, but one compelling reason to stick with the classic Vim is that it comes packaged with many Unix-based operating systems such as Linux. It is free, open source, and available almost everywhere. Despite its humble appearance, Vim is a powerful tool with extensive features and can be heavily customized.</p>
+<p>This post demonstrates some configuration changes that will let us use Vim as a simple integrated development environment (IDE), without the need for any additional plugins or a graphical environment. Here, one Vim window can be used to edit and run code and a second Vim window can be running a console. While editing the code, we can use a few keystrokes to run snippets in the console. We also make it easy to launch the console when we are editing a file. A small demonstration of the result is given in <a href="#fig-demo" class="quarto-xref">Figure&nbsp;1</a>; here we launch an R console using one of our keybindings, issue some R commands from the script using several other bindings, and then close Vim.</p>
+<p>A file with the all of the functions and keybindings is given <a href="2026-01-03-vim-ide.vim">here</a>. The easiest way to use it is to paste the contents into your own <a href="https://vimhelp.org/usr_05.txt.html#05.1">vimrc</a> file; however, it is also possible to use a more modular configuration with multiple files.</p>
+<p>If you would prefer something more sophisticated than DIYing for a Vim-based IDE, see <a href="https://github.com/jpalardy/vim-slime">vim-slime</a>, <a href="https://github.com/R-nvim/R.nvim">R.nvim</a> for R and <a href="https://neovim.io">Neovim</a>, <a href="https://github.com/andreypopp/julia-repl-vim">julia-repl-vim</a> for Julia. There are probably also some good options for tmux if you’d like persistant terminal sessions or are not primarily focused on Vim.</p>
+<div id="fig-demo" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="2026-01-03-vim-ide.svg" class="img-fluid figure-img">
 </div>
-</div></section></div></main> <!-- /main -->
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: A quick demonstration of Vim as an IDE.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The code shown in this post is written in the Vimscript scripting language. I am not very familiar with Vimscript, but was able to get things working with some help from AI and various forum posts. There are certainly opportunities for improvement in this code.</p>
+<p>Notice, for example in <a href="#fig-demo" class="quarto-xref">Figure&nbsp;1</a>, some of the content appears out of order as it is sent to the console. This is only a visual artifact: the code actually runs correctly, but we would prefer the display to be correct as well.</p>
+</div>
+</div>
+</section>
+<section id="embedded-terminal" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Embedded Terminal</h1>
+<p>We first note that Vim has its own internal terminal. We will make use of this to run an intrepreter for our language(s) of choice. To start a terminal from Vim, enter <code>:term</code> from normal mode. This starts the terminal in a horizontal split. See the documentation on <a href="https://vimhelp.org/windows.txt.html">windows</a> on how to change focus between windows, change their positions, resize them, etc. Exiting the terminal closes the split. We can also start a terminal with a vertical split using <code>:vert term</code> from normal mode.</p>
+<p>Suppose we have a vertical split with an R script on the left and a terminal running the R console on the right. We would like to be able to send text from the editor to be execute in the R console without too many keystrokes. We would also like the ability to quickly spawn that R console when we are working on an R script.</p>
+<p>We will now define two functions.</p>
+</section>
+<section id="send-text-to-the-terminal" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Send Text to the Terminal</h1>
+<p>Our first function takes a string <code>content</code> and sends it to the terminal. There may be multiple terminals; in this simple implementation - and because I have never used more than one terminal in the same session) - we will always send our content to the first terminal.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>function! SendToTerm(content)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    let tl = term_list()</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    if len(tl) == 0</span>
+<span id="cb1-4"><a href="#cb1-4"></a>        echom "No terminal buffer found"</span>
+<span id="cb1-5"><a href="#cb1-5"></a>        return</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    endif</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>    let term_buf_nr = tl[0]</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    if bufexists(term_buf_nr) &amp;&amp; getbufvar(term_buf_nr, '&amp;buftype') ==# 'terminal'</span>
+<span id="cb1-10"><a href="#cb1-10"></a>        call term_sendkeys(term_buf_nr, a:content)</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    else</span>
+<span id="cb1-12"><a href="#cb1-12"></a>        echom "No terminal buffer found"</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    endif</span>
+<span id="cb1-14"><a href="#cb1-14"></a>endfunction</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="spawn-a-terminal" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Spawn a Terminal</h1>
+<p>The second function spawns a terminal with a suitable program to handle the type of file we are currently editing. If we don’t have a specific program in mind, we will spawn the terminal and just leave it at the command line.</p>
+<p>The function takes a boolean argument <code>vert</code>; the terminal will be started with a vertical split if <code>vert</code> is true, otherwise a horizontal split will be used. After the terminal is spawned, we exchange positions with the previous window. In vertical mode, this puts the script on the left and the terminal on the right. In horizontal mode, the script will be on top and the terminal will be underneath. This will also shift focus back to the script.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>function! FileTypeToTerm(vert)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    if &amp;filetype == 'r'</span>
+<span id="cb2-3"><a href="#cb2-3"></a>        let cmd = "R\n"</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    elseif &amp;filetype == 'julia'</span>
+<span id="cb2-5"><a href="#cb2-5"></a>        let cmd = "julia\n"</span>
+<span id="cb2-6"><a href="#cb2-6"></a>    elseif &amp;filetype == 'python'</span>
+<span id="cb2-7"><a href="#cb2-7"></a>        let cmd = "python\n"</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    else</span>
+<span id="cb2-9"><a href="#cb2-9"></a>        let cmd = ""</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    endif</span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a>    if a:vert</span>
+<span id="cb2-13"><a href="#cb2-13"></a>        execute "vertical terminal! " . cmd</span>
+<span id="cb2-14"><a href="#cb2-14"></a>    else</span>
+<span id="cb2-15"><a href="#cb2-15"></a>        execute "terminal! " . cmd</span>
+<span id="cb2-16"><a href="#cb2-16"></a>    endif</span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a>    execute "normal! \&lt;c-w&gt;x"</span>
+<span id="cb2-19"><a href="#cb2-19"></a>endfunction</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>I have defined programs for three specific languages. Of course, you can modify this for your own cases.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To see the filetype of a certain script, open the file and run <code>:echo(&amp;filetype)</code> in normal mode.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When <code>cmd</code> is a non-empty command, the terminal will halt when the command exits. However, the Vim window will remain open in the halted state until we exit (e.g., via <code>:q</code>). This allows us to note any error messages from our code in case we crashed the console and did not exit on purpose.</p>
+</div>
+</div>
+</section>
+<section id="bindings" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Bindings</h1>
+<p>We will set several keybindings to interact with our functions. First, let us define the leader key, assuming it has not been defined already. A space is commonly used for this purpose.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>let mapleader = " "</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The following to send content from a script to the console.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>nnoremap &lt;silent&gt; &lt;leader&gt;&lt;leader&gt; :call SendToTerm(getline('.')."\n")&lt;cr&gt;g$</span>
+<span id="cb4-2"><a href="#cb4-2"></a>\:call search('\S', 'W')&lt;cr&gt;:nohl&lt;cr&gt;</span>
+<span id="cb4-3"><a href="#cb4-3"></a>xnoremap &lt;expr&gt; &lt;silent&gt; &lt;leader&gt;&lt;leader&gt; mode() ==# 'V' ?</span>
+<span id="cb4-4"><a href="#cb4-4"></a>\ 'y :&lt;c-u&gt;call SendToTerm(@")&lt;cr&gt;`&gt;' :</span>
+<span id="cb4-5"><a href="#cb4-5"></a>\ 'y :&lt;c-u&gt;call SendToTerm(@" . "\n")&lt;cr&gt;`&gt;'</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>nnoremap</code> binding is used in normal mode. It sends the current line under the cursor to the console and moves cursor to the next non-whitespace character after the line. The move is accomplished by pattern-matching for <code>\S</code>, with option <code>W</code> to avoid wrapping back to the beginning when we have reached the last line of non-whitespace. Note that <code>:nohl</code> is used to suppress highlighting during pattern searching.</p>
+<p>The <code>xnoremap</code> binding handles two distinct cases. The first case handles <a href="https://vimhelp.org/visual.txt.html#visual-start">visual line mode</a>, where entire lines are selected at a time. Here we send the entire select (which already includes a newline at the end) to the console, then move the cursor at the end of the selection. Note that <code>&lt;backtick&gt;</code> then <code>&gt;</code> jumps the end of the last selection.</p>
+<p>The second case handles regular visual mode which is character-by-character. Here the select does not necessarily end with a newline, so we explicitly send a newline at the end.</p>
+<p>The normal mode binding allows us to type <code>&lt;space&gt;&lt;space&gt;</code> repeatedly to step through the script and run commands line-by-line. The visual mode bindings allow us to highlight text in visual mode and type <code>&lt;space&gt;&lt;space&gt;</code> to send it to the console.</p>
+<p>The next set of keybindings initializes our console: <code>&lt;space&gt;th</code> opens a console with a horizontal split and <code>&lt;space&gt;tv</code> opens a console with a vertical split.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href="#cb5-1"></a>nnoremap &lt;silent&gt; &lt;leader&gt;th :call FileTypeToTerm(v:false)&lt;cr&gt;</span>
+<span id="cb5-2"><a href="#cb5-2"></a>nnoremap &lt;silent&gt; &lt;leader&gt;tv :call FileTypeToTerm(v:true)&lt;cr&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
