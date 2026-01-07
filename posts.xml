@@ -10,9 +10,864 @@
 <atom:link href="https://andrewraim.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Sat, 03 Jan 2026 05:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 06 Jan 2026 05:00:00 GMT</lastBuildDate>
 <item>
-  <title>Using Vim as a Simple IDE without Plugins</title>
+  <title>Customized Bash Prompt</title>
+  <link>https://andrewraim.github.io/posts/2026-01-06-bash-prompt.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>I have used <a href="https://www.gnu.org/software/bash">Bash</a> for the vast majority of time as a Unix / Linux user. It is always the default shell and sometimes I don’t have access to change it. Modern shells like <a href="https://www.zsh.org">Zsh</a> and <a href="https://fishshell.com">Fish</a> appear to offer better aesthetics and more information; however, we can also customize the Bash prompt. Here I will show some customizations that I am enjoying.</p>
+<p>The complete script is <a href="../downloads/2026-01-06-bash-prompt/prompt">here</a>. To activate it in a Bash session, use the <code>source</code> command as follows.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">source</span> /path/to/prompt</span></code></pre></div></div>
+<p>To apply it to new sessions, include the line above in your <code>~/.bashrc</code> file.</p>
+</section>
+<section id="environment-variables-for-the-prompt" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Environment Variables for the Prompt</h1>
+<p>The prompt can be set by manipulating the <code>PS1</code> and <code>PS2</code> environment variables. <code>PS1</code> is the primary prompt and <code>PS2</code> is the “continuation” prompt which is shown when a command spans more than one line. There are also <code>PS0</code>, <code>PS3</code> and <code>PS4</code> prompts used in other particular situations, discussed in the <code>bash</code> manual page.</p>
+<p>The defaults for <code>PS1</code> and <code>PS2</code> are usually something like the following. There may also be codes added to make the display colorful, but we will omit them for now.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"[\u@\h:\w]</span><span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\$</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> "</span></span>
+<span id="cb2-2"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"&gt; "</span></span>
+<span id="cb2-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">[araim@localhost:~/.config/systemd/user]$</span></span></code></pre></div></div>
+<p>The prompts appear as follows.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">[araim@localhost:~/.config/systemd/user]$</span> echo <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hello world"</span></span>
+<span id="cb3-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">hello</span> world</span>
+<span id="cb3-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">[araim@localhost:~/.config/systemd/user]$</span> for i in 1 2 3</span>
+<span id="cb3-4"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> do</span>
+<span id="cb3-5"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> echo <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hello world </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$i</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb3-6"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> done</span>
+<span id="cb3-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">hello</span> world 1</span>
+<span id="cb3-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">hello</span> world 2</span>
+<span id="cb3-9"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">hello</span> world 3</span>
+<span id="cb3-10"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">[araim@localhost:~/.config/systemd/user]$</span></span></code></pre></div></div>
+</section>
+<section id="placeholders-and-aesthetic-prompt-symbol" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Placeholders and Aesthetic Prompt Symbol</h1>
+<p>The strings <code>\u</code>, <code>\h</code>, and <code>\w</code> are placeholders for the username, hostname, and current working directory. See the <code>PROMPTING</code> section of the Bash manual page for the list of available placeholders.</p>
+<p>The typing area can start to feel cramped if there is a lot of information in front of it, so let’s include a newline after the information. For aesthetics, let’s also replace the ascii <code>&gt;</code> with the unicode glyph <code>❱</code> “Heavy right-pointing angle bracket ornament” which has hex code <code>2771</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\u@\h'</span></span>
+<span id="cb4-2"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">':'</span></span>
+<span id="cb4-3"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\w'</span></span>
+<span id="cb4-4"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\$'</span></span>
+<span id="cb4-5"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\n'</span></span>
+<span id="cb4-6"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'❱'</span></span>
+<span id="cb4-7"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">' '</span></span>
+<span id="cb4-8"></span>
+<span id="cb4-9"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"❱ "</span></span></code></pre></div></div>
+<p>This is how it looks now.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">araim@localhost:~/.config/systemd/user$</span></span>
+<span id="cb5-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span> echo <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hello world"</span></span>
+<span id="cb5-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">hello</span> world</span>
+<span id="cb5-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">araim@localhost:~/.config/systemd/user$</span></span>
+<span id="cb5-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span> for i in 1 2 3</span>
+<span id="cb5-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span> do</span>
+<span id="cb5-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span> echo <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hello world </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$i</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span> done</span>
+<span id="cb5-9"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">hello</span> world 1</span>
+<span id="cb5-10"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">hello</span> world 2</span>
+<span id="cb5-11"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">hello</span> world 3</span>
+<span id="cb5-12"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">araim@localhost:~/.config/systemd/user$</span></span></code></pre></div></div>
+<p>The <code>\h</code> element can become very long for deeply nested paths. We can limit the number of parent directories in the display using the <code>PROMPT_DIRTRIM</code> environment variable.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">araim@localhost:~/.config/systemd/user$</span></span>
+<span id="cb6-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span> mkdir <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-p</span> very/long/path</span>
+<span id="cb6-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">araim@localhost:~/.config/systemd/user$</span></span>
+<span id="cb6-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span> cd very/long/path</span>
+<span id="cb6-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">araim@localhost:~/.config/systemd/user/very/long/path$</span></span>
+<span id="cb6-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span> PROMPT_DIRTRIM=3</span>
+<span id="cb6-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">araim@localhost:~/.../very/long/path$</span></span>
+<span id="cb6-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span></span></code></pre></div></div>
+</section>
+<section id="custom-information-with-function-calls" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Custom Information with Function Calls</h1>
+<p>If our current working directory is within a Git repo, it could be useful to have the repo name and current branch displayed on the prompt. Let’s define a Bash function to gather that information.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">prompt_git()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb7-2">    <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">basedir</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> rev-parse <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--show-toplevel</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> /dev/null<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">||</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span></span>
+<span id="cb7-3">    <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">repo</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">basename</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${basedir})</span></span>
+<span id="cb7-4">    <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">branch</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> rev-parse <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--abbrev-ref</span> HEAD<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb7-5">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-ne</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">" ➜</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${repo}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">:</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${branch}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb7-6"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span></code></pre></div></div>
+<p>The arrow glyph <code>➜</code> is the unicode “Heavy round-tipped rightward arrow” character with hex code <code>279C</code>. Include a call to <code>prompt_git</code> in our primary prompt.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\u@\h'</span></span>
+<span id="cb8-2"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">':'</span></span>
+<span id="cb8-3"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\w'</span></span>
+<span id="cb8-4"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\$'</span></span>
+<span id="cb8-5"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'$(prompt_git)'</span></span>
+<span id="cb8-6"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\n'</span></span>
+<span id="cb8-7"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'❱'</span></span>
+<span id="cb8-8"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">' '</span></span></code></pre></div></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span> cd ~/.config/systemd/user</span>
+<span id="cb9-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">araim@localhost:~/.config/systemd/user$</span>                <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">## Not a git repo</span></span>
+<span id="cb9-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span> cd vimrc/</span>
+<span id="cb9-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">araim@localhost:~/.../systemd/user/vimrc$</span> ➜vimrc:main  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">## A git repo</span></span>
+<span id="cb9-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span></span></code></pre></div></div>
+<p>Another useful piece of information would be the return code from the previous command. But let’s only display if is something other than zero.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">prompt_prefix()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb10-2">    <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]]</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">||</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-ne</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"[</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">] "</span></span>
+<span id="cb10-3"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span></code></pre></div></div>
+<p>Notice that <code>prompt_prefix</code> takes one argument which is a return code. We should call this first to ensure that it is the return code from the last command.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There is also a <code>PROMPT_COMMAND</code> environment variable that can be used to take some action before <code>PS1</code> is displayed. This can also be used to check the last command’s return code. However, if <code>PROMPT_COMMAND</code> is doing something to set the return code in <code>$?</code>, it may interfere with <code>prompt_prefix</code>.</p>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'$(prompt_prefix $?)'</span></span>
+<span id="cb11-2"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\u@\h'</span></span>
+<span id="cb11-3"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">':'</span></span>
+<span id="cb11-4"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\w'</span></span>
+<span id="cb11-5"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\$'</span></span>
+<span id="cb11-6"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'$(prompt_git)'</span></span>
+<span id="cb11-7"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\n'</span></span>
+<span id="cb11-8"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'❱'</span></span>
+<span id="cb11-9"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">' '</span></span></code></pre></div></div>
+<p>Here is how it looks.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">araim@localhost:~/.config/systemd/user$</span></span>
+<span id="cb12-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span> git rev-parse <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--show-toplevel</span></span>
+<span id="cb12-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">fatal:</span> not a git repository <span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">or</span> any parent up to mount point /<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span></span>
+<span id="cb12-4"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">Stopping</span> at filesystem boundary <span class="er" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">GIT_DISCOVERY_ACROSS_FILESYSTEM</span> not set<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">.</span></span>
+<span id="cb12-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">[128]</span> araim@localhost:~/.config/systemd/user$</span>
+<span id="cb12-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span> cd vimrc</span>
+<span id="cb12-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">araim@localhost:~/.../systemd/user/vimrc$</span> ➜vimrc:main</span>
+<span id="cb12-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span> git rev-parse <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--show-toplevel</span></span>
+<span id="cb12-9"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">/home/araim/.config/systemd/user/vimrc</span></span>
+<span id="cb12-10"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">araim@localhost:~/.../systemd/user/vimrc$</span> ➜vimrc:main</span>
+<span id="cb12-11"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">❱</span></span></code></pre></div></div>
+</section>
+<section id="colors" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Colors</h1>
+<p>Let’s apply some basic colors. This will help to distinguish the prompt from other activity in the terminal. Define environment variables for three colors and insert them into the primary prompt.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">COL_FG</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\033[38;5;016m'</span></span>
+<span id="cb13-2"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">COL_BG</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\033[48;5;002m'</span></span>
+<span id="cb13-3"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">COL_OFF</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\033[0m'</span></span>
+<span id="cb13-4"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\[</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${COL_FG}${COL_BG}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\]"</span></span>
+<span id="cb13-5"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'$(prompt_prefix $?)'</span></span>
+<span id="cb13-6"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\u@\h'</span></span>
+<span id="cb13-7"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">':'</span></span>
+<span id="cb13-8"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\w'</span></span>
+<span id="cb13-9"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\$'</span></span>
+<span id="cb13-10"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'$(prompt_git)'</span></span>
+<span id="cb13-11"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\[</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${COL_OFF}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\]"</span></span>
+<span id="cb13-12"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\n'</span></span>
+<span id="cb13-13"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'❱'</span></span>
+<span id="cb13-14"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">' '</span></span></code></pre></div></div>
+<p>Here, <code>\033[</code> is an ASCII control sequence, <code>38;5;016m</code> sets the foreground color (<code>38;5</code>) to black (<code>016</code>), and <code>48;5;002m</code> sets the background color (<code>48;5</code>) to green (<code>002</code>). The charater <code>m</code> signifies the end of the sequence. Color codes are wrapped in <code>\[ ... \]</code> to mark them as nonprintable characters: if this is omitted, the terminal will be glitchy when editing commands and traversing the command history. The site <a href="https://colors.sh">colors.sh</a> provides a nice interface to browse terminal colors find the corresponding codes. Figure&nbsp;2 shows the result so far.</p>
+<div id="fig-colors" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-colors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://andrewraim.github.io/downloads/2026-01-06-bash-prompt/term-colors.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-colors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Prompt with colors.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="informative-colors" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Informative Colors</h1>
+<p>It may be useful to change the color when there is a non-zero return code from the previous command, to serve as a visual indicator. We can update the <code>prompt_prefix</code> function to handle the colors as follows.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">prompt_prefix()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb14-2">    <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">COL_FG</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\033[38;5;016m"</span></span>
+<span id="cb14-3">    <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">COL_CLR_BG</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\033[48;5;002m"</span></span>
+<span id="cb14-4">    <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">COL_SET_BG</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\033[48;5;003m"</span></span>
+<span id="cb14-5"></span>
+<span id="cb14-6">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">[</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0"</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">]</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb14-7">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-ne</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${COL_FG}${COL_CLR_BG}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb14-8">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span></span>
+<span id="cb14-9">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-ne</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$COL_FG$COL_SET_BG</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb14-10">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-ne</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"[</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">] "</span></span>
+<span id="cb14-11">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb14-12"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span></code></pre></div></div>
+<p>Remove the colors from the beginning of <code>PS1</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'$(prompt_prefix $?)'</span></span>
+<span id="cb15-2"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\u@\h'</span></span>
+<span id="cb15-3"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">':'</span></span>
+<span id="cb15-4"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\w'</span></span>
+<span id="cb15-5"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\$'</span></span>
+<span id="cb15-6"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'$(prompt_git)'</span></span>
+<span id="cb15-7"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\[</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${COL_OFF}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">\]"</span></span>
+<span id="cb15-8"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\n'</span></span>
+<span id="cb15-9"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'❱'</span></span>
+<span id="cb15-10"><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">PS1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">' '</span></span></code></pre></div></div>
+<div id="fig-colors" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-colors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://andrewraim.github.io/downloads/2026-01-06-bash-prompt/term-color-status.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-colors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Prompt with colors based on status.
+</figcaption>
+</figure>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>linux</category>
+  <guid>https://andrewraim.github.io/posts/2026-01-06-bash-prompt.html</guid>
+  <pubDate>Tue, 06 Jan 2026 05:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Vim as a Simple IDE without Plugins</title>
   <link>https://andrewraim.github.io/posts/2026-01-03-vim-ide.html</link>
   <description><![CDATA[ 
 
@@ -26,14 +881,14 @@
 <div id="fig-demo" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://andrewraim.github.io/downloads/vim-ide/demo.svg" class="img-fluid figure-img">
+<img src="https://andrewraim.github.io/downloads/2026-01-03-vim-ide/demo.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: A quick demonstration of Vim as an IDE.
 </figcaption>
 </figure>
 </div>
-<p>A file with the all of the functions and keybindings is given <a href="../downloads/vim-ide/vimrc">here</a>. The easiest way to use it is to paste the contents into your own <a href="https://vimhelp.org/usr_05.txt.html#05.1">vimrc</a> file; however, it is also possible to use a more modular configuration with multiple files.</p>
+<p>A file with the all of the functions and keybindings is given <a href="../downloads/2026-01-03-vim-ide/vimrc">here</a>. The easiest way to use it is to paste the contents into your own <a href="https://vimhelp.org/usr_05.txt.html#05.1">vimrc</a> file; however, it is also possible to use a more modular configuration with multiple files.</p>
 <p>This material was developed using version 9.1.1882 of Vim. The embedded terminal that we will need was introduced in version 8.1.</p>
 <p>If you would prefer more sophisticated IDE capabilities than DIYing, see <a href="https://github.com/jpalardy/vim-slime">vim-slime</a>, <a href="https://github.com/R-nvim/R.nvim">R.nvim</a> for R within <a href="https://neovim.io">Neovim</a>, <a href="https://github.com/andreypopp/julia-repl-vim">julia-repl-vim</a> for Julia. There are probably also some good options for tmux if you’d like persistant terminal sessions or are not primarily focused on Vim.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
@@ -144,7 +999,7 @@ Tip
 </section>
 
  ]]></description>
-  <category>programming</category>
+  <category>linux</category>
   <guid>https://andrewraim.github.io/posts/2026-01-03-vim-ide.html</guid>
   <pubDate>Sat, 03 Jan 2026 05:00:00 GMT</pubDate>
 </item>

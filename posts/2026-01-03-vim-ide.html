@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-01-03">
 
-<title>Using Vim as a Simple IDE without Plugins – Andrew M. Raim</title>
+<title>Vim as a Simple IDE without Plugins – Andrew M. Raim</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -92,7 +92,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -138,16 +138,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#embedded-terminal" id="toc-embedded-terminal" class="nav-link" data-scroll-target="#embedded-terminal"><span class="header-section-number">2</span> Embedded Terminal</a></li>
+  <li><a href="#send-text-to-the-terminal" id="toc-send-text-to-the-terminal" class="nav-link" data-scroll-target="#send-text-to-the-terminal"><span class="header-section-number">3</span> Send Text to the Terminal</a></li>
+  <li><a href="#spawn-a-terminal-with-a-console-program" id="toc-spawn-a-terminal-with-a-console-program" class="nav-link" data-scroll-target="#spawn-a-terminal-with-a-console-program"><span class="header-section-number">4</span> Spawn a Terminal with a Console Program</a></li>
+  <li><a href="#keybindings" id="toc-keybindings" class="nav-link" data-scroll-target="#keybindings"><span class="header-section-number">5</span> Keybindings</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Using Vim as a Simple IDE without Plugins</h1>
+<h1 class="title">Vim as a Simple IDE without Plugins</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">programming</div>
+    <div class="quarto-category">linux</div>
   </div>
   </div>
 
@@ -178,14 +193,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="fig-demo" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../downloads/vim-ide/demo.svg" class="img-fluid figure-img">
+<img src="../downloads/2026-01-03-vim-ide/demo.svg" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: A quick demonstration of Vim as an IDE.
 </figcaption>
 </figure>
 </div>
-<p>A file with the all of the functions and keybindings is given <a href="../downloads/vim-ide/vimrc">here</a>. The easiest way to use it is to paste the contents into your own <a href="https://vimhelp.org/usr_05.txt.html#05.1">vimrc</a> file; however, it is also possible to use a more modular configuration with multiple files.</p>
+<p>A file with the all of the functions and keybindings is given <a href="../downloads/2026-01-03-vim-ide/vimrc">here</a>. The easiest way to use it is to paste the contents into your own <a href="https://vimhelp.org/usr_05.txt.html#05.1">vimrc</a> file; however, it is also possible to use a more modular configuration with multiple files.</p>
 <p>This material was developed using version 9.1.1882 of Vim. The embedded terminal that we will need was introduced in version 8.1.</p>
 <p>If you would prefer more sophisticated IDE capabilities than DIYing, see <a href="https://github.com/jpalardy/vim-slime">vim-slime</a>, <a href="https://github.com/R-nvim/R.nvim">R.nvim</a> for R within <a href="https://neovim.io">Neovim</a>, <a href="https://github.com/andreypopp/julia-repl-vim">julia-repl-vim</a> for Julia. There are probably also some good options for tmux if you’d like persistant terminal sessions or are not primarily focused on Vim.</p>
 <div class="callout callout-style-default callout-caution callout-titled">

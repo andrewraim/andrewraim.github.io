@@ -1,0 +1,35 @@
+#!/bin/bash
+
+COL_OFF='\033[0m'
+
+prompt_git() {
+	basedir=$(git rev-parse --show-toplevel 2> /dev/null) || return
+	repo=$(basename ${basedir})
+	branch=$(git rev-parse --abbrev-ref HEAD)
+	echo -ne " ➜${repo}:${branch}"
+}
+
+prompt_prefix() {
+	COL_FG="\033[38;5;016m"
+	COL_CLR_BG="\033[48;5;002m"
+	COL_SET_BG="\033[48;5;003m"
+
+	if [ "$1" == "0" ]; then
+		echo -ne "${COL_FG}${COL_CLR_BG}"
+	else
+		echo -ne "$COL_FG$COL_SET_BG"
+		echo -ne "[$1] "
+	fi
+}
+
+PS1='$(prompt_prefix $?)'
+PS1+='\u@\h'
+PS1+=':'
+PS1+='\w'
+PS1+='\$'
+PS1+='$(prompt_git)'
+PS1+="\[${COL_OFF}\]"
+PS1+='\n'
+PS1+='❱'
+PS1+=' '
+
