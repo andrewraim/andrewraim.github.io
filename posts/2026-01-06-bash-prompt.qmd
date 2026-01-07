@@ -14,13 +14,13 @@ I have used [Bash][bash] for the vast majority of time as a Unix / Linux user.
 It is always the default shell and sometimes I don't have access to change it.
 Modern shells like [Zsh][zsh] and [Fish][fish] appear to offer better
 aesthetics and more information; however, we can also customize the Bash
-prompt. Here I will show some customizations that I am enjoying, displayed
-in @fig-result.
+prompt. Here I will show some preferred customizations; @fig-result displays
+the results after implementing them.
 
 ![Prompt after customizations.][term-result]{#fig-result} 
 
-The complete script is [here][prompt]. To activate it in a Bash session, use the
-`source` command as follows.
+The complete script is [here][prompt]. To activate it in a Bash session, use
+the `source` command as follows.
 
 ```{.bash}
 source /path/to/prompt
@@ -154,28 +154,32 @@ araim@localhost:~/.../systemd/user/vimrc$ ➜vimrc:main  ## A git repo
 ❱
 ```
 
-Another useful piece of information would be the return code from the previous
-command. But let's only display if is something other than zero.
+Another useful piece of information would be the return code `$?` which was set
+by from the previous command. But let's only display if is something other than
+zero.
 
 ```{.bash}
-prompt_prefix() {
+prompt_ecode() {
 	[[ "$1" == "0" ]] || echo -ne "[$1] "
+	return $1
 }
 ```
 
-Notice that `prompt_prefix` takes one argument which is a return code. We
-should call this first to ensure that it is the return code from the last
-command.
+The function `prompt_ecode` takes one argument which is expected to be the
+value of `$?` set by the previous command. The caller must ensure we get this
+information before `$?` is reset by another operation.  We return `$1` to put
+the variable `$?` back to the same state, perhaps for another function to use
+it.
 
 ::: {.callout-note}
 There is also a `PROMPT_COMMAND` environment variable that can be used to take
 some action before `PS1` is displayed. This can also be used to check the last
 command's return code. However, if `PROMPT_COMMAND` is doing something to set
-the return code in `$?`, it may interfere with `prompt_prefix`.
+the return code in `$?`, it may interfere with `prompt_ecode`.
 :::
 
 ```{.bash}
-PS1='$(prompt_prefix $?)'
+PS1='$(prompt_ecode $?)'
 PS1+='\u@\h'
 PS1+=':'
 PS1+='\w'
@@ -190,16 +194,15 @@ Here is how it looks.
 
 ```{.bash}
 araim@localhost:~/.config/systemd/user$
-❱ git rev-parse --show-toplevel
-fatal: not a git repository (or any parent up to mount point /)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-[128] araim@localhost:~/.config/systemd/user$
 ❱ cd vimrc
 araim@localhost:~/.../systemd/user/vimrc$ ➜vimrc:main
-❱ git rev-parse --show-toplevel
-/home/araim/.config/systemd/user/vimrc
+❱ ech "hello world"
+bash: ech: command not found
+[127] araim@localhost:~/.../systemd/user/vimrc$ ➜vimrc:main
 araim@localhost:~/.../systemd/user/vimrc$ ➜vimrc:main
-❱
+❱ echo "hello world"
+hello world
+❱ 
 ```
 
 # Colors
@@ -213,7 +216,7 @@ COL_FG='\033[38;5;016m'
 COL_BG='\033[48;5;002m'
 COL_OFF='\033[0m'
 PS1="\[${COL_FG}${COL_BG}\]"
-PS1+='$(prompt_prefix $?)'
+PS1+='$(prompt_ecode $?)'
 PS1+='\u@\h'
 PS1+=':'
 PS1+='\w'
@@ -229,8 +232,8 @@ Here, `\033[` is an ASCII control sequence, `38;5;016m` sets the foreground
 color (`38;5`) to black (`016`), and `48;5;002m` sets the background color
 (`48;5`) to green (`002`). The charater `m` signifies the end of the sequence.
 Color codes are wrapped in `\[ ... \]` to mark them as nonprintable characters:
-if this is omitted, the terminal will be glitchy when editing commands and
-traversing the command history. The site [colors.sh](https://colors.sh)
+if this is omitted, the terminal will be glitchy when we are editing commands
+and traversing the command history. The website [colors.sh](https://colors.sh)
 provides a nice interface to browse terminal colors find the corresponding
 codes. @fig-colors shows the result so far.
 
@@ -239,11 +242,12 @@ codes. @fig-colors shows the result so far.
 # Informative Colors
 
 It may be useful to change the color when there is a non-zero return code from
-the previous command, to serve as a visual indicator. We can update the
-`prompt_prefix` function to handle the colors as follows.
+the previous command, to serve as a visual indicator. We add another function
+to handle the colors as follows. Again, argument `$1` should be the return code
+from the previous command; we return it in case we need it subsequently.
 
 ```{.bash}
-prompt_prefix() {
+prompt_color() {
 	COL_FG="\033[38;5;016m"
 	COL_CLR_BG="\033[48;5;002m"
 	COL_SET_BG="\033[48;5;003m"
@@ -252,15 +256,21 @@ prompt_prefix() {
 		echo -ne "${COL_FG}${COL_CLR_BG}"
 	else
 		echo -ne "${COL_FG}${COL_SET_BG}"
-		echo -ne "[$1] "
 	fi
+
+	return $1
 }
 ```
 
-Remove the colors from the beginning of `PS1`.
+Now the prompt background changes to olive / yellow if a nonzero status code
+was set by the last command.
+
+Remove the hard-coded colors from the beginning of `PS1` and call
+`prompt_color` instead.
 
 ```{.bash}
-PS1='$(prompt_prefix $?)'
+PS1='\[$(prompt_color $?)\]'
+PS1+='$(prompt_ecode $?)'
 PS1+='\u@\h'
 PS1+=':'
 PS1+='\w'
@@ -272,7 +282,7 @@ PS1+='❱'
 PS1+=' '
 ```
 
-![Prompt with colors based on status.][term-color-status]{#fig-colors} 
+This should result in the prompt from @fig-result.
 
 [bash]: https://www.gnu.org/software/bash
 [zsh]: https://www.zsh.org
@@ -280,5 +290,4 @@ PS1+=' '
 [prompt]: /downloads/2026-01-06-bash-prompt/prompt
 [term-result]: /downloads/2026-01-06-bash-prompt/term-result.svg
 [term-colors]: /downloads/2026-01-06-bash-prompt/term-colors.svg
-[term-color-status]: /downloads/2026-01-06-bash-prompt/term-color-status.svg
 

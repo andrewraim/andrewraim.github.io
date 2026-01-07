@@ -9,7 +9,12 @@ prompt_git() {
 	echo -ne " ➜${repo}:${branch}"
 }
 
-prompt_prefix() {
+prompt_ecode() {
+    [[ "$1" == "0" ]] || echo -ne "[$1] "
+	return $1
+}
+
+prompt_color() {
 	COL_FG="\033[38;5;016m"
 	COL_CLR_BG="\033[48;5;002m"
 	COL_SET_BG="\033[48;5;003m"
@@ -18,11 +23,13 @@ prompt_prefix() {
 		echo -ne "${COL_FG}${COL_CLR_BG}"
 	else
 		echo -ne "${COL_FG}${COL_SET_BG}"
-		echo -ne "[$1] "
 	fi
+
+	return $1
 }
 
-PS1='$(prompt_prefix $?)'
+PS1='\[$(prompt_color $?)\]'
+PS1+='$(prompt_ecode $?)'
 PS1+='\u@\h'
 PS1+=':'
 PS1+='\w'
