@@ -2,7 +2,7 @@
 title: "Using Vim as a Simple IDE without Plugins"
 date: 2026-01-03
 categories:
-  - programming
+  - linux
 number-sections: true
 ---
 

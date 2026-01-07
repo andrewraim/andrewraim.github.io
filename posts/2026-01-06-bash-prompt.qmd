@@ -1,0 +1,70 @@
+---
+title: "Customizations for the Bash Prompt"
+date: 2026-01-06
+categories:
+  - linux
+number-sections: true
+# draft: true
+---
+
+# Introduction
+
+During my time as a Unix/Linux user, I have mostly used the Bash shell. There
+are more modern shells like Zsh and Fish that appear to offer a lot more
+aesthetic and informative prompts. However, we can also make some
+customizations to the Bash prompt if we do not wish to (or cannot) migrate to
+another choice. We will present some customizations here. Whether you find my
+customizations to be improvements will be subjective, but it might help as a
+springboard for your own ideas.
+
+```{.bash}
+# Check for color support; assume compliance with Ecma-48 (ISO/IEC-6429)
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	if [ "$(tput colors)" -ge "256" ]; then
+		COL_FG="\033[38;5;016m"
+		COL_CLR_BG="\033[48;5;063m"
+		COL_SET_BG="\033[48;5;065m"
+		COL_OFF="\033[0m"
+	else
+		COL_FG="\033[38;5;016m"
+		COL_CLR_BG="\033[48;5;004m"
+		COL_SET_BG="\033[48;5;002m"
+		COL_OFF="\033[0m"
+	fi
+fi
+
+prompt_prefix() {
+	status=$1
+	if [ "$status" == "0" ]; then
+		echo -ne "${COL_FG}${COL_CLR_BG}"
+	else
+		echo -ne "$COL_FG$COL_SET_BG"
+		echo -ne "[$status] "
+	fi
+}
+
+# Information on first line (with colors if set above) and a prompt on second
+# line. The first part calls a function with the return code from the last
+# command.
+PS1='$(prompt_prefix $?)'
+#PS1+="*\D{%b %d} \t*"
+#PS1+=" "
+PS1+="\u@\h"
+PS1+=":"
+PS1+="\w"
+PS1+="\$"
+PS1+="\[$COL_OFF\]"
+PS1+="\n"
+PS1+="❯" # printf $'\\u276F\\n'
+PS1+=" "
+
+# Prompt for continued lines
+PS2="❯ "
+
+# Number of parent directories to show in '\h'
+PROMPT_DIRTRIM=2
+
+export PS1
+export PS2
+```
+
