@@ -1,70 +1,280 @@
 ---
-title: "Customizations for the Bash Prompt"
+title: "Customized Bash Prompt"
 date: 2026-01-06
 categories:
   - linux
 number-sections: true
-# draft: true
+toc: true
+toc-location: left
 ---
 
 # Introduction
 
-During my time as a Unix/Linux user, I have mostly used the Bash shell. There
-are more modern shells like Zsh and Fish that appear to offer a lot more
-aesthetic and informative prompts. However, we can also make some
-customizations to the Bash prompt if we do not wish to (or cannot) migrate to
-another choice. We will present some customizations here. Whether you find my
-customizations to be improvements will be subjective, but it might help as a
-springboard for your own ideas.
+I have used [Bash][bash] for the vast majority of time as a Unix / Linux user.
+It is always the default shell and sometimes I don't have access to change it.
+Modern shells like [Zsh][zsh] and [Fish][fish] appear to offer better
+aesthetics and more information; however, we can also customize the Bash
+prompt. Here I will show some customizations that I am enjoying.
+
+The complete script is [here][prompt]. To activate it in a Bash session, use the
+`source` command as follows.
 
 ```{.bash}
-# Check for color support; assume compliance with Ecma-48 (ISO/IEC-6429)
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	if [ "$(tput colors)" -ge "256" ]; then
-		COL_FG="\033[38;5;016m"
-		COL_CLR_BG="\033[48;5;063m"
-		COL_SET_BG="\033[48;5;065m"
-		COL_OFF="\033[0m"
-	else
-		COL_FG="\033[38;5;016m"
-		COL_CLR_BG="\033[48;5;004m"
-		COL_SET_BG="\033[48;5;002m"
-		COL_OFF="\033[0m"
-	fi
-fi
+source /path/to/prompt
+```
 
+To apply it to new sessions, include the line above in your `~/.bashrc` file.
+
+# Environment Variables for the Prompt
+
+The prompt can be set by manipulating the `PS1` and `PS2` environment
+variables.  `PS1` is the primary prompt and `PS2` is the "continuation" prompt
+which is shown when a command spans more than one line. There are also `PS0`,
+`PS3` and `PS4` prompts used in other particular situations, discussed in the
+`bash` manual page.
+
+The defaults for `PS1` and `PS2` are usually something like the following.
+There may also be codes added to make the display colorful, but we will omit
+them for now.
+
+```{.bash}
+PS1="[\u@\h:\w]\$ "
+PS2="> "
+[araim@localhost:~/.config/systemd/user]$
+```
+
+The prompts appear as follows.
+
+```{.bash}
+[araim@localhost:~/.config/systemd/user]$ echo "hello world"
+hello world
+[araim@localhost:~/.config/systemd/user]$ for i in 1 2 3
+> do
+> echo "hello world $i"
+> done
+hello world 1
+hello world 2
+hello world 3
+[araim@localhost:~/.config/systemd/user]$
+```
+
+# Placeholders and Aesthetic Prompt Symbol
+
+The strings `\u`, `\h`, and `\w` are placeholders for the username, hostname,
+and current working directory. See the `PROMPTING` section of the Bash manual
+page for the list of available placeholders.
+
+The typing area can start to feel cramped if there is a lot of information in
+front of it, so let's include a newline after the information. For aesthetics,
+let's also replace the ascii `>` with the unicode glyph `❱ ` "Heavy
+right-pointing angle bracket ornament" which has hex code `2771`.
+
+```{.bash}
+PS1='\u@\h'
+PS1+=':'
+PS1+='\w'
+PS1+='\$'
+PS1+='\n'
+PS1+='❱'
+PS1+=' '
+
+PS2="❱ "
+```
+
+This is how it looks now.
+
+```{.bash}
+araim@localhost:~/.config/systemd/user$
+❱ echo "hello world"
+hello world
+araim@localhost:~/.config/systemd/user$
+❱ for i in 1 2 3
+❱ do
+❱ echo "hello world $i"
+❱ done
+hello world 1
+hello world 2
+hello world 3
+araim@localhost:~/.config/systemd/user$
+```
+
+The `\h` element can become very long for deeply nested paths. We can limit
+the number of parent directories in the display using the `PROMPT_DIRTRIM`
+environment variable.
+
+```{.bash}
+araim@localhost:~/.config/systemd/user$
+❱ mkdir -p very/long/path
+araim@localhost:~/.config/systemd/user$
+❱ cd very/long/path
+araim@localhost:~/.config/systemd/user/very/long/path$
+❱ PROMPT_DIRTRIM=3
+araim@localhost:~/.../very/long/path$
+❱
+```
+
+# Custom Information with Function Calls
+
+If our current working directory is within a Git repo, it could be useful to
+have the repo name and current branch displayed on the prompt. Let's define a
+Bash function to gather that information.
+
+```{.bash}
+prompt_git() {
+	basedir=$(git rev-parse --show-toplevel 2> /dev/null) || return
+	repo=$(basename ${basedir})
+	branch=$(git rev-parse --abbrev-ref HEAD)
+	echo -ne " ➜${repo}:${branch}"
+}
+```
+
+The arrow glyph `➜` is the unicode "Heavy round-tipped rightward arrow"
+character with hex code `279C`. Include a call to `prompt_git` in our primary
+prompt.
+
+```{.bash}
+PS1='\u@\h'
+PS1+=':'
+PS1+='\w'
+PS1+='\$'
+PS1+='$(prompt_git)'
+PS1+='\n'
+PS1+='❱'
+PS1+=' '
+```
+
+```{.bash}
+❱ cd ~/.config/systemd/user
+araim@localhost:~/.config/systemd/user$                ## Not a git repo
+❱ cd vimrc/
+araim@localhost:~/.../systemd/user/vimrc$ ➜vimrc:main  ## A git repo
+❱
+```
+
+Another useful piece of information would be the return code from the previous
+command. But let's only display if is something other than zero.
+
+```{.bash}
 prompt_prefix() {
-	status=$1
-	if [ "$status" == "0" ]; then
+	[[ "$1" == "0" ]] || echo -ne "[$1] "
+}
+```
+
+Notice that `prompt_prefix` takes one argument which is a return code. We
+should call this first to ensure that it is the return code from the last
+command.
+
+::: {.callout-note}
+There is also a `PROMPT_COMMAND` environment variable that can be used to take
+some action before `PS1` is displayed. This can also be used to check the last
+command's return code. However, if `PROMPT_COMMAND` is doing something to set
+the return code in `$?`, it may interfere with `prompt_prefix`.
+:::
+
+```{.bash}
+PS1='$(prompt_prefix $?)'
+PS1+='\u@\h'
+PS1+=':'
+PS1+='\w'
+PS1+='\$'
+PS1+='$(prompt_git)'
+PS1+='\n'
+PS1+='❱'
+PS1+=' '
+```
+
+Here is how it looks.
+
+```{.bash}
+araim@localhost:~/.config/systemd/user$
+❱ git rev-parse --show-toplevel
+fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+[128] araim@localhost:~/.config/systemd/user$
+❱ cd vimrc
+araim@localhost:~/.../systemd/user/vimrc$ ➜vimrc:main
+❱ git rev-parse --show-toplevel
+/home/araim/.config/systemd/user/vimrc
+araim@localhost:~/.../systemd/user/vimrc$ ➜vimrc:main
+❱
+```
+
+# Colors
+
+Let's apply some basic colors. This will help to distinguish the prompt from
+other activity in the terminal. Define environment variables for three colors
+and insert them into the primary prompt.
+
+```{.bash}
+COL_FG='\033[38;5;016m'
+COL_BG='\033[48;5;002m'
+COL_OFF='\033[0m'
+PS1="\[${COL_FG}${COL_BG}\]"
+PS1+='$(prompt_prefix $?)'
+PS1+='\u@\h'
+PS1+=':'
+PS1+='\w'
+PS1+='\$'
+PS1+='$(prompt_git)'
+PS1+="\[${COL_OFF}\]"
+PS1+='\n'
+PS1+='❱'
+PS1+=' '
+```
+
+Here, `\033[` is an ASCII control sequence, `38;5;016m` sets the foreground
+color (`38;5`) to black (`016`), and `48;5;002m` sets the background color
+(`48;5`) to green (`002`). The charater `m` signifies the end of the sequence.
+Color codes are wrapped in `\[ ... \]` to mark them as nonprintable characters:
+if this is omitted, the terminal will be glitchy when editing commands and
+traversing the command history. The site [colors.sh](https://colors.sh)
+provides a nice interface to browse terminal colors find the corresponding
+codes. @fig-colors shows the result so far.
+
+![Prompt with colors.][term-colors]{#fig-colors} 
+
+# Informative Colors
+
+It may be useful to change the color when there is a non-zero return code from
+the previous command, to serve as a visual indicator. We can update the
+`prompt_prefix` function to handle the colors as follows.
+
+```{.bash}
+prompt_prefix() {
+	COL_FG="\033[38;5;016m"
+	COL_CLR_BG="\033[48;5;002m"
+	COL_SET_BG="\033[48;5;003m"
+
+	if [ "$1" == "0" ]; then
 		echo -ne "${COL_FG}${COL_CLR_BG}"
 	else
 		echo -ne "$COL_FG$COL_SET_BG"
-		echo -ne "[$status] "
+		echo -ne "[$1] "
 	fi
 }
-
-# Information on first line (with colors if set above) and a prompt on second
-# line. The first part calls a function with the return code from the last
-# command.
-PS1='$(prompt_prefix $?)'
-#PS1+="*\D{%b %d} \t*"
-#PS1+=" "
-PS1+="\u@\h"
-PS1+=":"
-PS1+="\w"
-PS1+="\$"
-PS1+="\[$COL_OFF\]"
-PS1+="\n"
-PS1+="❯" # printf $'\\u276F\\n'
-PS1+=" "
-
-# Prompt for continued lines
-PS2="❯ "
-
-# Number of parent directories to show in '\h'
-PROMPT_DIRTRIM=2
-
-export PS1
-export PS2
 ```
+
+Remove the colors from the beginning of `PS1`.
+
+```{.bash}
+PS1='$(prompt_prefix $?)'
+PS1+='\u@\h'
+PS1+=':'
+PS1+='\w'
+PS1+='\$'
+PS1+='$(prompt_git)'
+PS1+="\[${COL_OFF}\]"
+PS1+='\n'
+PS1+='❱'
+PS1+=' '
+```
+
+![Prompt with colors based on status.][term-color-status]{#fig-colors} 
+
+[bash]: https://www.gnu.org/software/bash
+[zsh]: https://www.zsh.org
+[fish]: https://fishshell.com
+[prompt]: /downloads/2026-01-06-bash-prompt/prompt
+[term-colors]: /downloads/2026-01-06-bash-prompt/term-colors.svg
+[term-color-status]: /downloads/2026-01-06-bash-prompt/term-color-status.svg
 
