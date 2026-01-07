@@ -189,7 +189,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
-<p>I have used <a href="https://www.gnu.org/software/bash">Bash</a> for the vast majority of time as a Unix / Linux user. It is always the default shell and sometimes I don’t have access to change it. Modern shells like <a href="https://www.zsh.org">Zsh</a> and <a href="https://fishshell.com">Fish</a> appear to offer better aesthetics and more information; however, we can also customize the Bash prompt. Here I will show some customizations that I am enjoying, displayed in <a href="#fig-result" class="quarto-xref">Figure&nbsp;1</a>.</p>
+<p>I have used <a href="https://www.gnu.org/software/bash">Bash</a> for the vast majority of time as a Unix / Linux user. It is always the default shell and sometimes I don’t have access to change it. Modern shells like <a href="https://www.zsh.org">Zsh</a> and <a href="https://fishshell.com">Fish</a> appear to offer better aesthetics and more information; however, we can also customize the Bash prompt. Here I will show some preferred customizations; <a href="#fig-result" class="quarto-xref">Figure&nbsp;1</a> displays the results after implementing them.</p>
 <div id="fig-result" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-result-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -282,11 +282,12 @@ Figure&nbsp;1: Prompt after customizations.
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ex">❱</span> cd vimrc/</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ex">araim@localhost:~/.../systemd/user/vimrc$</span> ➜vimrc:main  <span class="co">## A git repo</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ex">❱</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Another useful piece of information would be the return code from the previous command. But let’s only display if is something other than zero.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prompt_prefix()</span> <span class="kw">{</span></span>
+<p>Another useful piece of information would be the return code <code>$?</code> which was set by from the previous command. But let’s only display if is something other than zero.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prompt_ecode()</span> <span class="kw">{</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">[[</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"0"</span> <span class="kw">]]</span> <span class="kw">||</span> <span class="bu">echo</span> <span class="at">-ne</span> <span class="st">"[</span><span class="va">$1</span><span class="st">] "</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Notice that <code>prompt_prefix</code> takes one argument which is a return code. We should call this first to ensure that it is the return code from the last command.</p>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">$1</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The function <code>prompt_ecode</code> takes one argument which is expected to be the value of <code>$?</code> set by the previous command. The caller must ensure we get this information before <code>$?</code> is reset by another operation. We return <code>$1</code> to put the variable <code>$?</code> back to the same state, perhaps for another function to use it.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -297,10 +298,10 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>There is also a <code>PROMPT_COMMAND</code> environment variable that can be used to take some action before <code>PS1</code> is displayed. This can also be used to check the last command’s return code. However, if <code>PROMPT_COMMAND</code> is doing something to set the return code in <code>$?</code>, it may interfere with <code>prompt_prefix</code>.</p>
+<p>There is also a <code>PROMPT_COMMAND</code> environment variable that can be used to take some action before <code>PS1</code> is displayed. This can also be used to check the last command’s return code. However, if <code>PROMPT_COMMAND</code> is doing something to set the return code in <code>$?</code>, it may interfere with <code>prompt_ecode</code>.</p>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">=</span><span class="st">'$(prompt_prefix $?)'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">=</span><span class="st">'$(prompt_ecode $?)'</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'\u@\h'</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">':'</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'\w'</span></span>
@@ -311,16 +312,15 @@ Note
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">' '</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Here is how it looks.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">araim@localhost:~/.config/systemd/user$</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">❱</span> git rev-parse <span class="at">--show-toplevel</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">fatal:</span> not a git repository <span class="er">(</span><span class="ex">or</span> any parent up to mount point /<span class="kw">)</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Stopping</span> at filesystem boundary <span class="er">(</span><span class="ex">GIT_DISCOVERY_ACROSS_FILESYSTEM</span> not set<span class="kw">)</span><span class="bu">.</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[128]</span> araim@localhost:~/.config/systemd/user$</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ex">❱</span> cd vimrc</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">❱</span> cd vimrc</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ex">araim@localhost:~/.../systemd/user/vimrc$</span> ➜vimrc:main</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ex">❱</span> ech <span class="st">"hello world"</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ex">bash:</span> ech: command not found</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ex">[127]</span> araim@localhost:~/.../systemd/user/vimrc$ ➜vimrc:main</span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">araim@localhost:~/.../systemd/user/vimrc$</span> ➜vimrc:main</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ex">❱</span> git rev-parse <span class="at">--show-toplevel</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ex">/home/araim/.config/systemd/user/vimrc</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">araim@localhost:~/.../systemd/user/vimrc$</span> ➜vimrc:main</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="ex">❱</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ex">❱</span> echo <span class="st">"hello world"</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ex">hello</span> world</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ex">❱</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="colors" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Colors</h1>
@@ -329,7 +329,7 @@ Note
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="va">COL_BG</span><span class="op">=</span><span class="st">'\033[48;5;002m'</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="va">COL_OFF</span><span class="op">=</span><span class="st">'\033[0m'</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">=</span><span class="st">"\[</span><span class="va">${COL_FG}${COL_BG}</span><span class="st">\]"</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'$(prompt_prefix $?)'</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'$(prompt_ecode $?)'</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'\u@\h'</span></span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">':'</span></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'\w'</span></span>
@@ -339,7 +339,7 @@ Note
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'\n'</span></span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'❱'</span></span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">' '</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Here, <code>\033[</code> is an ASCII control sequence, <code>38;5;016m</code> sets the foreground color (<code>38;5</code>) to black (<code>016</code>), and <code>48;5;002m</code> sets the background color (<code>48;5</code>) to green (<code>002</code>). The charater <code>m</code> signifies the end of the sequence. Color codes are wrapped in <code>\[ ... \]</code> to mark them as nonprintable characters: if this is omitted, the terminal will be glitchy when editing commands and traversing the command history. The site <a href="https://colors.sh">colors.sh</a> provides a nice interface to browse terminal colors find the corresponding codes. <a href="#fig-colors" class="quarto-xref">Figure&nbsp;3</a> shows the result so far.</p>
+<p>Here, <code>\033[</code> is an ASCII control sequence, <code>38;5;016m</code> sets the foreground color (<code>38;5</code>) to black (<code>016</code>), and <code>48;5;002m</code> sets the background color (<code>48;5</code>) to green (<code>002</code>). The charater <code>m</code> signifies the end of the sequence. Color codes are wrapped in <code>\[ ... \]</code> to mark them as nonprintable characters: if this is omitted, the terminal will be glitchy when we are editing commands and traversing the command history. The website <a href="https://colors.sh">colors.sh</a> provides a nice interface to browse terminal colors find the corresponding codes. <a href="#fig-colors" class="quarto-xref">Figure&nbsp;2</a> shows the result so far.</p>
 <div id="fig-colors" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-colors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -353,8 +353,8 @@ Figure&nbsp;2: Prompt with colors.
 </section>
 <section id="informative-colors" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Informative Colors</h1>
-<p>It may be useful to change the color when there is a non-zero return code from the previous command, to serve as a visual indicator. We can update the <code>prompt_prefix</code> function to handle the colors as follows.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prompt_prefix()</span> <span class="kw">{</span></span>
+<p>It may be useful to change the color when there is a non-zero return code from the previous command, to serve as a visual indicator. We add another function to handle the colors as follows. Again, argument <code>$1</code> should be the return code from the previous command; we return it in case we need it subsequently.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prompt_color()</span> <span class="kw">{</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="va">COL_FG</span><span class="op">=</span><span class="st">"\033[38;5;016m"</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="va">COL_CLR_BG</span><span class="op">=</span><span class="st">"\033[48;5;002m"</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="va">COL_SET_BG</span><span class="op">=</span><span class="st">"\033[48;5;003m"</span></span>
@@ -362,31 +362,25 @@ Figure&nbsp;2: Prompt with colors.
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">[</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"0"</span> <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span></span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="at">-ne</span> <span class="st">"</span><span class="va">${COL_FG}${COL_CLR_BG}</span><span class="st">"</span></span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="at">-ne</span> <span class="st">"</span><span class="va">$COL_FG$COL_SET_BG</span><span class="st">"</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="at">-ne</span> <span class="st">"[</span><span class="va">$1</span><span class="st">] "</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Remove the colors from the beginning of <code>PS1</code>.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">=</span><span class="st">'$(prompt_prefix $?)'</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'\u@\h'</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">':'</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'\w'</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'\$'</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'$(prompt_git)'</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">"\[</span><span class="va">${COL_OFF}</span><span class="st">\]"</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'\n'</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'❱'</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">' '</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="fig-colors" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-colors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../downloads/2026-01-06-bash-prompt/term-color-status.svg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-colors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Prompt with colors based on status.
-</figcaption>
-</figure>
-</div>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="at">-ne</span> <span class="st">"</span><span class="va">${COL_FG}${COL_SET_BG}</span><span class="st">"</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">$1</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now the prompt background changes to olive / yellow if a nonzero status code was set by the last command.</p>
+<p>Remove the hard-coded colors from the beginning of <code>PS1</code> and call <code>prompt_color</code> instead.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">=</span><span class="st">'\[$(prompt_color $?)\]'</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'$(prompt_ecode $?)'</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'\u@\h'</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">':'</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'\w'</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'\$'</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'$(prompt_git)'</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">"\[</span><span class="va">${COL_OFF}</span><span class="st">\]"</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'\n'</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">'❱'</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="va">PS1</span><span class="op">+=</span><span class="st">' '</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This should result in the prompt from <a href="#fig-result" class="quarto-xref">Figure&nbsp;1</a>.</p>
 
 
 </section>
