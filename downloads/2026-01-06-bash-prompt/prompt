@@ -17,7 +17,7 @@ prompt_prefix() {
 	if [ "$1" == "0" ]; then
 		echo -ne "${COL_FG}${COL_CLR_BG}"
 	else
-		echo -ne "$COL_FG$COL_SET_BG"
+		echo -ne "${COL_FG}${COL_SET_BG}"
 		echo -ne "[$1] "
 	fi
 }
