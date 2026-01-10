@@ -1,5 +1,5 @@
 ---
-title: "Vim as a Simple IDE without Plugins II"
+title: "Vim as a Simple (R) IDE without Plugins II"
 date: 2026-01-09
 categories:
   - linux
@@ -21,25 +21,25 @@ Python, Julia, etc interactively without having to start a full IDE like
 - we just need a terminal session.
 
 In this post, we make a simple popup menu to work with R packages. If our
-current working directory is within an R package, we the menu will allow us to
-build & install, generate documentation, run a CRAN check, etc. That will take
-place in a terminal buffer running in the same Vim session. This post is
-specific to R, but the pattern might extend to other languages.
+current working directory is within an R package, the menu will allow us to
+build & install the package, generate its documentation, run a CRAN check, etc.
+That will take place in a terminal buffer running in the same Vim session. This
+post is specific to R, but the pattern might extend to other languages.
 
-The complete code is given in the following [vimrc][vimrc], which also includes
-the material from the [prequel](2026-01-03-vim-ide.qmd). As before, you can
-copy or import the contents into your own [vimrc][h-vimrc] file to make use of
-them.
+The complete code is given in a [vimrc][vimrc] file; this also includes the
+material from the [prequel](2026-01-03-vim-ide.qmd). As before, you can copy or
+import the contents into your own [vimrc][h-vimrc] file to make use of them.
 
-The final result is demonstrated in @fig-demo. Here is what is being shown.
+The final result is demonstrated in @fig-demo, where the following sequence is
+shown.
 
 1. Initially start Vim in a folder which is not an R package and see an alert
    when we try to bring up the menu.
 1. Exit Vim and change to another folder that is part of a package.
 1. Start Vim, try to build the package documentation, but get informed that no
    R terminal is running.
-1. Start an R terminal in Vim. Exchange windows so that terminal is on the
-   right.
+1. Start an R terminal in Vim and exchange windows so that terminal is on the
+   right side of the screen.
 1. Build package documentation and PDF manual using the menu.
 1. Run a line from the script window to view a manual page from the package.
 1. Switch focus to the terminal, close the manual page, and exit the session.
@@ -49,11 +49,12 @@ The final result is demonstrated in @fig-demo. Here is what is being shown.
 # Are we in an R Package?
 
 Suppose our current working directory is `/path/to/folder`. To determine
-whether we are in an R package, we check for the existence of a `DESCRIPTION`
-file in the current directory; if found, that will be considered the root of
-the project. Otherwise, we repeat the check in the parent directory `/path/to`.
-We proceed this way until there are no more parents to check. This follows the
-idea from the `find_package_root` function in the [desc][desc] R package.
+whether we are in an R package, we check for the existence of a
+[DESCRIPTION][desc-file] file in the current directory; if found, that will be
+considered the root of the project. Otherwise, we repeat the check in the
+parent directory `/path/to`. We proceed this way until we reach `/` where
+there are no more parents to check. This follows the idea from the
+`find_package_root` function in the [desc][desc] R package.
 
 The following Vimscript function carries this out.
 
@@ -78,16 +79,16 @@ function! RProjectRoot(path) abort
 endfunction
 ```
 
-Notice that an exception is thrown if we cannot find a `DESCRIPTION` file. The
-`fnamemodify` function is used to obtain the parent directory of the current
-path. If the argument `path` is the root, the result `newpath` will also be the
-root, and we have nothing else to check.
+The `fnamemodify` function is used to obtain the parent directory of the
+current path. If the argument `path` is the root, the result `newpath` will
+also be the root, and we have nothing else to check. An exception is thrown if
+we cannot find any `DESCRIPTION` file when we reach the root directory.
 
 # Menu Operations and R Functions
 
-If we are in an R package, our menu will carry out selected actions via
-corresponding calls to `devtools`. Those actions and function calls are shown
-in @tbl-devtools.
+If we determine that we are in an R package, our menu will carry out selected
+actions via corresponding calls to the R [devtools][devtools] package. This
+mapping is shown in @tbl-devtools.
 
 | Action | Function |
 |:-----|:-----|
@@ -108,14 +109,13 @@ in @tbl-devtools.
 For the Vim menu, we will use the `popup_menu` function. It takes an array of
 menu options and a dictionary of additional named arguments. We will set two
 named arguments: the title of the menu and a handler. The handler is another
-function that gets call when something is selected in the menu; its job is to
+function that is called when an item is selected in the menu; its job is to
 take the selection and carry out the desired action. Both of these functions
-are defined in an `RProjectMenu` function, which we can invoke to bring up the
-menu.
+are defined within an `RProjectMenu` function, is invoked to bring up the menu.
 
-The following snippet is an abridged version of `RProjectMenu`. The
-`MenuHandler` function is somewhat long, so the contents have been summarized
-here via comments.
+The following snippet is an abridged version of `RProjectMenu`, which can be
+seen in [vimrc][vimrc]. The `MenuHandler` function is somewhat long, so the
+contents are summarized as comments.
 
 ```{.vim}
 function! RProjectMenu() abort
@@ -152,11 +152,11 @@ endfunction
 
 ::: {.callout-note}
 
-In our implementation, we look for a terminal by name using the call
-`bufnr('R')`. This name will be set if we start the terminal using the method
-developed in the [previous](2026-01-03-vim-ide.qmd) post, or if we do either
-`:term('R')` or `:vert term('R')`. All three of these options start a dedicated
-terminal for R which will exit when the R session ends.
+In our implementation, we look for a terminal by name using the function call
+`bufnr('R')`. The `'R'` name will be set if we start the terminal using the
+method developed in the [prequel](2026-01-03-vim-ide.qmd) post, or if we start
+it manually via `:term('R')` or `:vert term('R')`. These actions start a
+dedicated terminal for R which will exit when the R session ends.
 
 It is also possible to repurpose a running terminal by changing its buffer
 name. To do this, take the following steps.
@@ -164,14 +164,14 @@ name. To do this, take the following steps.
 1. Change focus to the terminal window.
 1. Enter terminal-normal mode using keystrokes `<c-\><c-n>` (`Ctrl-\` then
    `Ctrl-n`).
-1. Type the command `:file R'` and hit `Enter` to run it.
+1. Enter the command `:file R'`.
 1. Type `i` to return to terminal-insert mode
 :::
 
 # Keybinding
 
 We can set a keybinding to easily call the menu. In the
-[previous](2026-01-03-vim-ide.qmd) post, we set the `<leader>` key to space bar.
+[prequel](2026-01-03-vim-ide.qmd) post, we set the `<leader>` key to space bar.
 Here we set `<leader>r` (i.e., `<space>` then `r`) as the binding to invoke the
 menu.
 
@@ -182,6 +182,8 @@ nnoremap <silent> <leader>r :call RProjectMenu()<cr>
 We should now be able to use the menu as in @fig-demo.
 
 [desc]: https://cran.r-project.org/package=desc
+[desc-file]: https://cran.r-project.org/doc/manuals/r-release/R-exts.html#The-DESCRIPTION-file
+[devtools]: https://CRAN.R-project.org/package=devtools
 [h-vimrc]: https://vimhelp.org/usr_05.txt.html#05.1
 [vimrc]: /downloads/2026-01-09-vim-ide-II/vimrc
 
