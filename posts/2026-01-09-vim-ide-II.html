@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-01-09">
 
-<title>Vim as a Simple IDE without Plugins II – Andrew M. Raim</title>
+<title>Vim as a Simple (R) IDE without Plugins II – Andrew M. Raim</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -160,7 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Vim as a Simple IDE without Plugins II</h1>
+<h1 class="title">Vim as a Simple (R) IDE without Plugins II</h1>
   <div class="quarto-categories">
     <div class="quarto-category">linux</div>
   </div>
@@ -189,14 +189,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>This post is a sequel to <a href="../posts/2026-01-03-vim-ide.html">Vim as a Simple IDE without Plugins</a>. There we showed how to send text from an open file in Vim to a console running another buffer in the same Vim session. This lets us step through scripts in R, Python, Julia, etc interactively without having to start a full IDE like <a href="https://posit.co">Rstudio</a>, or even necessarily be in a graphical environment - we just need a terminal session.</p>
-<p>In this post, we make a simple popup menu to work with R packages. If our current working directory is within an R package, we the menu will allow us to build &amp; install, generate documentation, run a CRAN check, etc. That will take place in a terminal buffer running in the same Vim session. This post is specific to R, but the pattern might extend to other languages.</p>
-<p>The complete code is given in the following <a href="../downloads/2026-01-09-vim-ide-II/vimrc">vimrc</a>, which also includes the material from the <a href="../posts/2026-01-03-vim-ide.html">prequel</a>. As before, you can copy or import the contents into your own <a href="https://vimhelp.org/usr_05.txt.html#05.1">vimrc</a> file to make use of them.</p>
-<p>The final result is demonstrated in <a href="#fig-demo" class="quarto-xref">Figure&nbsp;1</a>. Here is what is being shown.</p>
+<p>In this post, we make a simple popup menu to work with R packages. If our current working directory is within an R package, the menu will allow us to build &amp; install the package, generate its documentation, run a CRAN check, etc. That will take place in a terminal buffer running in the same Vim session. This post is specific to R, but the pattern might extend to other languages.</p>
+<p>The complete code is given in a <a href="../downloads/2026-01-09-vim-ide-II/vimrc">vimrc</a> file; this also includes the material from the <a href="../posts/2026-01-03-vim-ide.html">prequel</a>. As before, you can copy or import the contents into your own <a href="https://vimhelp.org/usr_05.txt.html#05.1">vimrc</a> file to make use of them.</p>
+<p>The final result is demonstrated in <a href="#fig-demo" class="quarto-xref">Figure&nbsp;1</a>, where the following sequence is shown.</p>
 <ol type="1">
 <li>Initially start Vim in a folder which is not an R package and see an alert when we try to bring up the menu.</li>
 <li>Exit Vim and change to another folder that is part of a package.</li>
 <li>Start Vim, try to build the package documentation, but get informed that no R terminal is running.</li>
-<li>Start an R terminal in Vim. Exchange windows so that terminal is on the right.</li>
+<li>Start an R terminal in Vim and exchange windows so that terminal is on the right side of the screen.</li>
 <li>Build package documentation and PDF manual using the menu.</li>
 <li>Run a line from the script window to view a manual page from the package.</li>
 <li>Switch focus to the terminal, close the manual page, and exit the session.</li>
@@ -214,7 +214,7 @@ Figure&nbsp;1: Demonstration.
 </section>
 <section id="are-we-in-an-r-package" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Are we in an R Package?</h1>
-<p>Suppose our current working directory is <code>/path/to/folder</code>. To determine whether we are in an R package, we check for the existence of a <code>DESCRIPTION</code> file in the current directory; if found, that will be considered the root of the project. Otherwise, we repeat the check in the parent directory <code>/path/to</code>. We proceed this way until there are no more parents to check. This follows the idea from the <code>find_package_root</code> function in the <a href="https://cran.r-project.org/package=desc">desc</a> R package.</p>
+<p>Suppose our current working directory is <code>/path/to/folder</code>. To determine whether we are in an R package, we check for the existence of a <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html#The-DESCRIPTION-file">DESCRIPTION</a> file in the current directory; if found, that will be considered the root of the project. Otherwise, we repeat the check in the parent directory <code>/path/to</code>. We proceed this way until we reach <code>/</code> where there are no more parents to check. This follows the idea from the <code>find_package_root</code> function in the <a href="https://cran.r-project.org/package=desc">desc</a> R package.</p>
 <p>The following Vimscript function carries this out.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>function! RProjectRoot(path) abort</span>
 <span id="cb1-2"><a href="#cb1-2"></a>    let path = a:path</span>
@@ -234,11 +234,11 @@ Figure&nbsp;1: Demonstration.
 <span id="cb1-16"><a href="#cb1-16"></a></span>
 <span id="cb1-17"><a href="#cb1-17"></a>    throw "Not within an R project: " . a:path</span>
 <span id="cb1-18"><a href="#cb1-18"></a>endfunction</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Notice that an exception is thrown if we cannot find a <code>DESCRIPTION</code> file. The <code>fnamemodify</code> function is used to obtain the parent directory of the current path. If the argument <code>path</code> is the root, the result <code>newpath</code> will also be the root, and we have nothing else to check.</p>
+<p>The <code>fnamemodify</code> function is used to obtain the parent directory of the current path. If the argument <code>path</code> is the root, the result <code>newpath</code> will also be the root, and we have nothing else to check. An exception is thrown if we cannot find any <code>DESCRIPTION</code> file when we reach the root directory.</p>
 </section>
 <section id="menu-operations-and-r-functions" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Menu Operations and R Functions</h1>
-<p>If we are in an R package, our menu will carry out selected actions via corresponding calls to <code>devtools</code>. Those actions and function calls are shown in <a href="#tbl-devtools" class="quarto-xref">Table&nbsp;1</a>.</p>
+<p>If we determine that we are in an R package, our menu will carry out selected actions via corresponding calls to the R <a href="https://CRAN.R-project.org/package=devtools">devtools</a> package. This mapping is shown in <a href="#tbl-devtools" class="quarto-xref">Table&nbsp;1</a>.</p>
 <div id="tbl-devtools" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-devtools-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -301,8 +301,8 @@ Table&nbsp;1: Menu operations and corresponding <code>devtools</code> functions.
 </section>
 <section id="menu-in-vim" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Menu in Vim</h1>
-<p>For the Vim menu, we will use the <code>popup_menu</code> function. It takes an array of menu options and a dictionary of additional named arguments. We will set two named arguments: the title of the menu and a handler. The handler is another function that gets call when something is selected in the menu; its job is to take the selection and carry out the desired action. Both of these functions are defined in an <code>RProjectMenu</code> function, which we can invoke to bring up the menu.</p>
-<p>The following snippet is an abridged version of <code>RProjectMenu</code>. The <code>MenuHandler</code> function is somewhat long, so the contents have been summarized here via comments.</p>
+<p>For the Vim menu, we will use the <code>popup_menu</code> function. It takes an array of menu options and a dictionary of additional named arguments. We will set two named arguments: the title of the menu and a handler. The handler is another function that is called when an item is selected in the menu; its job is to take the selection and carry out the desired action. Both of these functions are defined within an <code>RProjectMenu</code> function, is invoked to bring up the menu.</p>
+<p>The following snippet is an abridged version of <code>RProjectMenu</code>, which can be seen in <a href="../downloads/2026-01-09-vim-ide-II/vimrc">vimrc</a>. The <code>MenuHandler</code> function is somewhat long, so the contents are summarized as comments.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>function! RProjectMenu() abort</span>
 <span id="cb2-2"><a href="#cb2-2"></a>    function! MenuHandler(id, idx)</span>
 <span id="cb2-3"><a href="#cb2-3"></a>        " 1. Get the selected menu item</span>
@@ -343,20 +343,20 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In our implementation, we look for a terminal by name using the call <code>bufnr('R')</code>. This name will be set if we start the terminal using the method developed in the <a href="../posts/2026-01-03-vim-ide.html">previous</a> post, or if we do either <code>:term('R')</code> or <code>:vert term('R')</code>. All three of these options start a dedicated terminal for R which will exit when the R session ends.</p>
+<p>In our implementation, we look for a terminal by name using the function call <code>bufnr('R')</code>. The <code>'R'</code> name will be set if we start the terminal using the method developed in the <a href="../posts/2026-01-03-vim-ide.html">prequel</a> post, or if we start it manually via <code>:term('R')</code> or <code>:vert term('R')</code>. These actions start a dedicated terminal for R which will exit when the R session ends.</p>
 <p>It is also possible to repurpose a running terminal by changing its buffer name. To do this, take the following steps.</p>
 <ol type="1">
 <li>Change focus to the terminal window.</li>
 <li>Enter terminal-normal mode using keystrokes <code>&lt;c-\&gt;&lt;c-n&gt;</code> (<code>Ctrl-\</code> then <code>Ctrl-n</code>).</li>
-<li>Type the command ‘:file R’” and hit <code>Enter</code> to run it.</li>
-<li>Type ‘i’ to return to terminal-insert mode</li>
+<li>Enter the command <code>:file R'</code>.</li>
+<li>Type <code>i</code> to return to terminal-insert mode</li>
 </ol>
 </div>
 </div>
 </section>
 <section id="keybinding" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Keybinding</h1>
-<p>We can set a keybinding to easily call the menu. In the <a href="../posts/2026-01-03-vim-ide.html">previous</a> post, we set the <code>&lt;leader&gt;</code> key to space bar. Here we set <code>&lt;leader&gt;r</code> (i.e., <code>&lt;space&gt;</code> then <code>r</code>) as the binding to invoke the menu.</p>
+<p>We can set a keybinding to easily call the menu. In the <a href="../posts/2026-01-03-vim-ide.html">prequel</a> post, we set the <code>&lt;leader&gt;</code> key to space bar. Here we set <code>&lt;leader&gt;r</code> (i.e., <code>&lt;space&gt;</code> then <code>r</code>) as the binding to invoke the menu.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>nnoremap &lt;silent&gt; &lt;leader&gt;r :call RProjectMenu()&lt;cr&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We should now be able to use the menu as in <a href="#fig-demo" class="quarto-xref">Figure&nbsp;1</a>.</p>
 
