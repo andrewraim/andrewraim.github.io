@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-01-09">
+
+<title>Vim as a Simple IDE without Plugins II – Andrew M. Raim</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dc2739c3a36f13f89c7d6e4ed24a9fe8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Andrew M. Raim</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../posts.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../presentations.html"> 
+<span class="menu-text">Presentations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../software.html"> 
+<span class="menu-text">Software</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../resources.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#are-we-in-an-r-package" id="toc-are-we-in-an-r-package" class="nav-link" data-scroll-target="#are-we-in-an-r-package"><span class="header-section-number">2</span> Are we in an R Package?</a></li>
+  <li><a href="#menu-operations-and-r-functions" id="toc-menu-operations-and-r-functions" class="nav-link" data-scroll-target="#menu-operations-and-r-functions"><span class="header-section-number">3</span> Menu Operations and R Functions</a></li>
+  <li><a href="#menu-in-vim" id="toc-menu-in-vim" class="nav-link" data-scroll-target="#menu-in-vim"><span class="header-section-number">4</span> Menu in Vim</a></li>
+  <li><a href="#keybinding" id="toc-keybinding" class="nav-link" data-scroll-target="#keybinding"><span class="header-section-number">5</span> Keybinding</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Vim as a Simple IDE without Plugins II</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">linux</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 9, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>This post is a sequel to <a href="../posts/2026-01-03-vim-ide.html">Vim as a Simple IDE without Plugins</a>. There we showed how to send text from an open file in Vim to a console running another buffer in the same Vim session. This lets us step through scripts in R, Python, Julia, etc interactively without having to start a full IDE like <a href="https://posit.co">Rstudio</a>, or even necessarily be in a graphical environment - we just need a terminal session.</p>
+<p>In this post, we make a simple popup menu to work with R packages. If our current working directory is within an R package, we the menu will allow us to build &amp; install, generate documentation, run a CRAN check, etc. That will take place in a terminal buffer running in the same Vim session. This post is specific to R, but the pattern might extend to other languages.</p>
+<p>The complete code is given in the following <a href="../downloads/2026-01-09-vim-ide-II/vimrc">vimrc</a>, which also includes the material from the <a href="../posts/2026-01-03-vim-ide.html">prequel</a>. As before, you can copy or import the contents into your own <a href="https://vimhelp.org/usr_05.txt.html#05.1">vimrc</a> file to make use of them.</p>
+<p>The final result is demonstrated in <a href="#fig-demo" class="quarto-xref">Figure&nbsp;1</a>. Here is what is being shown.</p>
+<ol type="1">
+<li>Initially start Vim in a folder which is not an R package and see an alert when we try to bring up the menu.</li>
+<li>Exit Vim and change to another folder that is part of a package.</li>
+<li>Start Vim, try to build the package documentation, but get informed that no R terminal is running.</li>
+<li>Start an R terminal in Vim. Exchange windows so that terminal is on the right.</li>
+<li>Build package documentation and PDF manual using the menu.</li>
+<li>Run a line from the script window to view a manual page from the package.</li>
+<li>Switch focus to the terminal, close the manual page, and exit the session.</li>
+</ol>
+<div id="fig-demo" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../downloads/2026-01-09-vim-ide-II/demo.svg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-demo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Demonstration.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="are-we-in-an-r-package" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Are we in an R Package?</h1>
+<p>Suppose our current working directory is <code>/path/to/folder</code>. To determine whether we are in an R package, we check for the existence of a <code>DESCRIPTION</code> file in the current directory; if found, that will be considered the root of the project. Otherwise, we repeat the check in the parent directory <code>/path/to</code>. We proceed this way until there are no more parents to check. This follows the idea from the <code>find_package_root</code> function in the <a href="https://cran.r-project.org/package=desc">desc</a> R package.</p>
+<p>The following Vimscript function carries this out.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>function! RProjectRoot(path) abort</span>
+<span id="cb1-2"><a href="#cb1-2"></a>    let path = a:path</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    let done = v:false</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a>    while done == v:false</span>
+<span id="cb1-6"><a href="#cb1-6"></a>        let ff = expand(path) . "/" . 'DESCRIPTION'</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>        if filereadable(ff)</span>
+<span id="cb1-9"><a href="#cb1-9"></a>            return path</span>
+<span id="cb1-10"><a href="#cb1-10"></a>        endif</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a>        let newpath = fnamemodify(path, ':h')</span>
+<span id="cb1-13"><a href="#cb1-13"></a>        let done = (newpath == path)</span>
+<span id="cb1-14"><a href="#cb1-14"></a>        let path = newpath</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    endwhile</span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a>    throw "Not within an R project: " . a:path</span>
+<span id="cb1-18"><a href="#cb1-18"></a>endfunction</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Notice that an exception is thrown if we cannot find a <code>DESCRIPTION</code> file. The <code>fnamemodify</code> function is used to obtain the parent directory of the current path. If the argument <code>path</code> is the root, the result <code>newpath</code> will also be the root, and we have nothing else to check.</p>
+</section>
+<section id="menu-operations-and-r-functions" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Menu Operations and R Functions</h1>
+<p>If we are in an R package, our menu will carry out selected actions via corresponding calls to <code>devtools</code>. Those actions and function calls are shown in <a href="#tbl-devtools" class="quarto-xref">Table&nbsp;1</a>.</p>
+<div id="tbl-devtools" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-devtools-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Menu operations and corresponding <code>devtools</code> functions.
+</figcaption>
+<div aria-describedby="tbl-devtools-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Action</th>
+<th style="text-align: left;">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Load</code></td>
+<td style="text-align: left;"><code>load_all</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Install</code></td>
+<td style="text-align: left;"><code>install_local</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Document</code></td>
+<td style="text-align: left;"><code>document</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Test</code></td>
+<td style="text-align: left;"><code>test</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Clean</code></td>
+<td style="text-align: left;"><code>clean_dll</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Manual</code></td>
+<td style="text-align: left;"><code>build_manual</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Vignettes</code></td>
+<td style="text-align: left;"><code>build_vignettes</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Build Source</code></td>
+<td style="text-align: left;"><code>build</code> with <code>binary = FALSE</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Build Binary</code></td>
+<td style="text-align: left;"><code>build</code> with <code>binary = TRUE</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Check</code></td>
+<td style="text-align: left;"><code>check</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="menu-in-vim" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Menu in Vim</h1>
+<p>For the Vim menu, we will use the <code>popup_menu</code> function. It takes an array of menu options and a dictionary of additional named arguments. We will set two named arguments: the title of the menu and a handler. The handler is another function that gets call when something is selected in the menu; its job is to take the selection and carry out the desired action. Both of these functions are defined in an <code>RProjectMenu</code> function, which we can invoke to bring up the menu.</p>
+<p>The following snippet is an abridged version of <code>RProjectMenu</code>. The <code>MenuHandler</code> function is somewhat long, so the contents have been summarized here via comments.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>function! RProjectMenu() abort</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    function! MenuHandler(id, idx)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>        " 1. Get the selected menu item</span>
+<span id="cb2-4"><a href="#cb2-4"></a>        " 2. Call RProjectRoot to see if we are in an R project; if so,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>        "    get the path to the root. If not, print a message to the</span>
+<span id="cb2-6"><a href="#cb2-6"></a>        "    user and return.</span>
+<span id="cb2-7"><a href="#cb2-7"></a>        " 3. Form a string with the corresponding devtools command.</span>
+<span id="cb2-8"><a href="#cb2-8"></a>        " 4. See if there is a terminal running R. If not, alert the</span>
+<span id="cb2-9"><a href="#cb2-9"></a>        "    user and return.</span>
+<span id="cb2-10"><a href="#cb2-10"></a>        " 5. If we made it this far, send command to the terminal</span>
+<span id="cb2-11"><a href="#cb2-11"></a>        "    running R.</span>
+<span id="cb2-12"><a href="#cb2-12"></a>    endfunction</span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a>    try</span>
+<span id="cb2-15"><a href="#cb2-15"></a>        let projroot = RProjectRoot(getcwd())</span>
+<span id="cb2-16"><a href="#cb2-16"></a>    catch /.*/</span>
+<span id="cb2-17"><a href="#cb2-17"></a>        echom v:exception</span>
+<span id="cb2-18"><a href="#cb2-18"></a>        return</span>
+<span id="cb2-19"><a href="#cb2-19"></a>    endtry</span>
+<span id="cb2-20"><a href="#cb2-20"></a></span>
+<span id="cb2-21"><a href="#cb2-21"></a>    let items = [ 'Load', 'Install', 'Document', 'Test', 'Clean', 'Manual',</span>
+<span id="cb2-22"><a href="#cb2-22"></a>    \ 'Vignettes', 'Build Source', 'Build Binary', 'Check' ]</span>
+<span id="cb2-23"><a href="#cb2-23"></a></span>
+<span id="cb2-24"><a href="#cb2-24"></a>    let args = #{</span>
+<span id="cb2-25"><a href="#cb2-25"></a>    \ title: 'R Project: ' . pathshorten(expand(projroot)),</span>
+<span id="cb2-26"><a href="#cb2-26"></a>    \ callback: 'MenuHandler'</span>
+<span id="cb2-27"><a href="#cb2-27"></a>    \ }</span>
+<span id="cb2-28"><a href="#cb2-28"></a></span>
+<span id="cb2-29"><a href="#cb2-29"></a>    call popup_menu(items, args)</span>
+<span id="cb2-30"><a href="#cb2-30"></a>endfunction</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In our implementation, we look for a terminal by name using the call <code>bufnr('R')</code>. This name will be set if we start the terminal using the method developed in the <a href="../posts/2026-01-03-vim-ide.html">previous</a> post, or if we do either <code>:term('R')</code> or <code>:vert term('R')</code>. All three of these options start a dedicated terminal for R which will exit when the R session ends.</p>
+<p>It is also possible to repurpose a running terminal by changing its buffer name. To do this, take the following steps.</p>
+<ol type="1">
+<li>Change focus to the terminal window.</li>
+<li>Enter terminal-normal mode using keystrokes <code>&lt;c-\&gt;&lt;c-n&gt;</code> (<code>Ctrl-\</code> then <code>Ctrl-n</code>).</li>
+<li>Type the command ‘:file R’” and hit <code>Enter</code> to run it.</li>
+<li>Type ‘i’ to return to terminal-insert mode</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="keybinding" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Keybinding</h1>
+<p>We can set a keybinding to easily call the menu. In the <a href="../posts/2026-01-03-vim-ide.html">previous</a> post, we set the <code>&lt;leader&gt;</code> key to space bar. Here we set <code>&lt;leader&gt;r</code> (i.e., <code>&lt;space&gt;</code> then <code>r</code>) as the binding to invoke the menu.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource vim number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>nnoremap &lt;silent&gt; &lt;leader&gt;r :call RProjectMenu()&lt;cr&gt;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>We should now be able to use the menu as in <a href="#fig-demo" class="quarto-xref">Figure&nbsp;1</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/andrewraim\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+      <i class="bi bi-mailbox" role="img">
+</i> 
+ andrew dot raim at gmail dot com
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Views expressed on this site are solely those of the author.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
