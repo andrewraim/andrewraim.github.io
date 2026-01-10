@@ -164,8 +164,8 @@ name. To do this, take the following steps.
 1. Change focus to the terminal window.
 1. Enter terminal-normal mode using keystrokes `<c-\><c-n>` (`Ctrl-\` then
    `Ctrl-n`).
-1. Type the command ':file R'" and hit `Enter` to run it.
-1. Type 'i' to return to terminal-insert mode
+1. Type the command `:file R'` and hit `Enter` to run it.
+1. Type `i` to return to terminal-insert mode
 :::
 
 # Keybinding
