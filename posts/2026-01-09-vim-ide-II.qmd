@@ -35,11 +35,12 @@ The final result is demonstrated in @fig-demo. Here is what is being shown.
 
 1. Initially start Vim in a folder which is not an R package and see an alert
    when we try to bring up the menu.
-1. Exit Vim and change to another folder that is part of a package
-1. try to build the package documentation, but are informed that no R
-  terminal is running.
-1. Start an R terminal in Vim.
-1. Build the package documentation and PDF manual using the menu.
+1. Exit Vim and change to another folder that is part of a package.
+1. Start Vim, try to build the package documentation, but get informed that no
+   R terminal is running.
+1. Start an R terminal in Vim. Exchange windows so that terminal is on the
+   right.
+1. Build package documentation and PDF manual using the menu.
 1. Run a line from the script window to view a manual page from the package.
 1. Switch focus to the terminal, close the manual page, and exit the session.
 
