@@ -14,7 +14,10 @@ contributions from - or developed entirely by - dedicated community members.
 These efforts have resulted in a vast selection of reliable, high quality, and
 readily-available software. 
 
-# The R Project
+
+# Statistical and Scientific Computing
+
+## The R Project
 
 - [R](https://www.r-project.org) The R Project for Statistical Computing.
 
@@ -49,8 +52,7 @@ readily-available software.
 
 [RcppAPI]: https://thecoatlessprofessor.com/programming/cpp/unofficial-rcpp-api-documentation
 
-
-# Platforms for Statistical and Scientific Computing
+## Other Platforms 
 
 - [Stan](https://mc-stan.org) Declare Bayesian models using a high-level
   modeling language. Models compile into fast executable programs which
@@ -79,7 +81,7 @@ readily-available software.
 - [Wolfram Alpha](https://www.wolframalpha.com) Search engine that can compute
   integrals, limits, etc.
 
-# Software Libraries
+## Software Libraries
 
 - [GSL](https://www.gnu.org/software/gsl) The GNU Scientific Library.
   Implements a number of numerical methods including integration,
@@ -120,7 +122,7 @@ readily-available software.
 
 [stan-ad]: https://www.r-bloggers.com/2022/01/automatic-differentiation-in-r-with-stan-math
 
-# Document Authoring Tools
+# Document Authoring
 
 - [Latex](https://www.latex-project.org) System for preparing high quality
   documents. Especially useful for typsetting mathematics. A large selection
@@ -194,12 +196,7 @@ readily-available software.
   prefer using more immutable programs which are configured through external
   configuration files or scripts.
 
-- [Slurm](https://slurm.schedmd.com) A scheduler to queue up computing jobs
-  and run them as processors become available. Useful for running large
-  simulations which can require hours or days. Most commonly used on multi-user
-  systems and distributed computing clusters, but also useful on a PC.
-
-## Linux
+## Linux Distributions
 
 Linux is an operating system (OS) started as a personal project by Linus
 Torvalds, who also created Git. An open source approach was taken in its
@@ -240,6 +237,10 @@ kernel, is [The FreeBSD Project](https://www.freebsd.org).
   installation is minimal. Not ideal for new Linux users because the
   installation process involves some command line work.
 
+- [Cygwin](https://www.cygwin.com) A collection of open source tools that
+  provide a Linux-like experience in Windows, especially through the command
+  line.
+
 ## Window Managers and Tools
 
 Window managers (WMs) are components of desktop environments (DEs) that control
@@ -254,24 +255,11 @@ the standard for many years, while Wayland is maturing in recent years and
 becoming more widely adopted. There is an X11 compatibility layer in Wayland,
 but window managers generally seem to be intended for one or the other.
 
+### Window Managers
+
 - [dwm](https://dwm.suckless.org) A suckless tiling window manager for X11. Has
   inspired - or been used as a basis for - a number of other tiling window
   managers.
-
-- [slstatus](https://tools.suckless.org/slstatus) A suckless status bar for X11.
-  Pairs well with dwm for a suckless DIY setup.
-
-- [slock](https://tools.suckless.org/slock/) An extremely minimal suckless
-  screen locking tool for X11.
-
-- [st](https://st.suckless.org) The suckless terminal emulator for X11.
-  Minimal and light on memory use but can be patched into a full-featured
-  terminal.
-
-- [dmenu](https://tools.suckless.org/dmenu) A suckless X11 menu tool.
-  Can readily be leveraged in scripts to create user defined menus. Menus can
-  be quickly traversed using a fuzzy search. Something similar can be
-  accomplished on the command line with [fzf](https://github.com/junegunn/fzf).
 
 - [Awesome WM](https://awesomewm.org) A window manager for X11 started as a
   fork of dwm that is non-suckless. Includes many features in the main code
@@ -297,6 +285,27 @@ but window managers generally seem to be intended for one or the other.
   screen at a time. Users can navigate within and between workspaces, and
   dynamically rearrange the layout as desired.
 
+- [Xfce](https://www.xfce.org) A desktop enviroment that is fully featured and
+  intuitive while remaining relatively light on system resources. Is visually
+  pleasing (subjectively) while avoiding unnecessary graphical effects.
+
+### Supporting Tools
+
+- [slstatus](https://tools.suckless.org/slstatus) A suckless status bar for X11.
+  Pairs well with dwm for a suckless DIY setup.
+
+- [slock](https://tools.suckless.org/slock/) An extremely minimal suckless
+  screen locking tool for X11.
+
+- [st](https://st.suckless.org) The suckless terminal emulator for X11.
+  Minimal and light on memory use but can be patched into a full-featured
+  terminal.
+
+- [dmenu](https://tools.suckless.org/dmenu) A suckless X11 menu tool.
+  Can readily be leveraged in scripts to create user defined menus. Menus can
+  be quickly traversed using a fuzzy search. Something similar can be
+  accomplished on the command line with [fzf](https://github.com/junegunn/fzf).
+
 - [foot](https://codeberg.org/dnkl/foot) A lightweight but full-featured
   terminal emulator for Wayland. Can be run as a daemon with clients to
   save resources when using multiple instances.
@@ -311,11 +320,60 @@ but window managers generally seem to be intended for one or the other.
 - [Awesome Wayland](https://github.com/rcalixte/awesome-wayland) A curated list
   of tools for Wayland.
 
-- [Xfce](https://www.xfce.org) A desktop enviroment that is fully featured and
-  intuitive while remaining relatively light on system resources. Is visually
-  pleasing (subjectively) while avoiding unnecessary graphical effects.
+## Job Schedulers
 
-## Graphical Programs
+Schedulers are often used in multi-user environments to manage resources among
+users. Users queue up computing jobs so that they run as processors become
+available. Useful for running large simulations which can require hours or days
+of computing time. Most commonly used on on high performance machines and
+distributed computing clusters
+
+A job scheduler might be overkill when it is easy to coordinate which jobs are
+running at a particular time. I wrote a simple [worker][worker] tool to
+gradually run levels of a simulation using a fixed number of processors. Also
+see @sec-multiplex for terminal multiplexers which create sessions that you
+can leave and reenter; these can be used to manage long-running interactive
+jobs.
+
+- [OpenPBS](https://www.openpbs.org) An open source version of the commercial
+  [PBS Professional](https://altair.com/pbs-professional) software.
+
+- [Slurm](https://slurm.schedmd.com) An open source workload manager.
+
+[worker]: https://github.com/andrewraim/worker
+
+
+## Multimedia
+
+- [OBS Studio](https://obsproject.com) Capture your PC's display, audio, and
+  video for recording or streaming.
+
+- [Audacity](https://www.audacityteam.org) Audio recording, editing, and
+  processing.
+
+- [Flowblade](https://jliljebl.github.io/flowblade) Video editing.
+
+- [Kdenlive](https://kdenlive.org) Video editing.
+
+- [GIMP](https://www.gimp.org) Image editing.
+
+- [VLC](https://www.videolan.org/vlc) a media player for audio and video.
+
+- [Squeezelite](https://github.com/ralph-irving/squeezelite) A media streaming
+  daemon that can be used to play audio files, internet radio, and
+  other sources on a PC. Can be paired with
+  [Squeezer](https://github.com/nikclayton/android-squeezer)
+  to use an Android phone as a remote control.
+
+- [termtosvg](https://nbedos.github.io/termtosvg/) Record a terminal session
+  as an SVG animation. Useful for short compelling demonstrations of Linux
+  tools. Animation files take relatively little space and can be embedded on
+  a website.
+
+- [Screenkey](https://www.thregr.org/wavexx/software/screenkey/) Display your
+  keystokes in real time as an animated banner; useful for demonstrations.
+
+## Web Browsers
 
 - [Firefox](https://www.mozilla.org/en-US/firefox) A popular open source web
   browser.
@@ -326,21 +384,13 @@ but window managers generally seem to be intended for one or the other.
 - [qutebrowser](https://qutebrowser.org) A minimalist open source web browser
   which is primary controlled by the keyboard. Uses Vim-style keybindings.
 
+## Virtual Machines
+
 - [Virtual Machine Manager](https://virt-manager.org) An application to run and
   manage virtual machines. Uses the [libvirt](https://libvirt.org/)
   virtualization API. Both of these are open source.
 
-- [OBS Studio](https://obsproject.com) Capture your PC's display, audio, and
-  video for recording or streaming.
-
-- [Audacity](https://www.audacityteam.org) Audio recording, editing, and
-  processing.
-
-- [Flowblade](https://jliljebl.github.io/flowblade) Video editing.
-
-- [GIMP](https://www.gimp.org) Image editing.
-
-- [VLC](https://www.videolan.org/vlc) a media player for audio and video.
+## Handwritten Notes
 
 - [Xournalpp](https://xournalpp.github.io) Take handwritten notes on your
   computer which can be edited and maintained as files. Especially useful with
@@ -351,47 +401,24 @@ but window managers generally seem to be intended for one or the other.
   notes by Stylus Labs. Appears to be free but not completely open source like
   Xournal.
 
-- [Dia](https://wiki.gnome.org/Apps/Dia) Open source tool for drawing diagrams.
+## Diagrams
+
+- [Graphviz](https://graphviz.org) Render diagrams programatically.
+  Graphviz code chunks are supported in
+  [Quarto](https://quarto.org/docs/authoring/diagrams.html).
+
+- [Mermaid](https://mermaid.js.org) Render diagrams programatically.
+  Mermaid code chunks are supported in
+  [Quarto](https://quarto.org/docs/authoring/diagrams.html).
+
+## Other
 
 - [Synergy](https://symless.com/synergy) Control multiple computers using a
   single mouse and keyboard. Computers may be different architectures running
   different OSes. Commercial software by Symless based on their open source
   project [Deskflow](https://github.com/deskflow/deskflow).
 
-- [Screenkey](https://www.thregr.org/wavexx/software/screenkey/) Display your
-  keystokes in real time as an animated banner; useful for demonstrations.
-
-- [Featherpad](Featherpad) A lightweight graphical text editor with minimal
-  prerequisites; in particular, does not require a specific desktop
-  environment to be installed. Has some useful features like syntax
-  highlighting and tabs and uses familiar keybindings like `Ctrl-C` to copy.
-
-- [qpdfview](https://github.com/bendikro/qpdfview) A PDF viewer that supports
-  tabs for opening multiple documents. Does not require any particular desktop
-  environment to be installed. Can also view DjVu and Postscript files.
-
-- [Zathura](https://pwmt.org/projects/zathura/) A lightweight graphical PDF
-  viewer that uses Vim-like keybindings for navigation.
-
-## Terminal Programs
-
-- [Bash](https://www.gnu.org/software/bash) One of the standard shells for
-  Linux-based systems. Supports scripting which can be used to automate tedious
-  tasks.
-
-- [Cygwin](https://www.cygwin.com) A collection of open source tools that
-  provide a Linux-like experience in Windows, especially through the command
-  line.
-
-- [tmux](https://github.com/tmux/tmux/wiki) Set up persistent terminal sessions
-  that you can detach from and reattach to. Sessions can be arranged into
-  tabs with multiple windows on each tab. Useful for running long interactive
-  jobs on a server where you ocassionally want to interact by issuing commands.
-  Here is a [cheat sheet](https://gist.github.com/MohamedAlaa/2961058) with
-  some useful commands and keybindings.
-
-- [screen](https://www.gnu.org/software/screen) An alternative to tmux which
-  also provides persistent terminal sessions.
+## Text Editors
 
 - [Vim](https://www.vim.org) Visual text editor for the terminal. Does
   not require a graphical environment. It is a "modal" editor because usage
@@ -423,23 +450,10 @@ but window managers generally seem to be intended for one or the other.
   Uses familiar keybindings like `Crtl-C` to copy as defaults, and use of the
   mouse is not discouraged.
 
-- [Mutt](http://www.mutt.org) A well-established email client for the terminal.
-  Also see [NeoMutt](https://neomutt.org) which is a fork of Mutt that supports
-  some additional features.
-
-- [Alpine](https://alpineapp.email) The successor of [Pine](pine) which was
-  another widely used email client for the terminal.
-
-- [Squeezelite](https://github.com/ralph-irving/squeezelite) A media streaming
-  daemon that can be used to play audio files, internet radio, and
-  other sources on a PC. Can be paired with
-  [Squeezer](https://github.com/nikclayton/android-squeezer)
-  to use an Android phone as a remote control.
-
-- [termtosvg](https://nbedos.github.io/termtosvg/) Record a terminal session
-  as an SVG animation. Useful for short compelling demonstrations of Linux
-  tools. Animation files take relatively little space and can be embedded on
-  a website.
+- [Featherpad](Featherpad) A lightweight graphical text editor with minimal
+  prerequisites; in particular, does not require a specific desktop
+  environment to be installed. Has some useful features like syntax
+  highlighting and tabs and uses familiar keybindings like `Ctrl-C` to copy.
 
 [vim-cheat]: https://vim.rtorr.com
 [vim-quickref]: https://vimdoc.sourceforge.net/htmldoc/quickref.html
@@ -448,11 +462,68 @@ but window managers generally seem to be intended for one or the other.
 [vim-lightline]: https://github.com/itchyny/lightline.vim
 [vim-rnvim]: https://github.com/R-nvim/R.nvim
 [vim-julia]: https://github.com/JuliaEditorSupport/julia-vim
+
+## PDF Viewers
+
+- [qpdfview](https://github.com/bendikro/qpdfview) A PDF viewer that supports
+  tabs for opening multiple documents. Does not require any particular desktop
+  environment to be installed. Can also view DjVu and Postscript files.
+
+- [Zathura](https://pwmt.org/projects/zathura/) A lightweight graphical PDF
+  viewer that uses Vim-like keybindings for navigation.
+
+## Shells
+
+The shell interprets commands on the terminal and manages the execution of
+programs. Shells include a scripting language that can be used to automate
+tedious tasks and implement useful tools.
+
+- [Bash](https://www.gnu.org/software/bash) One of the most standard shells for
+  Linux-based systems. 
+
+- [Zsh](https://www.zsh.org) A popular shell in the Linux community. See
+  [Oh My Zsh](https://ohmyz.sh) for a customization framework.
+
+- [Fish](https://fishshell.com) A sleek shell with many appealing features.
+  Scripting language deviates substantially from Bash and Zsh.
+
+## Terminal Multiplexers {#sec-multiplex}
+
+Set up persistent terminal sessions that you can detach from and reattach to.
+Sessions can contain multiple terminals organized into windows, tabs, or other
+arrangements. Useful for running a long interactive job on a server where you
+occasionally want to interact with it.
+
+- [GNU Screen](https://www.gnu.org/software/screen) A classic terminal
+  multiplexer. Might be available on some systems where tmux is not.
+
+- [tmux](https://github.com/tmux/tmux/wiki) A popular multiplexer in the Linux
+  community that can be heavily customized. Can be extended with
+  [plugins][tmux-plug] such as the esteemed [Catppuccin][tmux-cat] theme. 
+  Here is a [guide][tmux-tony] and accompanying [video][tmux-tony-yt] on
+  getting started.  Here is a [cheat sheet][tmux-ch] with some useful commands
+  and keybindings.
+
+[tmux-cat]: https://github.com/catppuccin/tmux
+[tmux-ch]: https://gist.github.com/MohamedAlaa/2961058
+[tmux-plug]: https://github.com/tmux-plugins
+[tmux-tony]: https://www.tonybtw.com/tutorial/tmux/
+[tmux-tony-yt]: https://youtu.be/XivdyrFCV4M
+
+## Email
+
+- [Mutt](http://www.mutt.org) A well-established email client for the terminal.
+  Also see [NeoMutt](https://neomutt.org) which is a fork of Mutt that supports
+  some additional features.
+
+- [Alpine](https://alpineapp.email) The successor of [Pine](pine) which was
+  another widely used email client for the terminal.
+
 [pine]: https://web.archive.org/web/20190328145000/http://www.washington.edu/pine
 
 ## Nostaglia
 
-- [GeoCities](https://thehistoryoftheweb.com/an-ode-to-geocities) A service
+- [Geocities](https://thehistoryoftheweb.com/an-ode-to-geocities) A service
   that provided free hosting for personal websites.
 
 - [Gopher](https://mncomputinghistory.com/gopher-protocol) An early protocol
@@ -460,13 +531,15 @@ but window managers generally seem to be intended for one or the other.
   traction as graphical HTTP-based browsers such as
   [NCSA Mosiac][ncsa] became widely used.
 
-- [Internet Archive](https://archive.org) An extensive non-profit digital
-  library of texts, movies, software, music, and more.
-
 - [M-Net](https://www.arbornet.org/m-net.php) One of the first public-access
   UNIX systems. Hosted by the Arbornet organization in Ann Arbor, Michigan.
 
 [ncsa]: https://www.ncsa.illinois.edu/research/project-highlights/ncsa-mosaic
+
+# Content
+
+- [Internet Archive](https://archive.org) An extensive non-profit digital
+  library of texts, movies, software, music, and more.
 
 # Professional Associations
 
