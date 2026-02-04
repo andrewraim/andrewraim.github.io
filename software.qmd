@@ -29,7 +29,7 @@
   [repo](https://bitbucket.org/umbc_sdr/ldr)
   ]
 
-- `ManifoldOptim`: An R interface to the [ROPTLIB][roptlib-url] library for
+- `ManifoldOptim`: An R interface to the [ROPTLIB][roptlib] library for
   Riemannian manifold optimization.
   [[cran](https://cran.r-project.org/package=ManifoldOptim) |
   [repo](https://bitbucket.org/umbc_sdr/ManifoldOptim)
@@ -64,11 +64,12 @@
   [repo](https://github.com/andrewraim/vws)
   ]
 
-[roptlib-url]: https://www.math.fsu.edu/~whuang2/Indices/index_ROPTLIB.html
+[roptlib]: https://www.math.fsu.edu/~whuang2/Indices/index_ROPTLIB.html
 
 # Templates for Documents
 
-- `beamerthemeraim`: A custom Beamer theme.
+- `beamerthemeraim`: A custom Beamer theme. Provides a small info bar at the
+  bottom but is otherwise minimal.
   [[repo](https://github.com/andrewraim/beamerthemeraim)
   ]
 
@@ -95,13 +96,24 @@
 
 # Utilities
 
-- `md-util`: some command line scripts and templates to facilitate compiling
-  markdown to various formats (pdf, html, beamer) using Pandoc.
-  [[repo](https://github.com/andrewraim/md-util)
+
+- `bashrc`: my Bash configuration and customizations.
+  [[repo](https://github.com/andrewraim/bashrc)
+  ]
+
+- `panfig`: a command line utility to facilitate compiling files with pandoc.
+  Group commonly used Pandoc options into configuration entries that can be
+  easily invoked by an alias (e.g., "slides").
+  [[repo](https://github.com/andrewraim/panfig)
+  ]
+
+- `vimrc`: my Vim configuration and customizations.
+  [[repo](https://github.com/andrewraim/vimrc)
   ]
 
 - `worker`: a tool to help run repetitive computational studies such as
-  statistical simulations.
+  statistical simulations. Run several workers at a time for simple parallel
+  computing.
   [[repo](https://github.com/andrewraim/worker)
   ]
 
