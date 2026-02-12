@@ -25,16 +25,28 @@ about:
 ---
 
 :::{#about-heading}
-Welcome! This website hosts my publicly released work.
+Welcome to my website!
 
-I have been a statistician at the U.S. Census Bureau Center for Statistical
-Research and Methodology
-([CSRM](https://www.census.gov/topics/research/stat-research.html)) since 2014.
-I was previously a graduate student at University of Maryland, Baltimore County
-([UMBC](https://mathstat.umbc.edu)) and worked as a software engineer for the
-first part of my career at the internet advertising company Advertising.com.
+I have been a statistician at the Center for Statistical Research and
+Methodology ([CSRM][csrm]) in the [U.S. Census Bureau][uscb] since 2014. I
+worked as a software engineer for the first part of my career at the internet
+advertising technology company [Advertising.com][adcom] in Baltimore. I
+attended the University of Maryland, Baltimore County for
+[computer science][csee] as an undergraduate and a part-time masters student,
+then for [statistics][mathstat] as a graduate student.
 
-The best way to contact me is to send email to `andrew dot raim at gmail dot
-com`.
+I am an enthusiastic user of Linux and open source software. I attempt to
+list favorite computing [resources](resources.qmd) as I discover them. I have
+some [contributions](software.qmd) of my own, mostly in the form of R packages,
+utilities, and document templates. I occasionally write [posts](posts.qmd)
+about some of these things.
+
+The best way to contact me is to email `andrew dot raim at gmail dot com`.
+
 :::
 
+[adcom]: https://medium.com/@petrellame/the-9-lives-of-advertising-com-1d748c227390
+[csee]: https://www.csee.umbc.edu
+[csrm]: https://www.census.gov/topics/research/stat-research.html
+[mathstat]: https://mathstat.umbc.edu
+[uscb]: https://www.census.gov
