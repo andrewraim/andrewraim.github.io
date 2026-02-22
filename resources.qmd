@@ -223,13 +223,15 @@ include tools to set up dual boot so you can select between Linux and your
 original OS at boot time. If you happen to have an older PC or laptop lying
 around, it can serve as an excellent platform for trying Linux.
 
-- [Debian](https://www.debian.org) A community-maintained Linux distro.
-  Distros such as [Ubuntu](https://ubuntu.com),
-  [Linux Mint](https://linuxmint.com) are based on Debian. Debian may be
-  prefered over Ubuntu, for example, if you prefer not to use
-  [Snap](https://snapcraft.io), to start with a more minimal initial
-  installation, or to use something maintained by a community rather than a
-  company.
+- [Debian](https://www.debian.org) One of the classic community-maintained
+  Linux distros. Many popular distros such as [Ubuntu](https://ubuntu.com) and
+  [Linux Mint](https://linuxmint.com) are derivatives of Debian. However,
+  Debian is completely capable of being used directly; this is especially worth
+  considering if you prefer to start with a more minimal distribution and
+  add specific components. Can be installed using a [minimal iso][deb-mini]
+  which is only about 70 MB. Debian's derivatives offer more curated
+  experiences; for example, Ubuntu incorporates [snap](https://snapcraft.io)
+  and an app store beyond the standard Apt package manager.
 
 - [Arch Linux](https://archlinux.org) A community-maintained Linux distro
   that follows a rolling release model. Good for keeping up with the most
@@ -237,9 +239,21 @@ around, it can serve as an excellent platform for trying Linux.
   installation is minimal. Not ideal for new Linux users because the
   installation process involves some command line work.
 
+- [Gentoo](https://www.gentoo.org) A Linux distro that is community-maintained
+  and uses a rolling release model. Packages are managed via Portage, and are
+  mostly compiled on demand so that they are optimized for the system and can
+  support particular compile-time features.
+
+- [Slackware](http://www.slackware.com) One of the classic Linux distros that
+  started in 1993 and is still maintained. The latest versions are 15.0
+  and 14.2, released in February 2022 and June 2016, respectively.
+
 - [Cygwin](https://www.cygwin.com) A collection of open source tools that
   provide a Linux-like experience in Windows, especially through the command
-  line.
+  line. Graphical applications can also be used through [Xwin Server][xwin].
+
+[deb-mini]: https://d-i.debian.org/daily-images/amd64/daily/netboot/
+[xwin]: https://darrengoossens.wordpress.com/2023/02/17/minimal-cygwin-install-to-use-as-an-x-server/
 
 ## Window Managers and Tools
 
