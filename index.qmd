@@ -35,7 +35,7 @@ attended the University of Maryland, Baltimore County for
 [computer science][csee] as an undergraduate and a part-time masters student,
 then for [statistics][mathstat] as a graduate student.
 
-I am an enthusiastic user of Linux and open source software. I attempt to
+I am an enthusiastic user of Linux and open source software and attempt to
 list favorite computing [resources](resources.qmd) as I discover them. I have
 some [contributions](software.qmd) of my own, mostly in the form of R packages,
 utilities, and document templates. I occasionally write [posts](posts.qmd)
