@@ -281,9 +281,9 @@ but window managers generally seem to be intended for one or the other.
 
 - [OXWM](https://ox-docs.vercel.app) A window manager for X11 inspired by dwm
   which is written in Rust. Like Awesome WM, it is non-suckless and configured
-  via Lua. OXWM seems geared toward preserving the minimalist tiling experience
-  of dwm, in contrast to Awesome, but also toward a sensible dwm-like
-  experience that would require patches in dwm.
+  via Lua. OXWM is geared toward preserving the minimalist tiling experience
+  of dwm, in contrast to Awesome, but also toward providing a sensible feature
+  set that would require patches in dwm.
 
 - [Xmonad](https://xmonad.org) Another non-suckless window manager for X11 
   which was inspired by dwm. Highly regarded in the online Linux community. Is
@@ -479,12 +479,17 @@ jobs.
 
 ## PDF Viewers
 
-- [qpdfview](https://github.com/bendikro/qpdfview) A PDF viewer that supports
-  tabs for opening multiple documents. Does not require any particular desktop
-  environment to be installed. Can also view DjVu and Postscript files.
+- [qpdfview][qpdfview] A PDF viewer that supports tabs for opening multiple
+  documents. Does not require any particular desktop environment to be
+  installed. Can also view DjVu and Postscript files.
 
-- [Zathura](https://pwmt.org/projects/zathura/) A lightweight graphical PDF
-  viewer that uses Vim-like keybindings for navigation.
+- [Zathura][zathura] A minimalist graphical PDF viewer that uses Vim-like
+  [keybindings][zathura-keys] for navigation. It is intended to operate on a
+  single PDF at a time.
+
+[qpdfview]: https://github.com/bendikro/qpdfview
+[zathura]: https://pwmt.org/projects/zathura
+[zathura-keys]: https://pwmt.org/projects/zathura/documentation/
 
 ## Shells
 
@@ -492,14 +497,19 @@ The shell interprets commands on the terminal and manages the execution of
 programs. Shells include a scripting language that can be used to automate
 tedious tasks and implement useful tools.
 
-- [Bash](https://www.gnu.org/software/bash) One of the most standard shells for
-  Linux-based systems. 
+- [Bash][bash-gnu] One of the most standard shells in modern Linux-based
+  systems. It often comes packaged with distros. See [Oh My Bash][oh-my-bash]
+  for a customization framework.
 
-- [Zsh](https://www.zsh.org) A popular shell in the Linux community. See
-  [Oh My Zsh](https://ohmyz.sh) for a customization framework.
+- [Zsh](https://www.zsh.org) A shell which is popular with Linux hobbyists.
+  See [Oh My Zsh][oh-my-zsh] for a customization framework.
 
-- [Fish](https://fishshell.com) A sleek shell with many appealing features.
-  Scripting language deviates substantially from Bash and Zsh.
+- [Fish](https://fishshell.com) A sleek shell with many appealing features, but
+  whose scripting language deviates substantially from Bash and Zsh.
+
+[bash-gnu]: https://www.gnu.org/software/bash
+[oh-my-bash]: https://github.com/ohmybash/oh-my-bash
+[oh-my-zsh]: https://ohmyz.sh
 
 ## Terminal Multiplexers {#sec-multiplex}
 
@@ -534,6 +544,28 @@ occasionally want to interact with it.
   another widely used email client for the terminal.
 
 [pine]: https://web.archive.org/web/20190328145000/http://www.washington.edu/pine
+
+## YouTube Channels
+
+Here are some of the many computing-oriented channels on YouTube that I found
+especially informative or inspiring. These are most Linux-oriented and focus on
+open source software, minimalism, customization, and scripting.
+
+- [Bread on Penguins](https://www.youtube.com/@BreadOnPenguins)
+
+- [Brodie Robertson](https://www.youtube.com/@BrodieRobertson)
+
+- [Distro Tube](https://www.youtube.com/@DistroTube)
+
+- [Explaining Computers](https://www.youtube.com/@ExplainingComputers) Content
+  covers not only Linux, but also hobbyist projects involving devices like the
+  Raspberry Pi.
+
+- [Luke Smith](https://www.youtube.com/@LukeSmithxyz) He seems to have shifted
+  from Linux-oriented content; see videos from 2023 and earlier for that
+  material.
+
+- [Tony BTW](https://www.youtube.com/@tony-btw)
 
 ## Nostaglia
 
