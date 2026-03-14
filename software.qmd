@@ -111,9 +111,8 @@
   [[repo](https://github.com/andrewraim/vimrc)
   ]
 
-- `worker`: a tool to help run repetitive computational studies such as
-  statistical simulations. Run several workers at a time for simple parallel
-  computing.
+- `worker`: Simple automated delegation of computing tasks. to one or more
+  sequential job processors for repetitive computational studies.
   [[repo](https://github.com/andrewraim/worker)
   ]
 
