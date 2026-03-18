@@ -132,7 +132,7 @@ Bibtex entries for the following are [here](bib/reports.qmd).
    Kephart, Kim Aspinwall, Patricia LeBaron, and Emilia Peytcheva (2025). 2020
    census experiment: Spanish-speaking enumerator training. Report Series:
    Census Evaluations and Experiments.
-   [[www](cpex2025)].
+   [[www][cpex2025]].
 
 1. Andrew M. Raim (2024). fntl: Numerical Tools for Rcpp and Lambda
    Functions. Research Report Series: Computing \#2024-01. Center for
