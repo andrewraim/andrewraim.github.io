@@ -543,9 +543,13 @@ occasionally want to interact with it.
 
 ## Email
 
-- [Mutt](http://www.mutt.org) A well-established email client for the terminal.
-  Also see [NeoMutt](https://neomutt.org) which is a fork of Mutt that supports
-  some additional features.
+- [Mutt](http://www.mutt.org) A classic email client for the terminal that is
+  still used by terminal enthusiasts. Also see [NeoMutt](https://neomutt.org)
+  which is a fork of Mutt that supports additional features.
+
+- [Aerc](https://aerc-mail.org) A recently developed email client for the
+  terminal that attempts to improve upon Mutt/NeoMutt. For example, uses tabs
+  so that composed messages and other functions display in a common interface.
 
 - [Alpine](https://alpineapp.email) The successor of [Pine](pine) which was
   another widely used email client for the terminal.
