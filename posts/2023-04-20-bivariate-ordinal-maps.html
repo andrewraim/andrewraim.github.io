@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>Comparison of Usability Preferences with Bivariate Ordinal Regression – Andrew M. Raim</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -25,7 +28,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -49,15 +51,14 @@ div.csl-indent {
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6fd04bf5609b48bd4af23e2afddb5934.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-3bbf4c65a97d2a0c63a9855ab1dd653d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -75,7 +76,7 @@ div.csl-indent {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -186,17 +187,17 @@ window.Quarto = {
 
 
 <p>Suppose <span class="math inline">\(n\)</span> respondents are asked to rate several alternatives on a scale from, say, 1 to 5, with 1 being least preferred and 5 being most preferred. How can we determine whether one alternative is significantly more preferred to the others? The data may include covariates which are associated with the preference of interest.</p>
-<p>Elizabeth Nichols and I carry out this kind of analysis on map usability in a recent report <span class="citation" data-cites="BivariateOrdinalMaps2023">(<a href="#ref-BivariateOrdinalMaps2023" role="doc-biblioref">Raim and Nichols 2023</a>)</span>. With ordinal data recorded in a survey setting, we compare preferences for satellite maps - which display details such as landmarks and terrain - to those of simplified road maps. We make use of a bivariate ordinal regression model to carry out the analysis. Computations are carried out using the <a href="https://cran.r-project.org/package=mvord">mvord</a> R package by <span class="citation" data-cites="HirkHornikVana2020">Hirk, Hornik, and Vana (<a href="#ref-HirkHornikVana2020" role="doc-biblioref">2020</a>)</span>, which can also support multivariate models with more than two alternatives.</p>
+<p>Elizabeth Nichols and I carry out this kind of analysis on map usability in a recent report <span class="citation" data-cites="BivariateOrdinalMaps2023">(<a href="#ref-BivariateOrdinalMaps2023" role="doc-biblioref">Raim and Nichols 2023</a>)</span>. With ordinal data recorded in a survey setting, we compare preferences for satellite maps - which display details such as landmarks and terrain - to those of simplified road maps. We make use of a bivariate ordinal regression model to carry out the analysis. Computations are carried out using the <a href="https://cran.r-project.org/package=mvord">mvord</a> R package by <span class="citation" data-cites="HirkHornikVana2020">Hirk et al. (<a href="#ref-HirkHornikVana2020" role="doc-biblioref">2020</a>)</span>, which can also support multivariate models with more than two alternatives.</p>
 
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-HirkHornikVana2020" class="csl-entry" role="listitem">
 Hirk, Rainer, Kurt Hornik, and Laura Vana. 2020. <span>“<span class="nocase">mvord</span>: An <span>R</span> Package for Fitting Multivariate Ordinal Regression Models.”</span> <em>Journal of Statistical Software</em> 93 (4): 1–41. <a href="https://doi.org/10.18637/jss.v093.i04">https://doi.org/10.18637/jss.v093.i04</a>.
 </div>
 <div id="ref-BivariateOrdinalMaps2023" class="csl-entry" role="listitem">
-Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usability via Bivariate Ordinal Analysis.”</span> Study Series: Statistics #2023-01. Center for Statistical Research; Methodology, U.S.&nbsp;Census Bureau. <a href="https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html">https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html</a>.
+Raim, Andrew M., and Elizabeth Nichols. 2023. <em>A Comparison of Map Usability via Bivariate Ordinal Analysis</em>. Study Series: Statistics #2023-01. Center for Statistical Research; Methodology, U.S.&nbsp;Census Bureau. <a href="https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html">https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>Rejection Sampling with Vertical Weighted Strips – Andrew M. Raim</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -25,7 +28,6 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -49,15 +51,14 @@ div.csl-indent {
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6fd04bf5609b48bd4af23e2afddb5934.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-3bbf4c65a97d2a0c63a9855ab1dd653d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -157,12 +158,12 @@ div.csl-indent {
 
 
 <p>Rejection sampling is a classical algorithm <span class="citation" data-cites="vonNeumann1951">(<a href="#ref-vonNeumann1951" role="doc-biblioref">Neumann 1951</a>)</span> to generate variates from a target distribution where a constructive sampling method—e.g., by composing other random variables—may not be apparent. A benefit of rejection sampling is that accepted draws follow the target distribution exactly. However, coming up with a good proposal for rejection sampling can take some creativity. A poor choice can result in extremely low acceptance rates where practically no draws are accepted from a very large number of candidates.</p>
-<p><span class="citation" data-cites="VWS2024">Raim, Livsey, and Irimata (<a href="#ref-VWS2024" role="doc-biblioref">2024+</a>)</span> explore an approach to construct proposals by regarding the target as a weighted density and majorizing the weight function. This yields another weighted density whose unnormalized form can be used as an envelope in the acceptance ratio. If designed consciously, the normalized form can also be used to draw candidate variates to complete the rejection sampler. An improved proposal can be obtained by partitioning the support and majorizing within each region. Here the proposal is a finite mixture. The method is referred to as “vertical weighted strips” because it can be regarded as an extension of the vertical strips method <span class="citation" data-cites="Devroye1986 MartinoLuengoMiguez2018">(<a href="#ref-Devroye1986" role="doc-biblioref">Devroye 1986, chap. VIII</a>; <a href="#ref-MartinoLuengoMiguez2018" role="doc-biblioref">Martino, Luengo, and Míguez 2018, sec. 3.6</a>)</span>, with the weighted form introducing an additional degree of flexibility for algorithm development.</p>
+<p><span class="citation" data-cites="VWS2024">Raim et al. (<a href="#ref-VWS2024" role="doc-biblioref">2024+</a>)</span> explore an approach to construct proposals by regarding the target as a weighted density and majorizing the weight function. This yields another weighted density whose unnormalized form can be used as an envelope in the acceptance ratio. If designed consciously, the normalized form can also be used to draw candidate variates to complete the rejection sampler. An improved proposal can be obtained by partitioning the support and majorizing within each region. Here the proposal is a finite mixture. The method is referred to as “vertical weighted strips” because it can be regarded as an extension of the vertical strips method <span class="citation" data-cites="Devroye1986 MartinoLuengoMiguez2018">(<a href="#ref-Devroye1986" role="doc-biblioref">Devroye 1986, VIII</a>; <a href="#ref-MartinoLuengoMiguez2018" role="doc-biblioref">Martino et al. 2018, sec. 3.6</a>)</span>, with the weighted form introducing an additional degree of flexibility for algorithm development.</p>
 
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Devroye1986" class="csl-entry" role="listitem">
 Devroye, Luc. 1986. <em>Non-Uniform Random Variate Generation</em>. Springer.
 </div>
@@ -170,10 +171,10 @@ Devroye, Luc. 1986. <em>Non-Uniform Random Variate Generation</em>. Springer.
 Martino, Luca, David Luengo, and Joaquín Míguez. 2018. <em>Independent Random Sampling Methods</em>. Springer. https://doi.org/<a href="https://dx.doi.org/10.1007/978-3-319-72634-2">https://dx.doi.org/10.1007/978-3-319-72634-2</a>.
 </div>
 <div id="ref-vonNeumann1951" class="csl-entry" role="listitem">
-Neumann, John von. 1951. <span>“Various Techniques in Connection with Random Digits.”</span> In <em>Monte Carlo Methods</em>, edited by A. S. Householder, G. E. Forsythe, and H. H. Germond, 36–38. National Bureau of Standards Applied Mathematics Series. U.S. Government Printing Office, Washington, DC.
+Neumann, John von. 1951. <span>“Various Techniques in Connection with Random Digits.”</span> In <em>Monte Carlo Methods</em>, edited by A. S. Householder, G. E. Forsythe, and H. H. Germond. National Bureau of Standards Applied Mathematics Series. U.S. Government Printing Office, Washington, DC.
 </div>
 <div id="ref-VWS2024" class="csl-entry" role="listitem">
-Raim, Andrew M., James A. Livsey, and Kyle M. Irimata. 2024+. <span>“Rejection Sampling with Vertical Weighted Strips.”</span> <a href="https://arxiv.org/abs/2401.09696">https://arxiv.org/abs/2401.09696</a>.
+Raim, Andrew M., James A. Livsey, and Kyle M. Irimata. 2024+. <span>“Rejection Sampling with Vertical Weighted Strips.”</span> 2024+. <a href="https://arxiv.org/abs/2401.09696">https://arxiv.org/abs/2401.09696</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

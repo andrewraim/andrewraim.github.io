@@ -9,7 +9,7 @@
 <link>https://andrewraim.github.io/posts.html</link>
 <atom:link href="https://andrewraim.github.io/posts.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.8.26</generator>
+<generator>quarto-1.9.37</generator>
 <lastBuildDate>Fri, 09 Jan 2026 05:00:00 GMT</lastBuildDate>
 <item>
   <title>Vim as a Simple (R) IDE without Plugins II</title>
@@ -1193,7 +1193,7 @@ Tip
 
 
 
-<p><span class="citation" data-cites="VWS2024">Raim, Livsey, and Irimata (2024+)</span> consider a method of proposal construction for rejection sampling referred to as vertical weighted strips (VWS). Here, the target density is regarded as a weighted density; i.e., the product of a weight function and a simpler (“base”) density function. The practitioner majorizes the weight function by providing another function that bounds it from above. The majorizing function is combined with the base density to form a proposal distribution. In many cases, it is useful (and also more convenient) to partition the support of the target and use a piecewise majorizer. In this case, the proposal distribution can be regarded as a finite mixture whose components are correspond to the regions in the partition.</p>
+<p><span class="citation" data-cites="VWS2024">Raim et al. (2024+)</span> consider a method of proposal construction for rejection sampling referred to as vertical weighted strips (VWS). Here, the target density is regarded as a weighted density; i.e., the product of a weight function and a simpler (“base”) density function. The practitioner majorizes the weight function by providing another function that bounds it from above. The majorizing function is combined with the base density to form a proposal distribution. In many cases, it is useful (and also more convenient) to partition the support of the target and use a piecewise majorizer. In this case, the proposal distribution can be regarded as a finite mixture whose components are correspond to the regions in the partition.</p>
 <p>The <code>vws</code> package has been developed to support development of such proposals and their use in rejection sampling. Coding is primarily done in C++ using the provided API. Sampling functions may be then exposed in R via <a href="https://cran.r-project.org/package=Rcpp">Rcpp</a> for use in applications. A detailed guide to <code>vws</code> programming - including several worked examples - is provided in the package vignette.</p>
 <p><code>vws</code> package</p>
 <ul>
@@ -1204,9 +1204,9 @@ Tip
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-VWS2024" class="csl-entry">
-Raim, Andrew M., James A. Livsey, and Kyle M. Irimata. 2024+. <span>“Rejection Sampling with Vertical Weighted Strips.”</span> <a href="https://arxiv.org/abs/2401.09696">https://arxiv.org/abs/2401.09696</a>.
+Raim, Andrew M., James A. Livsey, and Kyle M. Irimata. 2024+. <span>“Rejection Sampling with Vertical Weighted Strips.”</span> 2024+. <a href="https://arxiv.org/abs/2401.09696">https://arxiv.org/abs/2401.09696</a>.
 </div>
 </div></section></div> ]]></description>
   <category>article</category>
@@ -1222,19 +1222,19 @@ Raim, Andrew M., James A. Livsey, and Kyle M. Irimata. 2024+. <span>“Rejection
 
 
 
-<p><span class="citation" data-cites="SAEVWS2025">Raim, Irimata, and Livsey (2025+)</span> consider an application of the vertical weighted strips (VWS) method <span class="citation" data-cites="VWS2024">(Raim, Livsey, and Irimata 2024+)</span> to small area estimation (SAE). SAE is used in official statistics to augment estimates from sample surveys (“direct estimates”) with a model. “Small areas” are cross-sections of a population - based on geography or other characteristics - where the sample size from the survey is small.</p>
+<p><span class="citation" data-cites="SAEVWS2025">Raim et al. (2025+)</span> consider an application of the vertical weighted strips (VWS) method <span class="citation" data-cites="VWS2024">(Raim et al. 2024+)</span> to small area estimation (SAE). SAE is used in official statistics to augment estimates from sample surveys (“direct estimates”) with a model. “Small areas” are cross-sections of a population - based on geography or other characteristics - where the sample size from the survey is small.</p>
 <p>In particular, <span class="citation" data-cites="You2021">You (2021)</span> presents an SAE model with regressions on both direct point estimates and corresponding variance estimates. A Gibbs sampler is proposed for Bayesian analysis, with one family of conditionals being an unfamiliar distribution that arises from assuming a lognormal regression in the variance model. VWS may be used to generate from this family for each small area. We find that some of the latent variances mix poorly using the independent Metropolis-Hastings step considered in <span class="citation" data-cites="You2021">You (2021)</span>, which is a routine choice for use within Gibbs samplers. In these cases, mixing is seen to be greatly improved by taking exact draws from the conditionals with rejection sampling.</p>
 <p>It is computationally burdensome to construct new VWS proposals for each small area over the course of many Gibbs sampling iterations. To address this, we consider a rule-of-thumb to adjust the proposals as the chain evolves. In particular, knots are added using rejected draws when the probability of rejection is too large. Knots are removed when the probability of rejection is sufficiently small and their corresponding regions are found to have a low contribution. The number of adjustments is seen to diminish as the chain moves to the target posterior distribution.</p>
 
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-SAEVWS2025" class="csl-entry">
-Raim, Andrew M., Kyle M. Irimata, and James A. Livsey. 2025+. <span>“Self-Tuned Rejection Sampling Within <span>G</span>ibbs and a Case Study in Small Area Estimation.”</span> <a href="https://arxiv.org/abs/2509.17155">https://arxiv.org/abs/2509.17155</a>.
+Raim, Andrew M., Kyle M. Irimata, and James A. Livsey. 2025+. <span>“Self-Tuned Rejection Sampling Within <span>G</span>ibbs and a Case Study in Small Area Estimation.”</span> 2025+. <a href="https://arxiv.org/abs/2509.17155">https://arxiv.org/abs/2509.17155</a>.
 </div>
 <div id="ref-VWS2024" class="csl-entry">
-Raim, Andrew M., James A. Livsey, and Kyle M. Irimata. 2024+. <span>“Rejection Sampling with Vertical Weighted Strips.”</span> <a href="https://arxiv.org/abs/2401.09696">https://arxiv.org/abs/2401.09696</a>.
+Raim, Andrew M., James A. Livsey, and Kyle M. Irimata. 2024+. <span>“Rejection Sampling with Vertical Weighted Strips.”</span> 2024+. <a href="https://arxiv.org/abs/2401.09696">https://arxiv.org/abs/2401.09696</a>.
 </div>
 <div id="ref-You2021" class="csl-entry">
 You, Yong. 2021. <span>“Small Area Estimation Using <span>F</span>ay-<span>H</span>erriot Area Level Model with Sampling Variance Smoothing and Modeling.”</span> <em>Survey Methodology</em> 47 (2). <a href="http://www.statcan.gc.ca/pub/12-001-x/2021002/article/00007-eng.htm">http://www.statcan.gc.ca/pub/12-001-x/2021002/article/00007-eng.htm</a>.
@@ -1820,7 +1820,7 @@ font-style: inherit;">booktabs =</span> T)</span></code></pre></div></div>
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">6 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">6 References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-HenningsenToomet2011" class="csl-entry">
 Henningsen, Arne, and Ott Toomet. 2011. <span>“maxLik: A Package for Maximum Likelihood Estimation in <span>R</span>.”</span> <em>Computational Statistics</em> 26 (3): 443–58. <a href="https://doi.org/10.1007/s00180-010-0217-1">https://doi.org/10.1007/s00180-010-0217-1</a>.
 </div>
@@ -1848,12 +1848,12 @@ Henningsen, Arne, and Ott Toomet. 2011. <span>“maxLik: A Package for Maximum L
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-fntl" class="csl-entry">
 Raim, Andrew M. 2024a. <em><span class="nocase">fntl</span>: Numerical Tools for <span>Rcpp</span> and Lambda Functions</em>. <a href="https://github.com/andrewraim/fntl">https://github.com/andrewraim/fntl</a>.
 </div>
 <div id="ref-fntl2024" class="csl-entry">
-———. 2024b. <span>“<span class="nocase">fntl</span>: Numerical Tools for <span>Rcpp</span> and Lambda Functions.”</span> Research Report Series: Computing #2024-01. Center for Statistical Research; Methodology, U.S.&nbsp;Census Bureau. <a href="https://www.census.gov/library/working-papers/2024/adrm/RRC2024-01.html">https://www.census.gov/library/working-papers/2024/adrm/RRC2024-01.html</a>.
+Raim, Andrew M. 2024b. <em><span class="nocase">fntl</span>: Numerical Tools for <span>Rcpp</span> and Lambda Functions</em>. Research Report Series: Computing #2024-01. Center for Statistical Research; Methodology, U.S.&nbsp;Census Bureau. <a href="https://www.census.gov/library/working-papers/2024/adrm/RRC2024-01.html">https://www.census.gov/library/working-papers/2024/adrm/RRC2024-01.html</a>.
 </div>
 </div></section></div> ]]></description>
   <category>article</category>
@@ -1870,12 +1870,12 @@ Raim, Andrew M. 2024a. <em><span class="nocase">fntl</span>: Numerical Tools for
 
 
 <p>Rejection sampling is a classical algorithm <span class="citation" data-cites="vonNeumann1951">(Neumann 1951)</span> to generate variates from a target distribution where a constructive sampling method—e.g., by composing other random variables—may not be apparent. A benefit of rejection sampling is that accepted draws follow the target distribution exactly. However, coming up with a good proposal for rejection sampling can take some creativity. A poor choice can result in extremely low acceptance rates where practically no draws are accepted from a very large number of candidates.</p>
-<p><span class="citation" data-cites="VWS2024">Raim, Livsey, and Irimata (2024+)</span> explore an approach to construct proposals by regarding the target as a weighted density and majorizing the weight function. This yields another weighted density whose unnormalized form can be used as an envelope in the acceptance ratio. If designed consciously, the normalized form can also be used to draw candidate variates to complete the rejection sampler. An improved proposal can be obtained by partitioning the support and majorizing within each region. Here the proposal is a finite mixture. The method is referred to as “vertical weighted strips” because it can be regarded as an extension of the vertical strips method <span class="citation" data-cites="Devroye1986 MartinoLuengoMiguez2018">(Devroye 1986, chap. VIII; Martino, Luengo, and Míguez 2018, sec. 3.6)</span>, with the weighted form introducing an additional degree of flexibility for algorithm development.</p>
+<p><span class="citation" data-cites="VWS2024">Raim et al. (2024+)</span> explore an approach to construct proposals by regarding the target as a weighted density and majorizing the weight function. This yields another weighted density whose unnormalized form can be used as an envelope in the acceptance ratio. If designed consciously, the normalized form can also be used to draw candidate variates to complete the rejection sampler. An improved proposal can be obtained by partitioning the support and majorizing within each region. Here the proposal is a finite mixture. The method is referred to as “vertical weighted strips” because it can be regarded as an extension of the vertical strips method <span class="citation" data-cites="Devroye1986 MartinoLuengoMiguez2018">(Devroye 1986, VIII; Martino et al. 2018, sec. 3.6)</span>, with the weighted form introducing an additional degree of flexibility for algorithm development.</p>
 
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Devroye1986" class="csl-entry">
 Devroye, Luc. 1986. <em>Non-Uniform Random Variate Generation</em>. Springer.
 </div>
@@ -1883,10 +1883,10 @@ Devroye, Luc. 1986. <em>Non-Uniform Random Variate Generation</em>. Springer.
 Martino, Luca, David Luengo, and Joaquín Míguez. 2018. <em>Independent Random Sampling Methods</em>. Springer. https://doi.org/<a href="https://dx.doi.org/10.1007/978-3-319-72634-2">https://dx.doi.org/10.1007/978-3-319-72634-2</a>.
 </div>
 <div id="ref-vonNeumann1951" class="csl-entry">
-Neumann, John von. 1951. <span>“Various Techniques in Connection with Random Digits.”</span> In <em>Monte Carlo Methods</em>, edited by A. S. Householder, G. E. Forsythe, and H. H. Germond, 36–38. National Bureau of Standards Applied Mathematics Series. U.S. Government Printing Office, Washington, DC.
+Neumann, John von. 1951. <span>“Various Techniques in Connection with Random Digits.”</span> In <em>Monte Carlo Methods</em>, edited by A. S. Householder, G. E. Forsythe, and H. H. Germond. National Bureau of Standards Applied Mathematics Series. U.S. Government Printing Office, Washington, DC.
 </div>
 <div id="ref-VWS2024" class="csl-entry">
-Raim, Andrew M., James A. Livsey, and Kyle M. Irimata. 2024+. <span>“Rejection Sampling with Vertical Weighted Strips.”</span> <a href="https://arxiv.org/abs/2401.09696">https://arxiv.org/abs/2401.09696</a>.
+Raim, Andrew M., James A. Livsey, and Kyle M. Irimata. 2024+. <span>“Rejection Sampling with Vertical Weighted Strips.”</span> 2024+. <a href="https://arxiv.org/abs/2401.09696">https://arxiv.org/abs/2401.09696</a>.
 </div>
 </div></section></div> ]]></description>
   <category>article</category>
@@ -2083,17 +2083,17 @@ font-style: inherit;">"localhost"</span>)</span>
 
 
 <p>Suppose <img src="https://latex.codecogs.com/png.latex?n"> respondents are asked to rate several alternatives on a scale from, say, 1 to 5, with 1 being least preferred and 5 being most preferred. How can we determine whether one alternative is significantly more preferred to the others? The data may include covariates which are associated with the preference of interest.</p>
-<p>Elizabeth Nichols and I carry out this kind of analysis on map usability in a recent report <span class="citation" data-cites="BivariateOrdinalMaps2023">(Raim and Nichols 2023)</span>. With ordinal data recorded in a survey setting, we compare preferences for satellite maps - which display details such as landmarks and terrain - to those of simplified road maps. We make use of a bivariate ordinal regression model to carry out the analysis. Computations are carried out using the <a href="https://cran.r-project.org/package=mvord">mvord</a> R package by <span class="citation" data-cites="HirkHornikVana2020">Hirk, Hornik, and Vana (2020)</span>, which can also support multivariate models with more than two alternatives.</p>
+<p>Elizabeth Nichols and I carry out this kind of analysis on map usability in a recent report <span class="citation" data-cites="BivariateOrdinalMaps2023">(Raim and Nichols 2023)</span>. With ordinal data recorded in a survey setting, we compare preferences for satellite maps - which display details such as landmarks and terrain - to those of simplified road maps. We make use of a bivariate ordinal regression model to carry out the analysis. Computations are carried out using the <a href="https://cran.r-project.org/package=mvord">mvord</a> R package by <span class="citation" data-cites="HirkHornikVana2020">Hirk et al. (2020)</span>, which can also support multivariate models with more than two alternatives.</p>
 
 
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-HirkHornikVana2020" class="csl-entry">
 Hirk, Rainer, Kurt Hornik, and Laura Vana. 2020. <span>“<span class="nocase">mvord</span>: An <span>R</span> Package for Fitting Multivariate Ordinal Regression Models.”</span> <em>Journal of Statistical Software</em> 93 (4): 1–41. <a href="https://doi.org/10.18637/jss.v093.i04">https://doi.org/10.18637/jss.v093.i04</a>.
 </div>
 <div id="ref-BivariateOrdinalMaps2023" class="csl-entry">
-Raim, Andrew M., and Elizabeth Nichols. 2023. <span>“A Comparison of Map Usability via Bivariate Ordinal Analysis.”</span> Study Series: Statistics #2023-01. Center for Statistical Research; Methodology, U.S.&nbsp;Census Bureau. <a href="https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html">https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html</a>.
+Raim, Andrew M., and Elizabeth Nichols. 2023. <em>A Comparison of Map Usability via Bivariate Ordinal Analysis</em>. Study Series: Statistics #2023-01. Center for Statistical Research; Methodology, U.S.&nbsp;Census Bureau. <a href="https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html">https://www.census.gov/library/working-papers/2023/adrm/SSS2023-01.html</a>.
 </div>
 </div></section></div> ]]></description>
   <category>article</category>
