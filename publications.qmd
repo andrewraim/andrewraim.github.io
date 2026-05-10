@@ -10,11 +10,12 @@ My ORCID is [0000-0002-4440-2330][orcid-url].
 Bibtex entries for the following are [here](bib/manuscripts.qmd).
 
 1. Andrew M. Raim, James A. Livsey, and Kyle M. Irimata (2025+). Rejection
-   sampling with vertical weighted strips.
+   sampling with vertical weighted strips. Accepted for publication in
+   Statistics and Computing.
    [[preprint](https://arxiv.org/abs/2401.09696)].
 
-1. Andrew M. Raim, Kyle M. Irimata, and James A. Livsey (2025+). Self-Tuned
-   Rejection Sampling within Gibbs and a Case Study in Small Area Estimation.
+1. Andrew M. Raim, Kyle M. Irimata, and James A. Livsey (2025+). Self-tuned
+   Rejection sampling within Gibbs and a case study in small area estimation.
    [[preprint](https://arxiv.org/abs/2509.17155)].
 
 1. Yi Huang, Karen Bandeen-Roche, Xiaoyu Dong, Andrew M. Raim, and Cunlin Wang

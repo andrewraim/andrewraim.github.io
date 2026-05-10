@@ -25,13 +25,13 @@ about:
 ---
 
 :::{#about-heading}
-Welcome to my website!
+Welcome!
 
 I have been a statistician at the Center for Statistical Research and
 Methodology ([CSRM][csrm]) in the [U.S. Census Bureau][uscb] since 2014. I
 worked as a software engineer for the first part of my career at the internet
 advertising technology company [Advertising.com][adcom] in Baltimore. I
-attended the University of Maryland, Baltimore County for
+attended the [University of Maryland, Baltimore County][umbc] for
 [computer science][csee] as an undergraduate and a part-time masters student,
 then for [statistics][mathstat] as a graduate student.
 
@@ -50,3 +50,5 @@ The best way to contact me is to email `andrew dot raim at gmail dot com`.
 [csrm]: https://www.census.gov/topics/research/stat-research.html
 [mathstat]: https://mathstat.umbc.edu
 [uscb]: https://www.census.gov
+[umbc]: https://www.umbc.edu
+
